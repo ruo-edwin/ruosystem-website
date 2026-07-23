@@ -1,0 +1,2007 @@
+{% extends "base.html" %}
+
+{% block title %}
+POS System Kenya | Inventory & Business Management Software | Ruo Systems
+{% endblock %}
+
+{% block description %}
+Ruo Systems provides POS System in Kenya, inventory management and business software for retail shops, mini supermarkets and growing businesses in Kenya. Track sales, stock, expenses and profits from one simple platform.
+{% endblock %}
+
+{% block extra_css %}
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --purple: #6F3FF5;
+            --purple-light: #F5F2FF;
+            --black: #101828;
+            --grey: #667085;
+            --light-grey: #F9FAFB;
+            --border: #EAECF0;
+            --white: #FFFFFF;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:"Plus Jakarta Sans",sans-serif;
+            color: var(--black);
+            background: white;
+            line-height: 1.8;
+            overflow-x: hidden;
+
+        }
+
+
+        .container {
+
+            width: 96%;
+            max-width: 1400px;
+            margin: auto;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        img {
+
+            max-width: 100%;
+
+        }
+
+
+        /*=================================
+                    NAVBAR
+        =================================*/
+
+
+       .navbar{
+
+            width:95%;
+            padding:10px 0;
+            background:rgba(255,255,255,.92);
+            backdrop-filter:blur(15px);
+            border-bottom:1px solid var(--border);
+            position:sticky;
+            top:0;
+            z-index:9999;
+
+        }
+
+        .navbar .container {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+
+        .logo{
+
+            display:flex;
+            align-items:center;
+
+        }
+
+
+        .logo img{
+
+            height: 55px;
+            width:210px;
+            display:flexbox;
+
+        }
+
+        .nav-links{
+
+            display:flex;
+            gap:32px;
+            align-items:center;
+            list-style:none;
+
+        }
+
+
+        .nav-links a{
+
+            color:var(--black);
+            font-size:15px;
+            font-weight:600;
+            transition:.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: var(--purple);
+
+        }
+
+
+
+        .nav-buttons {
+
+            display: flex;
+            gap: 18px;
+            align-items: center;
+
+        }
+
+
+        .sign-in{
+
+            color:var(--black);
+            font-size:15px;
+            font-weight:600;
+
+        }
+
+        .demo-btn{
+
+            background:var(--purple);
+            color:white;
+            padding:7px 22px;
+            border-radius:14px;
+            font-size:15px;
+            font-weight:700;
+            transition:.3s;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+        }
+
+
+        .demo-btn:hover {
+
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(111, 63, 245, .25);
+
+        }
+
+
+        /*=================================
+                    HERO
+        =================================*/
+
+
+        .hero {
+
+            padding: 25px 0 40px;
+            text-align: center;
+
+        }
+
+
+        .hero-content {
+
+            max-width: 800px;
+            margin: auto;
+
+        }
+
+
+
+        .hero-badge {
+
+            display: inline-block;
+            padding:6px 16px;
+            background: var(--purple-light);
+            color: var(--purple);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: .8px;
+            margin-bottom:8px;
+
+        }
+
+        .hero h1 {
+
+            
+
+            font-size:70px;
+            line-height:1.05;
+            font-weight:800;
+            letter-spacing:-3px;
+
+
+
+
+        }
+
+
+        .hero h1 span {
+
+            color: var(--purple);
+
+        }
+
+
+        .hero p{
+
+            max-width:780px;
+            margin:22px auto;
+            font-size:18px;
+            line-height:1.7;
+            color: var(--black);
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+
+        }
+
+
+
+       .primary-btn,
+       .secondary-btn{
+
+            padding:14px 26px;
+            border-radius:12px;
+            font-size:16px;
+            font-weight:700;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            transition:.3s;
+
+        }
+
+
+        .primary-btn{
+
+            background:var(--purple);
+            color:white;
+
+        }
+
+
+        .secondary-btn{
+
+            border:1px solid var(--border);
+            background:white;
+            color:var(--black);
+
+        }
+
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+
+            transform: translateY(-3px);
+
+        }
+
+
+
+        .hero small {
+
+            display: block;
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--grey);
+
+        }
+
+
+
+
+        /*=================================
+                    FOOTER
+        =================================*/
+
+
+        footer {
+
+            padding: 100px 0;
+            background: var(--light-grey);
+            text-align: center;
+
+        }
+
+
+        footer h2 {
+
+            font-size: 50px;
+
+        }
+
+
+        footer p {
+
+            max-width: 700px;
+            margin: 25px auto;
+            color: var(--grey);
+
+        }
+
+
+
+        /*=================================
+                    MOBILE
+        =================================*/
+
+
+        @media(max-width:1100px) {
+
+            .cards,
+            .industry-grid {
+
+                grid-template-columns: repeat(2,1fr);
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 65px;
+
+            }
+
+        }
+
+
+        @media(max-width:900px) {
+
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 55px;
+
+            }
+
+
+            .hero p {
+
+                font-size: 20px;
+
+            }
+
+
+            .cards,
+            .industry-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width:768px) {
+
+
+            .hero {
+
+                padding: 100px 0;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .heading h2,
+            .trust-box h2,
+            footer h2 {
+
+                font-size: 40px;
+
+            }
+
+
+            .trust-box {
+
+                padding: 40px 30px;
+
+            }
+
+
+            .nav-buttons {
+
+                display: none;
+
+            }
+
+
+        }
+        
+        /*=============
+            MOBILE
+        ===============*/
+
+
+        @media(max-width:900px){
+
+            .pricing-grid{
+
+                grid-template-columns:1fr;
+
+            }
+
+        }
+
+        .dashboard-showcase{
+
+            background:
+            linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f5f3ff 45%,
+            #ffffff 100%
+            );
+
+            
+            padding:80px 0 0px;
+
+            overflow:hidden;
+
+            }
+        .dashboard-wrapper{
+
+            max-width:1300px;
+            margin:80px auto 0;
+            position:relative;
+
+        }
+
+
+        .dashboard-image{
+
+        width:100%;
+        display:block;
+        margin:auto;
+
+        max-width:750px;
+
+        }
+        .dashboard-image{
+
+        width:100%;
+            border-radius:35px;
+
+            box-shadow:
+
+            0 60px 120px
+            rgba(17,24,39,.15),
+
+            0 20px 50px
+            rgba(111,63,245,.15);
+
+
+            border:1px solid
+            rgba(255,255,255,.6);
+
+
+        }
+        .dashboard-wrapper{
+
+            position:relative;
+            max-width:1100px;
+            margin:50px auto 0;
+
+            }
+
+
+
+            .sales{
+
+            left:40px;
+            bottom:50px;
+
+            }
+
+
+            .profit{
+
+            right:50px;
+            top:30px;
+
+            }
+
+
+            .inventory{
+
+            right:100px;
+            bottom:40px;
+
+            }
+        .floating-card{
+
+
+            position:absolute;
+
+            padding:25px;
+
+            background:white;
+
+            border-radius:25px;
+
+            backdrop-filter:blur(15px);
+
+            box-shadow:
+
+            0 30px 60px
+            rgba(0,0,0,.08);
+
+
+        }
+        .dashboard-wrapper::before{
+
+
+            content:"";
+
+            position:absolute;
+
+            width:800px;
+            height:800px;
+
+            left:50%;
+            top:40%;
+
+            transform:
+            translate(-50%,-50%);
+
+
+            background:
+
+            radial-gradient(
+
+            rgba(111,63,245,.25),
+
+            transparent
+
+            );
+
+
+            filter:blur(120px);
+
+            z-index:-1;
+
+
+            }
+        
+        .showcase-heading{
+
+        max-width:800px;
+        margin:auto;
+        text-align:center;
+        
+
+        }
+
+
+        .showcase-heading p{
+
+        margin-top:10px;
+
+        }
+       .showcase-heading span{
+        word-spacing:0.3em;
+        letter-spacing:0.1em;
+        color: var(--purple);
+        font-weight: 600;
+       }
+
+        .dashboard-wrapper{
+
+        margin-top:40px;
+
+        }
+
+        /*=================================
+        INVENTORY SHOWCASE
+=================================*/
+
+.inventory-showcase{
+
+    padding:140px 0;
+    position:relative;
+    overflow:hidden;
+
+}
+
+
+.inventory-showcase::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    right:-200px;
+    top:0;
+
+    background:
+    radial-gradient(
+        rgba(111,63,245,.08),
+        transparent
+    );
+
+    filter:blur(120px);
+
+}
+
+
+.inventory-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:80px;
+    align-items:center;
+
+}
+
+
+.inventory-text span{
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.12em;
+    color:var(--purple);
+
+}
+
+
+.inventory-text h2{
+
+    font-size:58px;
+    line-height:1.05;
+    margin:20px 0;
+
+}
+
+
+.inventory-text p{
+
+    color:var(--grey);
+    font-size:18px;
+    max-width:500px;
+
+}
+
+
+.inventory-stats{
+
+    display:flex;
+    gap:18px;
+    margin-top:40px;
+    flex-wrap:wrap;
+    
+}
+
+
+.inventory-stat{
+
+    background:var(--purple-light);
+    border-radius:20px;
+    padding:18px 22px;
+   
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.06);
+
+}
+
+
+.inventory-stat h3{
+
+    font-size:26px;
+    margin-bottom:4px;
+    text-align: center;
+    
+    
+
+}
+
+
+.inventory-stat p{
+
+    font-size:14px;
+    color:var(--grey);
+    text-align: center;
+
+}
+
+
+.inventory-image-wrapper{
+
+    position:relative;
+
+}
+
+
+.inventory-image{
+
+    width:100%;
+    border-radius:32px;
+
+    box-shadow:
+    0 50px 100px rgba(17,24,39,.15);
+
+}
+
+
+.inventory-floating{
+
+    position:absolute;
+
+    top:50px;
+    right:-40px;
+
+    background:var(--purple-light);
+
+    padding:10px 14px;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.08);
+
+}
+
+
+.inventory-floating h4{
+
+    font-size:10px;
+    color:var(--grey);
+
+}
+
+
+.inventory-floating h2{
+
+    margin-top:5px;
+    font-size:18px;
+
+}
+
+
+@media(max-width:900px){
+
+    .inventory-grid{
+
+        grid-template-columns:1fr;
+        gap:50px;
+
+    }
+
+    .inventory-text h2{
+
+        font-size:42px;
+
+    }
+
+}
+/*=================================
+        WORK FROM ANYWHERE
+=================================*/
+
+.anywhere-showcase{
+
+    padding:140px 0;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8f7ff 100%
+    );
+
+    overflow:hidden;
+
+}
+
+
+.anywhere-grid{
+
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:90px;
+    align-items:center;
+
+}
+
+
+.anywhere-image-wrapper{
+
+    position:relative;
+
+}
+
+
+.anywhere-image{
+
+    width:100%;
+    border-radius:32px;
+
+    box-shadow:
+    0 50px 100px rgba(17,24,39,.15);
+
+}
+
+
+.anywhere-floating{
+
+    position:absolute;
+
+    top:15px;
+    left:-20px;
+
+    background:var(--purple);
+
+    padding:12px 16px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.08);
+
+}
+
+
+.anywhere-floating h4{
+
+    font-size:10px;
+    color:var(--white);
+
+}
+
+
+.anywhere-floating h2{
+
+    font-size:15px;
+    margin-top:4px;
+    color:var(--white); 
+
+}
+
+
+.anywhere-text span{
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:.12em;
+
+    color:var(--purple);
+
+}
+
+
+.anywhere-text h2{
+
+    font-size:58px;
+    line-height:1.05;
+
+    margin:18px 0 24px;
+
+}
+
+
+.anywhere-text p{
+
+    font-size:18px;
+    color:var(--grey);
+
+    max-width:520px;
+
+}
+
+
+.anywhere-list{
+
+    margin-top:35px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+.anywhere-item{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    font-size:17px;
+    font-weight:600;
+
+}
+
+
+.anywhere-icon{
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+
+}
+
+
+@media(max-width:900px){
+
+    .anywhere-grid{
+
+        grid-template-columns:1fr;
+        gap:50px;
+
+    }
+
+    .anywhere-text h2{
+
+        font-size:42px;
+
+    }
+
+}
+.pricing-v2{
+
+    padding:140px 0;
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8f6ff 100%
+    );
+
+}
+
+
+.pricing-banner{
+
+    background:
+    linear-gradient(
+    135deg,
+    #020617,
+    #0f172a,
+    #4f46e5
+    );
+
+    border-radius:30px;
+
+    padding:30px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+
+    margin-bottom:100px;
+
+}
+
+
+.banner-left{
+
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+}
+
+
+.banner-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.12);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+}
+
+
+.banner-btn{
+
+    background:#6F3FF5;
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+}
+
+
+.pricing-header{
+
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+
+}
+
+
+.pricing-badge{
+
+    background:#efe8ff;
+
+    color:#6F3FF5;
+
+    padding:8px 18px;
+
+    border-radius:100px;
+
+    font-size:12px;
+    font-weight:700;
+
+}
+
+
+.pricing-header h2{
+
+    margin-top:30px;
+
+    font-size:50px;
+
+    line-height:1.05;
+
+}
+
+
+.pricing-header h2 span{
+
+    color:#6F3FF5;
+
+}
+
+
+.pricing-header p{
+
+    margin-top:25px;
+
+    color:#667085;
+
+    font-size:20px;
+
+}
+
+
+.pricing-stats{
+
+    margin:60px auto;
+
+    max-width:900px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.stat-box{
+
+    background:white;
+
+    border:1px solid #ebe7ff;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+
+.stat-box h3{
+
+    font-size:34px;
+
+}
+
+
+.stat-box p{
+
+    color:#667085;
+
+}
+
+
+.pricing-cards{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:35px;
+
+    margin-top:60px;
+
+}
+
+
+.plan-card{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:35px;
+
+    box-shadow:
+    0 30px 80px rgba(15,23,42,.08);
+
+    position:relative;
+
+}
+
+
+.featured-plan{
+
+    border:2px solid #6F3FF5;
+
+}
+
+
+.plan-label{
+
+    background:#f1ebff;
+
+    color:#6F3FF5;
+
+    padding:8px 16px;
+
+    border-radius:12px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+.plan-card h3{
+
+    margin-top:25px;
+
+    font-size:38px;
+
+}
+
+
+.price{
+
+    font-size:64px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    margin:25px 0;
+
+}
+
+
+.price span{
+
+    display:block;
+
+    font-size:16px;
+
+    color:#667085;
+
+    margin-top:15px;
+
+    font-weight:500;
+
+}
+
+
+.purple-price{
+
+    color:#6F3FF5;
+
+}
+
+
+.plan-desc{
+
+    color:#667085;
+
+    margin-bottom:30px;
+
+}
+
+
+.plan-card ul{
+
+    list-style:none;
+
+    margin-bottom:35px;
+
+}
+
+
+.plan-card li{
+
+    margin-bottom:16px;
+
+}
+
+
+.outline-btn{
+
+    width:100%;
+
+    display:block;
+
+    text-align:center;
+
+    padding:16px;
+
+    border:2px solid #6F3FF5;
+
+    border-radius:14px;
+
+    color:#6F3FF5;
+
+    font-weight:700;
+
+}
+
+
+.gradient-btn{
+
+    width:100%;
+
+    display:block;
+
+    text-align:center;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    90deg,
+    #6F3FF5,
+    #7C3AED
+    );
+
+}
+
+
+.corner-ribbon{
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    background:#6F3FF5;
+
+    color:white;
+
+    padding:18px 45px;
+
+    transform:
+    rotate(45deg)
+    translate(35px,-10px);
+
+    font-size:12px;
+    font-weight:700;
+
+}
+
+
+.trust-bar{
+
+    margin-top:70px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    box-shadow:
+    0 20px 60px rgba(15,23,42,.06);
+
+}
+
+
+.trust-bar strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+
+.trust-bar span{
+
+    color:#667085;
+
+    font-size:14px;
+
+}
+
+
+@media(max-width:900px){
+
+    .pricing-cards,
+    .pricing-stats,
+    .trust-bar{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pricing-header h2{
+
+        font-size:48px;
+
+    }
+
+    .pricing-banner{
+
+        flex-direction:column;
+        gap:20px;
+
+    }
+
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <!--=================================
+                    HERO
+    =================================-->
+
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+
+                <span class="hero-badge">
+
+                    BUSINESS SOFTWARE FOR GROWING BUSINESSES
+
+                </span>
+
+
+                <h1>
+
+                    <span>The Smart POS System</span><br>Built
+                        for Businesses in Kenya.
+
+                </h1>
+
+
+                <p>
+
+                    Our POS manages your sales, inventory, expenses, customers and business
+                    reports from one beautifully simple platform. Whether you run a
+                    retail shop or mini supermarket, Ruo Systems gives
+                    you everything you need to organise and grow your business.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="/demo" class="primary-btn">
+
+                        Request a Demo
+
+                    </a>
+
+
+                    <a href="/watch-demo" class="secondary-btn">
+
+                        Check Our Price
+
+                    </a>
+
+                </div>
+
+
+                <small>
+
+                    Trusted software for businesses that want better control,
+                    fewer mistakes and faster growth.
+
+                </small>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+<section class="dashboard-showcase">
+
+    <div class="container">
+
+
+    <div class="showcase-heading">
+
+    <span>
+    THE RUOPOS EXPERIENCE
+    </span>
+
+
+    <h2>
+
+    Everything your business needs.
+    Beautifully organised.
+
+    </h2>
+
+
+    
+
+    <p>
+
+        Sales. Inventory. Reports. Expenses
+        Customers. Profits.
+
+    </p>
+
+    
+
+
+    <a href="" class="primary-btn">
+
+    Request Demo
+
+    </a>
+
+
+    </div>
+
+
+
+    <div class="dashboard-wrapper">
+
+
+    <div class="floating-card sales">
+
+    <h4>Today's Sales</h4>
+
+    <h2>Ksh 1,248,750</h2>
+
+    </div>
+
+
+
+    <div class="floating-card profit">
+
+    <h4>Monthly Profit</h4>
+
+    <h2>Ksh 312,450</h2>
+
+    </div>
+
+
+
+    <div class="floating-card inventory">
+
+    <h4>Products</h4>
+
+    <h2>197</h2>
+
+    </div>
+
+
+
+    <img src="/static/images/dashboardweb.png"
+    class="dashboard-image">
+
+
+
+    </div>
+
+
+    </div>
+
+</section>
+<section class="inventory-showcase">
+
+    <div class="container">
+
+        <div class="inventory-grid">
+
+            <div class="inventory-text">
+
+                <span>
+                    INVENTORY MANAGEMENT
+                </span>
+
+                <h2>
+
+                    Never lose stock again.
+
+                </h2>
+
+                <p>
+
+                    Know what's selling, what's running low and
+                    what needs reordering before it becomes a problem.
+
+                </p>
+
+                <div class="inventory-stats">
+
+                    <div class="inventory-stat">
+
+                        <h3>22</h3>
+                        <p>Products</p>
+
+                    </div>
+
+                    <div class="inventory-stat">
+
+                        <h3>9</h3>
+                        <p>Low Stock Items</p>
+
+                    </div>
+
+                    <div class="inventory-stat">
+
+                        <h3>Ksh 38k</h3>
+                        <p>Inventory Value</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="inventory-image-wrapper">
+
+                <div class="inventory-floating">
+
+                    <h4>Potential Profit</h4>
+                    <h2>Ksh 33,930</h2>
+
+                </div>
+
+                <img
+                src="/static/images/Screenshot 2026-07-22 095046.png"
+                class="inventory-image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="anywhere-showcase">
+
+    <div class="container">
+
+        <div class="anywhere-grid">
+
+            <!-- IMAGE -->
+
+            <div class="anywhere-image-wrapper">
+
+                <div class="anywhere-floating">
+
+                    <h4>Live Business Status</h4>
+                    <h2>Online ✓</h2>
+
+                </div>
+
+                <img
+                src="/static/images/Screenshot 2026-07-22 104604.png"
+                class="anywhere-image">
+
+            </div>
+
+
+            <!-- TEXT -->
+
+            <div class="anywhere-text">
+
+                <span>
+
+                    RUN YOUR BUSINESS ANYWHERE
+
+                </span>
+
+                <h2>
+                     Run Your Business without being there.
+
+                </h2>
+
+                <p>
+
+                    RUOPOS lets you stay connected to your business
+                    wherever you are. Monitor sales, inventory and profits
+                    without being physically present in your shop.
+
+                </p>
+
+
+                <div class="anywhere-list">
+
+                    <div class="anywhere-item">
+
+                        <div class="anywhere-icon">✓</div>
+
+                        <span>Monitor sales in real time</span>
+
+                    </div>
+
+
+                    <div class="anywhere-item">
+
+                        <div class="anywhere-icon">✓</div>
+
+                        <span>Check inventory from anywhere</span>
+
+                    </div>
+
+
+                    <div class="anywhere-item">
+
+                        <div class="anywhere-icon">✓</div>
+
+                        <span>Access reports on any device</span>
+
+                    </div>
+
+
+                    <div class="anywhere-item">
+
+                        <div class="anywhere-icon">✓</div>
+
+                        <span>Stay connected to your business 24/7</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="pricing-v2">
+
+    <div class="container">
+
+        <!-- TOP BANNER -->
+
+        <div class="pricing-banner">
+
+            <div class="banner-left">
+
+                <div class="banner-icon">
+                    ⚙
+                </div>
+
+                <div>
+
+                    <h3>
+                        Need us to handle everything?
+                    </h3>
+
+                    <p>
+                        We can install, stock take, train your team and get
+                        your business running fast.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <a href="/demo" class="banner-btn">
+                Talk To Us →
+            </a>
+
+        </div>
+
+
+        <!-- HEADING -->
+
+        <div class="pricing-header">
+
+            <span class="pricing-badge">
+                SIMPLE PRICING
+            </span>
+
+            <h2>
+
+                Start today.<br>
+
+                <span>
+                    Upgrade
+                </span>
+
+                when you need help.
+
+            </h2>
+
+            <p>
+
+                Every plan includes SmartPOS, inventory management,
+                sales tracking and powerful business reports.
+
+            </p>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="pricing-stats">
+
+            <div class="stat-box">
+
+                <h3>1,500+</h3>
+
+                <p>
+                    Transactions tracked monthly
+                </p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3>24/7</h3>
+
+                <p>
+                    Access from anywhere
+                </p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3>100%</h3>
+
+                <p>
+                    Cloud based & secure
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARDS -->
+
+        <div class="pricing-cards">
+
+
+            <!-- SELF SETUP -->
+
+            <div class="plan-card">
+
+                <span class="plan-label">
+                    START HERE
+                </span>
+
+                <h3>
+                    Self Setup
+                </h3>
+
+                <div class="price">
+
+                    Ksh 1,500
+
+                    <span>
+                        Per Month
+                    </span>
+
+                </div>
+
+                <p class="plan-desc">
+
+                    Perfect for businesses that prefer setting
+                    everything up themselves.
+
+                </p>
+
+                <ul>
+
+                    <li>✓ SmartPOS Software</li>
+                    <li>✓ Inventory Management</li>
+                    <li>✓ Sales Tracking</li>
+                    <li>✓ Business Reports</li>
+                    <li>✓ Setup Tutorials</li>
+                    <li>✓ Free Updates</li>
+
+                </ul>
+
+                <a href="/demo" class="outline-btn">
+                    Request Demo
+                </a>
+
+            </div>
+
+
+            <!-- DONE FOR YOU -->
+
+            <div class="plan-card featured-plan">
+
+                <div class="corner-ribbon">
+                    Best Value
+                </div>
+
+                <span class="plan-label purple">
+
+                    MOST CHOSEN
+
+                </span>
+
+                <h3>
+                    Done For You
+                </h3>
+
+                <div class="price purple-price">
+
+                    Ksh 35,000
+
+                    <span>
+                        One Time Setup + Ksh 1,500/month
+                    </span>
+
+                </div>
+
+                <p class="plan-desc">
+
+                    We'll install SmartPOS, perform stock take,
+                    upload products and train your staff.
+
+                </p>
+
+                <ul>
+
+                    <li>✓ Complete Installation</li>
+                    <li>✓ Stock Take Included</li>
+                    <li>✓ Product Uploading</li>
+                    <li>✓ Staff Training</li>
+                    <li>✓ Priority Support</li>
+                    <li>✓ Monthly Subscription Included</li>
+
+                </ul>
+
+                <a href="/demo" class="gradient-btn">
+
+                    Get Started
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRUST BAR -->
+
+        <div class="trust-bar">
+
+            <div>
+                <strong>Secure & Reliable</strong>
+                <span>Your data is safe with us</span>
+            </div>
+
+            <div>
+                <strong>Always Updated</strong>
+                <span>New features every month</span>
+            </div>
+
+            <div>
+                <strong>Local Support</strong>
+                <span>We're here for you</span>
+            </div>
+
+            <div>
+                <strong>Cancel Anytime</strong>
+                <span>No long contracts</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}
