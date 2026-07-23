@@ -25,3 +25,11 @@ async def article(request: Request):
         name="bestpossystem.html",
         context={}
     )
+
+@app.get("/blog")
+async def blog(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="blog.html",
+        context={}
+    )
