@@ -41,3 +41,11 @@ async def article(request: Request):
         name="inventorymanagement.html",
         context={}
     )
+
+@app.get("/blog/how-much-does-a-pos-system-cost-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="howmuchdoesaposystemcost.html",
+        context={}
+    )
