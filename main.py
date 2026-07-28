@@ -17,7 +17,15 @@ async def home(request: Request):
         context={}
     )
 
+@app.get("/about")
+async def about(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="about.html",
+        context={}
+    )
 
+    
 @app.get("/blog/best-pos-system-for-retail-shops-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(

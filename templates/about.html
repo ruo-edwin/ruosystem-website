@@ -1,0 +1,498 @@
+{% extends "base.html" %}
+
+{% block title %}
+About Ruo Systems | Business Software Built for Growing Businesses
+{% endblock %}
+
+{% block description %}
+Learn about Ruo Systems and our mission to provide affordable, high-quality business software for growing businesses in Kenya.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+.about-hero{
+
+    padding:60px 0 40px;
+
+}
+
+.about-grid{
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+.about-tag{
+
+    display:inline-block;
+
+    background:var(--purple-light);
+    color:var(--purple);
+
+    padding:6px 14px;
+    border-radius:100px;
+
+    font-size:12px;
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.about-content h1{
+
+    font-size:42px;
+    line-height:1.1;
+    margin-bottom:20px;
+
+}
+
+.about-content p{
+
+    color:var(--grey);
+    font-size:16px;
+
+}
+
+.about-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.05);
+
+}
+
+.about-card h3{
+
+    font-size:20px;
+    margin-bottom:12px;
+
+}
+
+.about-card p{
+
+    color:var(--grey);
+    font-size:15px;
+
+}
+
+.values-section{
+
+    padding:30px 0 90px;
+
+}
+
+.section-heading{
+
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 50px;
+
+}
+
+.section-heading h2{
+
+    font-size:34px;
+    margin-bottom:12px;
+
+}
+
+.section-heading p{
+
+    color:var(--grey);
+
+}
+
+.values-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+
+}
+
+.value-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    transition:.3s;
+
+}
+
+.value-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.value-card h4{
+
+    margin-bottom:10px;
+    font-size:18px;
+
+}
+
+.value-card p{
+
+    color:var(--grey);
+    font-size:14px;
+
+}
+
+.mission-section{
+
+    padding:20px 0 90px;
+
+}
+
+.mission-box{
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #6F3FF5
+    );
+
+    border-radius:30px;
+
+    padding:50px;
+
+    color:white;
+
+}
+
+.mission-box h2{
+
+    font-size:34px;
+    margin-bottom:15px;
+
+}
+
+.mission-box p{
+
+    max-width:700px;
+    opacity:.9;
+
+}
+
+.contact-section{
+
+    padding:20px 0 100px;
+
+}
+
+.contact-box{
+
+    background:var(--light-grey);
+
+    border-radius:30px;
+
+    padding:50px;
+
+}
+
+.contact-box h2{
+
+    font-size:32px;
+    margin-bottom:10px;
+
+}
+
+.contact-box p{
+
+    color:var(--grey);
+    margin-bottom:35px;
+
+}
+
+.contact-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+
+}
+
+.contact-item{
+
+    background:white;
+
+    padding:24px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+}
+
+.contact-item h4{
+
+    margin-bottom:8px;
+    font-size:16px;
+
+}
+
+.contact-item p{
+
+    margin:0;
+    color:var(--grey);
+
+}
+
+@media(max-width:900px){
+
+    .about-grid,
+    .values-grid,
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-content h1{
+
+        font-size:34px;
+
+    }
+
+    .mission-box,
+    .contact-box{
+
+        padding:35px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-content">
+
+                <span class="about-tag">
+                    ABOUT RUO SYSTEMS
+                </span>
+
+                <h1>
+                    Building software that helps businesses operate better.
+                </h1>
+
+                <p>
+
+                    Ruo Systems is a software company dedicated to building
+                    business applications that simplify and improve daily
+                    business operations.
+
+                    We started Ruo Systems after noticing that many business
+                    solutions were either too expensive for small and medium
+                    businesses or lacked the quality and support businesses
+                    truly need.
+
+                    Our goal is simple: provide powerful, reliable and
+                    affordable software that helps business owners manage
+                    sales, inventory, expenses and operations with confidence.
+
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>
+                    Why We Exist
+                </h3>
+
+                <p>
+
+                    Every growing business deserves access to professional
+                    software without paying enterprise-level prices.
+
+                    We believe technology should help businesses grow,
+                    not become another expense that slows them down.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="values-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                What We Believe
+            </h2>
+
+            <p>
+                The principles that guide how we build software.
+            </p>
+
+        </div>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+
+                <h4>Simplicity</h4>
+
+                <p>
+                    Business software should be easy to learn and easy to use.
+                </p>
+
+            </div>
+
+            <div class="value-card">
+
+                <h4>Reliability</h4>
+
+                <p>
+                    Your business depends on accurate information every day.
+                </p>
+
+            </div>
+
+            <div class="value-card">
+
+                <h4>Affordability</h4>
+
+                <p>
+                    Powerful software shouldn't be reserved for large companies.
+                </p>
+
+            </div>
+
+            <div class="value-card">
+
+                <h4>Support</h4>
+
+                <p>
+                    We are committed to helping our customers succeed.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="mission-box">
+
+            <h2>
+                Our Mission
+            </h2>
+
+            <p>
+
+                To make powerful business software affordable and accessible
+                to every growing business in Kenya. We help businesses
+                organise their operations, understand their numbers and
+                make better decisions through simple technology.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>
+                Contact Us
+            </h2>
+
+            <p>
+
+                We'd love to hear from you. Reach out to discuss your business,
+                request a demo or ask any questions.
+
+            </p>
+
+            <div class="contact-grid">
+
+                <div class="contact-item">
+
+                    <h4>Email</h4>
+
+                    <p>
+                        hello@ruosystems.com
+                    </p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <h4>Phone</h4>
+
+                    <p>
+                        +254 XXX XXX XXX
+                    </p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <h4>Location</h4>
+
+                    <p>
+                        Nairobi, Kenya
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
