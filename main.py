@@ -1,8 +1,25 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
+
+# Redirect apex domain to www
+@app.middleware("http")
+async def redirect_to_www(request: Request, call_next):
+    host = request.headers.get("host", "").split(":")[0]
+
+    # Only redirect the apex domain
+    if host == "ruosystem.co.ke":
+        url = request.url.replace(
+            netloc=f"www.{host}",
+            scheme="https"
+        )
+        return RedirectResponse(url=str(url), status_code=301)
+
+    return await call_next(request)
+
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -17,6 +34,7 @@ async def home(request: Request):
         context={}
     )
 
+
 @app.get("/about")
 async def about(request: Request):
     return templates.TemplateResponse(
@@ -25,7 +43,7 @@ async def about(request: Request):
         context={}
     )
 
-    
+
 @app.get("/blog/best-pos-system-for-retail-shops-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(
@@ -33,6 +51,7 @@ async def article(request: Request):
         name="bestpossystem.html",
         context={}
     )
+
 
 @app.get("/blog")
 async def blog(request: Request):
@@ -42,6 +61,7 @@ async def blog(request: Request):
         context={}
     )
 
+
 @app.get("/blog/inventory-management-system-for-retail-shops-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(
@@ -49,6 +69,7 @@ async def article(request: Request):
         name="inventorymanagement.html",
         context={}
     )
+
 
 @app.get("/blog/how-much-does-a-pos-system-cost-in-kenya")
 async def article(request: Request):
