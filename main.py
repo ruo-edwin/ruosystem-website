@@ -2,8 +2,9 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
-
+from sitemap import router as sitemap_router
 app = FastAPI()
+app.include_router(sitemap_router)
 
 # Redirect apex domain to www
 @app.middleware("http")
