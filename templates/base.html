@@ -232,7 +232,130 @@
             }
 
         }
+        .wizard-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:9999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
 
+.wizard-box{
+background:white;
+width:100%;
+max-width:500px;
+border-radius:18px;
+padding:30px;
+position:relative;
+}
+
+.step{
+display:none;
+}
+
+.step.active{
+display:block;
+}
+
+.step h2{
+margin-bottom:20px;
+}
+
+.step input,
+.step select{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border:1px solid #d1d5db;
+border-radius:10px;
+}
+
+.step button{
+width:100%;
+background:#2563eb;
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+}
+
+.close-btn{
+position:absolute;
+right:20px;
+top:15px;
+font-size:28px;
+cursor:pointer;
+}
+
+.step-indicator{
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+/* =========================
+   MOBILE WIZARD FIX (IMPORTANT)
+========================= */
+@media (max-width: 600px) {
+
+  .wizard-modal {
+    padding: 10px;
+  }
+
+  .wizard-box {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .step h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .step input,
+  .step select {
+    font-size: 16px; /* prevents iOS zoom + improves spacing */
+    padding: 14px 12px;
+    margin-bottom: 14px;
+  }
+
+  /* THIS FIXES YOUR BUSINESS TYPE LOOKING “CRAMPED” */
+  #businessType {
+    height: 48px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: white;
+  }
+
+  .step button {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .step-indicator {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}
+/* Make dropdown clearly look like a dropdown */
+#businessType {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%236b7280' d='M5.5 7.5l4.5 5 4.5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px; /* space for arrow */
+  cursor: pointer;
+}
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -269,7 +392,7 @@
                     Sign In
                 </a>
 
-                <a href="/demo" class="demo-btn">
+                <a href="#" onclick="openWizard(); return false;" class="demo-btn">
                     Request a Demo
                 </a>
 
@@ -278,7 +401,63 @@
         </div>
 
     </nav>
+    
+  <div class="wizard-box">
 
+        <span class="close-btn" onclick="closeWizard()">×</span>
+
+        <div class="step-indicator">
+        Step <span id="currentStep">1</span> / 2
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step active" id="step1">
+
+        <h2>Tell us about your business</h2>
+
+        <select id="businessType">
+            <option value="">Select Business Type</option>
+            <option>Retail Shop</option>
+            <option>Mini Supermarket</option>
+            <option>Pharmacy</option>
+            <option>Cosmetics Shop</option>
+            <option>Wholesale Shop</option>
+            <option>Other</option>
+        </select>
+
+        <button onclick="nextStep(2)">Continue</button>
+
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" id="step2">
+
+        <h2>Your Contact Details</h2>
+
+        <input type="text" id="fullName" placeholder=" Enter Full Name">
+
+        <input type="tel" id="phone" placeholder=" Enter Phone Number">
+
+        <button onclick="submitForm()">Book My Free Demo</button>
+
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="step" id="successStep">
+
+        <h2>🎉 Demo Request Received</h2>
+
+        <p>Thank you. We will contact you shortly.</p>
+
+        <a class="cta" href="https://wa.me/254714675719" target="_blank">
+            Chat on WhatsApp
+        </a>
+
+        </div>
+
+    </div>
+
+    </div>
     {% block content %}
     {% endblock %}
 
@@ -295,7 +474,7 @@
                 to manage their sales, inventory and profits.
             </p>
 
-            <a href="/demo" class="primary-btn">
+            <a href="#" onclick="openWizard(); return false;" class="demo-btn">
                 Request a Demo
             </a>
 
@@ -304,4 +483,80 @@
     </footer>
 
 </body>
+<script>
+    function updateStepIndicator(step) {
+  document.getElementById('currentStep').innerText = step;
+}
+
+function nextStep(stepNumber) {
+
+  document.querySelectorAll('.step').forEach(step => {
+    step.classList.remove('active');
+  });
+
+  document.getElementById('step' + stepNumber).classList.add('active');
+
+  updateStepIndicator(stepNumber);
+}
+
+function openWizard() {
+  document.getElementById('wizardModal').style.display = 'flex';
+
+  document.querySelectorAll('.step').forEach(step => {
+    step.classList.remove('active');
+  });
+
+  document.getElementById('step1').classList.add('active');
+
+  updateStepIndicator(1);
+}
+
+function closeWizard() {
+  document.getElementById('wizardModal').style.display = 'none';
+}
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx4-OmxQGpPInz-k8PYwZ7smRL9o8bQsZPxGIhfGGR1eG-LFvSG92RMuee0LPnkBBMQwQ/exec";
+
+function submitForm() {
+
+  const data = {
+    businessType: document.getElementById('businessType').value,
+    fullName: document.getElementById('fullName').value,
+    phone: document.getElementById('phone').value
+  };
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(response => {
+
+    console.log("Saved:", response);
+
+    document.querySelectorAll('.step').forEach(step => {
+      step.classList.remove('active');
+    });
+
+    document.getElementById('successStep').classList.add('active');
+
+    updateStepIndicator("Done");
+
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    alert("Something went wrong. Please try again.");
+  });
+
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('wizardModal');
+
+  if (event.target === modal) {
+    closeWizard();
+  }
+};
+
+</script>
 </html>
