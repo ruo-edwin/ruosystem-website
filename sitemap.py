@@ -28,7 +28,7 @@ async def sitemap():
     <url>
         <loc>{url}</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>"""
 
     xml += """
