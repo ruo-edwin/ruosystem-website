@@ -82,6 +82,6 @@ async def article(request: Request):
 async def article(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="possystemcost.html",
+        name="poscostkenya.html",
         context={}
     )
