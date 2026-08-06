@@ -403,7 +403,7 @@ cursor:pointer;
                     Sign In
                 </a>
 
-                <a href="#" onclick="openWizard(); return false;" class="demo-btn">
+                <a href="#"  onclick="gtag('event', 'request_demo_click'); openWizard(); return false;" class="demo-btn">
                     Request a Demo
                 </a>
 
@@ -485,7 +485,7 @@ cursor:pointer;
                 to manage their sales, inventory and profits.
             </p>
 
-            <a href="#" onclick="openWizard(); return false;" class="demo-btn"></a>
+            <a href="#"  onclick="gtag('event', 'request_demo_click'); openWizard(); return false;" class="demo-btn">
                 Request a Demo
             </a>
 
@@ -539,7 +539,7 @@ function submitForm() {
   fetch(GOOGLE_SCRIPT_URL, {
     method: "POST",
     body: JSON.stringify(data)
-  })
+    })
   .then(res => res.json())
   .then(response => {
 
@@ -550,7 +550,7 @@ function submitForm() {
     });
 
     document.getElementById('successStep').classList.add('active');
-
+    gtag('event', 'demo_request_submitted');
     updateStepIndicator("Done");
 
   })
