@@ -18,6 +18,7 @@ async def sitemap():
         "https://www.ruosystem.co.ke/blog/inventory-management-small-retail-shops-kenya",
         "https://www.ruosystem.co.ke/blog/choose-pos-system-small-business-kenya",
         "https://www.ruosystem.co.ke/blog/how-much-does-a-pos-system-cost-in-kenya"
+        "https://www.ruosystem.co.ke/blog/best-pos-for-minisupermarkets-in-kenya"
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
