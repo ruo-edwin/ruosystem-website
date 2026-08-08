@@ -1,0 +1,799 @@
+{% extends "base.html" %}
+
+{% block title %}POS System for Beauty Shops and Cosmetics in Kenya{% endblock %}
+
+{% block description %}
+Looking for the best POS system for a beauty shop or cosmetics business in Kenya? Discover how POS software can help you manage stock, track sales, monitor profit and reduce stock losses.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+:root{
+    --content-width:760px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.blog-hero{
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--border);
+    background:
+    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+}
+
+.blog-hero .container{
+    max-width:900px;
+}
+
+.blog-category{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 16px;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+
+}
+
+.blog-title{
+
+    margin-top:24px;
+
+    font-size:56px;
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+}
+
+.blog-description{
+
+    margin-top:28px;
+
+    max-width:720px;
+
+    color:var(--grey);
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+.blog-meta{
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:28px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    color:var(--grey);
+
+    font-size:15px;
+
+}
+
+.blog-meta strong{
+
+    color:var(--black);
+
+}
+
+/* ==========================
+READING PROGRESS
+========================== */
+
+.read-progress{
+
+    position:fixed;
+
+    top:75px;
+
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:transparent;
+
+    z-index:999;
+
+}
+
+.read-progress span{
+
+    display:block;
+
+    width:0;
+
+    height:100%;
+
+    background:var(--purple);
+
+}
+
+/* ==========================
+ARTICLE LAYOUT
+========================== */
+
+.blog-wrapper{
+
+    display:grid;
+
+    grid-template-columns:260px 1fr;
+
+    gap:80px;
+
+    padding:80px 0;
+
+}
+
+.blog-sidebar{
+
+    position:sticky;
+
+    top:120px;
+
+    height:max-content;
+
+}
+
+.blog-sidebar h4{
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    color:var(--grey);
+
+    letter-spacing:.06em;
+
+    margin-bottom:18px;
+
+}
+
+.blog-sidebar ul{
+
+    list-style:none;
+
+}
+
+.blog-sidebar li{
+
+    margin-bottom:16px;
+
+}
+
+.blog-sidebar a{
+
+    color:#555;
+
+    transition:.25s;
+
+    font-size:15px;
+
+}
+
+.blog-sidebar a:hover{
+
+    color:var(--purple);
+
+}
+
+/* ==========================
+CONTENT
+========================== */
+
+.blog-content{
+
+    max-width:var(--content-width);
+
+}
+
+.blog-content h2{
+
+    margin-top:70px;
+
+    margin-bottom:22px;
+
+    font-size:38px;
+
+    line-height:1.2;
+
+    letter-spacing:-1px;
+
+}
+
+.blog-content h3{
+
+    margin-top:40px;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+}
+
+.blog-content p{
+
+    margin-bottom:26px;
+
+    font-size:18px;
+
+    color:#475467;
+
+    line-height:2;
+
+}
+
+.blog-content ul{
+
+    margin:30px 0;
+
+    padding-left:22px;
+
+}
+
+.blog-content li{
+
+    margin-bottom:14px;
+
+    color:#475467;
+
+    font-size:18px;
+
+}
+
+.blog-content strong{
+
+    color:var(--black);
+
+}
+
+.brand-link{
+
+    color:var(--purple);
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    position:relative;
+
+}
+
+.brand-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:100%;
+
+    height:2px;
+
+    background:var(--purple);
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.25s;
+
+}
+
+.brand-link:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================
+QUOTE
+========================== */
+
+.quote-box{
+
+    margin:50px 0;
+
+    padding:35px;
+
+    border-left:4px solid var(--purple);
+
+    background:#faf9ff;
+
+    border-radius:18px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    line-height:1.7;
+
+}
+
+/* ==========================
+INFO CARD
+========================== */
+
+.info-card{
+
+    margin:45px 0;
+
+    padding:35px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:0 20px 60px rgba(16,24,40,.05);
+
+}
+
+.info-card h3{
+
+    margin-top:0;
+
+}
+
+/* ==========================
+NUMBER CARD
+========================== */
+
+.number-card{
+
+    display:flex;
+
+    gap:22px;
+
+    margin:55px 0;
+
+}
+
+.number{
+
+    width:62px;
+
+    height:62px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    font-size:26px;
+
+    font-weight:800;
+
+    border-radius:18px;
+
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:1100px){
+
+.blog-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.blog-sidebar{
+
+display:none;
+
+}
+
+.blog-title{
+
+font-size:42px;
+
+}
+
+.blog-description{
+
+font-size:18px;
+
+}
+
+.blog-content h2{
+
+font-size:32px;
+
+}
+
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="read-progress">
+    <span id="readingBar"></span>
+</div>
+
+<section class="blog-hero">
+<div class="container">
+
+<span class="blog-category">Beauty & Cosmetics</span>
+
+<h1 class="blog-title">
+    POS System for Beauty Shops and Cosmetics in Kenya
+</h1>
+
+<p class="blog-description">
+    Discover how the right POS system can help your beauty or cosmetics shop
+    manage stock, track sales, monitor profit, reduce losses and make better
+    business decisions.
+</p>
+
+<div class="blog-meta">
+    <div><strong>By</strong> Ruo Systems</div>
+    <div>6 min read</div>
+    <div>Updated August 2026</div>
+</div>
+
+</div>
+</section>
+
+<section class="container">
+<div class="blog-wrapper">
+
+<aside class="blog-sidebar">
+<h4>Contents</h4>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#stock">Stock Management</a></li>
+<li><a href="#sales">Sales & Profit</a></li>
+<li><a href="#losses">Reduce Stock Losses</a></li>
+<li><a href="#purchasing">Smarter Purchasing</a></li>
+<li><a href="#best">Best POS for Beauty Shops</a></li>
+</ul>
+</aside>
+
+<article class="blog-content">
+
+<section id="intro">
+
+<p>
+If you run a beauty shop or cosmetics business in Kenya, you already know that
+<strong>making sales does not always mean making a profit.</strong>
+</p>
+
+<p>
+Having worked in a beauty shop myself, I understand how this business works.
+You can have customers coming in every day, products moving off the shelves
+and money coming into the business — yet at the end of the month, you can
+still find yourself wondering where all the money went.
+</p>
+
+<p>
+For beauty and cosmetics shops, stock management, sales tracking and profit
+monitoring are extremely important. With many different products, suppliers,
+employees and daily transactions to manage, relying on memory, notebooks or
+manual calculations can quickly become a problem.
+</p>
+
+<div class="quote-box">
+"A good POS system doesn't just record sales. It helps you understand and run a more profitable beauty shop."
+</div>
+
+</section>
+
+<section id="stock">
+
+<div class="number-card">
+<div class="number">1</div>
+<div>
+
+<h2>Stock Management</h2>
+
+<p>
+Cosmetics shops can have hundreds of different products. Without proper stock
+management, it is easy to lose track of what you have, what is selling and
+what needs to be reordered.
+</p>
+
+<p>
+A good POS system automatically updates your stock whenever a sale is made.
+This means you can quickly see what is available, which products are running
+low and which ones have been sitting on your shelves for too long.
+</p>
+
+<p>
+Instead of guessing how much stock you have, you have a clear record of your
+inventory and the movement of products in your shop.
+</p>
+
+</div>
+</div>
+
+<div class="info-card">
+<h3>What Better Stock Management Gives You</h3>
+<ul>
+<li>Accurate stock quantities.</li>
+<li>Better control over fast-moving products.</li>
+<li>Visibility of slow-moving stock.</li>
+<li>Easier stock-taking and reconciliation.</li>
+<li>Better control over stock movements.</li>
+</ul>
+</div>
+
+</section>
+
+<section id="sales">
+
+<div class="number-card">
+<div class="number">2</div>
+<div>
+
+<h2>Know Your Sales and Profit</h2>
+
+<p>
+Making KSh 30,000 in sales does not mean you made KSh 30,000 in profit.
+</p>
+
+<p>
+A POS system helps you keep track of your sales and product costs so you can
+get a much clearer picture of how your business is performing.
+</p>
+
+<p>
+Instead of asking, <strong>"How much did I sell today?"</strong>, you can start
+asking the more important question:
+<strong>"How much did I actually make?"</strong>
+</p>
+
+</div>
+</div>
+
+<div class="quote-box">
+Sales tell you how much money came into the business. Your reports help you understand what happened to it.
+</div>
+
+</section>
+
+<section id="losses">
+
+<div class="number-card">
+<div class="number">3</div>
+<div>
+
+<h2>Reduce Stock Losses</h2>
+
+<p>
+Missing stock can quietly eat into the profits of a beauty shop. If several
+people handle sales and stock, it can become difficult to know exactly where
+a discrepancy occurred.
+</p>
+
+<p>
+With a POS system, sales are recorded and stock movements can be monitored.
+You can compare the stock your system says you should have with what is
+physically available in your shop.
+</p>
+
+<p>
+This does not automatically mean every difference is theft. There may be
+another explanation. But having proper records makes it much easier to
+identify and investigate problems before they become expensive.
+</p>
+
+</div>
+</div>
+
+</section>
+
+<section id="purchasing">
+
+<div class="number-card">
+<div class="number">4</div>
+<div>
+
+<h2>Make Smarter Purchasing Decisions</h2>
+
+<p>
+One of the easiest ways for a beauty shop to tie up its money is by buying
+too much stock that does not move.
+</p>
+
+<p>
+A POS system gives you sales history that can show which products customers
+actually buy, which products are selling quickly and which ones are taking
+too long to sell.
+</p>
+
+<p>
+Instead of asking, <strong>"What should I buy this week?"</strong>, you can
+look at your actual sales data and make a more informed decision.
+</p>
+
+</div>
+</div>
+
+<div class="info-card">
+<h3>Useful Reports for a Beauty Shop</h3>
+<ul>
+<li>Total daily, weekly and monthly sales.</li>
+<li>Best-selling products.</li>
+<li>Slow-moving products.</li>
+<li>Profit and product performance.</li>
+<li>Stock movement history.</li>
+<li>Current inventory levels.</li>
+</ul>
+</div>
+
+</section>
+
+<section id="best">
+
+<h2>So, What Is the Best POS System for Beauty Shops in Kenya?</h2>
+
+<p>
+If you are looking for a POS system specifically for your cosmetics or beauty
+shop, <a href="/" class="brand-link">Ruo Systems</a> is one of the options worth
+considering.
+</p>
+
+<p>
+Ruo Systems is built for Kenyan businesses that need a simple way to manage
+<strong>sales, inventory, stock movements and business reports</strong>
+without making the system unnecessarily complicated.
+</p>
+
+<p>
+And it is not just a system built for the beauty industry on paper.
+<strong>Ruo Systems already has existing clients who own and operate beauty
+shops</strong>, giving the system practical experience with the day-to-day
+challenges that beauty and cosmetics businesses face.
+</p>
+
+<div class="info-card">
+<h3>Why Beauty Shops Choose <a href="/" class="brand-link">Ruo Systems</a></h3>
+<ul>
+<li>Quick and simple sales recording.</li>
+<li>Real-time inventory tracking.</li>
+<li>Stock movement history.</li>
+<li>Detailed business reports.</li>
+<li>Product performance visibility.</li>
+<li>Easy-to-use interface.</li>
+<li>Affordable monthly subscription.</li>
+</ul>
+</div>
+
+<p>
+The goal is simple: give you a clear picture of your business so you can make
+decisions based on numbers rather than guesswork.
+</p>
+
+</section>
+
+<section>
+
+<h2>Final Thoughts</h2>
+
+<p>
+A beauty shop can have customers every day and still struggle financially if
+stock, sales and expenses are not properly controlled.
+</p>
+
+<p>
+A POS system should do more than record sales. It should help you understand
+<strong>what you are selling, what you have in stock, what is making you money
+and where you may be losing money.</strong>
+</p>
+
+<p>
+If you are looking for a <strong>POS system for a beauty shop or cosmetics
+business in Kenya</strong>, choose software that gives you better control over
+your sales, stock and business performance.
+</p>
+
+<p>
+<strong>Know your stock. Know your sales. Know your business.</strong>
+That's what <a href="/" class="brand-link">Ruo Systems</a> is built to help
+you do.
+</p>
+
+</section>
+
+<hr style="margin:80px 0;border:none;border-top:1px solid var(--border);">
+
+<section>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is the best POS system for a beauty shop in Kenya?</h3>
+<p>
+The best POS system should make it easy to record sales, manage inventory,
+track stock movements and understand your business reports. Ruo Systems is
+built for Kenyan businesses and already serves clients who own beauty shops.
+</p>
+
+<h3>Can a POS system track cosmetics inventory?</h3>
+<p>
+Yes. A POS system can keep track of products as sales are made, helping you
+monitor available stock, identify low-stock products and understand which
+items are moving quickly or slowly.
+</p>
+
+<h3>Can a POS system help a beauty shop monitor profit?</h3>
+<p>
+Yes. By keeping sales and product cost information organised, a POS can give
+you a clearer view of sales performance and product profitability.
+</p>
+
+</section>
+
+<section class="info-card" style="margin-top:90px;text-align:center;">
+
+<h2 style="margin-top:0;">Ready to Take Control of Your Beauty Shop?</h2>
+
+<p>
+See how <a href="/" class="brand-link">Ruo Systems</a> can help you simplify
+inventory management, track sales and make smarter business decisions.
+</p>
+
+<a href="#" onclick="openWizard();return false;" class="primary-btn">
+Request a Free Demo
+</a>
+
+</section>
+
+</article>
+</div>
+</section>
+
+<script>
+const readingBar=document.getElementById("readingBar");
+
+window.addEventListener("scroll",()=>{
+    const total=document.documentElement.scrollHeight-window.innerHeight;
+    const progress=(window.scrollY/total)*100;
+    readingBar.style.width=progress+"%";
+});
+</script>
+
+{% endblock %}
