@@ -11,1324 +11,290 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
 {% block extra_css %}
 
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        :root {
-
-            --purple: #6F3FF5;
-            --purple-light: #F5F2FF;
-            --black: #101828;
-            --grey: #667085;
-            --light-grey: #F9FAFB;
-            --border: #EAECF0;
-            --white: #FFFFFF;
-
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            font-family:"Plus Jakarta Sans",sans-serif;
-            color: var(--black);
-            background: white;
-            line-height: 1.8;
-            overflow-x: hidden;
-
-        }
-
-
-        .container {
-
-            width: 96%;
-            max-width: 1400px;
-            margin: auto;
-
-        }
-
-
-        a {
-
-            text-decoration: none;
-
-        }
-
-
-        img {
-
-            max-width: 100%;
-
-        }
-
-
-        
-
-        /*=================================
-                    HERO
-        =================================*/
-
-
-        .hero {
-
-            padding: 25px 0 40px;
-            text-align: center;
-
-        }
-
-
-        .hero-content {
-
-            max-width: 800px;
-            margin: auto;
-
-        }
-
-
-
-        .hero-badge {
-
-            display: inline-block;
-            padding:6px 16px;
-            background: var(--purple-light);
-            color: var(--purple);
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: .8px;
-            margin-bottom:8px;
-
-        }
-
-        .hero h1 {
-
-            
-
-            font-size:70px;
-            line-height:1.05;
-            font-weight:800;
-            letter-spacing:-3px;
-
-
-
-
-        }
-
-
-        .hero h1 span {
-
-            color: var(--purple);
-
-        }
-
-
-        .hero p{
-
-            max-width:780px;
-            margin:22px auto;
-            font-size:18px;
-            line-height:1.7;
-            color: var(--black);
-        }
-
-
-        .hero-buttons {
-
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-
-        }
-
-
-
-       .primary-btn,
-       .secondary-btn{
-
-            padding:14px 26px;
-            border-radius:12px;
-            font-size:16px;
-            font-weight:700;
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            transition:.3s;
-
-        }
-
-
-        .primary-btn{
-
-            background:var(--purple);
-            color:white;
-
-        }
-
-
-        .secondary-btn{
-
-            border:1px solid var(--border);
-            background:white;
-            color:var(--black);
-
-        }
-
-
-        .primary-btn:hover,
-        .secondary-btn:hover {
-
-            transform: translateY(-3px);
-
-        }
-
-
-
-        .hero small {
-
-            display: block;
-            margin-top: 40px;
-            font-size: 13px;
-            color: var(--grey);
-
-        }
-
-
-
-
-        /*=================================
-                    FOOTER
-        =================================*/
-
-
-        footer {
-
-            padding: 100px 0;
-            background: var(--light-grey);
-            text-align: center;
-
-        }
-
-
-        footer h2 {
-
-            font-size: 50px;
-
-        }
-
-
-        footer p {
-
-            max-width: 700px;
-            margin: 25px auto;
-            color: var(--grey);
-
-        }
-
-
-
-        /*=================================
-                    MOBILE
-        =================================*/
-
-
-        @media(max-width:1100px) {
-
-            .cards,
-            .industry-grid {
-
-                grid-template-columns: repeat(2,1fr);
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 65px;
-
-            }
-
-        }
-
-
-        @media(max-width:900px) {
-
-
-            .nav-links {
-
-                display: none;
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 55px;
-
-            }
-
-
-            .hero p {
-
-                font-size: 20px;
-
-            }
-
-
-            .cards,
-            .industry-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-        }
-
-
-        @media(max-width:768px) {
-
-
-            .hero {
-
-                padding: 100px 0;
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 45px;
-
-            }
-
-
-            .hero-buttons {
-
-                flex-direction: column;
-
-            }
-
-
-            .heading h2,
-            .trust-box h2,
-            footer h2 {
-
-                font-size: 40px;
-
-            }
-
-
-            .trust-box {
-
-                padding: 40px 30px;
-
-            }
-
-
-            .nav-buttons {
-
-                display: none;
-
-            }
-
-
-        }
-        
-        /*=============
-            MOBILE
-        ===============*/
-
-
-        @media(max-width:900px){
-
-            .pricing-grid{
-
-                grid-template-columns:1fr;
-
-            }
-
-        }
-
-        .dashboard-showcase{
-
-            background:
-            linear-gradient(
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #6F3FF5;
+    --purple-light: #F5F2FF;
+    --black: #101828;
+    --grey: #667085;
+    --light-grey: #F9FAFB;
+    --border: #EAECF0;
+    --white: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--black);
+    background: white;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 96%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    padding: 25px 0 40px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--purple-light);
+    color: var(--purple);
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .8px;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: var(--purple);
+}
+
+.hero p {
+    max-width: 780px;
+    margin: 22px auto;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--black);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.primary-btn {
+    background: var(--purple);
+    color: white;
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--black);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero small {
+    display: block;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--grey);
+}
+
+
+/* =========================================================
+   FOOTER
+   Kept because footer may come from base.html
+========================================================= */
+
+footer {
+    padding: 100px 0;
+    background: var(--light-grey);
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 50px;
+}
+
+footer p {
+    max-width: 700px;
+    margin: 25px auto;
+    color: var(--grey);
+}
+
+
+/* =========================================================
+   DASHBOARD SHOWCASE
+========================================================= */
+
+.dashboard-showcase {
+    background:
+        linear-gradient(
             180deg,
             #ffffff 0%,
             #f5f3ff 45%,
             #ffffff 100%
-            );
+        );
 
-            
-            padding:80px 0 0px;
+    padding: 80px 0 0;
+    overflow: hidden;
+}
 
-            overflow:hidden;
+.dashboard-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
 
-            }
-        .dashboard-wrapper{
+.dashboard-image {
+    width: 100%;
+    display: block;
+    margin: auto;
+    max-width: 750px;
 
-            max-width:1300px;
-            margin:80px auto 0;
-            position:relative;
+    border-radius: 35px;
 
-        }
+    box-shadow:
+        0 60px 120px rgba(17,24,39,.15),
+        0 20px 50px rgba(111,63,245,.15);
 
+    border: 1px solid rgba(255,255,255,.6);
+}
 
-        .dashboard-image{
+.dashboard-wrapper::before {
+    content: "";
 
-        width:100%;
-        display:block;
-        margin:auto;
+    position: absolute;
 
-        max-width:750px;
+    width: 800px;
+    height: 800px;
 
-        }
-        .dashboard-image{
+    left: 50%;
+    top: 40%;
 
-        width:100%;
-            border-radius:35px;
+    transform: translate(-50%, -50%);
 
-            box-shadow:
-
-            0 60px 120px
-            rgba(17,24,39,.15),
-
-            0 20px 50px
-            rgba(111,63,245,.15);
-
-
-            border:1px solid
-            rgba(255,255,255,.6);
-
-
-        }
-        .dashboard-wrapper{
-
-            position:relative;
-            max-width:1100px;
-            margin:50px auto 0;
-
-            }
-
-
-
-            .sales{
-
-            left:40px;
-            bottom:50px;
-
-            }
-
-
-            .profit{
-
-            right:50px;
-            top:30px;
-
-            }
-
-
-            .inventory{
-
-            right:100px;
-            bottom:40px;
-
-            }
-        .floating-card{
-
-
-            position:absolute;
-
-            padding:25px;
-
-            background:white;
-
-            border-radius:25px;
-
-            backdrop-filter:blur(15px);
-
-            box-shadow:
-
-            0 30px 60px
-            rgba(0,0,0,.08);
-
-
-        }
-        .dashboard-wrapper::before{
-
-
-            content:"";
-
-            position:absolute;
-
-            width:800px;
-            height:800px;
-
-            left:50%;
-            top:40%;
-
-            transform:
-            translate(-50%,-50%);
-
-
-            background:
-
-            radial-gradient(
-
+    background:
+        radial-gradient(
             rgba(111,63,245,.25),
-
             transparent
+        );
 
-            );
+    filter: blur(120px);
 
-
-            filter:blur(120px);
-
-            z-index:-1;
-
-
-            }
-        
-        .showcase-heading{
-
-        max-width:800px;
-        margin:auto;
-        text-align:center;
-        
-
-        }
-
-
-        .showcase-heading p{
-
-        margin-top:10px;
-
-        }
-       .showcase-heading span{
-        word-spacing:0.3em;
-        letter-spacing:0.1em;
-        color: var(--purple);
-        font-weight: 600;
-       }
-
-        .dashboard-wrapper{
-
-        margin-top:40px;
-
-        }
-
-        /*=================================
-        INVENTORY SHOWCASE
-=================================*/
-
-.inventory-showcase{
-
-    padding:140px 0;
-    position:relative;
-    overflow:hidden;
-
+    z-index: -1;
 }
 
 
-.inventory-showcase::before{
+/* Floating dashboard cards */
 
-    content:"";
+.floating-card {
+    position: absolute;
 
-    position:absolute;
+    padding: 25px;
 
-    width:700px;
-    height:700px;
+    background: white;
 
-    right:-200px;
-    top:0;
+    border-radius: 25px;
 
-    background:
-    radial-gradient(
-        rgba(111,63,245,.08),
-        transparent
-    );
-
-    filter:blur(120px);
-
-}
-
-
-.inventory-grid{
-
-    display:grid;
-    grid-template-columns:1fr 1.2fr;
-    gap:80px;
-    align-items:center;
-
-}
-
-
-.inventory-text span{
-
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.12em;
-    color:var(--purple);
-
-}
-
-
-.inventory-text h2{
-
-    font-size:58px;
-    line-height:1.05;
-    margin:20px 0;
-
-}
-
-
-.inventory-text p{
-
-    color:var(--grey);
-    font-size:18px;
-    max-width:500px;
-
-}
-
-
-.inventory-stats{
-
-    display:flex;
-    gap:18px;
-    margin-top:40px;
-    flex-wrap:wrap;
-    
-}
-
-
-.inventory-stat{
-
-    background:var(--purple-light);
-    border-radius:20px;
-    padding:18px 22px;
-   
+    backdrop-filter: blur(15px);
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,.06);
+        0 30px 60px rgba(0,0,0,.08);
+}
 
+.sales {
+    left: 40px;
+    bottom: 50px;
+}
+
+.profit {
+    right: 50px;
+    top: 30px;
+}
+
+.inventory {
+    right: 100px;
+    bottom: 40px;
 }
 
 
-.inventory-stat h3{
+/* =========================================================
+   SHOWCASE HEADING
+========================================================= */
 
-    font-size:26px;
-    margin-bottom:4px;
+.showcase-heading {
+    max-width: 800px;
+    margin: auto;
     text-align: center;
-    
-    
+}
 
+.showcase-heading p {
+    margin-top: 10px;
+}
+
+.showcase-heading span {
+    word-spacing: .3em;
+    letter-spacing: .1em;
+    color: var(--purple);
+    font-weight: 600;
 }
 
 
-.inventory-stat p{
-
-    font-size:14px;
-    color:var(--grey);
-    text-align: center;
-
-}
-
-
-.inventory-image-wrapper{
-
-    position:relative;
-
-}
-
-
-.inventory-image{
-
-    width:100%;
-    border-radius:32px;
-
-    box-shadow:
-    0 50px 100px rgba(17,24,39,.15);
-
-}
-
-
-.inventory-floating{
-
-    position:absolute;
-
-    top:50px;
-    right:-40px;
-
-    background:var(--purple-light);
-
-    padding:10px 14px;
-
-    border-radius:22px;
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.08);
-
-}
-
-
-.inventory-floating h4{
-
-    font-size:10px;
-    color:var(--grey);
-
-}
-
-
-.inventory-floating h2{
-
-    margin-top:5px;
-    font-size:18px;
-
-}
-
-
-@media(max-width:900px){
-
-    .inventory-grid{
-
-        grid-template-columns:1fr;
-        gap:50px;
-
-    }
-
-    .inventory-text h2{
-
-        font-size:42px;
-
-    }
-
-}
-/*=================================
-        WORK FROM ANYWHERE
-=================================*/
-
-.anywhere-showcase{
-
-    padding:140px 0;
-
-    background:
-    linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f8f7ff 100%
-    );
-
-    overflow:hidden;
-
-}
-
-
-.anywhere-grid{
-
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:90px;
-    align-items:center;
-
-}
-
-
-.anywhere-image-wrapper{
-
-    position:relative;
-
-}
-
-
-.anywhere-image{
-
-    width:100%;
-    border-radius:32px;
-
-    box-shadow:
-    0 50px 100px rgba(17,24,39,.15);
-
-}
-
-
-.anywhere-floating{
-
-    position:absolute;
-
-    top:15px;
-    left:-20px;
-
-    background:var(--purple);
-
-    padding:12px 16px;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.08);
-
-}
-
-
-.anywhere-floating h4{
-
-    font-size:10px;
-    color:var(--white);
-
-}
-
-
-.anywhere-floating h2{
-
-    font-size:15px;
-    margin-top:4px;
-    color:var(--white); 
-
-}
-
-
-.anywhere-text span{
-
-    font-size:13px;
-    font-weight:700;
-
-    letter-spacing:.12em;
-
-    color:var(--purple);
-
-}
-
-
-.anywhere-text h2{
-
-    font-size:58px;
-    line-height:1.05;
-
-    margin:18px 0 24px;
-
-}
-
-
-.anywhere-text p{
-
-    font-size:18px;
-    color:var(--grey);
-
-    max-width:520px;
-
-}
-
-
-.anywhere-list{
-
-    margin-top:35px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:18px;
-
-}
-
-
-.anywhere-item{
-
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-
-    font-size:17px;
-    font-weight:600;
-
-}
-
-
-.anywhere-icon{
-
-    width:34px;
-    height:34px;
-
-    border-radius:50%;
-
-    background:var(--purple-light);
-
-    color:var(--purple);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:700;
-
-}
-
-
-@media(max-width:900px){
-
-    .anywhere-grid{
-
-        grid-template-columns:1fr;
-        gap:50px;
-
-    }
-
-    .anywhere-text h2{
-
-        font-size:42px;
-
-    }
-
-}
-.pricing-v2{
-
-    padding:140px 0;
-    background:
-    linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #f8f6ff 100%
-    );
-
-}
-
-
-.pricing-banner{
-
-    background:
-    linear-gradient(
-    135deg,
-    #020617,
-    #0f172a,
-    #4f46e5
-    );
-
-    border-radius:30px;
-
-    padding:30px 40px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    color:white;
-
-    margin-bottom:100px;
-
-}
-
-
-.banner-left{
-
-    display:flex;
-    gap:20px;
-    align-items:center;
-
-}
-
-
-.banner-icon{
-
-    width:60px;
-    height:60px;
-
-    border-radius:50%;
-
-    background:
-    rgba(255,255,255,.12);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:28px;
-
-}
-
-
-.banner-btn{
-
-    background:#6F3FF5;
-    color:white;
-
-    padding:15px 30px;
-
-    border-radius:14px;
-
-    font-weight:700;
-
-}
-
-
-.pricing-header{
-
-    text-align:center;
-    max-width:850px;
-    margin:auto;
-
-}
-
-
-.pricing-badge{
-
-    background:#efe8ff;
-
-    color:#6F3FF5;
-
-    padding:8px 18px;
-
-    border-radius:100px;
-
-    font-size:12px;
-    font-weight:700;
-
-}
-
-
-.pricing-header h2{
-
-    margin-top:30px;
-
-    font-size:50px;
-
-    line-height:1.05;
-
-}
-
-
-.pricing-header h2 span{
-
-    color:#6F3FF5;
-
-}
-
-
-.pricing-header p{
-
-    margin-top:25px;
-
-    color:#667085;
-
-    font-size:20px;
-
-}
-
-
-.pricing-stats{
-
-    margin:60px auto;
-
-    max-width:900px;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-
-.stat-box{
-
-    background:white;
-
-    border:1px solid #ebe7ff;
-
-    border-radius:22px;
-
-    padding:25px;
-
-    text-align:center;
-
-}
-
-
-.stat-box h3{
-
-    font-size:34px;
-
-}
-
-
-.stat-box p{
-
-    color:#667085;
-
-}
-
-
-.pricing-cards{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap: 50px;
-
-    margin-top:40px;
-
-}
-
-
-.plan-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:35px;
-
-    box-shadow:
-    0 30px 80px rgba(15,23,42,.08);
-
-    position:relative;
-
-}
-
-
-.featured-plan{
-
-    border:2px solid #6F3FF5;
-
-}
-
-
-.plan-label{
-
-    background:#f1ebff;
-
-    color:#6F3FF5;
-
-    padding:8px 16px;
-
-    border-radius:12px;
-
-    font-size:10px;
-
-    font-weight:700;
-
-}
-
-
-.plan-card h3{
-
-    margin-top:25px;
-
-    font-size:38px;
-
-}
-
-
-.price{
-
-    font-size:60px;
-
-    font-weight:800;
-
-    line-height:1;
-
-    margin:20px 0;
-
-}
-
-
-.price span{
-
-    display:block;
-
-    font-size:12px;
-
-    color:#667085;
-
-    margin-top:15px;
-
-    font-weight:500;
-
-}
-
-
-.purple-price{
-
-    color:#6F3FF5;
-
-}
-
-
-.plan-desc{
-
-    color:#667085;
-
-    margin-bottom:30px;
-
-}
-
-
-.plan-card ul{
-
-    list-style:none;
-
-    margin-bottom:35px;
-
-}
-
-
-.plan-card li{
-
-    margin-bottom:16px;
-
-}
-
-
-.outline-btn{
-
-    width:100%;
-
-    display:block;
-
-    text-align:center;
-
-    padding:12px;
-
-    border:2px solid #6F3FF5;
-
-    border-radius:14px;
-
-    color:#6F3FF5;
-
-    font-weight:700;
-
-}
-
-
-.gradient-btn{
-
-    width:100%;
-
-    display:block;
-
-    text-align:center;
-
-    padding:16px;
-
-    border-radius:14px;
-
-    color:white;
-
-    font-weight:700;
-
-    background:
-    linear-gradient(
-    90deg,
-    #6F3FF5,
-    #7C3AED
-    );
-
-}
-
-
-.corner-ribbon{
-
-    position:absolute;
-
-    top:0;
-    right:0;
-
-    background:#6F3FF5;
-
-    color:white;
-
-    padding:18px 45px;
-
-    transform:
-    rotate(45deg)
-    translate(35px,-10px);
-
-    font-size:12px;
-    font-weight:700;
-
-}
-
-
-.trust-bar{
-
-    margin-top:70px;
-
-    background:white;
-
-    border-radius:28px;
-
-    padding:30px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-    box-shadow:
-    0 20px 60px rgba(15,23,42,.06);
-
-}
-
-
-.trust-bar strong{
-
-    display:block;
-
-    margin-bottom:5px;
-
-}
-
-
-.trust-bar span{
-
-    color:#667085;
-
-    font-size:14px;
-
-}
-
-
-@media(max-width:900px){
-
-    .pricing-cards,
-    .pricing-stats,
-    .trust-bar{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .pricing-header h2{
-
-        font-size:48px;
-
-    }
-
-    .pricing-banner{
-
-        flex-direction:column;
-        gap:20px;
-
-    }
-
-}
-/* =================================
+/* =========================================================
    RUOPOS EXPERIENCE TOP SECTION
-================================= */
+========================================================= */
 
 .experience-top {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: .9fr 1.1fr;
     gap: 70px;
     align-items: center;
     max-width: 1200px;
@@ -1339,7 +305,14 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     width: 100%;
     display: block;
     border-radius: 30px;
-    box-shadow: 0 35px 80px rgba(17,24,39,.14);
+
+    box-shadow:
+        0 35px 80px rgba(17,24,39,.14);
+}
+
+.experience-info .showcase-heading {
+    text-align: left;
+    margin: 0;
 }
 
 .experience-info .showcase-heading h2 {
@@ -1349,41 +322,9 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     margin: 20px 0;
 }
 
-.experience-info .showcase-heading h2 .highlight {
-    background: linear-gradient(
-        90deg,
-        #6F3FF5,
-        #8B5CF6,
-        #6F3FF5
-    );
-
-    background-size: 200% auto;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-
-    animation: gradientMove 5s ease-in-out infinite;
-}
-
-@keyframes gradientMove {
-
-    0% {
-        background-position: 0% center;
-    }
-
-    50% {
-        background-position: 100% center;
-    }
-
-    100% {
-        background-position: 0% center;
-    }
-
-}
-
 .experience-info .showcase-heading h2::after {
     content: "";
+
     display: block;
 
     width: 65px;
@@ -1393,35 +334,696 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
 
     border-radius: 20px;
 
-    background: linear-gradient(
-        90deg,
-        #6F3FF5,
-        #A78BFA
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #6F3FF5,
+            #A78BFA
+        );
 }
-
-.experience-info .showcase-heading {
-    text-align: left;
-    margin: 0;
-}
-
 
 .experience-info .showcase-heading p {
     color: var(--grey);
     margin-top: 15px;
 }
 
-
-/* DASHBOARD STAYS BELOW */
-
 .experience-dashboard {
     margin-top: 70px;
 }
 
 
-/* MOBILE */
+/* =========================================================
+   INVENTORY SHOWCASE
+========================================================= */
 
-@media(max-width:900px) {
+.inventory-showcase {
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.inventory-showcase::before {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    right: -200px;
+    top: 0;
+
+    background:
+        radial-gradient(
+            rgba(111,63,245,.08),
+            transparent
+        );
+
+    filter: blur(120px);
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.inventory-text span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--purple);
+}
+
+.inventory-text h2 {
+    font-size: 58px;
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+.inventory-text p {
+    color: var(--grey);
+    font-size: 18px;
+    max-width: 500px;
+}
+
+.inventory-stats {
+    display: flex;
+    gap: 18px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.inventory-stat {
+    background: var(--purple-light);
+    border-radius: 20px;
+    padding: 18px 22px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.06);
+}
+
+.inventory-stat h3 {
+    font-size: 26px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.inventory-stat p {
+    font-size: 14px;
+    color: var(--grey);
+    text-align: center;
+}
+
+.inventory-image-wrapper {
+    position: relative;
+}
+
+.inventory-image {
+    width: 100%;
+    border-radius: 32px;
+
+    box-shadow:
+        0 50px 100px rgba(17,24,39,.15);
+}
+
+.inventory-floating {
+    position: absolute;
+
+    top: 50px;
+    right: -40px;
+
+    background: var(--purple-light);
+
+    padding: 10px 14px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.08);
+}
+
+.inventory-floating h4 {
+    font-size: 10px;
+    color: var(--grey);
+}
+
+.inventory-floating h2 {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RUN YOUR BUSINESS ANYWHERE
+========================================================= */
+
+.anywhere-showcase {
+    padding: 140px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8f7ff 100%
+        );
+
+    overflow: hidden;
+}
+
+.anywhere-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.anywhere-image-wrapper {
+    position: relative;
+}
+
+.anywhere-image {
+    width: 100%;
+    border-radius: 32px;
+
+    box-shadow:
+        0 50px 100px rgba(17,24,39,.15);
+}
+
+.anywhere-floating {
+    position: absolute;
+
+    top: 15px;
+    left: -20px;
+
+    background: var(--purple);
+
+    padding: 12px 16px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.08);
+}
+
+.anywhere-floating h4 {
+    font-size: 10px;
+    color: var(--white);
+}
+
+.anywhere-floating h2 {
+    font-size: 15px;
+    margin-top: 4px;
+    color: var(--white);
+}
+
+.anywhere-text span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--purple);
+}
+
+.anywhere-text h2 {
+    font-size: 58px;
+    line-height: 1.05;
+    margin: 18px 0 24px;
+}
+
+.anywhere-text p {
+    font-size: 18px;
+    color: var(--grey);
+    max-width: 520px;
+}
+
+.anywhere-list {
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.anywhere-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.anywhere-icon {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: var(--purple-light);
+    color: var(--purple);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PRICING
+========================================================= */
+
+.pricing-v2 {
+    padding: 140px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8f6ff 100%
+        );
+}
+
+
+/* Setup / Done-for-you banner */
+
+.pricing-banner {
+    background:
+        linear-gradient(
+            135deg,
+            #020617,
+            #0f172a,
+            #4f46e5
+        );
+
+    border-radius: 30px;
+
+    padding: 30px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+
+    margin-bottom: 100px;
+}
+
+.banner-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.banner-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.banner-btn {
+    background: #6F3FF5;
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+}
+
+
+/* Pricing heading */
+
+.pricing-header {
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+}
+
+.pricing-badge {
+    background: #efe8ff;
+
+    color: #6F3FF5;
+
+    padding: 8px 18px;
+
+    border-radius: 100px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pricing-header h2 {
+    margin-top: 30px;
+
+    font-size: 50px;
+
+    line-height: 1.05;
+}
+
+.pricing-header h2 span {
+    color: #6F3FF5;
+}
+
+.pricing-header p {
+    margin-top: 25px;
+
+    color: #667085;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   PRICING CARDS
+========================================================= */
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+
+    margin-top: 50px;
+
+    align-items: stretch;
+}
+
+.plan-card {
+    background: #ffffff;
+
+    padding: 36px 30px 30px;
+
+    border-radius: 28px;
+
+    border: 1px solid #e7e5ee;
+
+    box-shadow:
+        0 20px 60px rgba(15,23,42,.06);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 30px 70px rgba(15,23,42,.10);
+}
+
+
+/* Monthly featured card */
+
+.featured-plan {
+    border: 2px solid #6F3FF5;
+
+    box-shadow:
+        0 25px 70px rgba(111,63,245,.15);
+}
+
+
+/* Popular badge */
+
+.popular-badge {
+    position: absolute;
+
+    top: -14px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #6F3FF5;
+
+    color: white;
+
+    padding: 7px 18px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* Plan label */
+
+.plan-label {
+    display: inline-block;
+    width: max-content;
+
+    background: #f1ebff;
+
+    color: #6F3FF5;
+
+    padding: 7px 13px;
+
+    border-radius: 10px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .04em;
+}
+
+
+/* Plan title */
+
+.plan-card h3 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+
+    font-size: 28px;
+}
+
+
+/* Description */
+
+.plan-desc {
+    color: #667085;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    min-height: 72px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Price */
+
+.price {
+    display: flex;
+    align-items: baseline;
+
+    gap: 5px;
+
+    font-size: 52px;
+    font-weight: 800;
+
+    line-height: 1;
+
+    margin: 12px 0 8px;
+
+    color: #101828;
+}
+
+.price small {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.price span {
+    display: inline;
+
+    font-size: 14px;
+
+    color: #667085;
+
+    font-weight: 500;
+}
+
+
+/* Monthly price */
+
+.purple-price {
+    color: #6F3FF5;
+}
+
+
+/* Savings */
+
+.saving-text {
+    color: #16a34a;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 28px;
+}
+
+
+/* Features */
+
+.plan-card ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0 0 30px;
+
+    flex: 1;
+}
+
+.plan-card li {
+    margin-bottom: 16px;
+
+    color: #475467;
+
+    font-size: 15px;
+}
+
+
+/* Buttons */
+
+.outline-btn,
+.gradient-btn {
+    width: 100%;
+
+    display: block;
+
+    text-align: center;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: all .2s ease;
+}
+
+.outline-btn {
+    border: 1px solid #ddd6fe;
+
+    background: #f8f6ff;
+
+    color: #6F3FF5;
+}
+
+.outline-btn:hover {
+    background: #efe8ff;
+}
+
+.gradient-btn {
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6F3FF5,
+            #7C3AED
+        );
+
+    box-shadow:
+        0 10px 25px rgba(111,63,245,.25);
+}
+
+.gradient-btn:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 30px rgba(111,63,245,.32);
+}
+
+
+/* =========================================================
+   PRICING TRUST BAR
+========================================================= */
+
+.trust-bar {
+    margin-top: 70px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(15,23,42,.06);
+}
+
+.trust-bar strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.trust-bar span {
+    color: #667085;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* Navigation from base.html */
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+
+    /* Hero */
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+
+    /* Dashboard / Experience */
 
     .experience-top {
         grid-template-columns: 1fr;
@@ -1444,7 +1046,120 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
         margin-top: 50px;
     }
 
+
+    /* Inventory */
+
+    .inventory-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .inventory-text h2 {
+        font-size: 42px;
+    }
+
+
+    /* Anywhere */
+
+    .anywhere-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .anywhere-text h2 {
+        font-size: 42px;
+    }
+
+
+    /* Pricing */
+
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .trust-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-header h2 {
+        font-size: 42px;
+    }
+
+    .pricing-header p {
+        font-size: 17px;
+    }
+
+    .pricing-banner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
 }
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    footer h2 {
+        font-size: 40px;
+    }
+
+    .pricing-v2 {
+        padding: 100px 0;
+    }
+
+    .pricing-header h2 {
+        font-size: 38px;
+    }
+
+    .pricing-banner {
+        padding: 25px;
+    }
+
+    .banner-left {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .floating-card {
+        padding: 18px;
+        transform: scale(.85);
+    }
+
+    .sales {
+        left: 10px;
+        bottom: 20px;
+    }
+
+    .profit {
+        right: 10px;
+        top: 20px;
+    }
+
+    .inventory {
+        right: 20px;
+        bottom: 20px;
+    }
+
+}
+
 </style>
 {% endblock %}
 
@@ -1836,8 +1551,6 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
         </div>
 
 
-        <!-- HEADING -->
-
         <div class="pricing-header">
 
             <span class="pricing-badge">
@@ -1845,173 +1558,212 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
             </span>
 
             <h2>
-
-                Start today.<br>
-
-                <span>
-                    Upgrade
-                </span>
-
-                when you need help.
-
+                Choose the plan that works
+                <span>for your business.</span>
             </h2>
 
             <p>
-
-                Every plan includes SmartPOS, inventory management,
-                sales tracking and powerful business reports.
-
+                Get access to the full Ruo System and manage your sales,
+                inventory, products and business operations from one system.
             </p>
 
         </div>
 
-
         <!-- STATS -->
 
-        <div class="pricing-stats">
-
-            <div class="stat-box">
-
-                <h3>1,500+</h3>
-
-                <p>
-                    Transactions tracked monthly
-                </p>
-
-            </div>
-
-            <div class="stat-box">
-
-                <h3>24/7</h3>
-
-                <p>
-                    Access from anywhere
-                </p>
-
-            </div>
-
-            <div class="stat-box">
-
-                <h3>100%</h3>
-
-                <p>
-                    Cloud based & secure
-                </p>
-
-            </div>
-
-        </div>
-
+        
 
         <!-- CARDS -->
+
+        <!-- PRICING CARDS -->
 
         <div class="pricing-cards" id="pricing">
 
 
-            <!-- SELF SETUP -->
+            <!-- DAILY -->
 
             <div class="plan-card">
 
                 <span class="plan-label">
-                    START HERE
+                    FLEXIBLE
                 </span>
 
                 <h3>
-                    Self Setup
+                    Daily
                 </h3>
+
+                <p class="plan-desc">
+                    Perfect if you want maximum flexibility
+                    without a long-term commitment.
+                </p>
 
                 <div class="price">
 
-                    Ksh 2,000
+                    <small>KSh</small> 100
 
                     <span>
-                        Per Month
+                        / day
                     </span>
 
                 </div>
 
-                <p class="plan-desc">
+                <div class="saving-text">
+                    Pay only for the days you use
+                </div>
 
-                    Perfect for businesses that prefer setting
-                    everything up themselves.
-
-                </p>
 
                 <ul>
 
-                    <li>✓ SmartPOS Software</li>
-                    <li>✓ Inventory Management</li>
-                    <li>✓ Sales Tracking</li>
-                    <li>✓ Business Reports</li>
-                    <li>✓ Setup Tutorials</li>
-                    <li>✓ Free Updates</li>
+                    <li>✓ Full Ruo System access</li>
+
+                    <li>✓ Sales & POS</li>
+
+                    <li>✓ Inventory management</li>
+
+                    <li>✓ Reports & analytics</li>
 
                 </ul>
 
-                <a href="https://pos-10-production.up.railway.app/auth/demo"  onclick="gtag('event', 'request_demo_click'); return false;" class="outline-btn">
-                  Explore the System yourself →
+
+                <a href="#"
+                onclick="gtag('event', 'request_demo_click'); openWizard(); return false;"
+                class="outline-btn">
+
+                    Get Started
+
                 </a>
 
             </div>
 
 
-            <!-- DONE FOR YOU -->
+
+            <!-- MONTHLY -->
 
             <div class="plan-card featured-plan">
 
-                <div class="corner-ribbon">
-                    Best Value
+                <div class="popular-badge">
+                    MOST POPULAR
                 </div>
 
-                <span class="plan-label purple">
 
-                    MOST CHOSEN
-
+                <span class="plan-label">
+                    BEST BALANCE
                 </span>
 
+
                 <h3>
-                    Done For You
+                    Monthly
                 </h3>
+
+
+                <p class="plan-desc">
+                    The best balance between flexibility
+                    and value for growing businesses.
+                </p>
+
 
                 <div class="price purple-price">
 
-                    Ksh 35,000
+                    <small>KSh</small> 2,000
 
                     <span>
-                        One Time Setup + Ksh 2,000/month
+                        / month
                     </span>
 
                 </div>
 
-                <p class="plan-desc">
 
-                    We'll install SmartPOS, perform stock take,
-                    upload products and train your staff.
+                <div class="saving-text">
+                    Save compared with daily
+                </div>
 
-                </p>
 
                 <ul>
 
-                    <li>✓ Complete Installation</li>
-                    <li>✓ Stock Take Included</li>
-                    <li>✓ Product Uploading</li>
-                    <li>✓ Staff Training</li>
-                    <li>✓ Priority Support</li>
-                    <li>✓ Monthly Subscription Included</li>
+                    <li>✓ Full Ruo System access</li>
+
+                    <li>✓ Sales & POS</li>
+
+                    <li>✓ Inventory management</li>
+
+                    <li>✓ Reports & analytics</li>
 
                 </ul>
 
-                <a href="https://pos-10-production.up.railway.app/auth/demo"  onclick="gtag('event', 'request_demo_click'); return false;" class="gradient-btn">
 
-                    See the system and get started →
+                <a href="#"
+                onclick="gtag('event', 'request_demo_click'); openWizard(); return false;"
+                class="gradient-btn">
+
+                    Get Started
 
                 </a>
 
             </div>
 
+
+
+            <!-- YEARLY -->
+
+            <div class="plan-card">
+
+                <span class="plan-label">
+                    BEST VALUE
+                </span>
+
+
+                <h3>
+                    Yearly
+                </h3>
+
+
+                <p class="plan-desc">
+                    Best value for businesses ready to
+                    commit to Ruo System for the year.
+                </p>
+
+
+                <div class="price">
+
+                    <small>KSh</small> 20,000
+
+                    <span>
+                        / year
+                    </span>
+
+                </div>
+
+
+                <div class="saving-text">
+                    Save KSh 4,000 vs monthly
+                </div>
+
+
+                <ul>
+
+                    <li>✓ Full Ruo System access</li>
+
+                    <li>✓ Sales & POS</li>
+
+                    <li>✓ Inventory management</li>
+
+                    <li>✓ Reports & analytics</li>
+
+                </ul>
+
+
+                <a href="#"
+                onclick="gtag('event', 'request_demo_click'); openWizard(); return false;"
+                class="outline-btn">
+
+                    Get Started
+
+                </a>
+
+            </div>
+
+
         </div>
-
-
         <!-- TRUST BAR -->
 
         <div class="trust-bar">
