@@ -1322,7 +1322,79 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     }
 
 }
+/* =================================
+   RUOPOS EXPERIENCE TOP SECTION
+================================= */
 
+.experience-top {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experience-business-image {
+    width: 100%;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 35px 80px rgba(17,24,39,.14);
+}
+
+.experience-info {
+    text-align: left;
+}
+
+.experience-info .showcase-heading {
+    text-align: left;
+    margin: 0;
+}
+
+.experience-info .showcase-heading h2 {
+    font-size: 52px;
+    line-height: 1.08;
+}
+
+.experience-info .showcase-heading p {
+    color: var(--grey);
+    margin-top: 15px;
+}
+
+
+/* DASHBOARD STAYS BELOW */
+
+.experience-dashboard {
+    margin-top: 70px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px) {
+
+    .experience-top {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .experience-info {
+        text-align: center;
+    }
+
+    .experience-info .showcase-heading {
+        text-align: center;
+    }
+
+    .experience-info .showcase-heading h2 {
+        font-size: 42px;
+    }
+
+    .experience-dashboard {
+        margin-top: 50px;
+    }
+
+}
 </style>
 {% endblock %}
 
@@ -1405,84 +1477,107 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     <div class="container">
 
 
-    <div class="showcase-heading">
+        <!-- =================================
+             TOP: IMAGE + RUOPOS EXPERIENCE
+        ================================= -->
 
-    <span>
-    THE RUOPOS EXPERIENCE
-    </span>
-
-
-    <h2>
-
-    Everything your business needs.
-    Beautifully organised.
-
-    </h2>
+        <div class="experience-top">
 
 
-    
+            <!-- LEFT: COSMETICS BUSINESS IMAGE -->
 
-    <p>
+            <div>
 
-        Sales. Inventory. Reports. Expenses
-        Customers. Profits.
+                <img
+                    src="/static/images/ruo-cosmetics-demo.webp"
+                    alt="Ruo System helping a cosmetics business"
+                    class="experience-business-image"
+                    loading="lazy">
 
-    </p>
-
-    
-
-
-    <a href="#"  onclick="gtag('event', 'request_demo_click'); openWizard(); return false;" class="primary-btn">
-
-    Request Demo
-
-    </a>
+            </div>
 
 
-    </div>
+            <!-- RIGHT: RUOPOS EXPERIENCE -->
+
+            <div class="experience-info">
+
+                <div class="showcase-heading">
+
+                    <span>
+                        THE RUOPOS EXPERIENCE
+                    </span>
+
+                    <h2>
+                        Everything your business needs.
+                        Beautifully organised.
+                    </h2>
+
+                    <p>
+                        Sales. Inventory. Reports. Expenses.
+                        Customers. Profits.
+                    </p>
+
+                    <a href="#"
+                       onclick="gtag('event', 'request_demo_click'); openWizard(); return false;"
+                       class="primary-btn">
+
+                        Request Demo
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
+        <!-- =================================
+             DASHBOARD: REMAINS BELOW
+        ================================= -->
 
-    <div class="dashboard-wrapper">
+        <div class="experience-dashboard">
 
-
-    <div class="floating-card sales">
-
-    <h4>Today's Sales</h4>
-
-    <h2>Ksh 1,248,750</h2>
-
-    </div>
+            <div class="dashboard-wrapper">
 
 
+                <div class="floating-card sales">
 
-    <div class="floating-card profit">
+                    <h4>Today's Sales</h4>
 
-    <h4>Monthly Profit</h4>
+                    <h2>Ksh 1,248,750</h2>
 
-    <h2>Ksh 312,450</h2>
-
-    </div>
-
+                </div>
 
 
-    <div class="floating-card inventory">
+                <div class="floating-card profit">
 
-    <h4>Products</h4>
+                    <h4>Monthly Profit</h4>
 
-    <h2>197</h2>
+                    <h2>Ksh 312,450</h2>
 
-    </div>
-
-
-
-    <img src="/static/images/dashboardweb.webp"
-    class="dashboard-image">
+                </div>
 
 
+                <div class="floating-card inventory">
 
-    </div>
+                    <h4>Products</h4>
 
+                    <h2>197</h2>
+
+                </div>
+
+
+                <img
+                    src="/static/images/dashboardweb.webp"
+                    class="dashboard-image"
+                    alt="Ruo System dashboard"
+                    loading="lazy">
+
+
+            </div>
+
+        </div>
 
     </div>
 
