@@ -1342,8 +1342,62 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     box-shadow: 0 35px 80px rgba(17,24,39,.14);
 }
 
-.experience-info {
-    text-align: left;
+.experience-info .showcase-heading h2 {
+    font-size: 52px;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 20px 0;
+}
+
+.experience-info .showcase-heading h2 .highlight {
+    background: linear-gradient(
+        90deg,
+        #6F3FF5,
+        #8B5CF6,
+        #6F3FF5
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: gradientMove 5s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+
+}
+
+.experience-info .showcase-heading h2::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+
+    margin-top: 24px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #6F3FF5,
+        #A78BFA
+    );
 }
 
 .experience-info .showcase-heading {
@@ -1351,10 +1405,6 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
     margin: 0;
 }
 
-.experience-info .showcase-heading h2 {
-    font-size: 52px;
-    line-height: 1.08;
-}
 
 .experience-info .showcase-heading p {
     color: var(--grey);
@@ -1489,7 +1539,7 @@ Ruo Systems provides POS System in Kenya, inventory management and business soft
             <div>
 
                 <img
-                    src="/static/images/ruo-cosmetics-demo.webp"
+                    src="/static/images/ruodemo.webp"
                     alt="Ruo System helping a cosmetics business"
                     class="experience-business-image"
                     loading="lazy">
