@@ -101,3 +101,11 @@ async def article(request: Request):
         name="beautyshopblog.html",
         context={}
     )
+
+@app.get("/blog/inventory-management-system-for-beauty-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="inventorymanagementbeauty.html",
+        context={}
+    )

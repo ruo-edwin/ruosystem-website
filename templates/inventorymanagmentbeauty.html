@@ -1,0 +1,994 @@
+{% extends "base.html" %}
+
+{% block title %}Inventory Management for Cosmetic Shops: 4 Simple Tips{% endblock %}
+
+{% block description %}
+Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve stock taking and keep accurate records with the right POS system.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+:root{
+    --content-width:760px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.blog-hero{
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--border);
+    background:
+    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+}
+
+.blog-hero .container{
+    max-width:900px;
+}
+
+.blog-category{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    background:var(--purple-light);
+    color:var(--purple);
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+}
+
+.blog-title{
+    margin-top:24px;
+    font-size:56px;
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+.blog-description{
+    margin-top:28px;
+    max-width:720px;
+    color:var(--grey);
+    font-size:20px;
+    line-height:1.8;
+}
+
+.blog-meta{
+    margin-top:35px;
+    display:flex;
+    gap:28px;
+    align-items:center;
+    flex-wrap:wrap;
+    color:var(--grey);
+    font-size:15px;
+}
+
+.blog-meta strong{
+    color:var(--black);
+}
+
+/* ==========================
+   READING PROGRESS
+========================== */
+
+.read-progress{
+    position:fixed;
+    top:75px;
+    left:0;
+    width:100%;
+    height:3px;
+    background:transparent;
+    z-index:999;
+}
+
+.read-progress span{
+    display:block;
+    width:0;
+    height:100%;
+    background:var(--purple);
+}
+
+/* ==========================
+   ARTICLE LAYOUT
+========================== */
+
+.blog-wrapper{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:80px;
+    padding:80px 0;
+}
+
+.blog-sidebar{
+    position:sticky;
+    top:120px;
+    height:max-content;
+}
+
+.blog-sidebar h4{
+    font-size:14px;
+    text-transform:uppercase;
+    color:var(--grey);
+    letter-spacing:.06em;
+    margin-bottom:18px;
+}
+
+.blog-sidebar ul{
+    list-style:none;
+}
+
+.blog-sidebar li{
+    margin-bottom:16px;
+}
+
+.blog-sidebar a{
+    color:#555;
+    transition:.25s;
+    font-size:15px;
+}
+
+.blog-sidebar a:hover{
+    color:var(--purple);
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.blog-content{
+    max-width:var(--content-width);
+}
+
+.blog-content h2{
+    margin-top:70px;
+    margin-bottom:22px;
+    font-size:38px;
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.blog-content h3{
+    margin-top:40px;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.blog-content p{
+    margin-bottom:26px;
+    font-size:18px;
+    color:#475467;
+    line-height:2;
+}
+
+.blog-content ul{
+    margin:30px 0;
+    padding-left:22px;
+}
+
+.blog-content li{
+    margin-bottom:14px;
+    color:#475467;
+    font-size:18px;
+}
+
+.blog-content strong{
+    color:var(--black);
+}
+
+.brand-link{
+    color:var(--purple);
+    font-weight:700;
+    text-decoration:none;
+    position:relative;
+}
+
+.brand-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:100%;
+    height:2px;
+    background:var(--purple);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.25s;
+}
+
+.brand-link:hover::after{
+    transform:scaleX(1);
+}
+
+/* ==========================
+   QUOTE
+========================== */
+
+.quote-box{
+    margin:50px 0;
+    padding:35px;
+    border-left:4px solid var(--purple);
+    background:#faf9ff;
+    border-radius:18px;
+    font-size:22px;
+    font-weight:600;
+    line-height:1.7;
+}
+
+/* ==========================
+   INFO CARD
+========================== */
+
+.info-card{
+    margin:45px 0;
+    padding:35px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:white;
+    box-shadow:0 20px 60px rgba(16,24,40,.05);
+}
+
+.info-card h3{
+    margin-top:0;
+}
+
+/* ==========================
+   NUMBER CARD
+========================== */
+
+.number-card{
+    display:flex;
+    gap:22px;
+    margin:55px 0;
+}
+
+.number{
+    width:62px;
+    height:62px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--purple-light);
+    color:var(--purple);
+    font-size:26px;
+    font-weight:800;
+    border-radius:18px;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:1100px){
+
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .blog-sidebar{
+        display:none;
+    }
+
+    .blog-title{
+        font-size:42px;
+    }
+
+    .blog-description{
+        font-size:18px;
+    }
+
+    .blog-content h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="read-progress">
+    <span id="readingBar"></span>
+</div>
+
+
+<!-- ==========================
+     HERO
+========================== -->
+
+<section class="blog-hero">
+
+    <div class="container">
+
+        <span class="blog-category">
+            Inventory Management
+        </span>
+
+        <h1 class="blog-title">
+            Inventory Management for Cosmetic Shops: 4 Simple Practices
+        </h1>
+
+        <p class="blog-description">
+            Learn how to manage cosmetic shop inventory, reduce stock losses,
+            improve stock taking and keep accurate records with simple
+            inventory management practices and the right POS system.
+        </p>
+
+        <div class="blog-meta">
+
+            <div>
+                <strong>By</strong> Ruo Systems
+            </div>
+
+            <div>
+                5 min read
+            </div>
+
+            <div>
+                Updated August 2026
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================
+     ARTICLE
+========================== -->
+
+<section class="container">
+
+    <div class="blog-wrapper">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="blog-sidebar">
+
+            <h4>Contents</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#intro">
+                        Introduction
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#pos">
+                        Use a POS System
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#stocktake">
+                        Regular Stock Takes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#receiving">
+                        Control Stock Receiving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#records">
+                        Keep Proper Records
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#best">
+                        Best POS for Cosmetic Shops
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#faq">
+                        FAQs
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+
+        <article class="blog-content">
+
+
+            <!-- INTRO -->
+
+            <section id="intro">
+
+                <p>
+                    Managing inventory in a cosmetic shop can be challenging.
+                    You may have different brands, shades, sizes and products
+                    moving in and out of your shop every day.
+                </p>
+
+                <p>
+                    Without proper <strong>inventory management</strong>,
+                    it becomes easy to lose track of stock, run out of
+                    popular products or discover that your physical stock
+                    does not match your records.
+                </p>
+
+                <p>
+                    The good news is that <strong>cosmetic shop inventory
+                    management</strong> does not have to be complicated.
+                    A few simple systems can make a big difference.
+                </p>
+
+                <div class="quote-box">
+
+                    Good inventory management is about knowing what came in,
+                    what went out and what you should still have.
+
+                </div>
+
+            </section>
+
+
+            <!-- POS -->
+
+            <section id="pos">
+
+                <div class="number-card">
+
+                    <div class="number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Use a POS and Inventory Management System
+                        </h2>
+
+                        <p>
+                            If you run a busy cosmetic shop, using a
+                            <strong>POS system</strong> is one of the best
+                            ways to keep your inventory under control.
+                        </p>
+
+                        <p>
+                            Every time a customer buys a product, the sale
+                            should automatically reduce the stock quantity
+                            in your system.
+                        </p>
+
+                        <p>
+                            This means you don't have to depend entirely on
+                            notebooks, spreadsheets or memory to know how
+                            much stock you have.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        A Good Cosmetic Shop POS Should Help You:
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Track products and stock quantities.
+                        </li>
+
+                        <li>
+                            Record sales automatically.
+                        </li>
+
+                        <li>
+                            Identify fast-moving products.
+                        </li>
+
+                        <li>
+                            Identify slow-moving products.
+                        </li>
+
+                        <li>
+                            Know when stock is running low.
+                        </li>
+
+                        <li>
+                            Track purchases and stock received.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    For a cosmetic shop, the ideal POS should make both
+                    <strong>selling and inventory management</strong> easier.
+                    You should be able to see what is selling, what is
+                    available and what needs to be reordered without
+                    manually calculating everything.
+                </p>
+
+            </section>
+
+
+            <!-- STOCK TAKE -->
+
+            <section id="stocktake">
+
+                <div class="number-card">
+
+                    <div class="number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Do Regular Stock Takes
+                        </h2>
+
+                        <p>
+                            Regular stock taking is important, but doing a
+                            complete stock take of the entire shop at once
+                            can be difficult.
+                        </p>
+
+                        <p>
+                            Instead, consider doing
+                            <strong>random stock takes or spot checks</strong>
+                            regularly.
+                        </p>
+
+                        <p>
+                            Pick a few products each day or each week and
+                            compare the physical quantity on the shelf with
+                            the quantity recorded in your POS system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        For Example
+                    </h3>
+
+                    <p>
+                        You could randomly count a few popular foundations,
+                        lipsticks, perfumes or skincare products and compare
+                        the physical stock with your system.
+                    </p>
+
+                    <p>
+                        If your system says you have 15 units but you can
+                        only find 12, you have discovered a discrepancy that
+                        can be investigated before it becomes a bigger
+                        problem.
+                    </p>
+
+                </div>
+
+                <p>
+                    Regular spot checks make it easier to identify
+                    <strong>stock shortages, recording mistakes, damaged
+                    products and other inventory problems</strong> early.
+                </p>
+
+            </section>
+
+
+            <!-- RECEIVING -->
+
+            <section id="receiving">
+
+                <div class="number-card">
+
+                    <div class="number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Have One Person Responsible for Receiving Stock
+                        </h2>
+
+                        <p>
+                            When new stock arrives, it is important to have
+                            clear responsibility for receiving and recording
+                            it.
+                        </p>
+
+                        <p>
+                            Assign one trusted person to receive deliveries
+                            and check the products against the supplier's
+                            invoice or delivery note.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        The Person Receiving Stock Should Check:
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            The products received are correct.
+                        </li>
+
+                        <li>
+                            The quantities match the delivery note.
+                        </li>
+
+                        <li>
+                            Products are not damaged.
+                        </li>
+
+                        <li>
+                            Prices and purchase details are recorded correctly.
+                        </li>
+
+                        <li>
+                            New stock is entered into the POS system.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    Having one person responsible for receiving stock creates
+                    clear accountability and makes it easier to investigate
+                    inventory discrepancies.
+                </p>
+
+            </section>
+
+
+            <!-- RECORDS -->
+
+            <section id="records">
+
+                <div class="number-card">
+
+                    <div class="number">
+                        4
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Keep Proper Stock Records
+                        </h2>
+
+                        <p>
+                            Accurate records are the foundation of good
+                            <strong>inventory management for cosmetic
+                            shops</strong>.
+                        </p>
+
+                        <p>
+                            Every purchase, sale, return, damaged product
+                            and stock adjustment should be recorded properly.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Avoid relying on memory or loose pieces of paper.
+                    Your records should give you a clear picture of what
+                    is happening in your shop.
+                </p>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Your Inventory Records Should Help You Answer:
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            How much stock do I have?
+                        </li>
+
+                        <li>
+                            Which products are selling quickly?
+                        </li>
+
+                        <li>
+                            Which products are slow-moving?
+                        </li>
+
+                        <li>
+                            What products need to be reordered?
+                        </li>
+
+                        <li>
+                            Where are stock discrepancies occurring?
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    When your records are accurate, you can make better
+                    purchasing decisions and avoid spending too much money
+                    on products that are not selling.
+                </p>
+
+            </section>
+
+
+            <!-- BEST POS -->
+
+            <section id="best">
+
+                <h2>
+                    What Is the Best POS for a Cosmetic Shop?
+                </h2>
+
+                <p>
+                    If you're looking for the
+                    <strong>best POS system for a cosmetic shop</strong>,
+                    don't choose software simply because it can process
+                    sales.
+                </p>
+
+                <p>
+                    Look for a system that also helps you manage inventory,
+                    track stock movement, receive purchases and understand
+                    which products are selling.
+                </p>
+
+                <p>
+                    <a href="/" class="brand-link">
+                        Ruo Systems
+                    </a>
+                    is a good option for cosmetic shops that want to combine
+                    sales and inventory management in one simple system.
+                </p>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Why Consider Ruo Systems?
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Real-time inventory tracking.
+                        </li>
+
+                        <li>
+                            Fast and simple sales processing.
+                        </li>
+
+                        <li>
+                            Stock receiving and management.
+                        </li>
+
+                        <li>
+                            Sales and inventory reports.
+                        </li>
+
+                        <li>
+                            Stock movement history.
+                        </li>
+
+                        <li>
+                            Easy-to-use interface.
+                        </li>
+
+                        <li>
+                            Affordable monthly subscription.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    The goal is simple: every sale should be recorded,
+                    every stock movement should be visible and you should
+                    always have a better understanding of what is happening
+                    in your shop.
+                </p>
+
+            </section>
+
+
+            <!-- FINAL THOUGHTS -->
+
+            <section>
+
+                <h2>
+                    Final Thoughts
+                </h2>
+
+                <p>
+                    <strong>Inventory management for cosmetic shops</strong>
+                    does not need to be complicated.
+                </p>
+
+                <p>
+                    Start with a reliable POS system, carry out regular
+                    stock checks, assign responsibility for receiving stock
+                    and keep accurate records.
+                </p>
+
+                <p>
+                    These simple practices can help you reduce stock losses,
+                    prevent stockouts and make better purchasing decisions.
+                </p>
+
+                <p>
+                    A good POS records your sales.
+                    A great POS helps you understand your entire business.
+                </p>
+
+                <p>
+                    That's what
+                    <a href="/" class="brand-link">
+                        Ruo Systems
+                    </a>
+                    is built to help you do.
+                </p>
+
+            </section>
+
+
+            <hr style="margin:80px 0;border:none;border-top:1px solid var(--border);">
+
+
+            <!-- FAQ -->
+
+            <section id="faq">
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+
+                <h3>
+                    How do I manage inventory in a cosmetic shop?
+                </h3>
+
+                <p>
+                    Use a POS and inventory management system, keep accurate
+                    records, perform regular stock takes and make sure new
+                    stock is properly received and recorded.
+                </p>
+
+
+                <h3>
+                    How often should a cosmetic shop do stock taking?
+                </h3>
+
+                <p>
+                    A complete stock take can be difficult to do frequently.
+                    Regular spot checks or random stock takes can help you
+                    monitor important products without having to count the
+                    entire shop every time.
+                </p>
+
+
+                <h3>
+                    Why does a cosmetic shop need a POS system?
+                </h3>
+
+                <p>
+                    A POS system can record sales, automatically update
+                    inventory and provide information about fast-moving,
+                    slow-moving and low-stock products.
+                </p>
+
+
+                <h3>
+                    What should a cosmetic shop look for in a POS?
+                </h3>
+
+                <p>
+                    Look for inventory tracking, sales management, stock
+                    receiving, stock movement history and useful business
+                    reports in addition to fast and reliable checkout.
+                </p>
+
+            </section>
+
+
+            <!-- CTA -->
+
+            <section
+                class="info-card"
+                style="margin-top:90px;text-align:center;"
+            >
+
+                <h2 style="margin-top:0;">
+                    Ready to Take Control of Your Cosmetic Shop Inventory?
+                </h2>
+
+                <p>
+                    See how
+                    <a href="/" class="brand-link">
+                        Ruo Systems
+                    </a>
+                    can help you manage sales, track inventory and make
+                    better business decisions.
+                </p>
+
+                <a
+                    href="https://pos-10-production.up.railway.app/auth/demo"
+                    onclick="gtag('event', 'request_demo_click');"
+                    class="primary-btn"
+                >
+                    See System in Action
+                </a>
+
+            </section>
+
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const readingBar = document.getElementById("readingBar");
+
+window.addEventListener("scroll", () => {
+
+    const total =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        (window.scrollY / total) * 100;
+
+    readingBar.style.width = progress + "%";
+
+});
+
+</script>
+
+{% endblock %}
