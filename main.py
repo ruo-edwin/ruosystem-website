@@ -106,6 +106,6 @@ async def article(request: Request):
 async def article(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="inventorymanagementbeauty.html",
+        name="inventorymanagmentbeauty.html",
         context={}
     )
