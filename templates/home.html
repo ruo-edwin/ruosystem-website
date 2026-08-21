@@ -1159,8 +1159,140 @@ footer p {
     }
 
 }
+/* =========================================================
+   FAQ
+========================================================= */
 
+.faq-section {
+    padding: 90px 0 100px;
+    background: #ffffff;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 45px;
+}
+
+.faq-badge {
+    display: inline-block;
+    background: var(--purple-light);
+    color: var(--purple);
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.faq-header h2 {
+    margin-top: 18px;
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.faq-header p {
+    margin-top: 14px;
+    color: var(--grey);
+    font-size: 16px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0 22px;
+    transition: .25s ease;
+}
+
+.faq-item:hover {
+    border-color: #d9d0ff;
+    box-shadow: 0 12px 35px rgba(15,23,42,.05);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 35px 20px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 17px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--purple);
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-answer {
+    padding: 0 35px 20px 0;
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 780px;
+}
+
+@media (max-width: 768px) {
+
+    .faq-section {
+        padding: 70px 0 80px;
+    }
+
+    .faq-header h2 {
+        font-size: 34px;
+    }
+
+    .faq-header p {
+        font-size: 15px;
+    }
+
+    .faq-item {
+        padding: 0 18px;
+    }
+
+    .faq-item summary {
+        font-size: 15px;
+        padding: 18px 30px 18px 0;
+    }
+
+    .faq-item summary::after {
+        top: 15px;
+    }
+
+    .faq-answer {
+        padding-right: 25px;
+        font-size: 14px;
+    }
+}
 </style>
+
+
 {% endblock %}
 
 {% block content %}
@@ -1793,4 +1925,103 @@ footer p {
     </div>
 
 </section>
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="faq-section">
+
+    <div class="container faq-container">
+
+        <div class="faq-header">
+
+            <span class="faq-badge">
+                FAQ
+            </span>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+            <p>
+                Everything you need to know about our POS system
+                and business management software in Kenya.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+            <details class="faq-item">
+                <summary>
+                    What should I expect to pay for a POS system in Kenya?
+                </summary>
+
+                <div class="faq-answer">
+                    Depending on the type  of POS, cloud based <a href="https://www.ruosystem.co.ke/blog/how-much-does-a-pos-system-cost-in-kenya" class="faq-link">POS systems cost in Kenya </a> be anywhere from Ksh 1,000 to Ksh 5,000 per month while on-premise POS systems can cost anywhere from Ksh 60,000 to Ksh 100,000 or more. Ruo System is a cloud based POS system that costs Ksh 2,000 per month or Ksh 20,000 per year.
+                </div>
+            </details>
+
+
+            <details class="faq-item">
+                <summary>
+                    Is there a POS system that works on a smartphone?
+                </summary>
+
+                <div class="faq-answer">
+                    Yes. Ruo System is a mobile-friendly POS system that works on smartphones. 
+                    You can use your phone to record sales, manage inventory, check business reports and monitor your shop from anywhere. This makes it a practical POS solution for small businesses and retail shops in Kenya.
+                </div>
+            </details>
+
+
+            <details class="faq-item">
+                <summary>
+                    Is Ruo System suitable for small retail shops in Kenya?
+                </summary>
+
+                <div class="faq-answer">
+                    Yes. Ruo System is built for retail shops, mini supermarkets
+                    and growing businesses that need a simple way to manage
+                    sales, stock, expenses and business performance.
+                </div>
+            </details>
+
+
+            <details class="faq-item">
+                <summary>
+                    Does the POS system include inventory management?
+                </summary>
+
+                <div class="faq-answer">
+                    Yes. Ruo System includes inventory management, allowing you
+                    to track products, monitor stock levels and identify items
+                    that need to be reordered.
+                </div>
+            </details>
+
+
+            <details class="faq-item">
+                <summary>
+                    Can I access my business information from anywhere?
+                </summary>
+
+                <div class="faq-answer">
+                    Yes. Ruo System lets you stay connected to your business
+                    and monitor sales, inventory and reports without being
+                    physically present at your shop.
+                </div>
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
 {% endblock %}
