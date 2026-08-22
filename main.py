@@ -109,3 +109,11 @@ async def article(request: Request):
         name="inventorymanagmentbeauty.html",
         context={}
     )
+
+@app.get("/blog/how-much-does-it-cost-to-start-a-cosmetic-shop-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="costofacosmetic.html",
+        context={}
+    )

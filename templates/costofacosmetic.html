@@ -1,0 +1,870 @@
+{% extends "base.html" %}
+
+{% block title %}How Much Does It Cost to Start a Cosmetic Shop in Kenya? | Ruo Systems{% endblock %}
+
+{% block description %}
+How much does it cost to start a cosmetic shop in Kenya? Learn about startup capital, stock, suppliers, distributors, working capital and POS systems for cosmetic shops.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+:root{
+    --content-width:760px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.blog-hero{
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--border);
+    background:
+    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+}
+
+.blog-hero .container{
+    max-width:900px;
+}
+
+.blog-category{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 16px;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+
+}
+
+.blog-title{
+
+    margin-top:24px;
+
+    font-size:56px;
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+}
+
+.blog-description{
+
+    margin-top:28px;
+
+    max-width:720px;
+
+    color:var(--grey);
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+.blog-meta{
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:28px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    color:var(--grey);
+
+    font-size:15px;
+
+}
+
+.blog-meta strong{
+
+    color:var(--black);
+
+}
+
+/* ==========================
+READING PROGRESS
+========================== */
+
+.read-progress{
+
+    position:fixed;
+
+    top:75px;
+
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:transparent;
+
+    z-index:999;
+
+}
+
+.read-progress span{
+
+    display:block;
+
+    width:0;
+
+    height:100%;
+
+    background:var(--purple);
+
+}
+
+/* ==========================
+ARTICLE LAYOUT
+========================== */
+
+.blog-wrapper{
+
+    display:grid;
+
+    grid-template-columns:260px 1fr;
+
+    gap:80px;
+
+    padding:80px 0;
+
+}
+
+.blog-sidebar{
+
+    position:sticky;
+
+    top:120px;
+
+    height:max-content;
+
+}
+
+.blog-sidebar h4{
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    color:var(--grey);
+
+    letter-spacing:.06em;
+
+    margin-bottom:18px;
+
+}
+
+.blog-sidebar ul{
+
+    list-style:none;
+
+}
+
+.blog-sidebar li{
+
+    margin-bottom:16px;
+
+}
+
+.blog-sidebar a{
+
+    color:#555;
+
+    transition:.25s;
+
+    font-size:15px;
+
+}
+
+.blog-sidebar a:hover{
+
+    color:var(--purple);
+
+}
+
+/* ==========================
+CONTENT
+========================== */
+
+.blog-content{
+
+    max-width:var(--content-width);
+
+}
+
+.blog-content h2{
+
+    margin-top:70px;
+
+    margin-bottom:22px;
+
+    font-size:38px;
+
+    line-height:1.2;
+
+    letter-spacing:-1px;
+
+}
+
+.blog-content h3{
+
+    margin-top:40px;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+}
+
+.blog-content p{
+
+    margin-bottom:26px;
+
+    font-size:18px;
+
+    color:#475467;
+
+    line-height:2;
+
+}
+
+.blog-content ul{
+
+    margin:30px 0;
+
+    padding-left:22px;
+
+}
+
+.blog-content li{
+
+    margin-bottom:14px;
+
+    color:#475467;
+
+    font-size:18px;
+
+}
+
+.blog-content strong{
+
+    color:var(--black);
+
+}
+
+.brand-link{
+
+    color:var(--purple);
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    position:relative;
+
+}
+
+.brand-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:100%;
+
+    height:2px;
+
+    background:var(--purple);
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.25s;
+
+}
+
+.brand-link:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================
+QUOTE
+========================== */
+
+.quote-box{
+
+    margin:50px 0;
+
+    padding:35px;
+
+    border-left:4px solid var(--purple);
+
+    background:#faf9ff;
+
+    border-radius:18px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    line-height:1.7;
+
+}
+
+/* ==========================
+INFO CARD
+========================== */
+
+.info-card{
+
+    margin:45px 0;
+
+    padding:35px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:0 20px 60px rgba(16,24,40,.05);
+
+}
+
+.info-card h3{
+
+    margin-top:0;
+
+}
+
+/* ==========================
+NUMBER CARD
+========================== */
+
+.number-card{
+
+    display:flex;
+
+    gap:22px;
+
+    margin:55px 0;
+
+}
+
+.number{
+
+    width:62px;
+
+    height:62px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    font-size:26px;
+
+    font-weight:800;
+
+    border-radius:18px;
+
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:1100px){
+
+.blog-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.blog-sidebar{
+
+display:none;
+
+}
+
+.blog-title{
+
+font-size:42px;
+
+}
+
+.blog-description{
+
+font-size:18px;
+
+}
+
+.blog-content h2{
+
+font-size:32px;
+
+}
+
+}
+
+
+.table-wrap{overflow-x:auto;margin:10px 0}
+.blog-content table{width:100%;border-collapse:collapse;font-size:16px}
+.blog-content th,.blog-content td{padding:16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.blog-content th{font-weight:800;color:var(--black);background:#faf9ff}
+.blog-content ol{margin:30px 0;padding-left:25px}
+.blog-content ol li{margin-bottom:14px;color:#475467;font-size:18px}
+.blog-content code{background:#f4f2fa;padding:3px 7px;border-radius:6px;font-size:.9em}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="read-progress">
+    <span id="readingBar"></span>
+</div>
+
+<section class="blog-hero">
+
+<div class="container">
+
+<span class="blog-category">Cosmetic Business Guide</span>
+
+<h1 class="blog-title">How Much Does It Cost to Start a Cosmetic Shop in Kenya?</h1>
+
+<p class="blog-description">A practical guide to the real costs of starting a cosmetic shop in Kenya, including stock, suppliers, distributors, working capital, shop setup and the POS system you need to manage inventory and sales.</p>
+
+<div class="blog-meta">
+        <div><strong>By</strong> Ruo Systems</div>
+        <div>10 min read</div>
+        <div>Updated August 2026</div>
+    </div>
+    </div>
+    </section>
+
+<section class="container">
+
+<div class="blog-wrapper">
+
+<aside class="blog-sidebar">
+<h4>Contents</h4>
+<ul>
+
+</ul>
+</aside>
+
+<article class="blog-content">
+<p>If you are thinking about starting a cosmetic shop in Kenya, one of the first questions you will probably ask is: <strong>How much money do I need to start a cosmetic shop?</strong></p>
+
+<p>The honest answer is: <strong>it depends.</strong></p>
+
+<p>You can start a small cosmetic shop with a relatively modest amount of capital if you know where to source your products and what to stock. On the other hand, if you want a large shop with a wide variety of brands and products, your startup capital can easily run into hundreds of thousands of shillings or more.</p>
+
+<p>I am not writing this from research alone. <strong>I own a cosmetic shop myself, and I also have clients who are cosmetic-shop owners.</strong> I have therefore seen firsthand what it takes to start, stock and run a cosmetic business.</p>
+
+<p>In this guide, I want to go beyond simply giving you a figure. I'll explain <strong>where your money actually goes, how to source cosmetic products in Kenya, the difference between buying directly from manufacturers and distributors, how you can start with a smaller budget, and what you need to do to build a cosmetic shop that can actually survive and grow.</strong></p>
+
+<p><strong>Is Starting a Cosmetic Shop in Kenya a Good Business?</strong></p>
+
+<p>There is a reason so many people are interested in the cosmetics business: <strong>people continually spend money on beauty and personal-care products.</strong></p>
+
+<p>Kenya's beauty and personal-care market is substantial. Recent Euromonitor data puts retail sales at <strong>KSh 124.1 billion in 2025</strong>, representing 15% growth from the previous year. The market includes skincare, haircare, colour cosmetics, fragrances, deodorants, men's grooming and several other categories. Skincare was the leading category by retail value in 2025.</p>
+
+<p>Other industry estimates have placed Kenya's beauty and personal-care market at around <strong>US$2.3 billion</strong>, showing just how significant the sector is.</p>
+
+<p>The opportunity is therefore real.</p>
+
+<p>But there is something else I like about the cosmetics business: <strong>many of the products are repeat purchases.</strong></p>
+
+<p>A customer who buys a hair product today will eventually need another one. The same applies to skincare products, fragrances, shampoos, treatments, oils and many other products.</p>
+
+<p>From my experience in the business, hair products can generate particularly frequent repeat purchases, while skincare and fragrance customers can also become regular customers once they find products they trust.</p>
+
+<p>That is important because a successful cosmetic shop is not built only around finding new customers. <strong>It is built around getting customers to come back.</strong></p>
+
+<p>However, a growing market does not mean that every cosmetic shop will automatically make money.</p>
+
+<p>Your success will depend on things such as:</p>
+
+<ul><li>Your      location</li><li>The      products you choose</li><li>Your      pricing</li><li>Your      suppliers</li><li>How      well you manage stock</li><li>Your      customer service</li><li>How      you market the shop</li><li>How      well you control your expenses</li></ul>
+
+<p>So, if you were starting a cosmetic shop today, what would you actually need to do?</p>
+
+<p><strong>1. Decide What You Want Your Cosmetic Shop to Be Known For</strong></p>
+
+<p>Before you start buying products, you need to decide <strong>what type of cosmetic shop you want to build.</strong></p>
+
+<p>Do you want to specialize in:</p>
+
+<ul><li>Skincare?</li><li>Haircare?</li><li>Makeup?</li><li>Fragrances?</li><li>Hair      treatments?</li><li>Or a      combination of different cosmetic products?</li></ul>
+
+<p>You don't have to sell everything from day one.</p>
+
+<p>In fact, if you have limited capital, I would advise you to avoid trying to stock every cosmetic product you can think of.</p>
+
+<p><strong>Start where the demand is.</strong></p>
+
+<p>Skincare and haircare are two areas worth paying particular attention to because they represent major parts of the market, and both contain products that customers regularly replenish. Current market research also identifies skincare as the leading beauty and personal-care category in Kenya.</p>
+
+<p>The mistake many new business owners make is thinking:</p>
+
+<p>"The more products I have, the more customers I will attract."</p>
+
+<p>Not necessarily.</p>
+
+<p>You can have a shop full of products and still struggle if most of those products don't move.</p>
+
+<p>As a new cosmetic-shop owner, your goal should be to understand <strong>which products your customers actually want</strong> and build your stock around that demand.</p>
+
+<p><strong>2. Where Will You Get Your Cosmetic Products?</strong></p>
+
+<p>This is one of the most important decisions you will make.</p>
+
+<p>You generally have three options:</p>
+
+<ol><li>1. Buy      directly from manufacturers.</li><li>2. Buy      from distributors and wholesalers.</li><li>3. Buy      from smaller traders or wholesalers.</li></ol>
+
+<p>The option you choose will have a major effect on how much money you need to start.</p>
+
+<p><strong>Buying Directly From Manufacturers</strong></p>
+
+<p>Buying directly from manufacturers can give you access to better wholesale pricing and, once you establish a relationship with the supplier, potentially better payment terms.</p>
+
+<p>For example, when dealing with hair products, there are established manufacturers and brands in Kenya that a retailer may want to explore, including <strong>Darling KE, Angels KE, Lush KE and Sista</strong>.</p>
+
+<p>But there is a catch.</p>
+
+<p><strong>You need capital.</strong></p>
+
+<p>From my experience, some suppliers can require a substantial minimum opening order before you can establish an account.</p>
+
+<p>For example, if the minimum opening stock is <strong>KSh 200,000</strong>, that is already a significant amount for somebody starting a small cosmetic shop.</p>
+
+<p>And now imagine you want products from four different companies.</p>
+
+<p>You could be looking at:</p>
+
+<p><strong>KSh 200,000 × 4 = KSh 800,000</strong></p>
+
+<p>That's <strong>KSh 800,000 in stock alone.</strong></p>
+
+<p>You haven't paid rent.</p>
+
+<p>You haven't paid the shop deposit.</p>
+
+<p>You haven't bought shelves.</p>
+
+<p>You haven't done your branding.</p>
+
+<p>You haven't bought a POS system.</p>
+
+<p>You haven't obtained the relevant permits.</p>
+
+<p>And you haven't kept money aside as working capital.</p>
+
+<p>This is where many people realize that starting a cosmetic shop is not simply about having enough money to buy products.</p>
+
+<p><strong>You need enough money to start the business and keep it running.</strong></p>
+
+<p><strong>3. What If You Don't Have KSh 800,000?</strong></p>
+
+<p>This is where distributors become extremely important.</p>
+
+<p>You don't necessarily need to start by opening accounts with multiple manufacturers and buying hundreds of thousands of shillings worth of stock from each one.</p>
+
+<p>There are distributors who buy products in large quantities and then sell them to smaller retailers.</p>
+
+<p><strong>You can start with a much smaller amount of money.</strong></p>
+
+<p>For a new cosmetic-shop owner, that can be a very good trade-off.</p>
+
+<p>You might make slightly less margin on an individual product, but you avoid tying hundreds of thousands of shillings into stock before you even know what your customers will buy.</p>
+
+<p>And this is where my own experience comes in.</p>
+
+<p><strong>4. One Place I Would Check as a New Cosmetic-Shop Owner: Vision Beauty Care</strong></p>
+
+<p>If you are starting a cosmetic shop in Nairobi and don't have a huge amount of capital, one of the places I would recommend exploring is <strong>Vision Beauty Care</strong>, located around <strong>Dubois Road, Excel Complex, in Nairobi CBD</strong>. (0713995664)</p>
+
+<p>Why?</p>
+
+<p>Because when you're new, you don't necessarily know which products to buy.</p>
+
+<p>You might walk into a wholesale shop with KSh 20,000 and think:</p>
+
+<p>"I'll just buy whatever looks popular."</p>
+
+<p>That can be a very expensive mistake.</p>
+
+<p>Instead, you can explain to the distributor that you are opening a new shop, tell them your budget and ask them to help you select your initial stock.</p>
+
+<p>For example, with a budget of around <strong>KSh 20,000 or more</strong>, at Vision they help you identify products that are likely to move rather than spending your entire budget on products that may sit on the shelves.</p>
+
+<p>This is one of the advantages of dealing with an experienced distributor.</p>
+
+<p>They see the products moving through their business every day.</p>
+
+<p>They have a better understanding of what retailers are ordering.</p>
+
+<p>And they may be able to help you build a mixture of products instead of forcing you to buy a huge quantity of one brand.</p>
+
+<p>Vision Beauty Care also deals with different categories of cosmetic products, including things such as <strong>oils, treatments, shampoos, sheen sprays and other hair and beauty products.</strong></p>
+
+<p><strong>If I were starting a cosmetic shop with a small budget, this would be one of my first stops.</strong></p>
+
+<p>Start where your capital allows you to start. As your sales grow, you can begin buying larger quantities, negotiate better prices and eventually establish stronger relationships with manufacturers.</p>
+
+<p><strong>8. How Much Money Do You Really Need to Start?</strong></p>
+
+<p>There is no single figure that applies to every cosmetic shop.</p>
+
+<p>A small neighbourhood shop with carefully selected stock can require far less capital than a large store in a busy commercial centre.</p>
+
+<p>Instead of asking:</p>
+
+<p><strong>"How much does a cosmetic shop cost?"</strong></p>
+
+<p>I recommend breaking your budget into these categories:</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p><strong>Expense</strong></p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p><strong>What it covers</strong></p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Initial stock</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Haircare, skincare, makeup, fragrances and other products</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Rent & deposit</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Cost of securing your premises</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Shelving & fittings</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Displays, shelves, counters and storage</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Licences & registration</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Business registration and applicable permits</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Branding</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Signage, packaging and shop presentation</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>POS system</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Sales and inventory management</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Marketing</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Opening promotions, social media and advertising</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Working capital</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Money to keep the business operating</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Emergency fund</p>
+
+<div class="info-card"><div class="table-wrap"><table><thead><tr><th></th></tr></thead><tbody></tbody></table></div></div>
+
+<p>Unexpected expenses and urgent restocking</p>
+
+<p>This is why two people can start a cosmetic shop with completely different amounts of money.</p>
+
+<p>One person may start small with <strong>KSh 50,000–100,000 in stock</strong>, operate from a modest location and grow gradually.</p>
+
+<p>Another may invest <strong>KSh 300,000, KSh 500,000 or more</strong> because they want a larger shop with a much wider product range.</p>
+
+<p>The important thing is not to copy somebody else's budget.</p>
+
+<p><strong>Build a budget around your own location, target customer and business model.</strong></p>
+
+<p><strong>9. Don't Forget the Cost of a POS System</strong></p>
+
+<p>There is one more expense I strongly recommend including in your planning: <strong>a POS system for your cosmetic shop.</strong></p>
+
+<p>A cosmetic business can quickly accumulate hundreds of different products.</p>
+
+<p>Trying to keep track of all this manually can become difficult as the shop grows.</p>
+
+<p>A good <strong>POS system for a cosmetic shop</strong> can help you track sales and inventory in one place.</p>
+
+<p>It can help you answer questions such as:</p>
+
+<p><strong>Which products are selling fastest?</strong></p>
+
+<p><strong>Which products are running low?</strong></p>
+
+<p><strong>How much did I sell today?</strong></p>
+
+<p><strong>Which products have been sitting on the shelf for too long?</strong></p>
+
+<p><strong>How much stock do I have?</strong></p>
+
+<p><strong>What are my best-selling brands?</strong></p>
+
+<p>This information is incredibly valuable.</p>
+
+<p>Your POS should therefore be more than a tool for recording payments.</p>
+
+<p><strong>It should help you make better business decisions.</strong></p>
+
+<p>When comparing the <strong>best POS systems for cosmetic shops</strong>, Ruo System is the best for it is made for cosmetic shops. That has inventory management, barcode scanning, sales reports, stock alerts, product management, customer records and easy reporting.</p>
+
+<p>And because cosmetics businesses often carry many SKUs, good inventory management can be just as important as the payment functionality.</p>
+
+<p><strong>11. Your Location Matters</strong></p>
+
+<p>A good product range cannot completely compensate for a bad location.</p>
+
+<p>Before renting a shop, look at the people who actually pass through the area.</p>
+
+<p>Ask yourself:</p>
+
+<ul><li>Who      lives or works here?</li><li>What      type of customers are nearby?</li><li>Are      there salons nearby?</li><li>Are      there offices, apartments, colleges or businesses around?</li><li>How      much foot traffic does the location receive?</li><li>What      other cosmetic shops are nearby?</li><li>What      products are those competitors selling?</li><li>What      prices are they charging?</li></ul>
+
+<p>Don't automatically assume that the most expensive location is the best location.</p>
+
+<p>A smaller shop in an area with your target customers can outperform a larger, expensive shop in a location where your customers rarely shop.</p>
+
+<p><strong>So, What Is the Best Amount to Start a Cosmetic Shop?</strong></p>
+
+<p>If you want a simple answer, I would say:</p>
+
+<p><strong>There is no magic startup figure.</strong></p>
+
+<p>Before opening, calculate:</p>
+
+<p><strong>Total startup capital =</strong></p>
+
+<p><strong>Stock + rent/deposit + shop fittings + licences/registration + branding + POS + marketing + working capital + emergency fund</strong></p>
+
+<p>Once you calculate all of these, you'll have a much more realistic picture of how much you actually need. The only estimate l can give is a stock of a minimum of 25,000 can get you started</p>
+
+<p>And don't forget to leave room for your business to make mistakes.</p>
+
+<hr style="margin:80px 0;border:none;border-top:1px solid var(--border);">
+
+<section>
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<h3>How much money do I need to start a cosmetic shop in Kenya?</h3>
+<p>There is no single amount that applies to every shop. The capital you need depends on your location, product range, supplier, rent, shop fittings and working capital. In this guide, a small shop can start with carefully selected stock from around KSh 25,000, while a larger, more heavily stocked business can require hundreds of thousands of shillings.</p>
+
+<h3>Can I start a cosmetic shop with KSh 25,000?</h3>
+<p>Yes, you can start small with carefully selected products and a distributor rather than trying to open multiple manufacturer accounts. The key is to focus your limited capital on products with demand and keep enough cash available for operating expenses and restocking.</p>
+
+<h3>Is it better to buy cosmetics directly from manufacturers?</h3>
+<p>Direct purchasing can offer better wholesale pricing and stronger supplier relationships, but minimum opening orders can require substantial capital. For a new business, distributors can make it easier to access a wider range of products with a smaller starting budget.</p>
+
+<h3>Why does a cosmetic shop need a POS system?</h3>
+<p>A POS system helps you track sales and inventory, identify fast-moving and slow-moving products, monitor stock levels and make better purchasing decisions. This becomes increasingly important as your shop carries more products and product variations.</p>
+
+<h3>What should I look for in a POS system for a cosmetic shop?</h3>
+<p>Look for inventory management, barcode scanning, sales reporting, stock alerts, product management, customer records and easy reporting. For a cosmetic shop with many SKUs, strong inventory management is particularly important.</p>
+</section>
+
+<section class="info-card" style="margin-top:90px;text-align:center;">
+<h2 style="margin-top:0;">Ready to Manage Your Cosmetic Shop Better?</h2>
+<p>Ruo Systems is built to help cosmetic-shop owners manage inventory, track sales and make better business decisions as the business grows.</p>
+<a href="/" class="brand-link">Explore Ruo Systems</a>
+</section>
+</article>
+
+</div>
+
+</section>
+
+<script>
+
+const readingBar=document.getElementById("readingBar");
+
+window.addEventListener("scroll",()=>{
+
+const total=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=(window.scrollY/total)*100;
+
+readingBar.style.width=progress+"%";
+
+});
+
+</script>
+
+{% endblock %}
