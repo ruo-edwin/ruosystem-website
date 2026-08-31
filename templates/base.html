@@ -383,38 +383,68 @@ cursor:pointer;
     position: relative;
 }
 
+/* Industries button */
+
 .nav-dropdown-toggle {
     display: flex;
     align-items: center;
     gap: 6px;
+
+    background: none;
+    border: none;
+
+    padding: 0;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--black);
+
     cursor: pointer;
+
+    transition: .3s;
+}
+
+.nav-dropdown-toggle:hover {
+    color: var(--purple);
 }
 
 .dropdown-arrow {
     font-size: 16px;
     line-height: 1;
+
     transition: transform .25s ease;
 }
 
-/* Dropdown box */
+/* =========================
+   DROPDOWN
+========================= */
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 18px);
+
+    /* IMPORTANT:
+       No gap between button and dropdown */
+    top: 100%;
     left: 50%;
+
     transform: translateX(-50%) translateY(10px);
 
     width: 320px;
 
-    background: #ffffff;
+    background: white;
+
     border: 1px solid var(--border);
     border-radius: 16px;
 
     padding: 8px;
 
+    margin-top: 12px;
+
     box-shadow:
-        0 20px 50px rgba(16, 24, 40, .12),
-        0 5px 15px rgba(16, 24, 40, .06);
+        0 20px 50px rgba(16,24,40,.12),
+        0 5px 15px rgba(16,24,40,.06);
 
     opacity: 0;
     visibility: hidden;
@@ -426,12 +456,34 @@ cursor:pointer;
         visibility .2s ease;
 }
 
-/* Small arrow above dropdown */
+/*
+IMPORTANT FIX:
+
+This invisible area connects the
+Industries button to the dropdown.
+*/
 
 .dropdown-menu::before {
     content: "";
 
     position: absolute;
+
+    top: -13px;
+    left: 0;
+
+    width: 100%;
+    height: 13px;
+
+    background: transparent;
+}
+
+/* Little visual arrow */
+
+.dropdown-menu::after {
+    content: "";
+
+    position: absolute;
+
     top: -6px;
     left: 50%;
 
@@ -446,7 +498,9 @@ cursor:pointer;
     transform: translateX(-50%) rotate(45deg);
 }
 
-/* Show dropdown */
+/* =========================
+   SHOW DROPDOWN
+========================= */
 
 .nav-dropdown:hover .dropdown-menu {
     opacity: 1;
@@ -460,7 +514,9 @@ cursor:pointer;
     transform: rotate(180deg);
 }
 
-/* Dropdown links */
+/* =========================
+   DROPDOWN ITEMS
+========================= */
 
 .dropdown-menu a {
     display: flex;
@@ -485,7 +541,7 @@ cursor:pointer;
     transform: translateX(3px);
 }
 
-/* Icon */
+/* Icons */
 
 .dropdown-icon {
     width: 40px;
@@ -524,8 +580,6 @@ cursor:pointer;
     color: var(--grey);
 }
 
-
-
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -549,21 +603,40 @@ cursor:pointer;
 
                 <li><a href="/">Home</a></li>
                 <li class="nav-dropdown">
-                    <a href="/industries" class="nav-dropdown-toggle">
+                    <button class="nav-dropdown-toggle" type="button">
                         Industries
                         <span class="dropdown-arrow"></span>
-                    </a>
+                    </button>
 
                     <div class="dropdown-menu">
 
-                        <a href="/services/pos-for-cosmetic-shops">
+                        <a href="/services/cosmeticpos">
                             <span class="dropdown-icon">💄</span>
                             <div>
                                 <strong>Cosmetics Shops</strong>
                                 <small>POS for beauty & cosmetic stores</small>
                             </div>
-                        </a>   
+                        </a>
+
+                        <a href="/services/minisupermarketpos">
+                            <span class="dropdown-icon">🛒</span>
+                            <div>
+                                <strong>Mini Supermarkets</strong>
+                                <small>POS for supermarkets & retail</small>
+                            </div>
+                        </a>
+                         <a href="/services/pharmacypos">
+                            <span class="dropdown-icon">💊</span>
+                            <div>
+                                <strong>Pharmacies</strong>
+                                <small>Manage pharmacy sales & inventory</small>
+                            </div>
+                        </a>
+
+
+                        
                     </div>
+
                 </li>
                 <li><a href="/#pricing">Pricing</a></li>
                 <li><a href="/resources">Resources</a></li>
