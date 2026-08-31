@@ -375,6 +375,157 @@ cursor:pointer;
   padding-right: 40px; /* space for arrow */
   cursor: pointer;
 }
+/* =========================
+   INDUSTRIES DROPDOWN
+========================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    font-size: 16px;
+    line-height: 1;
+    transition: transform .25s ease;
+}
+
+/* Dropdown box */
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+
+    width: 320px;
+
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    padding: 8px;
+
+    box-shadow:
+        0 20px 50px rgba(16, 24, 40, .12),
+        0 5px 15px rgba(16, 24, 40, .06);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+}
+
+/* Small arrow above dropdown */
+
+.dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+    top: -6px;
+    left: 50%;
+
+    width: 12px;
+    height: 12px;
+
+    background: white;
+
+    border-left: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* Show dropdown */
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 12px;
+
+    border-radius: 11px;
+
+    color: var(--black);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: var(--purple-light);
+    color: var(--black);
+
+    transform: translateX(3px);
+}
+
+/* Icon */
+
+.dropdown-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--purple-light);
+
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+}
+
+/* Text */
+
+.dropdown-menu strong {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+}
+
+.dropdown-menu small {
+    display: block;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    color: var(--grey);
+}
+
+
+
     </style>
 
     {% block extra_css %}{% endblock %}
