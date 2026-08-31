@@ -12,6 +12,7 @@ async def sitemap():
         "https://www.ruosystem.co.ke/pricing",
         "https://www.ruosystem.co.ke/contact",
         "https://www.ruosystem.co.ke/blog",
+        "https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops",
 
         # Blog Posts
         "https://www.ruosystem.co.ke/blog/best-pos-system-kenya",
