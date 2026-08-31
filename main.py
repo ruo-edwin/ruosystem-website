@@ -50,7 +50,13 @@ async def about(request: Request):
         context={}
     )
 
-
+@app.get("/services/pos-for-cosmetic-shops")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posforcosmetic.html",
+        context={}
+    )
 @app.get("/blog/best-pos-system-for-retail-shops-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(

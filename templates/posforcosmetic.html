@@ -1,0 +1,1930 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+POS System for Cosmetic Shops in Kenya | Ruo Systems
+{% endblock %}
+
+{% block description %}
+POS system for cosmetic shops in Kenya. Manage cosmetics inventory, sales, stock levels and profits with simple POS software built for beauty and cosmetic shops.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   COSMETICS POS PAGE
+========================================================= */
+
+:root{
+    --cos-purple:#6F3FF5;
+    --cos-purple-dark:#5425D0;
+    --cos-purple-soft:#F4F0FF;
+    --cos-pink:#FDF4FA;
+    --cos-black:#101828;
+    --cos-grey:#667085;
+    --cos-light:#F8F9FC;
+    --cos-border:#EAECF0;
+    --cos-white:#FFFFFF;
+    --cos-green:#12B76A;
+}
+
+*{
+    scroll-behavior:smooth;
+}
+
+.cos-page{
+    overflow:hidden;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.cos-hero{
+    position:relative;
+    padding:90px 0 110px;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(111,63,245,.13), transparent 32%),
+        radial-gradient(circle at 10% 70%, rgba(233,190,220,.18), transparent 30%),
+        #fff;
+}
+
+.cos-hero::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(111,63,245,.06);
+    right:-180px;
+    top:100px;
+    filter:blur(5px);
+}
+
+.cos-hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:70px;
+    align-items:center;
+}
+
+.cos-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:100px;
+    background:var(--cos-purple-soft);
+    color:var(--cos-purple);
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:22px;
+}
+
+.cos-eyebrow span{
+    width:7px;
+    height:7px;
+    background:var(--cos-green);
+    border-radius:50%;
+}
+
+.cos-hero h1{
+    font-size:clamp(42px,5vw,70px);
+    line-height:1.08;
+    letter-spacing:-2.5px;
+    font-weight:800;
+    margin-bottom:25px;
+    color:var(--cos-black);
+}
+
+.cos-hero h1 .highlight{
+    color:var(--cos-purple);
+}
+
+.cos-hero-text{
+    font-size:18px;
+    line-height:1.8;
+    color:var(--cos-grey);
+    max-width:650px;
+    margin-bottom:34px;
+}
+
+.cos-hero-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.cos-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:15px 24px;
+    border-radius:13px;
+    background:var(--cos-purple);
+    color:#fff;
+    font-weight:800;
+    font-size:15px;
+    box-shadow:0 14px 35px rgba(111,63,245,.22);
+    transition:.3s;
+}
+
+.cos-primary:hover{
+    background:var(--cos-purple-dark);
+    color:#fff;
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(111,63,245,.3);
+}
+
+.cos-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 23px;
+    border:1px solid var(--cos-border);
+    border-radius:13px;
+    color:var(--cos-black);
+    background:#fff;
+    font-weight:700;
+    font-size:15px;
+    transition:.3s;
+}
+
+.cos-secondary:hover{
+    border-color:var(--cos-purple);
+    color:var(--cos-purple);
+}
+
+.cos-trust{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    margin-top:28px;
+    color:#667085;
+    font-size:13px;
+    font-weight:600;
+}
+
+.cos-trust-item{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.cos-check{
+    width:20px;
+    height:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ECFDF3;
+    color:var(--cos-green);
+    font-size:12px;
+    font-weight:900;
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.cos-dashboard{
+    position:relative;
+    background:#fff;
+    border:1px solid rgba(16,24,40,.08);
+    border-radius:25px;
+    padding:13px;
+    box-shadow:
+        0 35px 80px rgba(16,24,40,.12),
+        0 10px 25px rgba(111,63,245,.08);
+    transform:rotate(1deg);
+}
+
+.cos-dashboard-inner{
+    background:#F8F7FC;
+    border-radius:17px;
+    padding:18px;
+    min-height:430px;
+}
+
+.cos-dash-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.cos-dash-title{
+    font-size:14px;
+    font-weight:800;
+}
+
+.cos-dash-date{
+    font-size:11px;
+    color:var(--cos-grey);
+}
+
+.cos-sales-card{
+    background:linear-gradient(135deg,#6F3FF5,#8B63F7);
+    border-radius:17px;
+    padding:22px;
+    color:#fff;
+    margin-bottom:17px;
+}
+
+.cos-sales-label{
+    font-size:12px;
+    opacity:.8;
+}
+
+.cos-sales-number{
+    font-size:30px;
+    font-weight:800;
+    margin:3px 0;
+}
+
+.cos-sales-growth{
+    font-size:11px;
+    opacity:.9;
+}
+
+.cos-dash-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.cos-mini-card{
+    background:#fff;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid #eee;
+}
+
+.cos-mini-label{
+    font-size:11px;
+    color:var(--cos-grey);
+}
+
+.cos-mini-number{
+    font-size:20px;
+    font-weight:800;
+    margin-top:3px;
+}
+
+.cos-stock-list{
+    background:#fff;
+    margin-top:14px;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid #eee;
+}
+
+.cos-stock-heading{
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.cos-stock-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:9px 0;
+    border-bottom:1px solid #F2F4F7;
+    font-size:11px;
+}
+
+.cos-stock-row:last-child{
+    border-bottom:none;
+}
+
+.cos-product{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.cos-product-dot{
+    width:27px;
+    height:27px;
+    border-radius:8px;
+    background:var(--cos-purple-soft);
+}
+
+/* floating cards */
+
+.cos-floating{
+    position:absolute;
+    background:#fff;
+    border:1px solid rgba(16,24,40,.07);
+    box-shadow:0 15px 35px rgba(16,24,40,.12);
+    border-radius:14px;
+    padding:12px 15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.cos-floating-icon{
+    width:31px;
+    height:31px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--cos-purple-soft);
+    color:var(--cos-purple);
+}
+
+.cos-floating.one{
+    left:-38px;
+    bottom:70px;
+}
+
+.cos-floating.two{
+    right:-35px;
+    top:90px;
+}
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+
+.cos-section{
+    padding:105px 0;
+}
+
+.cos-section-light{
+    background:var(--cos-light);
+}
+
+.cos-section-heading{
+    max-width:720px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.cos-section-heading .label{
+    color:var(--cos-purple);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+.cos-section-heading h2{
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.15;
+    letter-spacing:-1.5px;
+    margin-bottom:18px;
+}
+
+.cos-section-heading p{
+    color:var(--cos-grey);
+    font-size:17px;
+}
+
+/* =========================================================
+   PAIN POINTS
+========================================================= */
+
+.cos-problems{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.cos-problem{
+    background:#fff;
+    border:1px solid var(--cos-border);
+    border-radius:20px;
+    padding:28px;
+    transition:.3s;
+}
+
+.cos-problem:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 45px rgba(16,24,40,.07);
+}
+
+.cos-problem-icon{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    background:var(--cos-purple-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--cos-purple);
+    font-size:21px;
+    margin-bottom:20px;
+}
+
+.cos-problem h3{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.cos-problem p{
+    color:var(--cos-grey);
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.cos-feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.cos-feature{
+    padding:30px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid var(--cos-border);
+    transition:.3s;
+}
+
+.cos-feature:hover{
+    transform:translateY(-5px);
+    border-color:#D9CCFF;
+    box-shadow:0 20px 50px rgba(111,63,245,.08);
+}
+
+.cos-feature-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--cos-purple-soft);
+    color:var(--cos-purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+.cos-feature h3{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.cos-feature p{
+    color:var(--cos-grey);
+    font-size:14px;
+    line-height:1.75;
+}
+
+/* =========================================================
+   BIG FEATURE
+========================================================= */
+
+.cos-big-feature{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.cos-big-feature.reverse{
+    direction:rtl;
+}
+
+.cos-big-feature.reverse > *{
+    direction:ltr;
+}
+
+.cos-big-copy .label{
+    color:var(--cos-purple);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.cos-big-copy h2{
+    font-size:clamp(32px,4vw,47px);
+    line-height:1.15;
+    letter-spacing:-1.5px;
+    margin:14px 0 20px;
+}
+
+.cos-big-copy p{
+    color:var(--cos-grey);
+    font-size:16px;
+    line-height:1.8;
+}
+
+.cos-list{
+    list-style:none;
+    margin-top:25px;
+}
+
+.cos-list li{
+    display:flex;
+    gap:12px;
+    margin-bottom:13px;
+    color:#344054;
+    font-size:14px;
+    font-weight:600;
+}
+
+.cos-list-check{
+    flex-shrink:0;
+    width:21px;
+    height:21px;
+    background:#ECFDF3;
+    color:var(--cos-green);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+}
+
+/* Feature visual */
+
+.cos-visual-box{
+    background:linear-gradient(145deg,#F5F1FF,#FBF8FC);
+    border-radius:28px;
+    padding:35px;
+}
+
+.cos-visual-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 20px 45px rgba(16,24,40,.09);
+}
+
+.cos-visual-card-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.cos-visual-card h4{
+    font-size:15px;
+}
+
+.cos-pill{
+    padding:5px 9px;
+    border-radius:20px;
+    background:#ECFDF3;
+    color:#027A48;
+    font-size:10px;
+    font-weight:800;
+}
+
+.cos-bar{
+    height:9px;
+    border-radius:20px;
+    background:#F2F4F7;
+    margin-bottom:14px;
+    overflow:hidden;
+}
+
+.cos-bar span{
+    display:block;
+    height:100%;
+    width:72%;
+    background:var(--cos-purple);
+    border-radius:20px;
+}
+
+.cos-bar:nth-child(2) span{
+    width:55%;
+}
+
+.cos-bar:nth-child(3) span{
+    width:88%;
+}
+
+/* =========================================================
+   BENEFITS STRIP
+========================================================= */
+
+.cos-benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--cos-border);
+    border-radius:22px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.cos-benefit{
+    padding:27px 25px;
+    text-align:center;
+    border-right:1px solid var(--cos-border);
+}
+
+.cos-benefit:last-child{
+    border-right:none;
+}
+
+.cos-benefit strong{
+    display:block;
+    font-size:19px;
+    margin-bottom:4px;
+}
+
+.cos-benefit span{
+    font-size:12px;
+    color:var(--cos-grey);
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cos-cta{
+    padding:100px 0;
+}
+
+.cos-cta-box{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(120deg,#171225,#3A207D);
+    border-radius:30px;
+    padding:75px 60px;
+    text-align:center;
+    color:#fff;
+}
+
+.cos-cta-box::before,
+.cos-cta-box::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.cos-cta-box::before{
+    width:400px;
+    height:400px;
+    left:-200px;
+    top:-230px;
+}
+
+.cos-cta-box::after{
+    width:350px;
+    height:350px;
+    right:-170px;
+    bottom:-220px;
+}
+
+.cos-cta-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    margin:auto;
+}
+
+.cos-cta-box h2{
+    font-size:clamp(32px,4vw,50px);
+    line-height:1.15;
+    letter-spacing:-1.5px;
+    margin-bottom:17px;
+}
+
+.cos-cta-box p{
+    color:rgba(255,255,255,.75);
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.cos-cta-button{
+    display:inline-flex;
+    background:#fff;
+    color:var(--cos-purple);
+    padding:15px 26px;
+    border-radius:13px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.cos-cta-button:hover{
+    transform:translateY(-3px);
+    color:var(--cos-purple-dark);
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.cos-faq{
+    max-width:820px;
+    margin:auto;
+}
+
+.cos-faq-item{
+    border-bottom:1px solid var(--cos-border);
+}
+
+.cos-faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:22px 0;
+    font-size:16px;
+    font-weight:800;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cos-faq-item summary::-webkit-details-marker{
+    display:none;
+}
+
+.cos-faq-item summary::after{
+    content:"+";
+    font-size:22px;
+    color:var(--cos-purple);
+}
+
+.cos-faq-item[open] summary::after{
+    content:"−";
+}
+
+.cos-faq-answer{
+    color:var(--cos-grey);
+    font-size:14px;
+    line-height:1.8;
+    padding:0 0 22px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .cos-hero-grid{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .cos-hero{
+        padding:70px 0 80px;
+    }
+
+    .cos-dashboard{
+        max-width:650px;
+        margin:auto;
+    }
+
+    .cos-problems,
+    .cos-feature-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cos-big-feature{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .cos-big-feature.reverse{
+        direction:ltr;
+    }
+
+    .cos-benefits{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cos-benefit:nth-child(2){
+        border-right:none;
+    }
+
+    .cos-benefit:nth-child(-n+2){
+        border-bottom:1px solid var(--cos-border);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .cos-hero{
+        padding:55px 0 70px;
+    }
+
+    .cos-hero h1{
+        font-size:40px;
+        letter-spacing:-1.7px;
+    }
+
+    .cos-hero-text{
+        font-size:16px;
+    }
+
+    .cos-hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .cos-primary,
+    .cos-secondary{
+        width:100%;
+    }
+
+    .cos-trust{
+        flex-wrap:wrap;
+        gap:10px 15px;
+    }
+
+    .cos-floating{
+        display:none;
+    }
+
+    .cos-dashboard{
+        transform:none;
+    }
+
+    .cos-dashboard-inner{
+        min-height:auto;
+        padding:13px;
+    }
+
+    .cos-section{
+        padding:75px 0;
+    }
+
+    .cos-section-heading{
+        margin-bottom:35px;
+    }
+
+    .cos-section-heading h2{
+        font-size:32px;
+    }
+
+    .cos-problems,
+    .cos-feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cos-big-copy h2{
+        font-size:32px;
+    }
+
+    .cos-visual-box{
+        padding:18px;
+    }
+
+    .cos-benefits{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cos-benefit{
+        padding:20px 12px;
+    }
+
+    .cos-benefit strong{
+        font-size:16px;
+    }
+
+    .cos-cta{
+        padding:70px 0;
+    }
+
+    .cos-cta-box{
+        padding:55px 22px;
+        border-radius:22px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="cos-page">
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="cos-hero">
+
+    <div class="container">
+
+        <div class="cos-hero-grid">
+
+            <div>
+
+                <div class="cos-eyebrow">
+                    <span></span>
+                    Built for Cosmetic & Beauty Shops
+                </div>
+
+                <h1>
+                    A smarter POS system for
+                    <span class="highlight">cosmetic shops.</span>
+                </h1>
+
+                <p class="cos-hero-text">
+                    Sell cosmetics, manage your stock and know exactly what is
+                    happening in your shop. Ruo Systems gives cosmetic shops in
+                    Kenya a simple POS system designed to make daily business
+                    management easier.
+                </p>
+
+                <div class="cos-hero-actions">
+
+                    <a
+                        href="https://pos-10-production.up.railway.app/auth/demo"
+                        class="cos-primary"
+                        onclick="gtag('event','request_demo_click');"
+                    >
+                        Explore the System →
+                    </a>
+
+                    <a href="#features" class="cos-secondary">
+                        See What It Does
+                    </a>
+
+                </div>
+
+                <div class="cos-trust">
+
+                    <div class="cos-trust-item">
+                        <span class="cos-check">✓</span>
+                        Sales tracking
+                    </div>
+
+                    <div class="cos-trust-item">
+                        <span class="cos-check">✓</span>
+                        Inventory management
+                    </div>
+
+                    <div class="cos-trust-item">
+                        <span class="cos-check">✓</span>
+                        Profit visibility
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard visual -->
+
+            <div>
+
+                <div class="cos-dashboard">
+
+                    <div class="cos-dashboard-inner">
+
+                        <div class="cos-dash-top">
+
+                            <div class="cos-dash-title">
+                                Cosmetic Shop Dashboard
+                            </div>
+
+                            <div class="cos-dash-date">
+                                Today's overview
+                            </div>
+
+                        </div>
+
+                        <div class="cos-sales-card">
+
+                            <div class="cos-sales-label">
+                                Today's Sales
+                            </div>
+
+                            <div class="cos-sales-number">
+                                KSh 38,450
+                            </div>
+
+                            <div class="cos-sales-growth">
+                                ↑ Sales performance overview
+                            </div>
+
+                        </div>
+
+                        <div class="cos-dash-grid">
+
+                            <div class="cos-mini-card">
+                                <div class="cos-mini-label">
+                                    Products
+                                </div>
+
+                                <div class="cos-mini-number">
+                                    1,248
+                                </div>
+                            </div>
+
+                            <div class="cos-mini-card">
+                                <div class="cos-mini-label">
+                                    Low Stock
+                                </div>
+
+                                <div class="cos-mini-number">
+                                    18
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="cos-stock-list">
+
+                            <div class="cos-stock-heading">
+                                Stock Overview
+                            </div>
+
+                            <div class="cos-stock-row">
+
+                                <div class="cos-product">
+                                    <div class="cos-product-dot"></div>
+                                    Skin Care
+                                </div>
+
+                                <strong>Good</strong>
+
+                            </div>
+
+                            <div class="cos-stock-row">
+
+                                <div class="cos-product">
+                                    <div class="cos-product-dot"></div>
+                                    Hair Products
+                                </div>
+
+                                <strong>Good</strong>
+
+                            </div>
+
+                            <div class="cos-stock-row">
+
+                                <div class="cos-product">
+                                    <div class="cos-product-dot"></div>
+                                    Makeup
+                                </div>
+
+                                <strong>Low</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="cos-floating one">
+                        <div class="cos-floating-icon">✓</div>
+                        Stock updated
+                    </div>
+
+                    <div class="cos-floating two">
+                        <div class="cos-floating-icon">KSh</div>
+                        Sales recorded
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROBLEMS
+===================================================== -->
+
+<section class="cos-section cos-section-light">
+
+    <div class="container">
+
+        <div class="cos-section-heading">
+
+            <div class="label">
+                Built around your shop
+            </div>
+
+            <h2>
+                Running a cosmetic shop shouldn't mean guessing.
+            </h2>
+
+            <p>
+                When your products are moving every day, simple records are
+                not enough. You need to know what sold, what remains and where
+                your money is going.
+            </p>
+
+        </div>
+
+
+        <div class="cos-problems">
+
+            <div class="cos-problem">
+
+                <div class="cos-problem-icon">▦</div>
+
+                <h3>
+                    Losing track of stock?
+                </h3>
+
+                <p>
+                    Keep your cosmetic products organized and monitor stock
+                    levels as sales happen.
+                </p>
+
+            </div>
+
+
+            <div class="cos-problem">
+
+                <div class="cos-problem-icon">₦</div>
+
+                <h3>
+                    Not sure what you sold?
+                </h3>
+
+                <p>
+                    Record sales through the POS and get a clear picture of
+                    your shop's daily performance.
+                </p>
+
+            </div>
+
+
+            <div class="cos-problem">
+
+                <div class="cos-problem-icon">↗</div>
+
+                <h3>
+                    Hard to know your profit?
+                </h3>
+
+                <p>
+                    Track selling prices and buying costs so you can understand
+                    how your products are performing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="cos-section" id="features">
+
+    <div class="container">
+
+        <div class="cos-section-heading">
+
+            <div class="label">
+                Everything you need
+            </div>
+
+            <h2>
+                One simple system for your cosmetic shop.
+            </h2>
+
+            <p>
+                Manage the everyday operations of your beauty or cosmetics
+                business from one place.
+            </p>
+
+        </div>
+
+
+        <div class="cos-feature-grid">
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">▣</div>
+
+                <h3>
+                    Fast Sales
+                </h3>
+
+                <p>
+                    Process customer purchases quickly and keep every sale
+                    recorded automatically.
+                </p>
+
+            </div>
+
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">▦</div>
+
+                <h3>
+                    Cosmetic Inventory
+                </h3>
+
+                <p>
+                    Keep track of your skincare, haircare, makeup, fragrances
+                    and other cosmetic products.
+                </p>
+
+            </div>
+
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">↕</div>
+
+                <h3>
+                    Stock Movement
+                </h3>
+
+                <p>
+                    Understand products coming into your shop and products
+                    leaving through sales.
+                </p>
+
+            </div>
+
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">!</div>
+
+                <h3>
+                    Low Stock Visibility
+                </h3>
+
+                <p>
+                    Quickly identify products that need restocking before
+                    customers find them unavailable.
+                </p>
+
+            </div>
+
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">KSh</div>
+
+                <h3>
+                    Sales & Profit
+                </h3>
+
+                <p>
+                    See your sales performance and understand how your
+                    products contribute to your business.
+                </p>
+
+            </div>
+
+
+            <div class="cos-feature">
+
+                <div class="cos-feature-icon">▤</div>
+
+                <h3>
+                    Business Reports
+                </h3>
+
+                <p>
+                    Turn your daily transactions into useful information for
+                    making better business decisions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INVENTORY FEATURE
+===================================================== -->
+
+<section class="cos-section cos-section-light">
+
+    <div class="container">
+
+        <div class="cos-big-feature">
+
+            <div class="cos-big-copy">
+
+                <div class="label">
+                    Inventory Management
+                </div>
+
+                <h2>
+                    Know what's on your shelves without counting everything manually.
+                </h2>
+
+                <p>
+                    Cosmetic shops can carry hundreds of products across
+                    different categories, brands and price points. Ruo Systems
+                    helps you keep your inventory organized and easier to
+                    manage.
+                </p>
+
+                <ul class="cos-list">
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Track products and stock quantities
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Monitor stock movement
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Identify low-stock products
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Keep product prices organized
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="cos-visual-box">
+
+                <div class="cos-visual-card">
+
+                    <div class="cos-visual-card-header">
+
+                        <h4>
+                            Inventory Overview
+                        </h4>
+
+                        <span class="cos-pill">
+                            Updated
+                        </span>
+
+                    </div>
+
+                    <p style="font-size:12px;color:#667085;margin-bottom:20px;">
+                        Stock levels by category
+                    </p>
+
+                    <div class="cos-bar">
+                        <span></span>
+                    </div>
+
+                    <div class="cos-bar">
+                        <span></span>
+                    </div>
+
+                    <div class="cos-bar">
+                        <span></span>
+                    </div>
+
+                    <div style="margin-top:25px;font-size:12px;color:#667085;">
+                        Inventory remains visible while your shop keeps selling.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SALES FEATURE
+===================================================== -->
+
+<section class="cos-section">
+
+    <div class="container">
+
+        <div class="cos-big-feature reverse">
+
+            <div class="cos-big-copy">
+
+                <div class="label">
+                    Sales Management
+                </div>
+
+                <h2>
+                    Every sale should leave a clear record.
+                </h2>
+
+                <p>
+                    Stop relying on notebooks and memory to understand how your
+                    cosmetic shop is performing. Record sales through your POS
+                    and build a reliable history of your transactions.
+                </p>
+
+                <ul class="cos-list">
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Record sales as they happen
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Monitor daily sales
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Track cash and M-Pesa sales
+                    </li>
+
+                    <li>
+                        <span class="cos-list-check">✓</span>
+                        Use sales information to make better decisions
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="cos-visual-box">
+
+                <div class="cos-visual-card">
+
+                    <div class="cos-visual-card-header">
+
+                        <h4>
+                            Today's Sales
+                        </h4>
+
+                        <span class="cos-pill">
+                            Live
+                        </span>
+
+                    </div>
+
+                    <div style="font-size:32px;font-weight:800;margin-bottom:8px;">
+                        KSh 38,450
+                    </div>
+
+                    <div style="font-size:12px;color:#667085;margin-bottom:25px;">
+                        Sales recorded today
+                    </div>
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                        padding:13px 0;
+                        border-bottom:1px solid #F2F4F7;
+                        font-size:12px;
+                    ">
+                        <span>M-Pesa</span>
+                        <strong>KSh 23,100</strong>
+                    </div>
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                        padding:13px 0;
+                        font-size:12px;
+                    ">
+                        <span>Cash</span>
+                        <strong>KSh 15,350</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFITS
+===================================================== -->
+
+<section class="cos-section cos-section-light">
+
+    <div class="container">
+
+        <div class="cos-section-heading">
+
+            <div class="label">
+                Why Ruo Systems
+            </div>
+
+            <h2>
+                Simple enough for everyday use. Powerful enough to grow with you.
+            </h2>
+
+        </div>
+
+
+        <div class="cos-benefits">
+
+            <div class="cos-benefit">
+                <strong>Simple</strong>
+                <span>Easy to learn and use</span>
+            </div>
+
+            <div class="cos-benefit">
+                <strong>Cloud-based</strong>
+                <span>Access your business system online</span>
+            </div>
+
+            <div class="cos-benefit">
+                <strong>Affordable</strong>
+                <span>Designed for growing businesses</span>
+            </div>
+
+            <div class="cos-benefit">
+                <strong>Kenya-ready</strong>
+                <span>Built with local businesses in mind</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEO CONTENT
+===================================================== -->
+
+<section class="cos-section">
+
+    <div class="container">
+
+        <div class="cos-big-feature">
+
+            <div class="cos-big-copy">
+
+                <div class="label">
+                    POS for Cosmetic Shops in Kenya
+                </div>
+
+                <h2>
+                    Manage your cosmetics business with less guesswork.
+                </h2>
+
+                <p>
+                    A cosmetic shop can have a large number of fast-moving
+                    products, from skincare and hair products to makeup,
+                    fragrances and beauty accessories. Keeping track of all
+                    these products manually can become difficult as the
+                    business grows.
+                </p>
+
+                <p style="margin-top:18px;">
+                    Ruo Systems is a POS system for cosmetic shops in Kenya
+                    designed to bring sales and inventory management together.
+                    Instead of depending entirely on handwritten records,
+                    your business can use one system to record sales, monitor
+                    stock and understand its performance.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div style="
+                    background:#F8F5FF;
+                    border-radius:25px;
+                    padding:35px;
+                ">
+
+                    <div style="
+                        background:#fff;
+                        border-radius:18px;
+                        padding:25px;
+                        box-shadow:0 15px 40px rgba(16,24,40,.07);
+                    ">
+
+                        <div style="
+                            font-size:12px;
+                            color:#667085;
+                            margin-bottom:8px;
+                        ">
+                            YOUR SHOP
+                        </div>
+
+                        <div style="
+                            font-size:22px;
+                            font-weight:800;
+                            margin-bottom:20px;
+                        ">
+                            One place for your business.
+                        </div>
+
+                        <div style="
+                            display:grid;
+                            grid-template-columns:1fr 1fr;
+                            gap:10px;
+                        ">
+
+                            <div style="
+                                background:#F4F0FF;
+                                padding:18px;
+                                border-radius:13px;
+                            ">
+                                <div style="font-size:11px;color:#667085;">
+                                    Sales
+                                </div>
+
+                                <strong style="font-size:18px;">
+                                    Track
+                                </strong>
+                            </div>
+
+                            <div style="
+                                background:#F4F0FF;
+                                padding:18px;
+                                border-radius:13px;
+                            ">
+                                <div style="font-size:11px;color:#667085;">
+                                    Stock
+                                </div>
+
+                                <strong style="font-size:18px;">
+                                    Manage
+                                </strong>
+                            </div>
+
+                            <div style="
+                                background:#F4F0FF;
+                                padding:18px;
+                                border-radius:13px;
+                            ">
+                                <div style="font-size:11px;color:#667085;">
+                                    Products
+                                </div>
+
+                                <strong style="font-size:18px;">
+                                    Organize
+                                </strong>
+                            </div>
+
+                            <div style="
+                                background:#F4F0FF;
+                                padding:18px;
+                                border-radius:13px;
+                            ">
+                                <div style="font-size:11px;color:#667085;">
+                                    Reports
+                                </div>
+
+                                <strong style="font-size:18px;">
+                                    Understand
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="cos-section cos-section-light">
+
+    <div class="container">
+
+        <div class="cos-section-heading">
+
+            <div class="label">
+                Frequently Asked Questions
+            </div>
+
+            <h2>
+                Questions about our cosmetic shop POS system
+            </h2>
+
+        </div>
+
+
+        <div class="cos-faq">
+
+            <details class="cos-faq-item">
+
+                <summary>
+                    What is the best POS system for a cosmetic shop in Kenya?
+                </summary>
+
+                <div class="cos-faq-answer">
+                    The right POS system should make it easy to manage sales,
+                    inventory, product prices and business reports. Ruo Systems
+                    is designed specifically to provide a simple way for
+                    cosmetic and beauty shops in Kenya to manage these daily
+                    operations.
+                </div>
+
+            </details>
+
+
+            <details class="cos-faq-item">
+
+                <summary>
+                    Can a POS system manage cosmetic shop inventory?
+                </summary>
+
+                <div class="cos-faq-answer">
+                    Yes. A POS system can connect your sales activity with your
+                    inventory, making it easier to monitor stock levels,
+                    product movement and products that may need restocking.
+                </div>
+
+            </details>
+
+
+            <details class="cos-faq-item">
+
+                <summary>
+                    Can I track M-Pesa and cash sales?
+                </summary>
+
+                <div class="cos-faq-answer">
+                    Ruo Systems allows businesses to record their sales and
+                    keep track of different payment methods, including cash
+                    and M-Pesa.
+                </div>
+
+            </details>
+
+
+            <details class="cos-faq-item">
+
+                <summary>
+                    Is Ruo Systems suitable for a small cosmetic shop?
+                </summary>
+
+                <div class="cos-faq-answer">
+                    Yes. Ruo Systems is designed to remain simple enough for
+                    small and growing businesses while providing the tools
+                    needed to manage sales and inventory more efficiently.
+                </div>
+
+            </details>
+
+
+            <details class="cos-faq-item">
+
+                <summary>
+                    Can I try the cosmetic shop POS system before using it?
+                </summary>
+
+                <div class="cos-faq-answer">
+                    Yes. You can explore the Ruo Systems demo to see how the
+                    system works before deciding whether it is suitable for
+                    your cosmetic shop.
+                </div>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="cos-cta">
+
+    <div class="container">
+
+        <div class="cos-cta-box">
+
+            <div class="cos-cta-content">
+
+                <h2>
+                    Ready to take control of your cosmetic shop?
+                </h2>
+
+                <p>
+                    See how Ruo Systems can help you manage sales, inventory
+                    and your day-to-day cosmetic shop operations.
+                </p>
+
+                <a
+                    href="https://pos-10-production.up.railway.app/auth/demo"
+                    class="cos-cta-button"
+                    onclick="gtag('event','request_demo_click');"
+                >
+                    Explore Ruo Systems →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ SCHEMA
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best POS system for a cosmetic shop in Kenya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The right POS system should make it easy to manage sales, inventory, product prices and business reports. Ruo Systems is designed to provide a simple way for cosmetic and beauty shops in Kenya to manage these daily operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a POS system manage cosmetic shop inventory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A POS system can connect sales activity with inventory, making it easier to monitor stock levels, product movement and products that may need restocking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track M-Pesa and cash sales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ruo Systems allows businesses to record sales and keep track of different payment methods, including cash and M-Pesa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ruo Systems suitable for a small cosmetic shop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ruo Systems is designed to remain simple enough for small and growing businesses while providing tools for managing sales and inventory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I try the cosmetic shop POS system before using it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can explore the Ruo Systems demo to see how the system works before deciding whether it is suitable for your cosmetic shop."
+      }
+    }
+  ]
+}
+</script>
+
+</div>
+
+{% endblock %}
+```
