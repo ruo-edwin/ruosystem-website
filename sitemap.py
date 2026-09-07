@@ -20,11 +20,13 @@ async def sitemap():
         "https://www.ruosystem.co.ke/blog/inventory-management-small-retail-shops-kenya",
         "https://www.ruosystem.co.ke/blog/choose-pos-system-small-business-kenya",
         "https://www.ruosystem.co.ke/blog/how-much-does-a-pos-system-cost-in-kenya",
-        "https://www.ruosystem.co.ke/blog/best-pos-for-minisupermarkets-in-kenya"
+        "https://www.ruosystem.co.ke/blog/best-pos-for-minisupermarkets-in-kenya",
+        "https://www.ruosystem.co.ke/blog/where-can-l-buy-cosmetic-products-in-wholesale-in-kenya"
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+"""
 """
 
     for url in urls:
