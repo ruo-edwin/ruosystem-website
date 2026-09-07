@@ -1,0 +1,835 @@
+{% extends "base.html" %}
+
+{% block title %}Where Can I Buy Beauty Products in Bulk in Nairobi? | Ruo System{% endblock %}
+
+{% block description %}
+Looking for where to buy beauty products in bulk in Nairobi? Find hair products, braids, weaves, crochets, wet hair products, makeup and skincare at wholesale prices in Nairobi CBD.
+{% endblock %}
+
+{% block keywords %}
+buy beauty products in bulk Nairobi, wholesale beauty products Nairobi, beauty products wholesale Nairobi, hair products wholesale Nairobi, cosmetics wholesale Nairobi, makeup wholesale Nairobi, beauty suppliers Nairobi
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+:root{
+    --content-width:760px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.blog-hero{
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--border);
+    background:
+    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+}
+
+.blog-hero .container{
+    max-width:900px;
+}
+
+.blog-category{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    background:var(--purple-light);
+    color:var(--purple);
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+}
+
+.blog-title{
+    margin-top:24px;
+    font-size:56px;
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+.blog-description{
+    margin-top:28px;
+    max-width:720px;
+    color:var(--grey);
+    font-size:20px;
+    line-height:1.8;
+}
+
+.blog-meta{
+    margin-top:35px;
+    display:flex;
+    gap:28px;
+    align-items:center;
+    flex-wrap:wrap;
+    color:var(--grey);
+    font-size:15px;
+}
+
+.blog-meta strong{
+    color:var(--black);
+}
+
+/* ==========================
+   READING PROGRESS
+========================== */
+
+.read-progress{
+    position:fixed;
+    top:75px;
+    left:0;
+    width:100%;
+    height:3px;
+    background:transparent;
+    z-index:999;
+}
+
+.read-progress span{
+    display:block;
+    width:0;
+    height:100%;
+    background:var(--purple);
+}
+
+/* ==========================
+   ARTICLE LAYOUT
+========================== */
+
+.blog-wrapper{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:80px;
+    padding:80px 0;
+}
+
+.blog-sidebar{
+    position:sticky;
+    top:120px;
+    height:max-content;
+}
+
+.blog-sidebar h4{
+    font-size:14px;
+    text-transform:uppercase;
+    color:var(--grey);
+    letter-spacing:.06em;
+    margin-bottom:18px;
+}
+
+.blog-sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.blog-sidebar li{
+    margin-bottom:16px;
+}
+
+.blog-sidebar a{
+    color:#555;
+    transition:.25s;
+    font-size:15px;
+    text-decoration:none;
+}
+
+.blog-sidebar a:hover{
+    color:var(--purple);
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.blog-content{
+    max-width:var(--content-width);
+}
+
+.blog-content h2{
+    margin-top:65px;
+    margin-bottom:22px;
+    font-size:38px;
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.blog-content h3{
+    margin-top:40px;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.blog-content p{
+    margin-bottom:26px;
+    font-size:18px;
+    color:#475467;
+    line-height:2;
+}
+
+.blog-content ul{
+    margin:30px 0;
+    padding-left:22px;
+}
+
+.blog-content li{
+    margin-bottom:14px;
+    color:#475467;
+    font-size:18px;
+}
+
+.blog-content strong{
+    color:var(--black);
+}
+
+/* ==========================
+   IMAGES
+========================== */
+
+.blog-image{
+    width:100%;
+    margin:45px 0;
+    border-radius:22px;
+    overflow:hidden;
+    background:#f5f3f8;
+}
+
+.blog-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:cover;
+}
+
+.blog-image figcaption{
+    padding:12px 16px;
+    font-size:13px;
+    color:var(--grey);
+    background:#fafafa;
+}
+
+/* ==========================
+   SUPPLIER CARD
+========================== */
+
+.supplier-card{
+    margin:45px 0;
+    padding:32px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:white;
+    box-shadow:0 15px 45px rgba(16,24,40,.05);
+}
+
+.supplier-card h3{
+    margin-top:0;
+    margin-bottom:10px;
+}
+
+.supplier-card p{
+    margin-bottom:18px;
+}
+
+.supplier-card ul{
+    margin-bottom:0;
+}
+
+/* ==========================
+   QUICK ANSWER
+========================== */
+
+.quick-answer{
+    margin:40px 0;
+    padding:30px 32px;
+    border-left:4px solid var(--purple);
+    background:#faf9ff;
+    border-radius:18px;
+}
+
+.quick-answer p{
+    margin-bottom:0;
+}
+
+/* ==========================
+   POS CTA
+========================== */
+
+.pos-card{
+    margin-top:80px;
+    padding:38px;
+    border:1px solid var(--border);
+    border-radius:24px;
+    background:#faf9ff;
+    text-align:center;
+}
+
+.pos-card h2{
+    margin-top:0;
+}
+
+.pos-card p{
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.pos-button{
+    display:inline-block;
+    margin-top:8px;
+    padding:13px 22px;
+    background:var(--purple);
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.2s;
+}
+
+.pos-button:hover{
+    opacity:.9;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:1100px){
+
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .blog-sidebar{
+        display:none;
+    }
+
+    .blog-title{
+        font-size:42px;
+    }
+
+    .blog-description{
+        font-size:18px;
+    }
+
+    .blog-content h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="read-progress">
+    <span id="readingBar"></span>
+</div>
+
+
+<!-- ==========================
+     HERO
+========================== -->
+
+<section class="blog-hero">
+
+    <div class="container">
+
+        <span class="blog-category">
+            Beauty Business Guide
+        </span>
+
+        <h1 class="blog-title">
+            Where Can I Buy Beauty Products in Bulk in Nairobi?
+        </h1>
+
+        <p class="blog-description">
+            Looking for where to buy beauty products in bulk in Nairobi?
+            Here are some of the places to check for braids, weaves, crochets,
+            wet hair products, makeup, skincare and beauty accessories.
+        </p>
+
+        <div class="blog-meta">
+            <div><strong>By</strong> Ruo System</div>
+            <div>4 min read</div>
+            <div>Updated September 2026</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="blog-wrapper">
+
+
+        <!-- ==========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="blog-sidebar">
+
+            <h4>Contents</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#vision">
+                        Vision Cosmetics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sunrays">
+                        Sunrays Cosmetics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#makeup">
+                        Makeup & Skincare
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#stock">
+                        Managing Your Stock
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- ==========================
+             ARTICLE
+        ========================== -->
+
+        <article class="blog-content">
+
+
+            <p>
+                If you're looking for <strong>where to buy beauty products
+                in bulk in Nairobi</strong>, there are plenty of suppliers
+                around Nairobi CBD. But if you want to save yourself time,
+                these are three places worth checking depending on what
+                you're looking for.
+            </p>
+
+
+            <div class="quick-answer">
+
+                <p>
+                    <strong>Quick answer:</strong>
+                    Visit <strong>Vision Cosmetics</strong> for braids,
+                    weaves and crochets, <strong>Sunrays Cosmetics</strong>
+                    for wet hair and body products, and
+                    <strong>Excel Complex</strong> for makeup, skincare
+                    and beauty accessories.
+                </p>
+
+            </div>
+
+
+            <!-- IMAGE 1 -->
+
+            <figure class="blog-image">
+
+                <img
+                    src="/static/images/blog/nairobi-beauty-products-wholesale.jpg"
+                    alt="Beauty products and cosmetics available in Nairobi wholesale shops"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    Nairobi CBD has a wide range of suppliers for beauty and
+                    cosmetic products.
+                </figcaption>
+
+            </figure>
+
+
+            <!-- ==========================
+                 VISION COSMETICS
+            ========================== -->
+
+            <section id="vision">
+
+                <h2>
+                    1. Vision Cosmetics – Braids, Weaves & Crochets
+                </h2>
+
+                <p>
+                    <strong>Vision Cosmetics</strong>, located along
+                    <strong>Dubois Road in Excel Complex Building</strong>,
+                    is a good place to start if you're mainly looking for
+                    hair products.
+                </p>
+
+                <p>
+                    They specialise particularly in braids, weaves and
+                    crochets from major brands.
+                </p>
+
+                <div class="supplier-card">
+
+                    <h3>
+                        What you can find
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Braids from major companies including Darling,
+                            Angels, Lush and Sistar
+                        </li>
+
+                        <li>
+                            Weaves and crochets
+                        </li>
+
+                        <li>
+                            Hair extensions
+                        </li>
+
+                        <li>
+                            Hair treatments
+                        </li>
+
+                        <li>
+                            Shampoos and conditioners
+                        </li>
+
+                        <li>
+                            Styling gels and edge control
+                        </li>
+
+                        <li>
+                            Hair dyes
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    One useful thing about buying from an experienced
+                    distributor is that you don't necessarily have to know
+                    exactly what to stock when you're starting out.
+                </p>
+
+                <p>
+                    If you're a new customer, you can explain your budget
+                    and they can help you identify <strong>fast-moving
+                    products</strong> to start with.
+                </p>
+
+                <p>
+                    <strong>Vision Cosmetics:</strong>
+                    0713 995 664
+                </p>
+
+            </section>
+
+
+            <!-- ==========================
+                 SUNRAYS
+            ========================== -->
+
+            <section id="sunrays">
+
+                <h2>
+                    2. Sunrays Cosmetics – Wet Hair & Body Products
+                </h2>
+
+                <p>
+                    If you're specifically looking for
+                    <strong>wet hair products</strong>, Sunrays Cosmetics
+                    is another place worth checking.
+                </p>
+
+                <p>
+                    Sunrays is located along <strong>Dubois Road near the
+                    Kensilver bus station area</strong> and stocks a wide
+                    range of products for hair and body care.
+                </p>
+
+                <div class="supplier-card">
+
+                    <h3>
+                        What you can find
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Shampoos and conditioners
+                        </li>
+
+                        <li>
+                            Hair treatments
+                        </li>
+
+                        <li>
+                            Body lotions and roll-ons
+                        </li>
+
+                        <li>
+                            Styling gels and edge control
+                        </li>
+
+                        <li>
+                            Hair dyes
+                        </li>
+
+                        <li>
+                            Relaxers
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <p>
+                    In simple terms, if you're looking for products that
+                    customers regularly use on their <strong>hair and
+                    body</strong>, this is one of the places you can
+                    check when restocking.
+                </p>
+
+            </section>
+
+
+            <!-- ==========================
+                 MAKEUP
+            ========================== -->
+
+            <section id="makeup">
+
+                <h2>
+                    3. Makeup, Skincare & Accessories – Excel Complex
+                </h2>
+
+                <p>
+                    For <strong>makeup, skincare and beauty accessories</strong>,
+                    Excel Complex Building in Nairobi CBD is a useful place
+                    to start because you can find several vendors selling
+                    different products under one roof.
+                </p>
+
+                <p>
+                    Depending on your customers, you can look for:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Foundations
+                    </li>
+
+                    <li>
+                        Concealers
+                    </li>
+
+                    <li>
+                        Powders
+                    </li>
+
+                    <li>
+                        Lipsticks and lip gloss
+                    </li>
+
+                    <li>
+                        Eyelashes
+                    </li>
+
+                    <li>
+                        Makeup brushes and sponges
+                    </li>
+
+                    <li>
+                        Body lotions
+                    </li>
+
+                    <li>
+                        Face-care products
+                    </li>
+
+                </ul>
+
+                <p>
+                    If you're starting a beauty business, it's usually
+                    better to test smaller quantities first. Once you know
+                    what your customers prefer, you can increase the
+                    quantities you buy.
+                </p>
+
+            </section>
+
+
+            <!-- IMAGE 2 -->
+
+            <figure class="blog-image">
+
+                <img
+                    src="/static/images/blog/beauty-shop-stock-kenya.jpg"
+                    alt="Beauty shop stock including hair products, cosmetics and skincare"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    Stocking the right products is just as important as
+                    finding a good wholesale price.
+                </figcaption>
+
+            </figure>
+
+
+            <!-- ==========================
+                 STOCK MANAGEMENT
+            ========================== -->
+
+            <section id="stock">
+
+                <h2>
+                    Once You Start Selling, Keep Track of Your Stock
+                </h2>
+
+                <p>
+                    Finding a good supplier is only the beginning.
+                </p>
+
+                <p>
+                    Once your shop has hundreds of products, it can become
+                    difficult to remember <strong>what is selling, what is
+                    running low and what needs to be reordered</strong>.
+                </p>
+
+                <p>
+                    This is where a POS system can be useful.
+                </p>
+
+                <p>
+                    Instead of relying entirely on a notebook or memory,
+                    your sales records can show you which products are
+                    moving fastest and which ones are sitting on the shelf.
+                </p>
+
+                <p>
+                    So when you're heading back to Nairobi to buy your next
+                    batch of stock, you have a better idea of
+                    <strong>what your customers are actually buying</strong>.
+                </p>
+
+                <p>
+                    If you run a beauty or cosmetics business,
+                    <strong>Ruo System</strong> is worth checking out.
+                    It's a POS system designed with beauty and cosmetics
+                    businesses in mind, helping you keep track of sales
+                    and stock as your business grows.
+                </p>
+
+            </section>
+
+
+            <!-- ==========================
+                 POS CTA
+            ========================== -->
+
+            <section class="pos-card">
+
+                <h2>
+                    Running a Beauty or Cosmetics Shop?
+                </h2>
+
+                <p>
+                    Once your product range starts growing, keeping track
+                    of sales and stock becomes much easier with the right
+                    POS system.
+                </p>
+
+                <a
+                    href="/services/pos-for-cosmetic-shops"
+                    class="pos-button"
+                >
+                    See Ruo System for Beauty Shops
+                </a>
+
+            </section>
+
+
+            <!-- ==========================
+                 FINAL
+            ========================== -->
+
+            <section>
+
+                <h2>
+                    Final Word
+                </h2>
+
+                <p>
+                    If you're looking for <strong>where to buy beauty
+                    products in bulk in Nairobi</strong>, these three
+                    options give you a good place to start.
+                </p>
+
+                <p>
+                    <strong>Vision Cosmetics</strong> for braids, weaves
+                    and crochets.
+                </p>
+
+                <p>
+                    <strong>Sunrays Cosmetics</strong> for wet hair and
+                    body products.
+                </p>
+
+                <p>
+                    <strong>Excel Complex</strong> for makeup, skincare
+                    and beauty accessories.
+                </p>
+
+                <p>
+                    Compare prices, start with products that are likely to
+                    move quickly, and keep track of your sales so you know
+                    what to buy the next time you restock.
+                </p>
+
+            </section>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const readingBar = document.getElementById("readingBar");
+
+window.addEventListener("scroll", () => {
+
+    const total =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+        (window.scrollY / total) * 100;
+
+    readingBar.style.width = progress + "%";
+
+});
+
+</script>
+
+{% endblock %}

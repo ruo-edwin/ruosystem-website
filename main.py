@@ -132,3 +132,11 @@ async def article(request: Request):
         name="costofacosmetic.html",
         context={}
     )
+
+@app.get("/blog/where-can-l-buy-cosmetic-products-in-bulk-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="buyingcosmetics.html",
+        context={}
+    )
