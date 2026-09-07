@@ -133,7 +133,7 @@ async def article(request: Request):
         context={}
     )
 
-@app.get("/blog/where-can-l-buy-cosmetic-products-in-bulk-in-kenya")
+@app.get("/blog/where-can-l-buy-cosmetic-products-in-wholesale-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(
         request=request,
