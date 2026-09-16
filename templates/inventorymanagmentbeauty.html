@@ -11,7 +11,7 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 <style>
 
 :root{
-    --content-width:760px;
+    --content-width:680px;
 }
 
 /* ==========================
@@ -19,59 +19,60 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 ========================== */
 
 .blog-hero{
-    padding:90px 0 70px;
+    padding:70px 0 55px;
     border-bottom:1px solid var(--border);
-    background:
-    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+    background:#fff;
 }
 
 .blog-hero .container{
-    max-width:900px;
+    max-width:820px;
 }
 
 .blog-category{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    padding:8px 16px;
+    padding:7px 13px;
     background:var(--purple-light);
     color:var(--purple);
     border-radius:999px;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.04em;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
     text-transform:uppercase;
 }
 
 .blog-title{
-    margin-top:24px;
-    font-size:56px;
-    line-height:1.08;
+    margin-top:20px;
+    max-width:800px;
+    font-size:48px;
+    line-height:1.1;
     font-weight:800;
-    letter-spacing:-2px;
+    letter-spacing:-1.8px;
+    color:#101828;
 }
 
 .blog-description{
-    margin-top:28px;
-    max-width:720px;
-    color:var(--grey);
+    margin-top:24px;
+    max-width:700px;
+    color:#667085;
     font-size:20px;
-    line-height:1.8;
+    line-height:1.65;
 }
 
 .blog-meta{
-    margin-top:35px;
+    margin-top:28px;
     display:flex;
-    gap:28px;
+    gap:22px;
     align-items:center;
     flex-wrap:wrap;
-    color:var(--grey);
-    font-size:15px;
+    color:#667085;
+    font-size:14px;
 }
 
 .blog-meta strong{
-    color:var(--black);
+    color:#101828;
 }
+
 
 /* ==========================
    READING PROGRESS
@@ -79,10 +80,10 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 
 .read-progress{
     position:fixed;
-    top:75px;
+    top:0;
     left:0;
     width:100%;
-    height:3px;
+    height:2px;
     background:transparent;
     z-index:999;
 }
@@ -94,148 +95,196 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
     background:var(--purple);
 }
 
+
 /* ==========================
    ARTICLE LAYOUT
 ========================== */
 
 .blog-wrapper{
     display:grid;
-    grid-template-columns:260px 1fr;
-    gap:80px;
-    padding:80px 0;
+    grid-template-columns:180px 680px;
+    gap:70px;
+    justify-content:center;
+    padding:65px 0 100px;
 }
 
 .blog-sidebar{
     position:sticky;
-    top:120px;
+    top:105px;
     height:max-content;
 }
 
 .blog-sidebar h4{
-    font-size:14px;
-    text-transform:uppercase;
-    color:var(--grey);
-    letter-spacing:.06em;
     margin-bottom:18px;
+    font-size:11px;
+    text-transform:uppercase;
+    color:#98A2B3;
+    letter-spacing:.08em;
 }
 
 .blog-sidebar ul{
     list-style:none;
+    padding:0;
+    margin:0;
 }
 
 .blog-sidebar li{
-    margin-bottom:16px;
+    margin-bottom:13px;
 }
 
 .blog-sidebar a{
-    color:#555;
-    transition:.25s;
-    font-size:15px;
+    color:#667085;
+    font-size:13px;
+    line-height:1.4;
+    text-decoration:none;
+    transition:.2s;
 }
 
 .blog-sidebar a:hover{
     color:var(--purple);
 }
 
+
+/* ==========================
+   SIDEBAR CTA
+========================== */
+
+.sidebar-cta{
+    margin-top:35px;
+    padding:20px;
+    border:1px solid #e6e0ff;
+    background:#faf9ff;
+    border-radius:18px;
+}
+
+.sidebar-cta span{
+    display:block;
+    margin-bottom:9px;
+    color:var(--purple);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+.sidebar-cta h4{
+    margin:0 0 9px;
+    color:#101828;
+    font-size:17px;
+    line-height:1.35;
+    text-transform:none;
+    letter-spacing:-.2px;
+}
+
+.sidebar-cta p{
+    margin:0 0 15px;
+    color:#667085;
+    font-size:13px;
+    line-height:1.55;
+}
+
+.sidebar-cta a{
+    display:block;
+    padding:10px 12px;
+    border-radius:9px;
+    background:var(--purple);
+    color:white;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+}
+
+
 /* ==========================
    CONTENT
 ========================== */
 
 .blog-content{
-    max-width:var(--content-width);
+    max-width:680px;
 }
 
 .blog-content h2{
-    margin-top:70px;
+    margin-top:68px;
     margin-bottom:22px;
-    font-size:38px;
-    line-height:1.2;
+    font-size:34px;
+    line-height:1.25;
     letter-spacing:-1px;
+    color:#101828;
 }
 
 .blog-content h3{
     margin-top:40px;
-    margin-bottom:18px;
-    font-size:28px;
+    margin-bottom:17px;
+    font-size:25px;
+    line-height:1.3;
+    letter-spacing:-.4px;
+    color:#101828;
 }
 
 .blog-content p{
-    margin-bottom:26px;
+    margin-bottom:24px;
     font-size:18px;
-    color:#475467;
-    line-height:2;
+    color:#344054;
+    line-height:1.85;
+    letter-spacing:-.05px;
 }
 
 .blog-content ul{
-    margin:30px 0;
+    margin:28px 0;
     padding-left:22px;
 }
 
 .blog-content li{
-    margin-bottom:14px;
-    color:#475467;
+    margin-bottom:13px;
+    color:#344054;
     font-size:18px;
+    line-height:1.7;
 }
 
 .blog-content strong{
-    color:var(--black);
+    color:#101828;
 }
 
 .brand-link{
     color:var(--purple);
     font-weight:700;
     text-decoration:none;
-    position:relative;
 }
 
-.brand-link::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-2px;
-    width:100%;
-    height:2px;
-    background:var(--purple);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:.25s;
-}
-
-.brand-link:hover::after{
-    transform:scaleX(1);
-}
 
 /* ==========================
    QUOTE
 ========================== */
 
 .quote-box{
-    margin:50px 0;
-    padding:35px;
-    border-left:4px solid var(--purple);
+    margin:45px 0;
+    padding:28px 30px;
+    border-left:3px solid var(--purple);
     background:#faf9ff;
-    border-radius:18px;
-    font-size:22px;
-    font-weight:600;
-    line-height:1.7;
+    border-radius:0 16px 16px 0;
+    font-size:21px;
+    font-weight:650;
+    line-height:1.65;
+    color:#101828;
 }
+
 
 /* ==========================
    INFO CARD
 ========================== */
 
 .info-card{
-    margin:45px 0;
-    padding:35px;
-    border:1px solid var(--border);
-    border-radius:22px;
+    margin:42px 0;
+    padding:30px;
+    border:1px solid #eaecf0;
+    border-radius:20px;
     background:white;
-    box-shadow:0 20px 60px rgba(16,24,40,.05);
+    box-shadow:0 12px 40px rgba(16,24,40,.04);
 }
 
 .info-card h3{
     margin-top:0;
 }
+
 
 /* ==========================
    NUMBER CARD
@@ -243,23 +292,166 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 
 .number-card{
     display:flex;
-    gap:22px;
-    margin:55px 0;
+    gap:20px;
+    margin:60px 0 25px;
 }
 
 .number{
-    width:62px;
-    height:62px;
+    width:52px;
+    height:52px;
     flex-shrink:0;
     display:flex;
     align-items:center;
     justify-content:center;
     background:var(--purple-light);
     color:var(--purple);
-    font-size:26px;
+    font-size:21px;
     font-weight:800;
-    border-radius:18px;
+    border-radius:15px;
 }
+
+
+/* ==========================
+   ARTICLE CTA
+========================== */
+
+.article-cta{
+    margin:50px 0;
+    padding:32px;
+    border-radius:22px;
+    background:#faf9ff;
+    border:1px solid #e6e0ff;
+}
+
+.article-cta.subtle{
+    background:#fff;
+    border-color:#eaecf0;
+}
+
+.article-cta span{
+    display:block;
+    margin-bottom:10px;
+    color:var(--purple);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+.article-cta h3{
+    margin:0 0 12px;
+    font-size:25px;
+}
+
+.article-cta p{
+    margin-bottom:20px;
+}
+
+.article-cta a,
+.ruo-product-card a,
+.final-cta a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 19px;
+    border-radius:11px;
+    background:var(--purple);
+    color:white;
+    font-size:14px;
+    font-weight:800;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.article-cta a:hover,
+.ruo-product-card a:hover,
+.final-cta a:hover{
+    transform:translateY(-2px);
+}
+
+
+/* ==========================
+   RUO PRODUCT CARD
+========================== */
+
+.ruo-product-card{
+    margin:55px 0;
+    padding:38px;
+    border-radius:24px;
+    background:#101828;
+    color:white;
+}
+
+.ruo-product-card .product-label{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.1em;
+    color:#b8a9ff;
+}
+
+.ruo-product-card h3{
+    margin:12px 0 14px;
+    font-size:29px;
+    line-height:1.25;
+    color:white;
+}
+
+.ruo-product-card p{
+    color:#d0d5dd;
+}
+
+.product-features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+    margin:24px 0 28px;
+}
+
+.product-features span{
+    font-size:13px;
+    color:#eaecf0;
+}
+
+
+/* ==========================
+   FINAL CTA
+========================== */
+
+.final-cta{
+    margin-top:85px;
+    padding:52px 32px;
+    text-align:center;
+    border-radius:26px;
+    background:linear-gradient(135deg,#f8f6ff,#eee9ff);
+    border:1px solid #e1d9ff;
+}
+
+.final-cta span{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.1em;
+    color:var(--purple);
+}
+
+.final-cta h2{
+    margin:14px auto 16px;
+    max-width:570px;
+    font-size:33px;
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.final-cta p{
+    max-width:560px;
+    margin:0 auto 24px;
+}
+
+.final-cta small{
+    display:block;
+    margin-top:13px;
+    color:#667085;
+    font-size:12px;
+}
+
 
 /* ==========================
    MOBILE
@@ -268,7 +460,8 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 @media(max-width:1100px){
 
     .blog-wrapper{
-        grid-template-columns:1fr;
+        display:block;
+        padding:50px 0 75px;
     }
 
     .blog-sidebar{
@@ -279,12 +472,56 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
         font-size:42px;
     }
 
+}
+
+@media(max-width:700px){
+
+    .blog-hero{
+        padding:52px 0 40px;
+    }
+
+    .blog-title{
+        font-size:37px;
+        letter-spacing:-1.2px;
+    }
+
     .blog-description{
         font-size:18px;
+        line-height:1.65;
+    }
+
+    .blog-content p,
+    .blog-content li{
+        font-size:17px;
+        line-height:1.8;
     }
 
     .blog-content h2{
-        font-size:32px;
+        font-size:29px;
+        margin-top:55px;
+    }
+
+    .blog-content h3{
+        font-size:24px;
+    }
+
+    .article-cta,
+    .ruo-product-card,
+    .final-cta{
+        padding:27px 21px;
+        border-radius:19px;
+    }
+
+    .ruo-product-card h3{
+        font-size:26px;
+    }
+
+    .product-features{
+        grid-template-columns:1fr;
+    }
+
+    .final-cta h2{
+        font-size:28px;
     }
 
 }
@@ -314,7 +551,7 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
         </span>
 
         <h1 class="blog-title">
-            Inventory Management for Cosmetic Shops: 4 Simple Practices
+            How to Manage Inventory in a Cosmetic Shop: 4 Simple Practices
         </h1>
 
         <p class="blog-description">
@@ -322,7 +559,14 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
             improve stock taking and keep accurate records with simple
             inventory management practices and the right POS system.
         </p>
-
+        <div style="margin-top:22px;">
+            <a
+                href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops"
+                class="primary-btn"
+            >
+                Explore Ruo System for Cosmetic Shops →
+            </a>
+        </div>
         <div class="blog-meta">
 
             <div>
@@ -404,7 +648,22 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
                 </li>
 
             </ul>
+            <div class="sidebar-cta">
 
+                <span>FOR COSMETIC SHOPS</span>
+
+                <h4>Know what you have. Know what you're selling.</h4>
+
+                <p>
+                    Track sales, inventory, stock movement and reports
+                    from one simple POS.
+                </p>
+
+                <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+                    Explore Ruo →
+                </a>
+
+            </div>
         </aside>
 
 
@@ -440,6 +699,25 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
 
                     Good inventory management is about knowing what came in,
                     what went out and what you should still have.
+
+                </div>
+                <div class="article-cta">
+
+                    <span>THE SIMPLE SOLUTION</span>
+
+                    <h3>
+                        The easiest way to know what's happening to your stock.
+                    </h3>
+
+                    <p>
+                        Every sale should update your inventory automatically.
+                        That means less manual record keeping and a clearer picture
+                        of what is actually happening in your shop.
+                    </p>
+
+                    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+                        See How Ruo Works →
+                    </a>
 
                 </div>
 
@@ -760,76 +1038,90 @@ Learn how to manage inventory in a cosmetic shop, reduce stock losses, improve s
             <section id="best">
 
                 <h2>
-                    What Is the Best POS for a Cosmetic Shop?
+                    What Should You Look for in a POS for a Cosmetic Shop?
                 </h2>
 
                 <p>
-                    If you're looking for the
-                    <strong>best POS system for a cosmetic shop</strong>,
-                    don't choose software simply because it can process
-                    sales.
+                    If you're looking for a
+                    <strong>POS system for a cosmetic shop</strong>,
+                    don't choose software simply because it can process sales.
                 </p>
 
                 <p>
-                    Look for a system that also helps you manage inventory,
-                    track stock movement, receive purchases and understand
-                    which products are selling.
+                    Your shop needs a system that connects your sales activity
+                    with your inventory so you can understand what is happening
+                    after every transaction.
                 </p>
 
                 <p>
-                    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" class="brand-link">
-                        Ruo System
-                    </a>
-                    is a good option for cosmetic shops that want to combine
-                    sales and inventory management in one simple system.
+                    Look for features such as:
                 </p>
 
+                <ul>
 
-                <div class="info-card">
+                    <li>Real-time inventory tracking.</li>
+
+                    <li>Fast sales processing.</li>
+
+                    <li>Barcode scanning.</li>
+
+                    <li>Stock receiving and adjustments.</li>
+
+                    <li>Stock movement history.</li>
+
+                    <li>Sales and inventory reports.</li>
+
+                    <li>Low-stock visibility.</li>
+
+                    <li>M-Pesa and cash tracking.</li>
+
+                </ul>
+
+
+                <div class="ruo-product-card">
+
+                    <div class="product-label">
+                        RUO SYSTEM
+                    </div>
 
                     <h3>
-                        Why Consider Ruo System?
+                        A simple POS for growing cosmetic shops.
                     </h3>
 
-                    <ul>
+                    <p>
+                        Ruo brings sales and inventory management together
+                        so you can spend less time trying to understand your
+                        records and more time running your shop.
+                    </p>
 
-                        <li>
-                            Real-time inventory tracking.
-                        </li>
+                    <div class="product-features">
 
-                        <li>
-                            Fast and simple sales processing.
-                        </li>
+                        <span>✓ Sales tracking</span>
 
-                        <li>
-                            Stock receiving and management.
-                        </li>
+                        <span>✓ Inventory management</span>
 
-                        <li>
-                            Sales and inventory reports.
-                        </li>
+                        <span>✓ Barcode scanning</span>
 
-                        <li>
-                            Stock movement history.
-                        </li>
+                        <span>✓ Stock monitoring</span>
 
-                        <li>
-                            Easy-to-use interface.
-                        </li>
+                        <span>✓ Stock movement</span>
 
-                        <li>
-                            Affordable monthly subscription.
-                        </li>
+                        <span>✓ Business reports</span>
 
-                    </ul>
+                    </div>
+
+                    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+                        Explore Ruo System →
+                    </a>
 
                 </div>
 
+
                 <p>
-                    The goal is simple: every sale should be recorded,
-                    every stock movement should be visible and you should
-                    always have a better understanding of what is happening
-                    in your shop.
+                    The goal is simple:
+                    <strong>every sale should be recorded, every stock movement
+                    should be visible and your inventory should stay easier
+                    to manage as the business grows.</strong>
                 </p>
 
             </section>
