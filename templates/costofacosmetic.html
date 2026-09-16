@@ -15,7 +15,7 @@ You can start a small cosmetic shop in Kenya with around KSh 20,000 in initial s
 <style>
 
 :root{
-    --content-width:760px;
+    --content-width:680px;
 }
 
 /* ==========================
@@ -23,14 +23,13 @@ You can start a small cosmetic shop in Kenya with around KSh 20,000 in initial s
 ========================== */
 
 .blog-hero{
-    padding:90px 0 70px;
+    padding:70px 0 55px;
     border-bottom:1px solid var(--border);
-    background:
-    radial-gradient(circle at top right,#ede7ff 0%,white 45%);
+    background:white;
 }
 
 .blog-hero .container{
-    max-width:900px;
+    max-width:820px;
 }
 
 .blog-category{
@@ -53,33 +52,21 @@ You can start a small cosmetic shop in Kenya with around KSh 20,000 in initial s
     text-transform:uppercase;
 
 }
-
 .blog-title{
-
-    margin-top:24px;
-
-    font-size:56px;
-
-    line-height:1.08;
-
+    margin-top:20px;
+    font-size:48px;
+    line-height:1.1;
     font-weight:800;
-
-    letter-spacing:-2px;
-
+    letter-spacing:-1.8px;
+    max-width:800px;
 }
 
 .blog-description{
-
-    margin-top:28px;
-
-    max-width:720px;
-
-    color:var(--grey);
-
+    margin-top:24px;
+    max-width:700px;
+    color:#667085;
     font-size:20px;
-
-    line-height:1.8;
-
+    line-height:1.65;
 }
 
 .blog-meta{
@@ -120,7 +107,7 @@ READING PROGRESS
 
     width:100%;
 
-    height:3px;
+    height:2px;
 
     background:transparent;
 
@@ -139,21 +126,93 @@ READING PROGRESS
     background:var(--purple);
 
 }
+.article-cta{
+    margin:55px 0;
+    padding:32px;
+    border-radius:20px;
+    background:#faf9ff;
+    border:1px solid #e6e0ff;
+}
 
+.article-cta.subtle{
+    background:white;
+    border:1px solid #e4e7ec;
+}
+
+.article-cta span{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+    color:var(--purple);
+}
+
+.article-cta h3{
+    margin:12px 0 12px;
+    font-size:25px;
+}
+
+.article-cta p{
+    margin-bottom:20px;
+}
+
+.article-cta a,
+.ruo-product-card a{
+    display:inline-flex;
+    padding:13px 18px;
+    border-radius:11px;
+    background:var(--purple);
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.ruo-product-card{
+    margin:55px 0;
+    padding:38px;
+    border-radius:24px;
+    background:#101828;
+    color:white;
+}
+
+.ruo-product-card .product-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.1em;
+    color:#b8a9ff;
+}
+
+.ruo-product-card h3{
+    margin:12px 0 14px;
+    font-size:30px;
+    color:white;
+}
+
+.ruo-product-card p{
+    color:#d0d5dd;
+}
+
+.product-features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin:25px 0 30px;
+}
+
+.product-features span{
+    font-size:14px;
+    color:#eaecf0;
+}
 /* ==========================
 ARTICLE LAYOUT
 ========================== */
 
 .blog-wrapper{
-
     display:grid;
-
-    grid-template-columns:260px 1fr;
-
-    gap:80px;
-
-    padding:80px 0;
-
+    grid-template-columns:180px 680px;
+    gap:70px;
+    justify-content:center;
+    padding:65px 0 100px;
 }
 
 .blog-sidebar{
@@ -213,45 +272,32 @@ CONTENT
 ========================== */
 
 .blog-content{
-
-    max-width:var(--content-width);
-
+    max-width:680px;
 }
 
 .blog-content h2{
-
-    margin-top:70px;
-
-    margin-bottom:22px;
-
-    font-size:38px;
-
-    line-height:1.2;
-
+    margin-top:72px;
+    margin-bottom:24px;
+    font-size:34px;
+    line-height:1.25;
     letter-spacing:-1px;
-
+    color:#101828;
 }
 
 .blog-content h3{
-
-    margin-top:40px;
-
+    margin-top:42px;
     margin-bottom:18px;
-
-    font-size:28px;
-
+    font-size:25px;
+    line-height:1.3;
+    color:#101828;
 }
 
 .blog-content p{
-
-    margin-bottom:26px;
-
+    margin-bottom:24px;
     font-size:18px;
-
-    color:#475467;
-
-    line-height:2;
-
+    color:#344054;
+    line-height:1.85;
+    letter-spacing:-.1px;
 }
 
 .blog-content ul{
@@ -320,6 +366,50 @@ CONTENT
 
 }
 
+.final-cta{
+    margin-top:90px;
+    padding:55px 35px;
+    text-align:center;
+    border-radius:28px;
+    background:linear-gradient(135deg,#f8f6ff,#eee9ff);
+    border:1px solid #e1d9ff;
+}
+
+.final-cta span{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.1em;
+    color:var(--purple);
+}
+
+.final-cta h2{
+    margin:14px auto 16px;
+    max-width:560px;
+    font-size:34px;
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.final-cta p{
+    max-width:560px;
+    margin:0 auto 25px;
+}
+
+.final-cta a{
+    display:inline-flex;
+    padding:15px 24px;
+    border-radius:12px;
+    background:var(--purple);
+    color:white;
+    font-weight:800;
+    text-decoration:none;
+}
+
+.final-cta small{
+    display:block;
+    margin-top:14px;
+    color:#667085;
+}
 /* ==========================
 QUOTE
 ========================== */
@@ -409,6 +499,53 @@ NUMBER CARD
     border-radius:18px;
 
 }
+.blog-sidebar{
+    position:sticky;
+    top:110px;
+    height:max-content;
+}
+
+.sidebar-cta{
+    padding:22px;
+    border:1px solid #e6e0ff;
+    background:#faf9ff;
+    border-radius:18px;
+}
+
+.sidebar-cta span{
+    display:block;
+    margin-bottom:10px;
+    color:var(--purple);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+.sidebar-cta h4{
+    margin:0 0 10px;
+    font-size:19px;
+    line-height:1.3;
+    color:#101828;
+}
+
+.sidebar-cta p{
+    margin:0 0 16px;
+    font-size:14px;
+    line-height:1.6;
+    color:#667085;
+}
+
+.sidebar-cta a{
+    display:block;
+    padding:11px 14px;
+    border-radius:10px;
+    background:var(--purple);
+    color:white;
+    text-align:center;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+}
 
 /* ==========================
 MOBILE
@@ -457,6 +594,67 @@ font-size:32px;
 .blog-content ol li{margin-bottom:14px;color:#475467;font-size:18px}
 .blog-content code{background:#f4f2fa;padding:3px 7px;border-radius:6px;font-size:.9em}
 
+
+@media(max-width:700px){
+
+    .blog-hero{
+        padding:55px 0 40px;
+    }
+
+    .blog-title{
+        font-size:38px;
+        letter-spacing:-1.2px;
+    }
+
+    .blog-description{
+        font-size:18px;
+        line-height:1.65;
+    }
+
+    .blog-wrapper{
+        display:block;
+        padding:45px 0 70px;
+    }
+
+    .blog-content{
+        max-width:100%;
+    }
+
+    .blog-content p,
+    .blog-content li{
+        font-size:17px;
+        line-height:1.8;
+    }
+
+    .blog-content h2{
+        font-size:30px;
+        margin-top:58px;
+    }
+
+    .sidebar-cta{
+        display:none;
+    }
+
+    .article-cta,
+    .ruo-product-card,
+    .final-cta{
+        padding:28px 22px;
+        border-radius:20px;
+    }
+
+    .ruo-product-card h3{
+        font-size:26px;
+    }
+
+    .product-features{
+        grid-template-columns:1fr;
+    }
+
+    .final-cta h2{
+        font-size:29px;
+    }
+
+}
 </style>
 
 {% endblock %}
@@ -489,10 +687,24 @@ font-size:32px;
 <div class="blog-wrapper">
 
 <aside class="blog-sidebar">
-<h4>Contents</h4>
-<ul>
 
-</ul>
+    <div class="sidebar-cta">
+
+        <span>FOR COSMETIC SHOP OWNERS</span>
+
+        <h4>Manage your shop with Ruo.</h4>
+
+        <p>
+            Track sales, stock and business performance
+            from one simple POS.
+        </p>
+
+        <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+            Explore Ruo →
+        </a>
+
+    </div>
+
 </aside>
 
 <article class="blog-content">
@@ -557,6 +769,23 @@ font-size:32px;
 <p>You can have a shop full of products and still struggle if most of those products don't move.</p>
 
 <p>As a new cosmetic-shop owner, your goal should be to understand <strong>which products your customers actually want</strong> and build your stock around that demand.</p>
+<div class="article-cta">
+
+    <span>THE NEXT CHALLENGE</span>
+
+    <h3>Once you start selling, you need to know what's actually moving.</h3>
+
+    <p>
+        A cosmetic shop can quickly grow to hundreds of products.
+        Ruo System helps you track sales, inventory, stock levels
+        and business performance from one place.
+    </p>
+
+    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+        Explore Ruo for Cosmetic Shops →
+    </a>
+
+</div>
 
 <p><strong>2. Where Will You Get Your Cosmetic Products?</strong></p>
 
@@ -739,39 +968,65 @@ font-size:32px;
 
 <p><strong>Build a budget around your own location, target customer and business model.</strong></p>
 
-<p><strong>9. Don't Forget the Cost of a POS System</strong></p>
+<h2>Don't Just Open the Shop — Know What's Happening Inside It</h2>
 
-<p>There is one more expense I strongly recommend including in your planning: <strong>a POS system for your cosmetic shop.</strong></p>
+<p>
+    Imagine you open your cosmetic shop with KSh 50,000 worth of stock.
+</p>
 
-<p>A cosmetic business can quickly accumulate hundreds of different products.</p>
+<p>
+    After a few months, you should be able to answer simple questions:
+</p>
 
-<p>Trying to keep track of all this manually can become difficult as the shop grows.</p>
+<ul>
+    <li>Which products are selling fastest?</li>
+    <li>Which products are barely moving?</li>
+    <li>How much did I sell today?</li>
+    <li>How much stock do I have left?</li>
+    <li>Which products need restocking?</li>
+    <li>How much money is coming through M-Pesa and cash?</li>
+    <li>Which products are contributing most to my sales?</li>
+</ul>
 
-<p>A good <strong>POS system for a cosmetic shop</strong> can help you track sales and inventory in one place.</p>
+<p>
+    If answering these questions requires going through notebooks,
+    spreadsheets or manually counting shelves, managing the business
+    becomes harder as it grows.
+</p>
 
-<p>It can help you answer questions such as:</p>
+<p>
+    <strong>This is where a POS system becomes more than a payment tool.</strong>
+</p>
 
-<p><strong>Which products are selling fastest?</strong></p>
+<p>
+    A good POS gives you a clearer picture of what is happening
+    inside the business while you are running it.
+</p>
+<div class="ruo-product-card">
 
-<p><strong>Which products are running low?</strong></p>
+    <div class="product-label">RUO SYSTEM</div>
 
-<p><strong>How much did I sell today?</strong></p>
+    <h3>A POS designed for growing cosmetic shops.</h3>
 
-<p><strong>Which products have been sitting on the shelf for too long?</strong></p>
+    <p>
+        Manage sales, inventory, barcode scanning, stock levels,
+        staff activity and business reports from one simple system.
+    </p>
 
-<p><strong>How much stock do I have?</strong></p>
+    <div class="product-features">
+        <span>✓ Sales tracking</span>
+        <span>✓ Inventory management</span>
+        <span>✓ Barcode scanning</span>
+        <span>✓ Stock monitoring</span>
+        <span>✓ Sales reporting</span>
+        <span>✓ M-Pesa & cash</span>
+    </div>
 
-<p><strong>What are my best-selling brands?</strong></p>
+    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+        Explore Ruo System →
+    </a>
 
-<p>This information is incredibly valuable.</p>
-
-<p>Your POS should therefore be more than a tool for recording payments.</p>
-
-<p><strong>It should help you make better business decisions.</strong></p>
-
-<p>When comparing the <strong>best POS systems for cosmetic shops</strong>, <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">Ruo System is the best for it is made for cosmetic shops</a>. It has inventory management, barcode scanning, sales reports, stock alerts, product management, customer records and easy reporting.</p>
-
-<p>And because cosmetics businesses often carry many SKUs, good inventory management can be just as important as the payment functionality.</p>
+</div>
 
 <p><strong>11. Your Location Matters</strong></p>
 
@@ -798,7 +1053,23 @@ font-size:32px;
 <p><strong>Total startup capital =</strong></p>
 
 <p><strong>Stock + rent/deposit + shop fittings + licences/registration + branding + POS + marketing + working capital + emergency fund</strong></p>
+<div class="article-cta subtle">
 
+    <span>PLANNING YOUR POS BUDGET?</span>
+
+    <h3>See what your POS will actually help you manage.</h3>
+
+    <p>
+        Before you choose a system, see how Ruo handles
+        sales, inventory, products, stock and reporting
+        for cosmetic shops.
+    </p>
+
+    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+        See Ruo System →
+    </a>
+
+</div>
 <p>Once you calculate all of these, you'll have a much more realistic picture of how much you actually need. The only estimate l can give is a stock of a minimum of 20,000 can get you started</p>
 
 <p>And don't forget to leave room for your business to make mistakes.</p>
@@ -824,10 +1095,25 @@ font-size:32px;
 <p>Look for inventory management, barcode scanning, sales reporting, stock alerts, product management, customer records and easy reporting. For a cosmetic shop with many SKUs, strong inventory management is particularly important.</p>
 </section>
 
-<section class="info-card" style="margin-top:90px;text-align:center;">
-<h2 style="margin-top:0;">Ready to Manage Your Cosmetic Shop Better?</h2>
-<p>Ruo System is built to help cosmetic-shop owners manage inventory, track sales and make better business decisions as the business grows.</p>
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" class="brand-link">Explore Ruo System</a>
+<section class="final-cta">
+
+    <span>READY WHEN YOU ARE</span>
+
+    <h2>You've planned the shop.<br>Now plan how you'll manage it.</h2>
+
+    <p>
+        Ruo System brings your sales, stock and business reporting
+        together in one simple POS built for growing retail businesses.
+    </p>
+
+    <a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
+        Explore Ruo System →
+    </a>
+
+    <small>
+        See how it works before you decide.
+    </small>
+
 </section>
 </article>
 
