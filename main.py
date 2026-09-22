@@ -140,3 +140,11 @@ async def article(request: Request):
         name="buyingcosmetics.html",
         context={}
     )
+
+@app.get("/how-much-does-POS-Installation-Cost-in-Kenya?")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posinstallation.html",
+        context={}
+    )
