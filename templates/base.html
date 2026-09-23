@@ -580,6 +580,133 @@ Industries button to the dropdown.
     color: var(--grey);
 }
 
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: .25s ease;
+}
+
+.mobile-menu {
+    display: none;
+    background: white;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 15px 30px rgba(16,24,40,.08);
+}
+
+.mobile-menu-inner {
+    padding: 15px 2%;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 13px 5px;
+    color: var(--black);
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.mobile-menu a:hover {
+    color: var(--purple);
+}
+
+.mobile-menu .mobile-demo-btn {
+    margin-top: 15px;
+    background: var(--purple);
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    border: none;
+}
+
+.mobile-industries {
+    padding: 8px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.mobile-industries-title {
+    display: block;
+    padding: 10px 5px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.mobile-industry-link {
+    display: block;
+    padding: 9px 5px 9px 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-bottom: none !important;
+    color: var(--grey) !important;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE NAV
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu.active {
+        display: block;
+    }
+
+    .navbar .container {
+        min-height: 60px;
+    }
+
+    .logo img {
+        height: 48px;
+        width: auto;
+        max-width: 190px;
+    }
+}
+
+
+/* Hamburger animation */
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -656,10 +783,77 @@ Industries button to the dropdown.
                 </a>
 
             </div>
+            
+            <!-- MOBILE MENU BUTTON -->
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+                type="button"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
 
         </div>
 
     </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-inner">
+
+        <a href="/">Home</a>
+
+        <div class="mobile-industries">
+
+            <span class="mobile-industries-title">
+                Industries
+            </span>
+
+            <a href="/services/pos-for-cosmetic-shops"
+               class="mobile-industry-link">
+                💄 Cosmetics Shops
+            </a>
+
+            <a href="/services/pos-for-mini-supermarkets"
+               class="mobile-industry-link">
+                🛒 Mini Supermarkets
+            </a>
+
+            <a href="/services/pos-for-pharmacies"
+               class="mobile-industry-link">
+                💊 Pharmacies
+            </a>
+
+        </div>
+
+        <a href="/#pricing">Pricing</a>
+
+        <a href="/resources">Resources</a>
+
+        <a href="/blog">Blog</a>
+
+        <a href="/about">About Us</a>
+
+        <a href="https://pos-10-production.up.railway.app/auth/login">
+            Sign In
+        </a>
+
+        <a href="https://pos-10-production.up.railway.app/auth/demo"
+           onclick="gtag('event', 'request_demo_click');"
+           class="mobile-demo-btn">
+            See the System
+        </a>
+
+    </div>
+
+</div>
+
 <div id="wizardModal" class="wizard-modal">
   <div class="wizard-box">
 
@@ -816,6 +1010,45 @@ window.onclick = function(event) {
     closeWizard();
   }
 };
+
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (mobileMenuToggle && mobileMenu) {
+
+    mobileMenuToggle.addEventListener("click", function () {
+
+        const isOpen = mobileMenu.classList.toggle("active");
+
+        mobileMenuToggle.classList.toggle("active", isOpen);
+
+        mobileMenuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+
+    /* Close menu when a link is clicked */
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            mobileMenu.classList.remove("active");
+            mobileMenuToggle.classList.remove("active");
+
+            mobileMenuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+    });
+
+}
 
 </script>
 </html>
