@@ -1,210 +1,143 @@
 {% extends "base.html" %}
 
 {% block title %}How Much Does It Cost to Start a Cosmetic Shop in Kenya?[2026]| Ruo System
-<style>
 /* =========================================================
-   MEDIUM-STYLE EDITORIAL TYPOGRAPHY
-   Content and functionality preserved.
+   MEDIUM READING MODE — FINAL OVERRIDE
    ========================================================= */
 
-/* Main article reading area */
-.blog-content {
-    max-width: 680px;
-    font-family: Charter, "Bitstream Charter", Georgia, serif;
-    color: #242424;
-}
-
-/* Body copy: larger, calmer, more editorial */
-.blog-content p {
-    margin: 0 0 1.55em;
-    font-family: Charter, "Bitstream Charter", Georgia, serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0;
-    color: #242424;
-}
-
-/* Lists should feel like the body text */
+.blog-content,
+.blog-content p,
+.blog-content li,
 .blog-content ul,
 .blog-content ol {
-    margin: 0 0 1.65em;
-    padding-left: 1.35em;
+    font-family: Charter, "Bitstream Charter", Georgia, "Times New Roman", serif !important;
+}
+
+.blog-content {
+    width: 680px !important;
+    max-width: 680px !important;
+    color: #242424 !important;
+}
+
+.blog-content p {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 28px !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    color: #242424 !important;
 }
 
 .blog-content li {
-    margin-bottom: 0.65em;
-    font-family: Charter, "Bitstream Charter", Georgia, serif;
-    font-size: 20px;
-    line-height: 1.6;
-    color: #242424;
+    margin-bottom: 12px !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    color: #242424 !important;
 }
 
-/* Article headings */
+.blog-content ul,
+.blog-content ol {
+    margin-top: 0 !important;
+    margin-bottom: 30px !important;
+    padding-left: 28px !important;
+}
+
+.blog-content h2,
+.blog-content h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    color: #242424 !important;
+}
+
 .blog-content h2 {
-    margin-top: 2.5em;
-    margin-bottom: 0.75em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.5px;
-    color: #242424;
+    margin-top: 64px !important;
+    margin-bottom: 22px !important;
+    font-size: 32px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+    font-weight: 700 !important;
 }
 
 .blog-content h3 {
-    margin-top: 1.9em;
-    margin-bottom: 0.65em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.2px;
-    color: #242424;
+    margin-top: 42px !important;
+    margin-bottom: 18px !important;
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
 }
 
-/* Strong text stays editorial rather than overly heavy */
-.blog-content strong {
-    color: #242424;
-    font-weight: 700;
-}
-
-/* Article title area */
-.blog-hero {
-    padding: 72px 0 58px;
-    background: #fff;
-}
-
-.blog-hero .container {
-    max-width: 820px;
-}
-
+/* Main article title */
 .blog-title {
-    max-width: 800px;
-    margin-top: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    color: #242424;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-size: 48px !important;
+    line-height: 1.08 !important;
+    font-weight: 700 !important;
+    letter-spacing: -1.5px !important;
 }
 
+/* Intro/deck */
 .blog-description {
-    max-width: 700px;
-    margin-top: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.55;
-    color: #6b6b6b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-size: 20px !important;
+    line-height: 1.55 !important;
+    color: #6b6b6b !important;
 }
 
-/* Article layout: slightly less "website dashboard", more publication */
-.blog-wrapper {
-    grid-template-columns: 150px 680px;
-    gap: 60px;
-    padding: 62px 0 100px;
+/* Don't let branded cards inherit the large serif article styling */
+.article-cta,
+.ruo-product-card,
+.final-cta,
+.sidebar-cta {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
-/* Metadata */
-.blog-meta {
-    margin-top: 30px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #757575;
-}
-
-/* Quote: editorial rather than card-like */
-.quote-box {
-    margin: 2.5em 0;
-    padding: 5px 0 5px 24px;
-    border-left: 3px solid #242424;
-    background: transparent;
-    border-radius: 0;
-    font-family: Charter, "Bitstream Charter", Georgia, serif;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.55;
-    color: #242424;
-}
-
-/* Tables remain readable */
-.blog-content table {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-}
-
-.blog-content th,
-.blog-content td {
-    padding: 14px;
-}
-
-/* Code */
-.blog-content code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
-/* CTAs/cards remain branded, but typography inside follows the new system */
 .article-cta p,
 .ruo-product-card p,
 .final-cta p,
 .sidebar-cta p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
 }
 
-.article-cta h3,
-.ruo-product-card h3,
-.final-cta h2,
-.sidebar-cta h4 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
-/* Better separation before FAQ */
-.blog-content hr {
-    margin: 4em 0 !important;
+/* Editorial quote */
+.quote-box {
+    font-family: Charter, "Bitstream Charter", Georgia, "Times New Roman", serif !important;
+    font-size: 22px !important;
+    line-height: 1.55 !important;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-    .blog-hero {
-        padding: 48px 0 38px;
-    }
-
-    .blog-title {
-        font-size: 38px;
-        line-height: 1.1;
-        letter-spacing: -1px;
-    }
-
-    .blog-description {
-        font-size: 18px;
-        line-height: 1.55;
-    }
-
-    .blog-wrapper {
-        padding: 42px 0 70px;
+    .blog-content {
+        width: auto !important;
+        max-width: 100% !important;
     }
 
     .blog-content p,
     .blog-content li {
-        font-size: 19px;
-        line-height: 1.62;
+        font-size: 19px !important;
+        line-height: 1.62 !important;
     }
 
     .blog-content h2 {
-        margin-top: 2.25em;
-        margin-bottom: 0.7em;
-        font-size: 29px;
-        line-height: 1.25;
+        font-size: 29px !important;
+        line-height: 1.25 !important;
+        margin-top: 54px !important;
     }
 
     .blog-content h3 {
-        margin-top: 1.7em;
-        font-size: 23px;
+        font-size: 23px !important;
+    }
+
+    .blog-title {
+        font-size: 38px !important;
+        line-height: 1.1 !important;
     }
 }
-</style>
 
 {% endblock %}
 
