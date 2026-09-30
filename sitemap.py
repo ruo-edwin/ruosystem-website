@@ -23,6 +23,7 @@ async def sitemap():
         "https://www.ruosystem.co.ke/blog/best-pos-for-minisupermarkets-in-kenya",
         "https://www.ruosystem.co.ke/blog/where-can-l-buy-cosmetic-products-in-wholesale-in-kenya",
         "https://www.ruosystem.co.ke/blog/how-much-does-pos-installation-cost-in-kenya"
+        "https://www.ruosystem.co.ke/blog/how-to-start-a-profitable-cosmetic-shop-in-kenya"
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
