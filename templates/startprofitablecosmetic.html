@@ -1,0 +1,1578 @@
+{% extends "base.html" %}
+
+{% block title %}
+How to Start a Profitable Cosmetics Business in Kenya | Ruo System
+{% endblock %}
+
+{% block description %}
+Learn how to start a profitable cosmetics business in Kenya, from choosing the right products and suppliers to location, competition, pricing and managing your profits.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   ARTICLE PAGE
+========================================================= */
+
+.article-page {
+    background: #fff;
+    color: #101828;
+}
+
+/* ---------- Reading Progress ---------- */
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #6F3FF5;
+    z-index: 10001;
+}
+
+
+/* =========================================================
+   ARTICLE HEADER
+========================================================= */
+
+.article-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 24px 55px;
+    text-align: center;
+}
+
+.article-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: #F5F2FF;
+    color: #6F3FF5;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin-bottom: 26px;
+}
+
+.article-header h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: #101828;
+}
+
+.article-subtitle {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #667085;
+    font-weight: 400;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 34px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.meta-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #98A2B3;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.article-hero {
+    width: min(1180px, 94%);
+    height: 500px;
+    margin: 10px auto 85px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(111,63,245,.88),
+            rgba(111,63,245,.25)
+        ),
+        url("/static/images/cosmetics-business-kenya.jpg")
+        center / cover no-repeat;
+
+    box-shadow:
+        0 30px 80px rgba(16,24,40,.14);
+}
+
+.article-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 55px;
+}
+
+.hero-label {
+    color: white;
+    max-width: 620px;
+}
+
+.hero-label span {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: .85;
+}
+
+.hero-label strong {
+    display: block;
+    font-size: clamp(25px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -.03em;
+}
+
+
+/* =========================================================
+   ARTICLE LAYOUT
+========================================================= */
+
+.article-layout {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 720px);
+    gap: 70px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+========================================================= */
+
+.article-sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.article-sidebar-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #98A2B3;
+    margin-bottom: 18px;
+}
+
+.article-sidebar a {
+    display: block;
+    color: #98A2B3;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 7px 0 7px 14px;
+    border-left: 2px solid #EAECF0;
+    transition: .2s ease;
+}
+
+.article-sidebar a:hover {
+    color: #6F3FF5;
+    border-left-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   ARTICLE BODY
+========================================================= */
+
+.article-body {
+    min-width: 0;
+}
+
+.article-body p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 1.9;
+    color: #344054;
+    margin-bottom: 28px;
+}
+
+.article-body h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    margin: 75px 0 25px;
+    color: #101828;
+}
+
+.article-body h3 {
+    font-size: 22px;
+    margin: 42px 0 18px;
+    color: #101828;
+}
+
+.article-body strong {
+    color: #101828;
+    font-weight: 700;
+}
+
+.article-body ul {
+    margin: 0 0 32px 25px;
+}
+
+.article-body li {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #344054;
+    padding-left: 8px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   INTRO HIGHLIGHT
+========================================================= */
+
+.article-lead {
+    font-size: 23px !important;
+    line-height: 1.75 !important;
+    color: #1D2939 !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+.article-lead strong {
+    color: #101828;
+}
+
+
+/* =========================================================
+   NUMBERED SECTIONS
+========================================================= */
+
+.section-number {
+    display: block;
+    color: #6F3FF5;
+    font-size: 13px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: .1em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CALLOUT
+========================================================= */
+
+.article-callout {
+    margin: 45px 0;
+    padding: 28px 30px;
+    background: #F8F7FF;
+    border-left: 4px solid #6F3FF5;
+    border-radius: 0 14px 14px 0;
+}
+
+.article-callout p {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #344054;
+}
+
+
+/* =========================================================
+   PRODUCT TYPES
+========================================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 30px 0 40px;
+}
+
+.product-card {
+    padding: 20px;
+    border: 1px solid #EAECF0;
+    border-radius: 14px;
+    background: #fff;
+    transition: .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(16,24,40,.07);
+}
+
+.product-card strong {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+}
+
+.product-card span {
+    font-size: 13px;
+    color: #667085;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   NUMBERS / PROFIT EXAMPLE
+========================================================= */
+
+.profit-box {
+    margin: 40px 0;
+    border: 1px solid #EAECF0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(16,24,40,.06);
+}
+
+.profit-header {
+    padding: 20px 24px;
+    background: #F9FAFB;
+    border-bottom: 1px solid #EAECF0;
+    font-weight: 700;
+}
+
+.profit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #F2F4F7;
+    font-size: 15px;
+}
+
+.profit-row:last-child {
+    border-bottom: none;
+}
+
+.profit-row span:first-child {
+    color: #667085;
+}
+
+.profit-row strong {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   THREE NUMBERS
+========================================================= */
+
+.number-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 35px 0 45px;
+}
+
+.number-card {
+    padding: 25px 20px;
+    border: 1px solid #EAECF0;
+    border-radius: 16px;
+}
+
+.number-card h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.number-card p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #667085;
+    margin: 0;
+}
+
+
+/* =========================================================
+   RUO CTA
+========================================================= */
+
+.article-cta {
+    margin: 75px 0 30px;
+    padding: 48px 42px;
+    border-radius: 22px;
+    background: #101828;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cta::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    top: -180px;
+    background: #6F3FF5;
+    opacity: .35;
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.article-cta h2 {
+    color: white;
+    margin: 0 0 15px;
+    font-size: 32px;
+    position: relative;
+}
+
+.article-cta p {
+    color: #D0D5DD;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.article-cta .primary-btn {
+    position: relative;
+}
+
+
+/* =========================================================
+   AUTHOR / ARTICLE FOOTER
+========================================================= */
+
+.article-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #EAECF0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #F5F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6F3FF5;
+    font-weight: 800;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.author-info span {
+    font-size: 12px;
+    color: #98A2B3;
+}
+
+.share-links {
+    display: flex;
+    gap: 8px;
+}
+
+.share-links a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #EAECF0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667085;
+    font-size: 13px;
+    transition: .2s ease;
+}
+
+.share-links a:hover {
+    color: #6F3FF5;
+    border-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .article-header {
+        padding: 70px 22px 40px;
+    }
+
+    .article-hero {
+        height: 380px;
+        margin-bottom: 55px;
+        border-radius: 18px;
+    }
+
+    .article-layout {
+        display: block;
+        width: min(720px, 92%);
+    }
+
+    .article-sidebar {
+        display: none;
+    }
+
+    .article-body h2 {
+        margin-top: 60px;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .article-header {
+        padding: 55px 20px 30px;
+    }
+
+    .article-header h1 {
+        font-size: 40px;
+    }
+
+    .article-subtitle {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .article-meta {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    .article-hero {
+        width: 94%;
+        height: 320px;
+        border-radius: 16px;
+    }
+
+    .article-hero-content {
+        padding: 28px;
+    }
+
+    .article-body p {
+        font-size: 18px;
+        line-height: 1.85;
+    }
+
+    .article-body h2 {
+        font-size: 28px;
+    }
+
+    .article-body h3 {
+        font-size: 21px;
+    }
+
+    .article-lead {
+        font-size: 19px !important;
+    }
+
+    .product-grid,
+    .number-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .article-cta {
+        padding: 35px 25px;
+        border-radius: 18px;
+    }
+
+    .article-cta h2 {
+        font-size: 27px;
+    }
+
+    .article-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="article-page">
+
+    <!-- Reading progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+
+    <!-- =====================================================
+         ARTICLE HEADER
+    ====================================================== -->
+
+    <header class="article-header">
+
+        <div class="article-category">
+            COSMETICS BUSINESS • KENYA
+        </div>
+
+        <h1>
+            How to Start a Profitable Cosmetics Business in Kenya
+        </h1>
+
+        <p class="article-subtitle">
+            The five things you need to understand before putting
+            your money into a cosmetics business — from stock and
+            suppliers to location, competition and profitability.
+        </p>
+
+        <div class="article-meta">
+
+            <span>Ruo System</span>
+
+            <span class="meta-divider"></span>
+
+            <span>Business Guide</span>
+
+            <span class="meta-divider"></span>
+
+            <span>8 min read</span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <div class="article-hero">
+
+        <div class="article-hero-content">
+
+            <div class="hero-label">
+
+                <span>Business Guide</span>
+
+                <strong>
+                    Don't just open a cosmetics shop.
+                    Build a profitable one.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ARTICLE
+    ====================================================== -->
+
+    <main class="article-layout">
+
+
+        <!-- TABLE OF CONTENTS -->
+
+        <aside class="article-sidebar">
+
+            <div class="article-sidebar-title">
+                In this article
+            </div>
+
+            <a href="#cosmetics-business">
+                The cosmetics business
+            </a>
+
+            <a href="#stock">
+                1. Your stock
+            </a>
+
+            <a href="#suppliers">
+                2. Your suppliers
+            </a>
+
+            <a href="#location">
+                3. Your location
+            </a>
+
+            <a href="#competition">
+                4. Your competition
+            </a>
+
+            <a href="#numbers">
+                5. Do the math
+            </a>
+
+            <a href="#conclusion">
+                Conclusion
+            </a>
+
+        </aside>
+
+
+        <!-- ARTICLE BODY -->
+
+        <article class="article-body">
+
+
+            <!-- INTRO -->
+
+            <p class="article-lead">
+
+                A small cosmetic shop can potentially generate
+                <strong>KSh 20,000–50,000 in sales on a strong day.</strong>
+                At a 30–40% gross margin, that's roughly
+                <strong>KSh 6,000–20,000 in gross profit</strong>
+                before expenses.
+
+                But here's the catch:
+
+                <strong>
+                    selling cosmetics is easy.
+                    Building a profitable cosmetics business is a different game.
+                </strong>
+
+            </p>
+
+            <p>
+                The difference usually comes down to five things:
+            </p>
+
+            <div class="article-callout">
+
+                <p>
+                    <strong>
+                        What you stock. Where you get it.
+                        Where you sell it. How you compete.
+                        And whether you actually know your numbers.
+                    </strong>
+                </p>
+
+            </div>
+
+            <p>
+                If you're thinking about starting a cosmetics business
+                in Kenya, let's skip the motivational speeches and go
+                straight into the things that can make or break the business.
+            </p>
+
+
+            <!-- =================================================
+                 SECTION 0
+            ================================================== -->
+
+            <section id="cosmetics-business">
+
+                <h2>
+                    The cosmetics business is bigger than just a cosmetics shop
+                </h2>
+
+                <p>
+                    Before you spend your first shilling, understand that
+                    <strong>“cosmetics business” is a very broad category.</strong>
+                </p>
+
+                <p>
+                    You could specialize in:
+                </p>
+
+
+                <div class="product-grid">
+
+                    <div class="product-card">
+                        <strong>Hair</strong>
+                        <span>Synthetic hair and human hair</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Wigs & Extensions</strong>
+                        <span>Wigs, extensions and related products</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Hair Products</strong>
+                        <span>Products for hair care and maintenance</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Skin Care</strong>
+                        <span>Skin-care products and treatments</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Body Care</strong>
+                        <span>Lotions, creams and body products</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Makeup</strong>
+                        <span>Makeup and beauty products</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Fragrances</strong>
+                        <span>Perfumes and fragrances</span>
+                    </div>
+
+                    <div class="product-card">
+                        <strong>Beauty Accessories</strong>
+                        <span>Accessories and related beauty products</span>
+                    </div>
+
+                </div>
+
+                <p>
+                    And this matters because
+                    <strong>different products behave differently.</strong>
+                </p>
+
+                <p>
+                    A customer buying shampoo may come back every few weeks.
+                    Someone buying hair extensions may come back when they
+                    change their hairstyle.
+                </p>
+
+                <p>
+                    Someone buying a KSh 5,000 perfume may use it for several
+                    months before needing another one.
+                </p>
+
+                <p>
+                    That doesn't mean perfumes are a bad business.
+                </p>
+
+                <p>
+                    It means your business needs to understand
+                    <strong>customer frequency</strong>,
+                    not just product margin.
+                </p>
+
+                <p>
+                    A product with a lower margin but very frequent repeat
+                    purchases can sometimes be more valuable than a product
+                    with a huge margin that sits on your shelf for six months.
+                </p>
+
+                <p>
+                    And that takes us to the first thing you need to get right.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 1
+            ================================================== -->
+
+            <section id="stock">
+
+                <span class="section-number">
+                    01 — STOCK
+                </span>
+
+                <h2>
+                    Your Stock — and Where You Get It
+                </h2>
+
+                <p>
+                    If I had to choose one thing to pay attention to before
+                    everything else, <strong>it would be stock.</strong>
+                </p>
+
+                <p>
+                    Because your stock is where most of your money will be sitting.
+                </p>
+
+                <h3>
+                    Start with the customer, not the supplier
+                </h3>
+
+                <p>
+                    One of the biggest mistakes new business owners make is asking:
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        “What cosmetics can I buy?”
+                    </p>
+
+                </div>
+
+                <p>
+                    A better question is:
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            “What cosmetics are people around me already buying?”
+                        </strong>
+                    </p>
+
+                </div>
+
+                <p>
+                    If you're starting with limited capital, you probably don't
+                    want your entire investment tied up in one slow-moving
+                    product category.
+                </p>
+
+                <h3>
+                    Build a balanced product mix
+                </h3>
+
+                <p>
+                    You could have a mix of:
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>Fast-moving products</strong> —
+                        products customers regularly need and replace.
+                    </li>
+
+                    <li>
+                        <strong>Higher-margin products</strong> —
+                        products that give you more room between buying price
+                        and selling price.
+                    </li>
+
+                    <li>
+                        <strong>Impulse products</strong> —
+                        smaller products customers can easily add to their purchase.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 2
+            ================================================== -->
+
+            <section id="suppliers">
+
+                <span class="section-number">
+                    02 — SUPPLIERS
+                </span>
+
+                <h2>
+                    Where You Buy Your Cosmetics Matters
+                </h2>
+
+                <p>
+                    You can sell the exact same product as another shop
+                    and make very different profits.
+                </p>
+
+                <p>
+                    Why?
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>Your buying price.</strong>
+                    </p>
+
+                </div>
+
+                <p>
+                    Suppose Shop A buys a product for KSh 700 and sells it
+                    for KSh 1,000.
+                </p>
+
+                <p>
+                    Shop B finds the same product for KSh 550 and sells it
+                    for KSh 1,000.
+                </p>
+
+                <p>
+                    Both shops made a KSh 300 sale profit?
+                </p>
+
+                <p>
+                    No.
+                </p>
+
+                <div class="profit-box">
+
+                    <div class="profit-header">
+                        Same Selling Price. Different Profit.
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Shop A — Buying Price</span>
+                        <strong>KSh 700</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Shop A — Gross Profit</span>
+                        <strong>KSh 300</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Shop B — Buying Price</span>
+                        <strong>KSh 550</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Shop B — Gross Profit</span>
+                        <strong>KSh 450</strong>
+                    </div>
+
+                </div>
+
+                <p>
+                    That's KSh 150 more from exactly the same sale.
+                </p>
+
+                <p>
+                    Now multiply that across hundreds of products.
+                </p>
+
+                <p>
+                    Your supplier can therefore have a huge impact on your
+                    profitability.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 3
+            ================================================== -->
+
+            <section id="location">
+
+                <span class="section-number">
+                    03 — LOCATION
+                </span>
+
+                <h2>
+                    Your Business Location
+                </h2>
+
+                <p>
+                    If you want to open a physical location, it will be much
+                    smarter to open it in a strategic location.
+                </p>
+
+                <p>
+                    One option could be a crowded area where many people pass by.
+                    Another could be a strategic place near a university,
+                    ladies' hostels, salons or other places where your ideal
+                    customers already spend time.
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            Imagine your ideal customer.
+                            Where are they?
+                        </strong>
+                    </p>
+
+                </div>
+
+                <p>
+                    It is much easier for you to go where the market already
+                    exists than to spend all your resources trying to bring
+                    the market to you.
+                </p>
+
+                <p>
+                    The principle is simple:
+                </p>
+
+                <p>
+                    <strong>
+                        It is usually easier to take your business to an existing
+                        market than to convince an entirely new market to come to you.
+                    </strong>
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 4
+            ================================================== -->
+
+            <section id="competition">
+
+                <span class="section-number">
+                    04 — COMPETITION
+                </span>
+
+                <h2>
+                    Study Your Competition Before You Open
+                </h2>
+
+                <p>
+                    Before opening your shop, study the businesses already
+                    operating in the area.
+                </p>
+
+                <p>
+                    Find out how much they sell their products for.
+                    Understand what products they carry.
+                    Pay attention to what customers are asking for.
+                </p>
+
+                <p>
+                    Then ask yourself:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Can you compete on price?
+                    </li>
+
+                    <li>
+                        If you cannot compete on price, can you create
+                        offers your competitors don't provide?
+                    </li>
+
+                    <li>
+                        Are there products customers want that your competitors
+                        don't stock?
+                    </li>
+
+                    <li>
+                        Can you provide a better buying experience?
+                    </li>
+
+                </ul>
+
+                <p>
+                    The same thinking applies if you're selling online.
+                </p>
+
+                <p>
+                    Competition isn't something you discover after opening.
+                    It is something you should understand
+                    <strong>before you invest.</strong>
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 5
+            ================================================== -->
+
+            <section id="numbers">
+
+                <span class="section-number">
+                    05 — THE NUMBERS
+                </span>
+
+                <h2>
+                    Do the Math — Before the Business Does It for You
+                </h2>
+
+                <p>
+                    This is where a lot of small businesses get into trouble.
+                </p>
+
+                <p>
+                    The owner knows:
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        “I sold KSh 20,000 today.”
+                    </p>
+
+                </div>
+
+                <p>
+                    Great.
+                </p>
+
+                <p>
+                    But how much did you actually make?
+                </p>
+
+                <p>
+                    That's a completely different question.
+                </p>
+
+
+                <div class="profit-box">
+
+                    <div class="profit-header">
+                        Example: KSh 20,000 in Daily Sales
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Daily Sales</span>
+                        <strong>KSh 20,000</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Average Gross Margin</span>
+                        <strong>35%</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Gross Profit</span>
+                        <strong>KSh 7,000</strong>
+                    </div>
+
+                    <div class="profit-row">
+                        <span>Operating Expenses</span>
+                        <strong>Still to be deducted</strong>
+                    </div>
+
+                </div>
+
+                <p>
+                    That KSh 7,000 isn't necessarily money you can take home.
+                </p>
+
+                <p>
+                    You still have expenses such as:
+                </p>
+
+                <ul>
+
+                    <li>Rent</li>
+                    <li>Salaries</li>
+                    <li>Electricity</li>
+                    <li>Internet</li>
+                    <li>Marketing</li>
+                    <li>Delivery</li>
+
+                </ul>
+
+                <p>
+                    So, you need to understand three different numbers.
+                </p>
+
+
+                <div class="number-cards">
+
+                    <div class="number-card">
+
+                        <h4>
+                            Revenue
+                        </h4>
+
+                        <p>
+                            How much money came through sales.
+                        </p>
+
+                    </div>
+
+                    <div class="number-card">
+
+                        <h4>
+                            Gross Profit
+                        </h4>
+
+                        <p>
+                            What remains after accounting for the cost
+                            of the products sold.
+                        </p>
+
+                    </div>
+
+                    <div class="number-card">
+
+                        <h4>
+                            Net Profit
+                        </h4>
+
+                        <p>
+                            What remains after your business expenses
+                            have been paid.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    <strong>
+                        This distinction is extremely important.
+                    </strong>
+                </p>
+
+                <p>
+                    A shop can have impressive sales and still have disappointing
+                    profits.
+                </p>
+
+
+                <!-- BUSINESS SYSTEM -->
+
+                <h3>
+                    Know Your Numbers Every Day
+                </h3>
+
+                <p>
+                    This is where having a proper business management system
+                    becomes extremely important.
+                </p>
+
+                <p>
+                    A cosmetic business owner should always have a clear picture
+                    of what is happening financially in the business.
+                </p>
+
+                <p>
+                    You should be able to see the current value of your stock,
+                    the expected profit from the products you have in inventory,
+                    your operating expenses, and most importantly, your actual
+                    net profit after those expenses have been deducted.
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            These are not just accounting figures.
+                            They are the numbers that tell you whether the
+                            business is actually growing, where money is being
+                            made, where it is being lost, and what decisions
+                            you need to make next.
+                        </strong>
+                    </p>
+
+                </div>
+
+                <p>
+                    The important thing is that these numbers should not require
+                    hours of calculations at the end of every month.
+                </p>
+
+                <p>
+                    They should be available quickly and accurately whenever
+                    you need them.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 RUO CTA
+            ================================================== -->
+
+            <div class="article-cta">
+
+                <h2>
+                    Run your cosmetics business with numbers.
+                </h2>
+
+                <p>
+                    Ruo System brings your sales, inventory, expenses and
+                    profitability information together so you can manage your
+                    cosmetic business based on actual numbers rather than assumptions.
+                </p>
+
+                <a
+                    href="https://pos-10-production.up.railway.app/auth/demo"
+                    class="primary-btn"
+                    onclick="gtag('event', 'request_demo_click');"
+                >
+                    See Ruo System
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSION
+            ================================================== -->
+
+            <section id="conclusion">
+
+                <h2>
+                    The Bottom Line
+                </h2>
+
+                <p>
+                    Starting a cosmetics business in Kenya is not simply about
+                    finding a shop, buying products and waiting for customers.
+                </p>
+
+                <p>
+                    You need to understand your market, stock products people
+                    actually want, find competitive suppliers, choose your
+                    location carefully, understand the competition and keep
+                    control of your numbers.
+                </p>
+
+                <p>
+                    These are the five areas that can make a significant
+                    difference in how the business performs.
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            Get these fundamentals right, keep a close eye
+                            on your numbers, and build the business around
+                            informed decisions rather than guesswork.
+                        </strong>
+                    </p>
+
+                </div>
+
+                <p>
+                    A profitable cosmetics business isn't built simply by
+                    selling more.
+                </p>
+
+                <p>
+                    It is built by understanding
+                    <strong>
+                        what you sell, what it costs, what you make,
+                        what you spend, and what you keep.
+                    </strong>
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 ARTICLE FOOTER
+            ================================================== -->
+
+            <div class="article-bottom">
+
+                <div class="author-info">
+
+                    <div class="author-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Ruo System
+                        </strong>
+
+                        <span>
+                            Business & POS insights for Kenyan businesses
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="share-links">
+
+                    <a
+                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on Facebook"
+                    >
+                        f
+                    </a>
+
+                    <a
+                        href="https://twitter.com/intent/tweet?url={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on X"
+                    >
+                        𝕏
+                    </a>
+
+                    <a
+                        href="https://wa.me/?text=How%20to%20Start%20a%20Profitable%20Cosmetics%20Business%20in%20Kenya%20{{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on WhatsApp"
+                    >
+                        W
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </article>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+window.addEventListener("scroll", function () {
+
+    const article = document.querySelector(".article-body");
+    const progress = document.getElementById("readingProgress");
+
+    if (!article || !progress) return;
+
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+
+    const scrollPosition = window.scrollY;
+
+    const percentage =
+        ((scrollPosition - articleTop) /
+        (articleHeight - window.innerHeight)) * 100;
+
+    progress.style.width =
+        Math.min(100, Math.max(0, percentage)) + "%";
+
+});
+
+</script>
+
+{% endblock %}

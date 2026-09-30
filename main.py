@@ -148,3 +148,11 @@ async def article(request: Request):
         name="posinstallation.html",
         context={}
     )
+
+@app.get("/blog/how-to-start-a-profitable-cosmetic-shop-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="startprofitablecosmetic.html",
+        context={}
+    )
