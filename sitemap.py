@@ -8,8 +8,6 @@ async def sitemap():
     urls = [
         "https://www.ruosystem.co.ke/",
         "https://www.ruosystem.co.ke/about",
-        "https://www.ruosystem.co.ke/features",
-        "https://www.ruosystem.co.ke/pricing",
         "https://www.ruosystem.co.ke/contact",
         "https://www.ruosystem.co.ke/blog",
         "https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops",
