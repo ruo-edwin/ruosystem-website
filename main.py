@@ -156,3 +156,11 @@ async def article(request: Request):
         name="startprofitablecosmetic.html",
         context={}
     )
+
+@app.get("/blog/best-pos-system-for-small-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="smallshoppos.html",
+        context={}
+    )
