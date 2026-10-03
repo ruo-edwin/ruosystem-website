@@ -164,3 +164,11 @@ async def article(request: Request):
         name="smallshoppos.html",
         context={}
     )
+
+@app.get("/blog/can-you-use-a-pos-system-on-your-phone")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posonphone.html",
+        context={}
+    )

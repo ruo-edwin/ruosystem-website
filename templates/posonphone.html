@@ -1,0 +1,1032 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Can You Use a POS System on Your Phone? | Ruo System
+{% endblock %}
+
+{% block description %}
+Yes, you can use some POS systems on a smartphone, provided they are designed for mobile use. Ruo System is a good example of a mobile-friendly POS system.
+{% endblock %}
+
+{% block keywords %}
+POS system on phone, mobile POS system, POS system Kenya, use POS on smartphone, mobile POS Kenya, Ruo System
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   ARTICLE PAGE
+========================================================= */
+
+.article-page {
+    background: #fff;
+    color: #101828;
+}
+
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #6F3FF5;
+    z-index: 10001;
+}
+
+
+/* =========================================================
+   ARTICLE HEADER
+========================================================= */
+
+.article-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 24px 35px;
+    text-align: center;
+}
+
+.article-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: #F5F2FF;
+    color: #6F3FF5;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin-bottom: 26px;
+}
+
+.article-header h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #101828;
+}
+
+.article-subtitle {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.55;
+    color: #667085;
+    font-weight: 400;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 22px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.meta-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #98A2B3;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.article-hero {
+    width: min(1180px, 94%);
+    height: 380px;
+    margin: 10px auto 55px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(111,63,245,.90),
+            rgba(111,63,245,.25)
+        ),
+        url("/static/images/pos-system-phone.jpg")
+        center / cover no-repeat;
+
+    box-shadow:
+        0 30px 80px rgba(16,24,40,.14);
+}
+
+.article-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+}
+
+.hero-label {
+    color: white;
+    max-width: 680px;
+}
+
+.hero-label span {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: .85;
+}
+
+.hero-label strong {
+    display: block;
+    font-size: clamp(25px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -.03em;
+}
+
+
+/* =========================================================
+   ARTICLE LAYOUT
+========================================================= */
+
+.article-layout {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 720px);
+    gap: 55px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+========================================================= */
+
+.article-sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.article-sidebar-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #98A2B3;
+    margin-bottom: 18px;
+}
+
+.article-sidebar a {
+    display: block;
+    color: #98A2B3;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 7px 0 7px 14px;
+    border-left: 2px solid #EAECF0;
+    transition: .2s ease;
+}
+
+.article-sidebar a:hover {
+    color: #6F3FF5;
+    border-left-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   ARTICLE BODY
+========================================================= */
+
+.article-body {
+    min-width: 0;
+}
+
+.article-body p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: #344054;
+    margin-bottom: 20px;
+}
+
+.article-body h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    margin: 52px 0 18px;
+    color: #101828;
+}
+
+.article-body h3 {
+    font-size: 21px;
+    margin: 30px 0 14px;
+    color: #101828;
+}
+
+.article-body strong {
+    color: #101828;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.article-lead {
+    font-size: 21px !important;
+    line-height: 1.65 !important;
+    color: #1D2939 !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+.article-lead strong {
+    color: #101828;
+}
+
+
+/* =========================================================
+   CALLOUT
+========================================================= */
+
+.article-callout {
+    margin: 28px 0;
+    padding: 20px 24px;
+    background: #F8F7FF;
+    border-left: 4px solid #6F3FF5;
+    border-radius: 0 14px 14px 0;
+}
+
+.article-callout p {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #344054;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 25px 0 30px;
+}
+
+.feature-card {
+    padding: 20px;
+    border: 1px solid #EAECF0;
+    border-radius: 14px;
+    background: #fff;
+    transition: .25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(16,24,40,.07);
+}
+
+.feature-card strong {
+    display: block;
+    margin-bottom: 6px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+}
+
+.feature-card span {
+    font-size: 13px;
+    color: #667085;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   RUO CTA
+========================================================= */
+
+.article-cta {
+    margin: 50px 0 25px;
+    padding: 38px 35px;
+    border-radius: 22px;
+    background: #101828;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cta::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    top: -180px;
+    background: #6F3FF5;
+    opacity: .35;
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.article-cta h2 {
+    color: white;
+    margin: 0 0 15px;
+    font-size: 32px;
+    position: relative;
+}
+
+.article-cta p {
+    color: #D0D5DD;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.article-cta .primary-btn {
+    position: relative;
+}
+
+
+/* =========================================================
+   ARTICLE FOOTER
+========================================================= */
+
+.article-bottom {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #EAECF0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #F5F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6F3FF5;
+    font-weight: 800;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.author-info span {
+    font-size: 12px;
+    color: #98A2B3;
+}
+
+.share-links {
+    display: flex;
+    gap: 8px;
+}
+
+.share-links a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #EAECF0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667085;
+    font-size: 13px;
+    transition: .2s ease;
+}
+
+.share-links a:hover {
+    color: #6F3FF5;
+    border-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .article-header {
+        padding: 55px 22px 30px;
+    }
+
+    .article-hero {
+        height: 340px;
+        margin-bottom: 40px;
+        border-radius: 18px;
+    }
+
+    .article-layout {
+        display: block;
+        width: min(720px, 92%);
+    }
+
+    .article-sidebar {
+        display: none;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .article-header {
+        padding: 45px 20px 25px;
+    }
+
+    .article-header h1 {
+        font-size: 38px;
+    }
+
+    .article-subtitle {
+        font-size: 16px;
+    }
+
+    .article-meta {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    .article-hero {
+        width: 94%;
+        height: 290px;
+        margin-bottom: 35px;
+        border-radius: 16px;
+    }
+
+    .article-hero-content {
+        padding: 28px;
+    }
+
+    .article-body p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .article-lead {
+        font-size: 19px !important;
+    }
+
+    .article-body h2 {
+        font-size: 27px;
+        margin-top: 42px;
+        margin-bottom: 15px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-callout {
+        margin: 22px 0;
+        padding: 18px 20px;
+    }
+
+    .article-cta {
+        margin-top: 45px;
+        padding: 30px 22px;
+    }
+
+    .article-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="article-page">
+
+    <!-- Reading progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+
+    <!-- =====================================================
+         ARTICLE HEADER
+    ====================================================== -->
+
+    <header class="article-header">
+
+        <div class="article-category">
+            POS • KENYA
+        </div>
+
+        <h1>
+            Can You Use a POS System on Your Phone?
+        </h1>
+
+        <p class="article-subtitle">
+            Find out whether you can run your shop's sales,
+            stock and daily operations using a smartphone.
+        </p>
+
+        <div class="article-meta">
+
+            <span>Ruo System</span>
+
+            <span class="meta-divider"></span>
+
+            <span>POS Guide</span>
+
+            <span class="meta-divider"></span>
+
+            <span>2 min read</span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <div class="article-hero">
+
+        <div class="article-hero-content">
+
+            <div class="hero-label">
+
+                <span>POS Guide • Kenya</span>
+
+                <strong>
+                    You don't always need a computer to manage your shop.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ARTICLE
+    ====================================================== -->
+
+    <main class="article-layout">
+
+
+        <!-- TABLE OF CONTENTS -->
+
+        <aside class="article-sidebar">
+
+            <div class="article-sidebar-title">
+                In this article
+            </div>
+
+            <a href="#answer">
+                The short answer
+            </a>
+
+            <a href="#what-you-can-do">
+                What you can do
+            </a>
+
+            <a href="#small-shop">
+                Is it good for a small shop?
+            </a>
+
+            <a href="#ruo-system">
+                Ruo System on your phone
+            </a>
+
+            <a href="#conclusion">
+                Conclusion
+            </a>
+
+        </aside>
+
+
+        <!-- ARTICLE BODY -->
+
+        <article class="article-body">
+
+
+            <!-- =================================================
+                 INTRO
+            ================================================== -->
+
+            <section id="answer">
+
+                <p class="article-lead">
+
+                    Yes, you can use some POS systems on a smartphone,
+                    provided they are <strong>designed for mobile use.</strong>
+                    Ruo System is a good example of a mobile-friendly
+                    POS system.
+
+                </p>
+
+                <p>
+
+                    You do not necessarily need a computer or a large
+                    POS machine every time you want to record a sale,
+                    check your stock or see how your business is performing.
+
+                    If your POS system works well on a phone, you can
+                    handle many of the tasks you normally associate with
+                    a traditional POS system directly from your smartphone.
+
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            The important thing is not whether you are
+                            using a phone or a computer. What matters is
+                            whether the POS system gives you the tools
+                            you need to manage your business.
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 WHAT YOU CAN DO
+            ================================================== -->
+
+            <section id="what-you-can-do">
+
+                <h2>
+                    What can you do with a POS system on your phone?
+                </h2>
+
+                <p>
+
+                    A mobile-friendly POS system can allow you to handle
+                    many of the everyday tasks involved in running a
+                    small retail business.
+
+                </p>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <strong>
+                            Record Sales
+                        </strong>
+
+                        <span>
+                            Record customer purchases and keep a history
+                            of your sales transactions.
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <strong>
+                            Check Stock
+                        </strong>
+
+                        <span>
+                            See the products you have available and keep
+                            track of stock as sales are made.
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <strong>
+                            View Reports
+                        </strong>
+
+                        <span>
+                            Check your sales information and understand
+                            how your shop is performing.
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <strong>
+                            Manage Your Business
+                        </strong>
+
+                        <span>
+                            Access important business information without
+                            being tied to a computer.
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p>
+
+                    This can be particularly useful for small business
+                    owners who want to check their shop while away from
+                    the counter or computer.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SMALL SHOP
+            ================================================== -->
+
+            <section id="small-shop">
+
+                <h2>
+                    Is using a phone for POS good for a small shop?
+                </h2>
+
+                <p>
+
+                    For many small shops, using a phone can be a practical
+                    way to start managing sales and inventory digitally.
+
+                    You may already have a smartphone, which means you
+                    don't necessarily need to buy expensive equipment
+                    before you can start using a POS system.
+
+                </p>
+
+                <p>
+
+                    However, the most important thing is choosing software
+                    that is actually designed to work well on smaller
+                    screens. A system that simply works on a phone is not
+                    necessarily the same as a system that provides a good
+                    mobile experience.
+
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+
+                        A good mobile POS should be <strong>simple,
+                        easy to navigate and quick to use</strong> when
+                        you are serving customers.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RUO SYSTEM
+            ================================================== -->
+
+            <section id="ruo-system">
+
+                <h2>
+                    Can you use Ruo System on your phone?
+                </h2>
+
+                <p>
+
+                    <strong>Yes. Ruo System is designed to be accessible
+                    from your smartphone.</strong>
+
+                    You can use it to record sales, manage products and
+                    stock, view sales information and manage other parts
+                    of your business from one system.
+
+                </p>
+
+                <p>
+
+                    This means you can check your business information
+                    without always having to sit in front of a computer.
+
+                    Whether you run a small retail shop, mini supermarket
+                    or cosmetic shop, having access to your POS from your
+                    phone can make it easier to stay connected to the
+                    business.
+
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+
+                        Instead of waiting until you get to a computer
+                        to check what is happening in your shop, you can
+                        <strong>access your business information from your
+                        phone.</strong>
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RUO CTA
+            ================================================== -->
+
+            <div class="article-cta">
+
+                <h2>
+                    See how Ruo System works.
+                </h2>
+
+                <p>
+
+                    Want to see what a mobile-friendly POS system looks
+                    like? Try the Ruo System demo and explore the system
+                    yourself.
+
+                </p>
+
+                <a
+                    href="https://www.ruosystem.co.ke"
+                    class="primary-btn"
+                    onclick="gtag('event', 'request_demo_click');"
+                >
+                    Try Ruo System
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSION
+            ================================================== -->
+
+            <section id="conclusion">
+
+                <h2>
+                    The Bottom Line
+                </h2>
+
+                <p>
+
+                    <strong>You can use a POS system on your phone</strong>
+                    as long as the software is designed to provide a
+                    good mobile experience.
+
+                </p>
+
+                <p>
+
+                    For a small shop, this can be a convenient way to
+                    record sales, check stock and keep track of the
+                    business without depending entirely on a computer.
+
+                </p>
+
+                <p>
+
+                    If you want to see how a mobile-friendly POS system
+                    works in practice, <strong>try the Ruo System demo
+                    and explore it for yourself.</strong>
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 ARTICLE FOOTER
+            ================================================== -->
+
+            <div class="article-bottom">
+
+                <div class="author-info">
+
+                    <div class="author-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Ruo System
+                        </strong>
+
+                        <span>
+                            Business & POS insights for Kenyan businesses
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="share-links">
+
+                    <a
+                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on Facebook"
+                    >
+                        f
+                    </a>
+
+                    <a
+                        href="https://twitter.com/intent/tweet?url={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on X"
+                    >
+                        𝕏
+                    </a>
+
+                    <a
+                        href="https://wa.me/?text=Can%20You%20Use%20a%20POS%20System%20on%20Your%20Phone%3F%20{{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on WhatsApp"
+                    >
+                        W
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </article>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+window.addEventListener("scroll", function () {
+
+    const article = document.querySelector(".article-body");
+    const progress = document.getElementById("readingProgress");
+
+    if (!article || !progress) return;
+
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+
+    const scrollPosition = window.scrollY;
+
+    const percentage =
+        ((scrollPosition - articleTop) /
+        (articleHeight - window.innerHeight)) * 100;
+
+    progress.style.width =
+        Math.min(100, Math.max(0, percentage)) + "%";
+
+});
+
+</script>
+
+{% endblock %}
