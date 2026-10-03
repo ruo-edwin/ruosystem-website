@@ -22,7 +22,8 @@ async def sitemap():
         "https://www.ruosystem.co.ke/blog/where-can-l-buy-cosmetic-products-in-wholesale-in-kenya",
         "https://www.ruosystem.co.ke/blog/how-much-does-pos-installation-cost-in-kenya",
         "https://www.ruosystem.co.ke/blog/how-to-start-a-profitable-cosmetic-shop-in-kenya",
-        "https://www.ruosystem.co.ke/blog/best-pos-system-for-small-shops-in-kenya"
+        "https://www.ruosystem.co.ke/blog/best-pos-system-for-small-shops-in-kenya",
+        "https://www.ruosystem.co.ke/blog/can-you-use-a-pos-system-on-your-phone"
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
