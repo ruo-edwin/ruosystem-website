@@ -1,0 +1,1094 @@
+{% extends "base.html" %}
+
+{% block title %}
+POS vs Excel: Which Is Better for a Small Business in Kenya? | Ruo System
+{% endblock %}
+
+{% block description %}
+POS vs Excel: Learn which is better for managing sales, stock, profit and reports in a small business in Kenya.
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   ARTICLE PAGE
+========================================================= */
+
+.article-page {
+    background: #fff;
+    color: #101828;
+}
+
+/* ---------- Reading Progress ---------- */
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #6F3FF5;
+    z-index: 10001;
+}
+
+
+/* =========================================================
+   ARTICLE HEADER
+========================================================= */
+
+.article-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 24px 35px;
+    text-align: center;
+}
+
+.article-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: #F5F2FF;
+    color: #6F3FF5;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin-bottom: 26px;
+}
+
+.article-header h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #101828;
+}
+
+.article-subtitle {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.55;
+    color: #667085;
+    font-weight: 400;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 22px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.meta-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #98A2B3;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.article-hero {
+    width: min(1180px, 94%);
+    height: 430px;
+    margin: 10px auto 55px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(111,63,245,.88),
+            rgba(111,63,245,.25)
+        ),
+        url("/static/images/pos-vs-excel.jpg")
+        center / cover no-repeat;
+
+    box-shadow:
+        0 30px 80px rgba(16,24,40,.14);
+}
+
+.article-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 55px;
+}
+
+.hero-label {
+    color: white;
+    max-width: 620px;
+}
+
+.hero-label span {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: .85;
+}
+
+.hero-label strong {
+    display: block;
+    font-size: clamp(25px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -.03em;
+}
+
+
+/* =========================================================
+   ARTICLE LAYOUT
+========================================================= */
+
+.article-layout {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 720px);
+    gap: 55px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+========================================================= */
+
+.article-sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.article-sidebar-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #98A2B3;
+    margin-bottom: 18px;
+}
+
+.article-sidebar a {
+    display: block;
+    color: #98A2B3;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 7px 0 7px 14px;
+    border-left: 2px solid #EAECF0;
+    transition: .2s ease;
+}
+
+.article-sidebar a:hover {
+    color: #6F3FF5;
+    border-left-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   ARTICLE BODY
+========================================================= */
+
+.article-body {
+    min-width: 0;
+}
+
+.article-body p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: #344054;
+    margin-bottom: 20px;
+}
+
+.article-body h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    margin: 52px 0 18px;
+    color: #101828;
+}
+
+.article-body h3 {
+    font-size: 21px;
+    margin: 30px 0 14px;
+    color: #101828;
+}
+
+.article-body strong {
+    color: #101828;
+    font-weight: 700;
+}
+
+.article-body ul {
+    margin: 0 0 22px 25px;
+}
+
+.article-body li {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #344054;
+    padding-left: 8px;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   INTRO HIGHLIGHT
+========================================================= */
+
+.article-lead {
+    font-size: 21px !important;
+    line-height: 1.65 !important;
+    color: #1D2939 !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+.article-lead strong {
+    color: #101828;
+}
+
+
+/* =========================================================
+   NUMBERED SECTIONS
+========================================================= */
+
+.section-number {
+    display: block;
+    color: #6F3FF5;
+    font-size: 13px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: .1em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CALLOUT
+========================================================= */
+
+.article-callout {
+    margin: 28px 0;
+    padding: 20px 24px;
+    background: #F8F7FF;
+    border-left: 4px solid #6F3FF5;
+    border-radius: 0 14px 14px 0;
+}
+
+.article-callout p {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #344054;
+}
+
+
+/* =========================================================
+   COMPARISON TABLE
+========================================================= */
+
+.comparison-table {
+    width: 100%;
+    margin: 30px 0 40px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #EAECF0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(16,24,40,.05);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.comparison-table th {
+    padding: 16px 18px;
+    text-align: left;
+    background: #F9FAFB;
+    border-bottom: 1px solid #EAECF0;
+    font-size: 14px;
+    color: #101828;
+}
+
+.comparison-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #F2F4F7;
+    font-size: 14px;
+    color: #475467;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table td:not(:first-child),
+.comparison-table th:not(:first-child) {
+    text-align: center;
+}
+
+.check {
+    color: #12B76A;
+    font-weight: 700;
+}
+
+.limited {
+    color: #F79009;
+    font-weight: 600;
+}
+
+.no {
+    color: #98A2B3;
+}
+
+
+/* =========================================================
+   RUO CTA
+========================================================= */
+
+.article-cta {
+    margin: 50px 0 25px;
+    padding: 38px 35px;
+    border-radius: 22px;
+    background: #101828;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cta::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    top: -180px;
+    background: #6F3FF5;
+    opacity: .35;
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.article-cta h2 {
+    color: white;
+    margin: 0 0 15px;
+    font-size: 32px;
+    position: relative;
+}
+
+.article-cta p {
+    color: #D0D5DD;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.article-cta .primary-btn {
+    position: relative;
+}
+
+
+/* =========================================================
+   ARTICLE FOOTER
+========================================================= */
+
+.article-bottom {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #EAECF0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #F5F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6F3FF5;
+    font-weight: 800;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.author-info span {
+    font-size: 12px;
+    color: #98A2B3;
+}
+
+.share-links {
+    display: flex;
+    gap: 8px;
+}
+
+.share-links a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #EAECF0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667085;
+    font-size: 13px;
+    transition: .2s ease;
+}
+
+.share-links a:hover {
+    color: #6F3FF5;
+    border-color: #6F3FF5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .article-header {
+        padding: 55px 22px 30px;
+    }
+
+    .article-hero {
+        height: 340px;
+        margin-bottom: 40px;
+        border-radius: 18px;
+    }
+
+    .article-layout {
+        display: block;
+        width: min(720px, 92%);
+    }
+
+    .article-sidebar {
+        display: none;
+    }
+
+    .article-body h2 {
+        margin-top: 45px;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .article-header {
+        padding: 45px 20px 25px;
+    }
+
+    .article-header h1 {
+        font-size: 38px;
+    }
+
+    .article-subtitle {
+        font-size: 16px;
+    }
+
+    .article-hero {
+        height: 290px;
+        margin-bottom: 35px;
+    }
+
+    .article-hero-content {
+        padding: 28px;
+    }
+
+    .article-body p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .article-lead {
+        font-size: 19px !important;
+    }
+
+    .article-body h2 {
+        font-size: 27px;
+        margin-top: 42px;
+        margin-bottom: 15px;
+    }
+
+    .article-body h3 {
+        margin-top: 25px;
+    }
+
+    .article-callout {
+        margin: 22px 0;
+        padding: 18px 20px;
+    }
+
+    .article-cta {
+        margin-top: 45px;
+        padding: 30px 22px;
+    }
+
+    .article-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comparison-table {
+        font-size: 12px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="article-page">
+
+    <!-- Reading progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+
+    <!-- =====================================================
+         ARTICLE HEADER
+    ====================================================== -->
+
+    <header class="article-header">
+
+        <div class="article-category">
+            POS • SMALL BUSINESS • KENYA
+        </div>
+
+        <h1>
+            POS vs Excel: Which Is Better for a Small Business in Kenya?
+        </h1>
+
+        <p class="article-subtitle">
+            Should your business use Excel or a POS system to manage sales,
+            stock and profit? Here's the simple difference.
+        </p>
+
+        <div class="article-meta">
+            <span>Ruo System</span>
+
+            <span class="meta-divider"></span>
+
+            <span>Business Guide</span>
+
+            <span class="meta-divider"></span>
+
+            <span>4 min read</span>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <div class="article-hero">
+
+        <div class="article-hero-content">
+
+            <div class="hero-label">
+
+                <span>POS vs Excel</span>
+
+                <strong>
+                    Excel records your business.
+                    A POS helps you run it.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ARTICLE
+    ====================================================== -->
+
+    <main class="article-layout">
+
+
+        <!-- TABLE OF CONTENTS -->
+
+        <aside class="article-sidebar">
+
+            <div class="article-sidebar-title">
+                In this article
+            </div>
+
+            <a href="#answer">
+                The short answer
+            </a>
+
+            <a href="#comparison">
+                POS vs Excel
+            </a>
+
+            <a href="#excel">
+                When Excel is enough
+            </a>
+
+            <a href="#pos">
+                When you need a POS
+            </a>
+
+            <a href="#bottom-line">
+                The bottom line
+            </a>
+
+        </aside>
+
+
+        <!-- ARTICLE BODY -->
+
+        <article class="article-body">
+
+
+            <!-- INTRO -->
+
+            <section id="answer">
+
+                <p class="article-lead">
+
+                    If you're running a small business in Kenya, you may be
+                    wondering whether you should continue using Excel or switch
+                    to a POS system.
+
+                    <strong>
+                        The simple answer is: Excel requires you to manage the
+                        data. A POS system is designed to manage the process for you.
+                    </strong>
+
+                </p>
+
+                <p>
+                    Excel is useful for recording and analysing business data.
+                    But as your sales and stock increase, manually updating
+                    spreadsheets can become time-consuming and prone to errors.
+                </p>
+
+                <p>
+                    A POS system is built specifically around the daily process
+                    of selling products, managing stock and understanding your
+                    business numbers.
+                </p>
+
+            </section>
+
+
+            <!-- COMPARISON -->
+
+            <section id="comparison">
+
+                <span class="section-number">
+                    01 — COMPARISON
+                </span>
+
+                <h2>
+                    POS vs Excel
+                </h2>
+
+                <p>
+                    Both tools can help you record business information.
+                    The difference is how much of the work you have to do yourself.
+                </p>
+
+
+                <div style="overflow-x:auto;">
+
+                    <table class="comparison-table">
+
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Excel</th>
+                                <th>POS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Record sales</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+
+                            <tr>
+                                <td>Track stock</td>
+                                <td class="limited">Manual</td>
+                                <td class="check">Automatic</td>
+                            </tr>
+
+                            <tr>
+                                <td>Calculate profit</td>
+                                <td class="check">✓</td>
+                                <td class="check">Automatic</td>
+                            </tr>
+
+                            <tr>
+                                <td>Sales reports</td>
+                                <td class="limited">Requires setup</td>
+                                <td class="check">Built-in</td>
+                            </tr>
+
+                            <tr>
+                                <td>Stock deduction</td>
+                                <td class="limited">Manual</td>
+                                <td class="check">Automatic</td>
+                            </tr>
+
+                            <tr>
+                                <td>Multiple users</td>
+                                <td class="limited">Limited</td>
+                                <td class="check">✓</td>
+                            </tr>
+
+                            <tr>
+                                <td>Barcode scanning</td>
+                                <td class="no">Not normally</td>
+                                <td class="check">✓</td>
+                            </tr>
+
+                            <tr>
+                                <td>Receipt printing</td>
+                                <td class="limited">Requires setup</td>
+                                <td class="check">✓</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXCEL -->
+
+            <section id="excel">
+
+                <span class="section-number">
+                    02 — EXCEL
+                </span>
+
+                <h2>
+                    When Is Excel Enough?
+                </h2>
+
+                <p>
+                    Excel can work perfectly well for a very small business.
+                    If you only have a few products and a small number of daily
+                    transactions, there may be no reason to complicate things.
+                </p>
+
+                <p>
+                    Excel can be enough if you have:
+                </p>
+
+                <ul>
+
+                    <li>Few products</li>
+
+                    <li>Few daily sales</li>
+
+                    <li>No employees making sales</li>
+
+                    <li>Simple stock requirements</li>
+
+                    <li>Someone available to maintain the spreadsheet</li>
+
+                </ul>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            Excel is not a bad business tool.
+                        </strong>
+                        The problem starts when you are using a spreadsheet
+                        to manually manage a process that has become too large.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- POS -->
+
+            <section id="pos">
+
+                <span class="section-number">
+                    03 — POS
+                </span>
+
+                <h2>
+                    When Should You Use a POS System?
+                </h2>
+
+                <p>
+                    A POS system becomes more useful as your business starts
+                    handling more products, customers and transactions.
+                </p>
+
+                <p>
+                    You may need a POS if:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Your stock is becoming difficult to track.
+                    </li>
+
+                    <li>
+                        You have employees making sales.
+                    </li>
+
+                    <li>
+                        You want automatic sales reports.
+                    </li>
+
+                    <li>
+                        You need to know your profit.
+                    </li>
+
+                    <li>
+                        Your physical stock doesn't match your records.
+                    </li>
+
+                    <li>
+                        You are spending too much time updating Excel.
+                    </li>
+
+                </ul>
+
+                <p>
+                    Instead of separately recording a sale, calculating the
+                    amount, updating stock and preparing reports, a POS can
+                    connect these processes together.
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            Sell a product → record the sale → reduce stock →
+                            update your reports.
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- CTA -->
+
+            <div class="article-cta">
+
+                <h2>
+                    Ready to move beyond Excel?
+                </h2>
+
+                <p>
+                    See how Ruo System brings your products, stock, sales
+                    and business reports together in one system.
+                    Try the demo and decide for yourself.
+                </p>
+
+                <a
+                    href="/demo"
+                    class="primary-btn"
+                    onclick="gtag('event', 'request_demo_click');"
+                >
+                    Try Ruo System Demo
+                </a>
+
+            </div>
+
+
+            <!-- CONCLUSION -->
+
+            <section id="bottom-line">
+
+                <span class="section-number">
+                    04 — THE BOTTOM LINE
+                </span>
+
+                <h2>
+                    POS vs Excel: Which One Should You Choose?
+                </h2>
+
+                <p>
+                    Excel is a great tool for recording and analysing data.
+                </p>
+
+                <p>
+                    A POS system is built to manage the sales and stock
+                    process.
+                </p>
+
+                <p>
+                    If your business is very small and you only make a few
+                    transactions every day, Excel may be perfectly adequate.
+                </p>
+
+                <p>
+                    But if your business is growing and you're spending more
+                    time maintaining spreadsheets than managing the business,
+                    it may be time to move to a POS system.
+                </p>
+
+                <div class="article-callout">
+
+                    <p>
+                        <strong>
+                            The goal isn't to replace Excel just because you can.
+                            The goal is to use the right tool for the stage your
+                            business is at.
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ARTICLE FOOTER -->
+
+            <div class="article-bottom">
+
+                <div class="author-info">
+
+                    <div class="author-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Ruo System
+                        </strong>
+
+                        <span>
+                            Business & POS insights for Kenyan businesses
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="share-links">
+
+                    <a
+                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on Facebook"
+                    >
+                        f
+                    </a>
+
+                    <a
+                        href="https://twitter.com/intent/tweet?url={{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on X"
+                    >
+                        𝕏
+                    </a>
+
+                    <a
+                        href="https://wa.me/?text=POS%20vs%20Excel:%20Which%20Is%20Better%20for%20a%20Small%20Business%20in%20Kenya?%20{{ request.url }}"
+                        target="_blank"
+                        aria-label="Share on WhatsApp"
+                    >
+                        W
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </article>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+window.addEventListener("scroll", function () {
+
+    const article = document.querySelector(".article-body");
+    const progress = document.getElementById("readingProgress");
+
+    if (!article || !progress) return;
+
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+
+    const scrollPosition = window.scrollY;
+
+    const percentage =
+        ((scrollPosition - articleTop) /
+        (articleHeight - window.innerHeight)) * 100;
+
+    progress.style.width =
+        Math.min(100, Math.max(0, percentage)) + "%";
+
+});
+
+</script>
+
+{% endblock %}

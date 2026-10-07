@@ -172,3 +172,12 @@ async def article(request: Request):
         name="posonphone.html",
         context={}
     )
+
+
+@app.get("/blog/pos-vs-excel-for-retail-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posvsexcel.html",
+        context={}
+    )
