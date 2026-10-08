@@ -181,3 +181,11 @@ async def article(request: Request):
         name="posvsexcel.html",
         context={}
     )
+
+@app.get("/blog/best-pos-system-for-multiple-shop-branches-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="multiplebranches.html",
+        context={}
+    )
