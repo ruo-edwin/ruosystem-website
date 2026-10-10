@@ -189,3 +189,12 @@ async def article(request: Request):
         name="multiplebranches.html",
         context={}
     )
+
+
+@app.get("/blog/how-to-track-stock-and-sales-in-small-shop-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="stocksmall.html",
+        context={}
+    )

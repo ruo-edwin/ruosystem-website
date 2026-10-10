@@ -1,0 +1,955 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+How to Track Stock and Sales in a Small Shop in Kenya | Ruo System
+{% endblock %}
+
+{% block description %}
+Learn how to track stock and sales in a small shop in Kenya using a stock book, Excel or a POS system. Discover practical ways to reduce stock errors and monitor sales.
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.article-page {
+    background: #fff;
+    color: #101828;
+}
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #6F3FF5;
+    z-index: 10001;
+}
+
+.article-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 24px 35px;
+    text-align: center;
+}
+
+.article-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: #F5F2FF;
+    color: #6F3FF5;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin-bottom: 26px;
+}
+
+.article-header h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -.045em;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #101828;
+}
+
+.article-subtitle {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.55;
+    color: #667085;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 22px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.meta-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #98A2B3;
+}
+
+.article-hero {
+    width: min(1180px, 94%);
+    height: 430px;
+    margin: 10px auto 55px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(55, 32, 120, .88),
+            rgba(111, 63, 245, .25)
+        ),
+        url("/static/images/stock-sales-small-shop.jpg")
+        center / cover no-repeat;
+    box-shadow: 0 30px 80px rgba(16,24,40,.14);
+}
+
+.article-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 55px;
+}
+
+.hero-label {
+    color: white;
+    max-width: 700px;
+}
+
+.hero-label span {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: .9;
+}
+
+.hero-label strong {
+    display: block;
+    font-size: clamp(25px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -.03em;
+}
+
+.article-layout {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 720px);
+    gap: 55px;
+    align-items: start;
+}
+
+.article-sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.article-sidebar-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #98A2B3;
+    margin-bottom: 18px;
+}
+
+.article-sidebar a {
+    display: block;
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 7px 0 7px 14px;
+    border-left: 2px solid #EAECF0;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.article-sidebar a:hover {
+    color: #6F3FF5;
+    border-left-color: #6F3FF5;
+}
+
+.article-body {
+    min-width: 0;
+}
+
+.article-body p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: #344054;
+    margin-bottom: 20px;
+}
+
+.article-body h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    margin: 52px 0 18px;
+    color: #101828;
+}
+
+.article-body h3 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 30px 0 14px;
+    color: #101828;
+}
+
+.article-body strong {
+    color: #101828;
+    font-weight: 700;
+}
+
+.article-body a {
+    color: #6F3FF5;
+    font-weight: 600;
+}
+
+.article-body ul,
+.article-body ol {
+    margin: 0 0 22px 25px;
+}
+
+.article-body li {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #344054;
+    padding-left: 8px;
+    margin-bottom: 8px;
+}
+
+.article-lead {
+    font-size: 21px !important;
+    line-height: 1.65 !important;
+    color: #1D2939 !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+.article-callout {
+    margin: 28px 0;
+    padding: 20px 24px;
+    background: #F8F7FF;
+    border-left: 4px solid #6F3FF5;
+    border-radius: 0 14px 14px 0;
+}
+
+.article-callout p {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #344054;
+}
+
+.section-number {
+    display: block;
+    color: #6F3FF5;
+    font-size: 13px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: .1em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.comparison-table {
+    width: 100%;
+    margin: 30px 0 40px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #EAECF0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(16,24,40,.05);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.comparison-table th {
+    padding: 16px 18px;
+    text-align: left;
+    background: #F9FAFB;
+    border-bottom: 1px solid #EAECF0;
+    font-size: 14px;
+    color: #101828;
+}
+
+.comparison-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #F2F4F7;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #475467;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table td:not(:first-child),
+.comparison-table th:not(:first-child) {
+    text-align: center;
+}
+
+.check {
+    color: #12B76A !important;
+    font-weight: 700;
+}
+
+.limited {
+    color: #F79009 !important;
+    font-weight: 600;
+}
+
+.article-cta {
+    margin: 50px 0 25px;
+    padding: 38px 35px;
+    border-radius: 22px;
+    background: #101828;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cta::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    top: -180px;
+    background: #6F3FF5;
+    opacity: .35;
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.article-cta h2 {
+    color: white;
+    margin: 0 0 15px;
+    font-size: 32px;
+    position: relative;
+}
+
+.article-cta p {
+    color: #D0D5DD;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.article-cta .primary-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 21px;
+    border-radius: 9px;
+    background: #6F3FF5;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.article-cta .primary-btn:hover {
+    background: #5B2FE0;
+    transform: translateY(-1px);
+}
+
+.article-bottom {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #EAECF0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #F5F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6F3FF5;
+    font-weight: 800;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.author-info span {
+    font-size: 12px;
+    color: #98A2B3;
+}
+
+.share-links {
+    display: flex;
+    gap: 8px;
+}
+
+.share-links a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #EAECF0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667085;
+    font-size: 13px;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.share-links a:hover {
+    color: #6F3FF5;
+    border-color: #6F3FF5;
+}
+
+@media(max-width: 900px) {
+    .article-header {
+        padding: 55px 22px 30px;
+    }
+
+    .article-hero {
+        height: 340px;
+        margin-bottom: 40px;
+        border-radius: 18px;
+    }
+
+    .article-layout {
+        display: block;
+        width: min(720px, 92%);
+    }
+
+    .article-sidebar {
+        display: none;
+    }
+
+    .article-body h2 {
+        margin-top: 45px;
+    }
+}
+
+@media(max-width: 600px) {
+    .article-header {
+        padding: 45px 20px 25px;
+    }
+
+    .article-header h1 {
+        font-size: 37px;
+    }
+
+    .article-subtitle {
+        font-size: 16px;
+    }
+
+    .article-meta {
+        gap: 10px;
+    }
+
+    .article-hero {
+        height: 290px;
+        margin-bottom: 35px;
+    }
+
+    .article-hero-content {
+        padding: 25px;
+    }
+
+    .article-body p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .article-lead {
+        font-size: 19px !important;
+    }
+
+    .article-body h2 {
+        font-size: 27px;
+        margin-top: 42px;
+        margin-bottom: 15px;
+    }
+
+    .article-body h3 {
+        margin-top: 25px;
+    }
+
+    .article-callout {
+        margin: 22px 0;
+        padding: 18px 20px;
+    }
+
+    .article-cta {
+        margin-top: 45px;
+        padding: 30px 22px;
+    }
+
+    .article-cta h2 {
+        font-size: 27px;
+    }
+
+    .article-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 11px 7px;
+        font-size: 12px;
+    }
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="article-page">
+
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- ARTICLE HEADER -->
+    <header class="article-header">
+        <div class="article-category">
+            INVENTORY MANAGEMENT • SMALL BUSINESS • KENYA
+        </div>
+
+        <h1>
+            How to Track Stock and Sales in a Small Shop in Kenya
+        </h1>
+
+        <p class="article-subtitle">
+            Learn how to record sales, monitor stock levels and keep
+            accurate business records using simple tools or a POS system.
+        </p>
+
+        <div class="article-meta">
+            <span>Ruo System</span>
+            <span class="meta-divider"></span>
+            <span>Small Business Guide</span>
+            <span class="meta-divider"></span>
+            <span>4 min read</span>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="article-hero">
+        <div class="article-hero-content">
+            <div class="hero-label">
+                <span>Shop Stock Management</span>
+                <strong>
+                    Know what you have in stock.
+                    Understand what you sell.
+                </strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE -->
+    <main class="article-layout">
+
+        <!-- TABLE OF CONTENTS -->
+        <aside class="article-sidebar">
+            <div class="article-sidebar-title">In this article</div>
+
+            <a href="#answer">The quick answer</a>
+            <a href="#record-sales">Record every sale</a>
+            <a href="#update-stock">Update stock</a>
+            <a href="#stock-checks">Check physical stock</a>
+            <a href="#excel-vs-pos">Excel vs POS</a>
+            <a href="#reports">Monitor sales reports</a>
+            <a href="#bottom-line">The bottom line</a>
+        </aside>
+
+        <!-- ARTICLE BODY -->
+        <article class="article-body">
+
+            <!-- QUICK ANSWER -->
+            <section id="answer">
+                <p class="article-lead">
+                    <strong>
+                        The easiest way to track stock and sales in a
+                        small shop is to record every sale, update stock
+                        whenever goods arrive, and regularly compare
+                        physical stock with your records.
+                    </strong>
+                    A POS system can automate much of this process,
+                    helping you reduce manual work and monitor your
+                    business more easily.
+                </p>
+
+                <p>
+                    Whether you run a mini supermarket, cosmetics shop
+                    or general retail shop in Kenya, accurate stock and
+                    sales records help you know what is selling, what
+                    needs restocking and where discrepancies may exist.
+                </p>
+            </section>
+
+            <!-- SECTION 1 -->
+            <section id="record-sales">
+                <span class="section-number">01 — RECORD SALES</span>
+
+                <h2>Record Every Sale Immediately</h2>
+
+                <p>
+                    Every sale should be recorded as soon as it happens.
+                    If you sell products without updating your records,
+                    your stock figures and sales totals can quickly
+                    become inaccurate.
+                </p>
+
+                <p>You can record sales using:</p>
+
+                <ul>
+                    <li>A notebook or manual sales book.</li>
+                    <li>An Excel spreadsheet.</li>
+                    <li>A POS system that records transactions.</li>
+                </ul>
+
+                <p>
+                    For example, if you sell five bottles of lotion,
+                    your records should show the sale and the reduction
+                    in available stock. This makes it easier to compare
+                    what you sold with what remains on your shelves.
+                </p>
+
+                <div class="article-callout">
+                    <p>
+                        <strong>Simple rule:</strong>
+                        If a sale is not recorded, your business
+                        records may not reflect what actually happened.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="update-stock">
+                <span class="section-number">02 — UPDATE STOCK</span>
+
+                <h2>Update Stock Whenever You Receive Goods</h2>
+
+                <p>
+                    Stock management is not only about recording sales.
+                    You must also record new products received from
+                    suppliers, damaged goods, returns and other stock
+                    movements.
+                </p>
+
+                <p>
+                    Imagine your cosmetics shop has 20 bottles of lotion.
+                    You purchase another 30 bottles from your supplier.
+                    Your stock should now be 50 bottles, assuming there
+                    are no other stock movements.
+                </p>
+
+                <p>
+                    If you later sell eight bottles, the expected
+                    balance becomes 42 bottles.
+                </p>
+
+                <div class="article-callout">
+                    <p>
+                        <strong>Expected closing stock =</strong>
+                        Opening stock + Stock received − Units sold
+                        − Other stock reductions.
+                    </p>
+                </div>
+
+                <p>
+                    Recording stock received and sold consistently
+                    helps you identify products that are running low
+                    before they run out completely.
+                </p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="stock-checks">
+                <span class="section-number">03 — PHYSICAL CHECKS</span>
+
+                <h2>Compare Your Records with Physical Stock</h2>
+
+                <p>
+                    Even if your records look correct, count the actual
+                    products on your shelves and compare the quantities
+                    with your recorded stock.
+                </p>
+
+                <p>
+                    For example, your records may show 25 units of a
+                    product while your physical count finds only 21.
+                    That four-unit difference needs investigation.
+                </p>
+
+                <p>Possible reasons include:</p>
+
+                <ul>
+                    <li>Sales that were never recorded.</li>
+                    <li>Damaged or expired products.</li>
+                    <li>Stock movements that were not entered.</li>
+                    <li>Counting or data-entry errors.</li>
+                    <li>Missing goods or theft.</li>
+                </ul>
+
+                <p>
+                    Investigate discrepancies and correct your records
+                    only after identifying or documenting the reason
+                    for the adjustment.
+                </p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="excel-vs-pos">
+                <span class="section-number">04 — CHOOSE YOUR TOOL</span>
+
+                <h2>Should You Use Excel or a POS System?</h2>
+
+                <p>
+                    Both Excel and POS software can help you track
+                    stock and sales. The right choice depends on the
+                    number of products you sell, your daily transactions
+                    and how much manual work your shop can handle.
+                </p>
+
+                <div style="overflow-x:auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Excel</th>
+                                <th>POS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Record sales</td>
+                                <td class="check">Yes</td>
+                                <td class="check">Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Update stock</td>
+                                <td class="limited">Manual</td>
+                                <td class="check">Can automate</td>
+                            </tr>
+                            <tr>
+                                <td>Sales reports</td>
+                                <td class="limited">Requires setup</td>
+                                <td class="check">Usually built in</td>
+                            </tr>
+                            <tr>
+                                <td>Stock monitoring</td>
+                                <td class="limited">Manual tracking</td>
+                                <td class="check">Integrated records</td>
+                            </tr>
+                            <tr>
+                                <td>Ease of daily use</td>
+                                <td class="limited">Depends on setup</td>
+                                <td class="check">Designed for sales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>When Excel is enough</h3>
+
+                <p>
+                    Excel may be sufficient if you have a small number
+                    of products, few daily sales and time to maintain
+                    your records carefully.
+                </p>
+
+                <h3>When a POS system makes more sense</h3>
+
+                <p>
+                    A POS system becomes more useful when you manage
+                    many products, make frequent sales or need reliable
+                    stock and sales reports without updating multiple
+                    spreadsheets manually.
+                </p>
+
+                <p>
+                    Keep in mind that stock updates depend on correctly
+                    recording sales, purchases and other stock movements.
+                    A POS system cannot automatically account for goods
+                    it has not been told about.
+                </p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="reports">
+                <span class="section-number">05 — SALES REPORTS</span>
+
+                <h2>Use Sales Reports to Make Better Decisions</h2>
+
+                <p>
+                    Good stock records show what you have. Sales reports
+                    help you understand what is happening in your business.
+                </p>
+
+                <p>Review your records to identify:</p>
+
+                <ul>
+                    <li>Products that sell quickly.</li>
+                    <li>Products that have remained on the shelves.</li>
+                    <li>Items that need restocking.</li>
+                    <li>Your daily and monthly sales totals.</li>
+                    <li>Differences between recorded and physical stock.</li>
+                </ul>
+
+                <p>
+                    Remember that sales revenue is not the same as
+                    profit. To estimate gross profit, subtract the cost
+                    of the goods sold from the sales revenue. Other
+                    business expenses must also be considered when
+                    calculating overall profit.
+                </p>
+            </section>
+
+            <!-- CTA -->
+            <div class="article-cta">
+                <h2>Spend Less Time Tracking Stock Manually</h2>
+
+                <p>
+                    Ruo System helps retail shop owners record sales,
+                    monitor stock quantities and view sales reports
+                    in one place. Explore the demo and see whether it
+                    fits the way you run your business.
+                </p>
+
+                <a
+                    href="https://pos-10-production.up.railway.app/auth/demo"
+                    class="primary-btn"
+                    onclick="if(typeof gtag==='function'){gtag('event','request_demo_click');}"
+                >
+                    Try Ruo System Demo →
+                </a>
+            </div>
+
+            <!-- CONCLUSION -->
+            <section id="bottom-line">
+                <span class="section-number">06 — THE BOTTOM LINE</span>
+
+                <h2>Make Stock and Sales Tracking Part of Your Routine</h2>
+
+                <p>
+                    To track stock and sales in a small shop in Kenya,
+                    record every sale, update incoming stock, count
+                    physical inventory regularly and review your reports.
+                </p>
+
+                <p>
+                    A notebook or Excel spreadsheet can work for a very
+                    small shop. As the business grows, a POS system can
+                    reduce repetitive work by connecting sales,
+                    inventory and reporting.
+                </p>
+
+                <p>
+                    The goal is simple: know what you have, understand
+                    what you sell and use accurate records to make
+                    better business decisions.
+                </p>
+
+                <div class="article-callout">
+                    <p>
+                        <strong>
+                            Better stock records mean better visibility
+                            into your business.
+                        </strong>
+                        Choose a tracking method you can maintain
+                        consistently as your shop grows.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ARTICLE FOOTER -->
+            <div class="article-bottom">
+                <div class="author-info">
+                    <div class="author-avatar">R</div>
+                    <div>
+                        <strong>Ruo System</strong>
+                        <span>
+                            Business and POS insights for Kenyan businesses
+                        </span>
+                    </div>
+                </div>
+
+                <div class="share-links">
+                    <a
+                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.url | urlencode }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on Facebook"
+                    >f</a>
+
+                    <a
+                        href="https://twitter.com/intent/tweet?url={{ request.url | urlencode }}&text=How%20to%20Track%20Stock%20and%20Sales%20in%20a%20Small%20Shop"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on X"
+                    >𝕏</a>
+
+                    <a
+                        href="https://wa.me/?text={{ ('How to Track Stock and Sales in a Small Shop in Kenya ' ~ request.url) | urlencode }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on WhatsApp"
+                    >W</a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+</div>
+
+<script>
+(function () {
+    const progress = document.getElementById("readingProgress");
+    const article = document.querySelector(".article-body");
+
+    if (!progress || !article) return;
+
+    function updateReadingProgress() {
+        const rect = article.getBoundingClientRect();
+        const articleTop = window.scrollY + rect.top;
+        const articleHeight = article.offsetHeight;
+        const scrollableHeight = articleHeight - window.innerHeight;
+
+        const percentage = scrollableHeight > 0
+            ? ((window.scrollY - articleTop) / scrollableHeight) * 100
+            : 0;
+
+        progress.style.width =
+            Math.min(100, Math.max(0, percentage)) + "%";
+    }
+
+    window.addEventListener("scroll", updateReadingProgress, {
+        passive: true
+    });
+
+    updateReadingProgress();
+})();
+</script>
+
+{% endblock %}
