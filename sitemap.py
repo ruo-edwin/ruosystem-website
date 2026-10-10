@@ -25,7 +25,8 @@ async def sitemap():
         "https://www.ruosystem.co.ke/blog/best-pos-system-for-small-shops-in-kenya",
         "https://www.ruosystem.co.ke/blog/can-you-use-a-pos-system-on-your-phone",
         "https://www.ruosystem.co.ke/blog/pos-vs-excel-for-retail-shops-in-kenya",
-        "https://www.ruosystem.co.ke/blog/best-pos-system-for-multiple-shop-branches-in-kenya"
+        "https://www.ruosystem.co.ke/blog/best-pos-system-for-multiple-shop-branches-in-kenya",
+        "https://www.ruosystem.co.ke/blog/how-to-track-stock-and-sales-in-small-shop-kenya"
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
