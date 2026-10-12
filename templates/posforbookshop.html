@@ -1,0 +1,679 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Bookshop POS System in Kenya for Stock and Sales Management | Ruo System
+{% endblock %}
+
+{% block description %}
+Need a bookshop POS system in Kenya? Track book stock, record daily sales and monitor business performance with Ruo System. Explore the demo.
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.book-page {
+    --book-primary: #6F3FF5;
+    --book-dark: #101828;
+    --book-muted: #667085;
+    --book-border: #EAECF0;
+    --book-light: #F8F9FC;
+    color: var(--book-dark);
+    overflow: hidden;
+}
+
+.book-page * { box-sizing: border-box; }
+
+.book-page a { text-decoration: none; }
+
+.book-hero {
+    padding: 76px 0 85px;
+    background:
+        radial-gradient(circle at 85% 20%, #EDE6FF 0, transparent 32%),
+        linear-gradient(135deg, #FFFFFF, #FAF8FF);
+}
+
+.book-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.book-label {
+    display: inline-block;
+    background: #F0EBFF;
+    color: var(--book-primary);
+    padding: 8px 13px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.book-hero h1 {
+    font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.book-highlight { color: var(--book-primary); }
+
+.book-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--book-muted);
+    margin-bottom: 25px;
+}
+
+.book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.book-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 21px;
+    border-radius: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.book-btn-primary {
+    color: white !important;
+    background: var(--book-primary);
+    box-shadow: 0 10px 25px #6F3FF52B;
+}
+
+.book-btn-primary:hover {
+    background: #5425D0;
+    transform: translateY(-2px);
+}
+
+.book-btn-secondary {
+    color: var(--book-dark) !important;
+    background: white;
+    border: 1px solid var(--book-border);
+}
+
+.book-trust {
+    margin-top: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--book-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.book-dashboard {
+    padding: 22px;
+    border-radius: 22px;
+    background: white;
+    border: 1px solid var(--book-border);
+    box-shadow: 0 25px 65px #10182812;
+}
+
+.book-dashboard h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0 0 5px;
+}
+
+.book-dashboard > p {
+    font-size: 12px;
+    color: var(--book-muted);
+    margin-bottom: 20px;
+}
+
+.book-stat {
+    background: #F8F6FF;
+    padding: 16px;
+    border-radius: 13px;
+    margin-bottom: 12px;
+}
+
+.book-stat strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.book-stat span {
+    color: var(--book-muted);
+    font-size: 12px;
+}
+
+.book-stock-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F0F1F5;
+    font-size: 13px;
+}
+
+.book-stock-row:last-child { border-bottom: 0; }
+
+.book-section { padding: 72px 0; }
+
+.book-section-light { background: var(--book-light); }
+
+.book-section-heading {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.book-section-heading h2 {
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.8px;
+    margin-bottom: 14px;
+}
+
+.book-section-heading p {
+    color: var(--book-muted);
+    line-height: 1.8;
+}
+
+.book-answer {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--book-border);
+    border-left: 4px solid var(--book-primary);
+    border-radius: 14px;
+}
+
+.book-answer h2 {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.book-answer p {
+    line-height: 1.8;
+    color: #475467;
+    margin-bottom: 0;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.book-card {
+    height: 100%;
+    padding: 24px;
+    background: white;
+    border: 1px solid var(--book-border);
+    border-radius: 17px;
+}
+
+.book-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    background: #F0EBFF;
+    color: var(--book-primary);
+    border-radius: 12px;
+    font-size: 20px;
+    margin-bottom: 17px;
+}
+
+.book-card h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: var(--book-muted);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.book-copy {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.book-copy h2 {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    margin: 36px 0 12px;
+}
+
+.book-copy h2:first-child { margin-top: 0; }
+
+.book-copy p,
+.book-copy li {
+    font-size: 15px;
+    color: #475467;
+    line-height: 1.85;
+}
+
+.book-copy ul { padding-left: 22px; }
+
+.book-copy li { margin-bottom: 7px; }
+
+.book-inline-cta {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 800;
+    color: var(--book-primary);
+}
+
+.book-faq {
+    padding: 19px 0;
+    border-bottom: 1px solid var(--book-border);
+}
+
+.book-faq h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.book-faq p {
+    color: var(--book-muted);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.book-final-cta {
+    padding: 55px 25px;
+    background: linear-gradient(135deg, #F2EDFF, #FAF8FF);
+    border: 1px solid #E6DDFF;
+    border-radius: 23px;
+    text-align: center;
+}
+
+.book-final-cta h2 {
+    font-size: clamp(27px, 3vw, 39px);
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.book-final-cta p {
+    max-width: 620px;
+    margin: 0 auto 24px;
+    color: var(--book-muted);
+    line-height: 1.8;
+}
+
+.book-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.book-toc a {
+    padding: 9px 12px;
+    border: 1px solid var(--book-border);
+    border-radius: 9px;
+    background: white;
+    color: #475467;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.book-toc a:hover {
+    border-color: var(--book-primary);
+    color: var(--book-primary);
+}
+
+@media (max-width: 900px) {
+    .book-hero-grid { grid-template-columns: 1fr; gap: 35px; }
+    .book-dashboard { max-width: 600px; width: 100%; }
+    .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+    .book-hero { padding: 48px 0 55px; }
+    .book-hero h1 { font-size: 36px; letter-spacing: -1px; }
+    .book-lead { font-size: 15px; }
+    .book-section { padding: 48px 0; }
+    .book-grid { grid-template-columns: 1fr; }
+    .book-card { padding: 21px; }
+    .book-actions { flex-direction: column; align-items: stretch; }
+    .book-btn { width: 100%; }
+    .book-dashboard { padding: 16px; }
+    .book-answer { padding: 20px; }
+    .book-final-cta { padding: 38px 20px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="book-page">
+
+    <!-- HERO -->
+    <section class="book-hero">
+        <div class="container">
+            <div class="book-hero-grid">
+                <div>
+                    <div class="book-label">
+                        Bookshop & Stationery POS
+                    </div>
+
+                    <h1>
+                        Bookshop POS System in Kenya for
+                        <span class="book-highlight">
+                            Stock and Sales Management
+                        </span>
+                    </h1>
+
+                    <p class="book-lead">
+                        Simplify your bookshop operations with a system
+                        that helps you track books in stock, record
+                        transactions, and review sales performance.
+                        Spend less time managing records and more time
+                        serving customers.
+                    </p>
+
+                    <div class="book-actions">
+                        <a href="https://pos-10-production.up.railway.app/auth/demo"
+                           class="book-btn book-btn-primary">
+                            Explore Live Demo →
+                        </a>
+                        <a href="#bookshop-benefits"
+                           class="book-btn book-btn-secondary">
+                            See How It Helps
+                        </a>
+                    </div>
+
+                    <div class="book-trust">
+                        <span>✓ Stock visibility</span>
+                        <span>✓ Sales tracking</span>
+                        <span>✓ Business reports</span>
+                    </div>
+                </div>
+
+                <!-- Illustrative product preview -->
+                <div class="book-dashboard">
+                    <h3>Bookshop Management</h3>
+                    <p>A clearer view of your daily operations</p>
+
+                    <div class="book-stat">
+                        <strong>Product & Stock Records</strong>
+                        <span>Keep track of books and stationery in your inventory.</span>
+                    </div>
+
+                    <div class="book-stat">
+                        <strong>Daily Sales</strong>
+                        <span>Record transactions and review sales activity.</span>
+                    </div>
+
+                    <div class="book-stat">
+                        <strong>Sales Performance</strong>
+                        <span>Use reports to understand how your shop is performing.</span>
+                    </div>
+
+                    <div class="book-stock-row">
+                        <span>Textbooks & revision books</span>
+                        <strong>Track stock</strong>
+                    </div>
+                    <div class="book-stock-row">
+                        <span>Exercise books & stationery</span>
+                        <strong>Track stock</strong>
+                    </div>
+                    <div class="book-stock-row">
+                        <span>Pens, files & supplies</span>
+                        <strong>Track stock</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK ANSWER AND PAGE NAVIGATION -->
+    <section class="book-section">
+        <div class="container">
+            <div class="book-answer">
+                <h2>What is the best POS system for a bookshop?</h2>
+                <p>
+                    A good bookshop POS system helps you record sales,
+                    manage inventory, monitor product costs, and review
+                    business performance. Ruo System brings essential
+                    sales and stock management tools together, helping
+                    you spend less time maintaining records and make
+                    more informed business decisions.
+                </p>
+                <a class="book-inline-cta"
+                   href="https://pos-10-production.up.railway.app/auth/demo">
+                    See Ruo System in action →
+                </a>
+            </div>
+
+            <nav class="book-toc" aria-label="On this page">
+                <a href="#bookshop-benefits">Benefits</a>
+                <a href="#bookshop-features">Features</a>
+                <a href="#bookshop-use">How it works</a>
+                <a href="#bookshop-faq">FAQs</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- PROBLEMS AND OUTCOMES -->
+    <section class="book-section book-section-light"
+             id="bookshop-benefits">
+        <div class="container">
+            <div class="book-section-heading">
+                <h2>Run Your Bookshop With Better Stock and Sales Visibility</h2>
+                <p>
+                    Spend less time chasing records and get a clearer
+                    picture of what's happening in your business.
+                </p>
+            </div>
+
+            <div class="book-grid">
+                <article class="book-card">
+                    <div class="book-icon">▤</div>
+                    <h3>Know What Is in Stock</h3>
+                    <p>
+                        Keep product records for textbooks, novels,
+                        exercise books, pens, and other stationery.
+                        Check recorded stock instead of relying only
+                        on memory or handwritten notes.
+                    </p>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-icon">↗</div>
+                    <h3>Keep Track of Daily Sales</h3>
+                    <p>
+                        Record customer transactions and review your
+                        sales history. Make it easier to understand
+                        how your bookshop performs throughout the day.
+                    </p>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-icon">◷</div>
+                    <h3>Make Better Stock Decisions</h3>
+                    <p>
+                        Use stock records and sales history to identify
+                        products that may need replenishment and make
+                        more informed purchasing decisions.
+                    </p>
+                </article>
+            </div>
+
+            <div style="text-align:center; margin-top:30px;">
+                <a href="https://pos-10-production.up.railway.app/auth/demo"
+                   class="book-btn book-btn-primary">
+                    Explore the Demo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="book-section" id="bookshop-features">
+        <div class="container">
+            <div class="book-section-heading">
+                <h2>Bookshop POS Features That Simplify Daily Work</h2>
+                <p>
+                    Manage key parts of your bookshop without depending
+                    entirely on separate notebooks and spreadsheets.
+                </p>
+            </div>
+
+            <div class="book-grid">
+                <article class="book-card">
+                    <div class="book-icon">▦</div>
+                    <h3>Product and Inventory Management</h3>
+                    <p>
+                        Organise your products and keep track of
+                        recorded stock levels as sales and stock
+                        updates are entered.
+                    </p>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-icon">KSh</div>
+                    <h3>Sales and Product Pricing</h3>
+                    <p>
+                        Record sales and maintain product buying and
+                        selling prices to support better control
+                        over everyday transactions.
+                    </p>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-icon">▤</div>
+                    <h3>Sales Reports</h3>
+                    <p>
+                        Review sales activity and use available reports
+                        to understand revenue and product performance.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="book-section book-section-light"
+             id="bookshop-use">
+        <div class="container">
+            <div class="book-copy">
+                <h2>How to Use Ruo System in Your Bookshop</h2>
+                <p>
+                    Getting started begins with recording your products
+                    and their stock. Once your products are set up,
+                    you can use the system to record sales and review
+                    your business reports.
+                </p>
+
+                <ul>
+                    <li><strong>Add your products:</strong>
+                        Record the books and stationery you sell.</li>
+                    <li><strong>Update your stock:</strong>
+                        Keep inventory records aligned with stock received.</li>
+                    <li><strong>Record sales:</strong>
+                        Use the POS to capture customer transactions.</li>
+                    <li><strong>Review reports:</strong>
+                        Check sales performance and available profit information.</li>
+                </ul>
+
+                <p>
+                    Want to see the process before making a decision?
+                    Explore the demo and navigate the system yourself.
+                </p>
+
+                <a href="https://pos-10-production.up.railway.app/auth/demo"
+                   class="book-btn book-btn-primary">
+                    Explore Live Demo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="book-section" id="bookshop-faq">
+        <div class="container">
+            <div class="book-section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>
+                    What to know when choosing a POS system for your bookshop.
+                </p>
+            </div>
+
+            <div class="book-copy">
+                <div class="book-faq">
+                    <h3>Can a POS system manage books and stationery?</h3>
+                    <p>
+                        Yes. A general retail POS can manage products such
+                        as textbooks, exercise books, pens, files, and other
+                        stationery, provided they are recorded as products
+                        in the system.
+                    </p>
+                </div>
+
+                <div class="book-faq">
+                    <h3>Can I track bookshop sales every day?</h3>
+                    <p>
+                        A POS system records sales transactions and can
+                        provide sales reports, helping you review your
+                        business activity over time.
+                    </p>
+                </div>
+
+                <div class="book-faq">
+                    <h3>Can I monitor profit from bookshop sales?</h3>
+                    <p>
+                        Recording buying and selling prices can help you
+                        review estimated profit on sales. Remember that
+                        operating expenses and other costs also affect
+                        your final net profit.
+                    </p>
+                </div>
+
+                <div class="book-faq">
+                    <h3>How can I see if Ruo System suits my bookshop?</h3>
+                    <p>
+                        Explore the live demo to see the interface and
+                        how products, sales, and reports are managed.
+                        Check that the available features match your
+                        business requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CONVERSION -->
+    <section class="book-section">
+        <div class="container">
+            <div class="book-final-cta">
+                <h2>Spend Less Time Managing Records</h2>
+                <p>
+                    Keep better track of your bookshop stock, record
+                    sales, and get a clearer view of business performance.
+                    Explore Ruo System and see how it works before deciding
+                    if it's right for your business.
+                </p>
+                <a href="https://pos-10-production.up.railway.app/auth/demo"
+                   class="book-btn book-btn-primary">
+                    Explore the Ruo System Demo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

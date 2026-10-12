@@ -66,6 +66,15 @@ async def article(request: Request):
         name="posforsupermarket.html",
         context={}
     )
+
+@app.get("/services/bookshop-pos-system-in-kenya-for-stock-and-sales-management")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posforbookshop.html",
+        context={}
+    )
+
 @app.get("/blog/best-pos-system-for-retail-shops-in-kenya")
 async def article(request: Request):
     return templates.TemplateResponse(
@@ -198,3 +207,4 @@ async def article(request: Request):
         name="stocksmall.html",
         context={}
     )
+
