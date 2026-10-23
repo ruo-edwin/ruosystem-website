@@ -1038,104 +1038,45 @@
     }
 }
 
-/* ==========================================
-   TESTIMONIALS SECTION
-========================================== */
-
-.home-testimonials {
-    padding: 80px 0;
-    background: #f6f8fc;
-    overflow: hidden;
-}
-
-.home-testimonials-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
-    align-items: center;
-    gap: 42px;
-}
-
-.home-testimonials-intro {
-    min-width: 0;
-}
-
-.home-testimonials-intro h2 {
-    margin: 22px 0 18px;
-    color: #2862ff;
-    font-size: clamp(34px, 3.5vw, 54px);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -1.8px;
-}
-
-.home-testimonials-intro > p {
-    max-width: 420px;
-    margin: 0 0 24px;
-    color: #66748d;
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-.home-testimonials-intro .home-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #2862ff;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* Review cards: side by side on desktop */
-
+/* Google customer reviews */
 .home-google-reviews {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
     align-items: stretch;
-    gap: 20px;
     min-width: 0;
 }
 
 .home-google-review {
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    gap: 14px;
     height: 100%;
     padding: 26px;
-    gap: 17px;
-    background: #fff;
-    border: 1px solid #e6ebf4;
-    border-radius: 22px;
-    box-shadow: 0 12px 35px rgba(24, 42, 80, 0.045);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(20, 38, 75, 0.045);
 }
-
-.home-google-review:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(24, 42, 80, 0.08);
-}
-
-/* Reviewer heading */
 
 .home-google-review-top {
     display: flex;
     align-items: center;
     gap: 12px;
-    min-width: 0;
 }
 
 .home-google-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
     border-radius: 50%;
     background: #edf3ff;
-    color: #2459c4;
-    font-size: 17px;
-    font-weight: 800;
+    color: #174ea6;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .home-google-reviewer {
@@ -1144,54 +1085,39 @@
 }
 
 .home-google-reviewer h3 {
-    margin: 0 0 5px;
-    color: #15213a;
+    margin: 0 0 4px;
+    color: #172033;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     overflow-wrap: anywhere;
 }
 
 .home-google-reviewer span {
-    color: #8490a5;
+    color: #778197;
     font-size: 12px;
 }
 
-.home-google-mark {
-    flex: 0 0 auto;
+.home-google-g {
     font-family: Arial, sans-serif;
     font-size: 23px;
     font-weight: 700;
     color: #4285f4;
 }
 
-/* Stars */
-
 .home-google-stars {
-    display: inline-block;
     color: #fbbc04;
     font-size: 19px;
-    line-height: 1.3;
     letter-spacing: 2px;
+    line-height: 1.2;
     white-space: nowrap;
-}
-
-/* Review content */
-
-.home-google-review-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
 }
 
 .home-google-review .home-testimonial-text {
     margin: 0;
-    color: #596780;
+    color: #515c70;
     font-size: 13.5px;
-    line-height: 1.85;
-    overflow-wrap: anywhere;
+    line-height: 1.8;
 }
-
-/* Footer stays at the bottom of each card */
 
 .home-google-review-footer {
     display: flex;
@@ -1200,16 +1126,15 @@
     flex-wrap: wrap;
     gap: 8px;
     margin-top: auto;
-    padding-top: 15px;
+    padding-top: 12px;
     border-top: 1px solid #edf0f5;
-    color: #8994a8;
+    color: #8790a2;
     font-size: 11px;
 }
 
 .home-google-review-footer a {
     color: #2459c4;
-    font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -1217,41 +1142,32 @@
     text-decoration: underline;
 }
 
-/* Overall rating and Google reviews link */
-
 .home-google-reviews-cta {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 18px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 32px;
     text-align: center;
 }
 
-.home-google-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+.home-google-reviews-cta .home-google-stars {
+    font-size: 16px;
 }
 
 .home-google-rating-text {
-    color: #68758c;
+    color: #687387;
     font-size: 13px;
 }
 
 .home-google-all-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 9px;
-    min-height: 43px;
+    gap: 8px;
     padding: 11px 17px;
     border: 1px solid #dce4f0;
-    border-radius: 10px;
-    background: #fff;
+    border-radius: 9px;
     color: #2459c4;
     font-size: 13px;
     font-weight: 700;
@@ -1260,151 +1176,32 @@
 }
 
 .home-google-all-link:hover {
-    background: #edf3ff;
-    border-color: #bfd0f6;
+    background: #f3f7ff;
+    border-color: #b9cdf7;
 }
 
-/* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width: 1050px) {
-    .home-testimonials {
-        padding: 65px 0;
-    }
-
-    .home-testimonials-grid {
+@media (max-width: 900px) {
+    .home-google-reviews {
         grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .home-testimonials-intro {
-        max-width: 650px;
-    }
-
-    .home-testimonials-intro h2 {
-        max-width: 600px;
-    }
-
-    .home-testimonials-intro > p {
-        max-width: 600px;
-    }
-
-    .home-google-reviews {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
-}
-
-/* ==========================================
-   MOBILE: HORIZONTAL SWIPE CARDS
-========================================== */
-
-@media (max-width: 600px) {
-    .home-testimonials {
-        padding: 52px 0;
-    }
-
-    .home-testimonials-grid {
-        gap: 26px;
-    }
-
-    .home-testimonials-intro h2 {
-        margin: 18px 0 14px;
-        font-size: clamp(32px, 8.5vw, 42px);
-        line-height: 1.14;
-        letter-spacing: -1.2px;
-    }
-
-    .home-testimonials-intro > p {
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    .home-google-reviews {
-        display: flex;
-        gap: 14px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 3px 2px 16px;
-        margin-right: -2px;
-        scroll-snap-type: x mandatory;
-        scroll-padding-left: 2px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: #c8d5ee transparent;
     }
 
     .home-google-review {
-        flex: 0 0 88%;
-        width: 88%;
-        min-width: 0;
         height: auto;
-        padding: 22px;
-        gap: 15px;
-        border-radius: 18px;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
     }
+}
 
-    .home-google-review:hover {
-        transform: none;
-    }
-
-    .home-google-review .home-testimonial-text {
-        font-size: 13.5px;
-        line-height: 1.8;
-    }
-
-    .home-google-review-footer {
-        margin-top: 4px;
+@media (max-width: 600px) {
+    .home-google-review {
+        padding: 21px;
     }
 
     .home-google-reviews-cta {
         flex-direction: column;
-        gap: 14px;
-        margin-top: 20px;
-    }
-
-    .home-google-rating {
-        gap: 8px;
-    }
-
-    .home-google-rating-text {
-        font-size: 12px;
+        gap: 10px;
     }
 
     .home-google-all-link {
-        width: 100%;
-        max-width: 290px;
-        min-height: 46px;
-    }
-}
-
-/* Extra-small phones */
-
-@media (max-width: 360px) {
-    .home-google-review {
-        flex-basis: 94%;
-        width: 94%;
-        padding: 18px;
-    }
-
-    .home-google-reviewer h3 {
-        font-size: 13px;
-    }
-
-    .home-google-review .home-testimonial-text {
-        font-size: 13px;
-    }
-}
-
-/* Respect reduced-motion preferences */
-
-@media (prefers-reduced-motion: reduce) {
-    .home-google-review,
-    .home-google-all-link {
-        transition: none;
+        justify-content: center;
     }
 }
 
@@ -1887,133 +1684,130 @@
     </section>
 
 
-  
+    <!-- TESTIMONIALS -->
 
     
-    <!-- TESTIMONIALS -->
-    <section class="home-section home-testimonials" id="testimonials">
-        <div class="home-container">
-            <div class="home-testimonials-grid">
+<section class="home-section home-testimonials" id="testimonials">
+  <div class="home-container">
+    <div class="home-testimonials-grid">
 
-                <div class="home-testimonials-intro">
-                    <span class="home-label">GOOGLE REVIEWS</span>
+      <div class="home-testimonials-intro">
+        <span class="home-label">Google Reviews</span>
+        <h2>What our customers say.</h2>
+        <p>
+          Real feedback from businesses using Ruo System
+          to simplify sales, manage stock and understand
+          their business performance.
+        </p>
+        <a
+          href="https://pos-10-production.up.railway.app/auth/demo"
+          class="home-link"
+        >
+          Explore Ruo System →
+        </a>
+      </div>
 
-                    <h2>What our customers say.</h2>
+      <div class="home-google-reviews">
 
-                    <p>
-                        Real feedback from businesses using Ruo System
-                        to simplify sales, manage stock and understand
-                        their business performance.
-                    </p>
+        <!-- Google review: george romeo -->
+        <article class="home-testimonial-card home-google-review">
+          <div class="home-google-review-top">
+            <div class="home-google-avatar">G</div>
 
-                    <a href="https://pos-10-production.up.railway.app/auth/demo"
-                    class="home-link">
-                        Explore Ruo System →
-                    </a>
-                </div>
-
-                <div class="home-google-reviews">
-
-                    <!-- GEORGE ROMEO -->
-                    <article class="home-testimonial-card home-google-review">
-
-                        <div class="home-google-review-top">G</div>
-
-                            <div class="home-google-reviewer">
-                                <h3>george romeo</h3>
-                                <span>Google reviewer</span>
-                            </div>
-
-                            <span class="home-google-mark"
-                                aria-label="Google"></span>
-                        </div>
-
-                        <div class="home-google-stars"
-                            aria-label="5 out of 5 stars">★★★★★</div>
-
-                        <div class="home-google-review-content">
-                            <p class="home-testimonial-text">
-                                Working with Ruo System has been a great
-                                experience. The system is simple,
-                                user-friendly, and easy to understand,
-                                even for someone without much technical
-                                knowledge.
-                            </p>
-
-                            <p class="home-testimonial-text">
-                                It simplifies daily business operations,
-                                from recording sales and managing stock
-                                to tracking business performance. I would
-                                recommend it to business owners looking
-                                for a simple, reliable, and efficient system.
-                            </p>
-                        </div>
-
-                        <div class="home-google-review-footer">
-                            <span>Posted on Google</span>
-
-                            <a href="https://www.google.com/maps/contrib/118038269800700744833/reviews?hl=en-GB"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                                View reviewer ↗
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- ISUZU VENTURES -->
-                    <article class="home-testimonial-card home-google-review">
-
-                        <div class="home-google-review-top">
-                            <div class="home-google-avatar">I</div>
-
-                            <div class="home-google-reviewer">
-                                <h3>isuzu ventures</h3>
-                                <span>Google reviewer</span>
-                            </div>
-
-                            <span class="home-google-mark"
-                                aria-label="Google"></span>
-                        </div>
-
-                        <div class="home-google-stars"
-                            aria-label="5 out of 5 stars">★★★★★</div>
-
-                        <div class="home-google-review-content">
-                            <p class="home-testimonial-text">
-                                The system is working well, running
-                                smoothly and am able to differentiate
-                                the profits and losses.
-                            </p>
-                        </div>
-
-                        <div class="home-google-review-footer">
-                            <span>Posted on Google</span>
-                        </div>
-                    </article>
-
-                </div>
+            <div class="home-google-reviewer">
+              <h3>george romeo</h3>
+              <span>Google reviewer</span>
             </div>
 
-            <!-- GOOGLE RATING AND LINK -->
-            <div class="home-google-reviews-cta">
+            <span class="home-google-g"
+                  aria-label="Google"></span>
+          </div>
 
-                <div class="home-google-rating">
-                    <span class="home-google-stars">★★★★★</span>
-                    <span class="home-google-rating-text">
-                        5.0 rating · 3 Google reviews
-                    </span>
-                </div>
+          <div class="home-google-stars"
+               aria-label="5 out of 5 stars">
+            ★★★★★
+          </div>
 
-                <a href="https://www.google.com/search?q=Ruo+System"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="home-google-all-link">
-                    See all Google reviews <span>↗</span>
-                </a>
+          <p class="home-testimonial-text">
+            Working with Ruo System has been a great
+            experience. The system is simple, user-friendly,
+            and easy to understand, even for someone without
+            much technical knowledge.
+          </p>
 
+          <p class="home-testimonial-text">
+            It simplifies daily business operations, from
+            recording sales and managing stock to tracking
+            business performance. I would recommend it to
+            business owners looking for a simple, reliable,
+            and efficient system.
+          </p>
+
+          <div class="home-google-review-footer">
+            <span>Posted on Google</span>
+            <a
+              href="https://www.google.com/maps/contrib/118038269800700744833/reviews?hl=en-GB"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View reviewer
+            </a>
+          </div>
+        </article>
+
+        <!-- Google review: isuzu ventures -->
+        <article class="home-testimonial-card home-google-review">
+          <div class="home-google-review-top">
+            <div class="home-google-avatar">I</div>
+
+            <div class="home-google-reviewer">
+              <h3>isuzu ventures</h3>
+              <span>Google reviewer</span>
             </div>
-        </div>
-    </section>
+
+            <span class="home-google-g"
+                  aria-label="Google"></span>
+          </div>
+
+          <div class="home-google-stars"
+               aria-label="5 out of 5 stars">
+            ★★★★★
+          </div>
+
+          <p class="home-testimonial-text">
+            The system is working well, running smoothly
+            and am able to differentiate the profits
+            and losses.
+          </p>
+
+          <div class="home-google-review-footer">
+            <span>Posted on Google</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="home-google-reviews-cta">
+      <span class="home-google-stars"
+            aria-label="5 out of 5 stars">★★★★★</span>
+      <span class="home-google-rating-text">
+        Rated 5.0 on Google · 3 reviews
+      </span>
+
+      <a
+        href="https://www.google.com/search?q=Ruo+System"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="home-google-all-link"
+      >
+        See all Google reviews
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
 
 
     <!-- VALUE PROPOSITIONS -->
