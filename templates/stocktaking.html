@@ -1,0 +1,969 @@
+{% extends "base.html" %}
+
+{% block title %}Stocktaking Services for Cosmetic Shops in Kenya | Ruo Systems{% endblock %}
+{% block description %}Professional stocktaking for cosmetic shops in Kenya. Count products, reconcile stock quantities and prepare accurate inventory records with Ruo Systems.{% endblock %}
+
+{% block extra_css %}
+<style>
+  :root {
+    --stock-brand: #2563ff;
+    --stock-ink: #101936;
+    --stock-muted: #64708a;
+    --stock-line: #e8edf6;
+    --stock-soft: #f5f8ff;
+  }
+
+  .stock-page { color: var(--stock-ink); }
+  .stock-page * { box-sizing: border-box; }
+
+  .stock-container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .stock-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #dce6ff;
+    border-radius: 999px;
+    background: #f5f8ff;
+    color: #2454c5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .stock-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2563ff;
+  }
+
+  /* Hero */
+  .stock-hero {
+    padding: 76px 0 62px;
+    background:
+      radial-gradient(circle at 80% 10%, #edf3ff 0, transparent 32%),
+      #fff;
+  }
+
+  .stock-hero-grid {
+    display: grid;
+    grid-template-columns: 1.12fr .88fr;
+    align-items: center;
+    gap: 54px;
+  }
+
+  .stock-hero h1 {
+    margin: 20px 0 18px;
+    max-width: 700px;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+    font-weight: 800;
+  }
+
+  .stock-hero h1 span {
+    color: var(--stock-brand);
+  }
+
+  .stock-lead {
+    max-width: 640px;
+    margin: 0;
+    color: var(--stock-muted);
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .stock-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .stock-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 14px 20px;
+    border: 1px solid var(--stock-brand);
+    border-radius: 11px;
+    background: var(--stock-brand);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .2s ease;
+  }
+
+  .stock-btn:hover {
+    background: #1746d2;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .stock-btn-outline {
+    background: #fff;
+    color: var(--stock-ink);
+    border-color: #dce4f3;
+    box-shadow: none;
+  }
+
+  .stock-btn-outline:hover {
+    background: #f7f9ff;
+    color: var(--stock-ink);
+    border-color: #b8caff;
+  }
+
+  .stock-trustline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    margin-top: 24px;
+    color: var(--stock-muted);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .stock-trustline span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .stock-check {
+    color: #16845b;
+    font-weight: 900;
+  }
+
+  /* Decorative inventory illustration */
+  .stock-visual {
+    position: relative;
+    padding: 28px;
+    border: 1px solid #e2eaff;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #f8faff, #edf3ff);
+    box-shadow: 0 24px 70px rgba(27,58,130,.10);
+  }
+
+  .stock-visual-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .stock-visual-label {
+    color: #52617e;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .stock-pill {
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: #e3f8ed;
+    color: #18744e;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .stock-mini-card {
+    padding: 16px;
+    margin-top: 12px;
+    border: 1px solid #e7ecf6;
+    border-radius: 15px;
+    background: rgba(255,255,255,.92);
+  }
+
+  .stock-mini-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #34415d;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .stock-mini-sub {
+    margin-top: 5px;
+    color: #7b879d;
+    font-size: 11px;
+  }
+
+  .stock-progress {
+    height: 6px;
+    margin-top: 13px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #edf1f8;
+  }
+
+  .stock-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--stock-brand);
+  }
+
+  .stock-visual-note {
+    margin: 18px 0 0;
+    color: #66738d;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  /* General sections */
+  .stock-section {
+    padding: 76px 0;
+  }
+
+  .stock-section-soft {
+    background: #f7f9fd;
+  }
+
+  .stock-section-head {
+    max-width: 720px;
+    margin: 0 auto 38px;
+    text-align: center;
+  }
+
+  .stock-section-head h2 {
+    margin: 13px 0 12px;
+    font-size: clamp(27px, 3.5vw, 39px);
+    line-height: 1.2;
+    letter-spacing: -1.3px;
+  }
+
+  .stock-section-head p {
+    margin: 0;
+    color: var(--stock-muted);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  /* Service cards */
+  .stock-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .stock-card {
+    padding: 25px;
+    border: 1px solid var(--stock-line);
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .stock-card-icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    border-radius: 13px;
+    background: #edf3ff;
+    color: #2563ff;
+    font-size: 22px;
+  }
+
+  .stock-card h3 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    letter-spacing: -.3px;
+  }
+
+  .stock-card p {
+    margin: 0;
+    color: var(--stock-muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* Process steps */
+  .stock-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .stock-step {
+    position: relative;
+    padding: 25px;
+    border: 1px solid var(--stock-line);
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .stock-step-number {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 17px;
+    border-radius: 12px;
+    background: var(--stock-ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .stock-step h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+  }
+
+  .stock-step p {
+    margin: 0;
+    color: var(--stock-muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* Pricing */
+  .stock-price-wrap {
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .stock-price-card {
+    padding: 32px;
+    border: 1px solid #dce6ff;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #f8faff, #fff);
+    box-shadow: 0 18px 50px rgba(22,42,92,.06);
+  }
+
+  .stock-price-card h3 {
+    margin: 0 0 8px;
+    font-size: 21px;
+  }
+
+  .stock-price-description {
+    margin: 0;
+    color: var(--stock-muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .stock-price {
+    margin: 24px 0 4px;
+    color: var(--stock-brand);
+    font-size: clamp(34px, 4vw, 45px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+  }
+
+  .stock-price small {
+    color: var(--stock-muted);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .stock-price-note {
+    margin: 10px 0 22px;
+    color: var(--stock-muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* POS connection */
+  .stock-related-link {
+    color: var(--stock-brand);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* FAQ */
+  .stock-faqs {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .stock-faqs details {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--stock-line);
+  }
+
+  .stock-faqs summary {
+    cursor: pointer;
+    list-style: none;
+    padding-right: 28px;
+    position: relative;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .stock-faqs summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .stock-faqs summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -3px;
+    color: var(--stock-brand);
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .stock-faqs details[open] summary::after {
+    content: "−";
+  }
+
+  .stock-faqs details p {
+    margin: 12px 0 0;
+    color: var(--stock-muted);
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* Final CTA */
+  .stock-cta {
+    padding: 58px 0;
+  }
+
+  .stock-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 38px;
+    border-radius: 24px;
+    background: linear-gradient(115deg, #173da8, #17265d 65%, #101936);
+    color: #fff;
+  }
+
+  .stock-cta-box h2 {
+    max-width: 650px;
+    margin: 0 0 10px;
+    font-size: clamp(25px, 3vw, 35px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  .stock-cta-box p {
+    max-width: 650px;
+    margin: 0;
+    color: #d0dcfa;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .stock-cta-box .stock-btn {
+    flex-shrink: 0;
+    background: #fff;
+    border-color: #fff;
+    color: #173da8;
+  }
+
+  .stock-cta-box .stock-btn:hover {
+    background: #edf3ff;
+  }
+
+  /* Responsive layout */
+  @media (max-width: 850px) {
+    .stock-hero {
+      padding: 55px 0 45px;
+    }
+
+    .stock-hero-grid,
+    .stock-price-wrap {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .stock-visual {
+      max-width: 560px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .stock-grid-3,
+    .stock-steps {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stock-cta-box {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .stock-container {
+      width: calc(100% - 32px);
+    }
+
+    .stock-hero h1 {
+      font-size: 37px;
+      letter-spacing: -1.7px;
+    }
+
+    .stock-lead {
+      font-size: 15px;
+    }
+
+    .stock-actions {
+      flex-direction: column;
+    }
+
+    .stock-actions .stock-btn {
+      width: 100%;
+    }
+
+    .stock-visual {
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .stock-section {
+      padding: 54px 0;
+    }
+
+    .stock-grid-3,
+    .stock-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .stock-card,
+    .stock-step {
+      padding: 22px;
+    }
+
+    .stock-price-card {
+      padding: 24px;
+    }
+
+    .stock-cta {
+      padding: 30px 0;
+    }
+
+    .stock-cta-box {
+      padding: 27px 22px;
+      border-radius: 19px;
+    }
+
+    .stock-cta-box .stock-btn {
+      width: 100%;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="stock-page">
+
+  <!-- HERO -->
+  <section class="stock-hero">
+    <div class="stock-container stock-hero-grid">
+
+      <div>
+        <span class="stock-eyebrow">
+          <span class="stock-eyebrow-dot"></span>
+          For cosmetic shop owners
+        </span>
+
+        <h1>
+          Know what’s on your shelves with
+          <span>professional stocktaking.</span>
+        </h1>
+
+        <p class="stock-lead">
+          Ruo Systems helps cosmetic shop owners count products, reconcile stock
+          quantities and prepare clearer inventory records. Get a reliable picture
+          of your stock before setting up or improving your inventory management
+          with Ruo Systems POS.
+        </p>
+
+        <div class="stock-actions">
+          <a
+            class="stock-btn"
+            href="https://wa.me/254714675719?text=Hello%20Ruo%20Systems%2C%20I%20own%20a%20cosmetic%20shop%20and%20would%20like%20to%20request%20stocktaking%20assistance."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Request Stocktaking <span aria-hidden="true">→</span>
+          </a>
+
+          <a
+            class="stock-btn stock-btn-outline"
+            href="/services/pos-for-cosmetic-shops"
+          >
+            Explore Cosmetic Shop POS
+          </a>
+        </div>
+
+        <div class="stock-trustline">
+          <span><b class="stock-check">✓</b> Focused on cosmetic shops</span>
+          <span><b class="stock-check">✓</b> Counting and reconciliation</span>
+          <span><b class="stock-check">✓</b> Clear stock reporting</span>
+        </div>
+      </div>
+
+      <!-- Decorative stock overview -->
+      <div
+        class="stock-visual"
+        aria-label="Illustration of a cosmetic shop stocktaking summary"
+      >
+        <div class="stock-visual-top">
+          <span class="stock-visual-label">COSMETIC STOCK REVIEW</span>
+          <span class="stock-pill">Stock overview</span>
+        </div>
+
+        <div class="stock-mini-card">
+          <div class="stock-mini-head">
+            <span>Skincare products</span>
+            <span>Count &amp; review</span>
+          </div>
+          <div class="stock-mini-sub">Lotions, creams and facial care</div>
+          <div class="stock-progress">
+            <span style="width:78%"></span>
+          </div>
+        </div>
+
+        <div class="stock-mini-card">
+          <div class="stock-mini-head">
+            <span>Haircare products</span>
+            <span>Count &amp; review</span>
+          </div>
+          <div class="stock-mini-sub">
+            Shampoos, conditioners and treatments
+          </div>
+          <div class="stock-progress">
+            <span style="width:63%"></span>
+          </div>
+        </div>
+
+        <div class="stock-mini-card">
+          <div class="stock-mini-head">
+            <span>Makeup &amp; beauty</span>
+            <span>Count &amp; review</span>
+          </div>
+          <div class="stock-mini-sub">
+            Makeup, fragrances and accessories
+          </div>
+          <div class="stock-progress">
+            <span style="width:88%"></span>
+          </div>
+        </div>
+
+        <p class="stock-visual-note">
+          Illustrative categories only. The actual stocktake covers the products
+          and scope agreed with your shop.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="stock-section stock-section-soft">
+    <div class="stock-container">
+
+      <div class="stock-section-head">
+        <span class="stock-eyebrow">A clearer stock position</span>
+        <h2>Stocktaking built around cosmetic retail</h2>
+        <p>
+          Cosmetic shops carry many product types, sizes, shades and variants.
+          A structured physical count helps you understand what is actually on
+          your shelves and compare it with your existing records.
+        </p>
+      </div>
+
+      <div class="stock-grid-3">
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">▤</div>
+          <h3>Physical stock counting</h3>
+          <p>
+            Count the cosmetic products in your shop using an agreed scope,
+            including the product categories and locations to be covered.
+          </p>
+        </article>
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">↔</div>
+          <h3>Stock reconciliation</h3>
+          <p>
+            Where existing records are available, compare recorded quantities
+            with the physical count and flag differences for review.
+          </p>
+        </article>
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">▥</div>
+          <h3>Stock reporting</h3>
+          <p>
+            Receive a clear summary of the count and identified discrepancies
+            to support your stock decisions and record updates.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="stock-section">
+    <div class="stock-container">
+
+      <div class="stock-section-head">
+        <span class="stock-eyebrow">How it works</span>
+        <h2>From physical count to clearer records</h2>
+        <p>
+          We agree on the scope with you before the stocktake begins, so you
+          know what is being counted and what output to expect.
+        </p>
+      </div>
+
+      <div class="stock-steps">
+
+        <article class="stock-step">
+          <div class="stock-step-number">01</div>
+          <h3>Discuss your shop</h3>
+          <p>
+            Tell us your location, approximate product range and whether you
+            already have a stock list or POS records.
+          </p>
+        </article>
+
+        <article class="stock-step">
+          <div class="stock-step-number">02</div>
+          <h3>Count and review</h3>
+          <p>
+            We agree on the required number of counters and carry out the
+            physical count within the agreed scope.
+          </p>
+        </article>
+
+        <article class="stock-step">
+          <div class="stock-step-number">03</div>
+          <h3>Review the report</h3>
+          <p>
+            Use the stocktake results to review discrepancies and prepare
+            your records for ongoing inventory management.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="stock-section stock-section-soft">
+    <div class="stock-container stock-price-wrap">
+
+      <div>
+        <span class="stock-eyebrow">Straightforward pricing</span>
+
+        <div
+          class="stock-section-head"
+          style="text-align:left; margin:18px 0 0;"
+        >
+          <h2>Plan your cosmetic shop stocktake</h2>
+          <p>
+            The number of counters needed depends on the size of your shop,
+            the number of products and the time available. Contact us so we
+            can discuss the scope before confirming the total cost.
+          </p>
+        </div>
+      </div>
+
+      <div class="stock-price-card">
+        <h3>Stocktaking assistance</h3>
+
+        <p class="stock-price-description">
+          For cosmetic shop owners who need help establishing or reviewing
+          stock quantities.
+        </p>
+
+        <div class="stock-price">
+          KSh 2,000 <small>per person</small>
+        </div>
+
+        <p class="stock-price-note">
+          The total fee depends on the number of counters required and the
+          agreed scope of work. Confirm the final quotation with Ruo Systems
+          before booking.
+        </p>
+
+        <a
+          class="stock-btn"
+          style="width:100%;"
+          href="https://wa.me/254714675719?text=Hello%20Ruo%20Systems%2C%20please%20help%20me%20get%20a%20stocktaking%20quotation%20for%20my%20cosmetic%20shop."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get a Stocktaking Quote <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONNECT TO THE CORE POS PRODUCT -->
+  <section class="stock-section">
+    <div class="stock-container">
+
+      <div class="stock-section-head">
+        <span class="stock-eyebrow">Beyond the count</span>
+        <h2>Keep better track of stock after stocktaking</h2>
+        <p>
+          A stocktake gives you a view of your inventory at a point in time.
+          To keep records more useful between counts, use a consistent process
+          for recording sales, deliveries, adjustments and other stock movements.
+        </p>
+      </div>
+
+      <div class="stock-grid-3">
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">▣</div>
+          <h3>Record sales</h3>
+          <p>
+            Use a POS workflow to record sales and support more consistent
+            stock tracking as products move out of your shop.
+          </p>
+        </article>
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">＋</div>
+          <h3>Track stock changes</h3>
+          <p>
+            Keep product and stock records updated when new deliveries arrive
+            or authorised adjustments are made.
+          </p>
+        </article>
+
+        <article class="stock-card">
+          <div class="stock-card-icon" aria-hidden="true">↗</div>
+          <h3>Review performance</h3>
+          <p>
+            Use sales and inventory reports to help make informed decisions
+            about the products your cosmetic shop carries.
+          </p>
+        </article>
+
+      </div>
+
+      <p
+        style="margin:26px 0 0; text-align:center; color:var(--stock-muted); font-size:14px;"
+      >
+        Learn more about the
+        <a
+          class="stock-related-link"
+          href="/services/pos-for-cosmetic-shops"
+        >Ruo Systems POS for cosmetic shops</a>.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="stock-section stock-section-soft">
+    <div class="stock-container">
+
+      <div class="stock-section-head">
+        <span class="stock-eyebrow">Frequently asked questions</span>
+        <h2>Questions about cosmetic shop stocktaking</h2>
+      </div>
+
+      <div class="stock-faqs">
+
+        <details>
+          <summary>Who is this stocktaking service for?</summary>
+          <p>
+            This service is intended for cosmetic shop owners who need a
+            physical count of their products, help reviewing stock quantities
+            or clearer inventory records.
+          </p>
+        </details>
+
+        <details>
+          <summary>How much does stocktaking cost?</summary>
+          <p>
+            The current reference rate is KSh 2,000 per person. The final
+            total depends on the number of counters needed and the agreed
+            scope, so request a quotation before confirming a booking.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do I need to have a POS system already?</summary>
+          <p>
+            No. Stocktaking can help you establish opening stock before
+            setting up a POS. If you already use a system or maintain stock
+            records, tell us so we can discuss how they will be used during
+            reconciliation.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will stocktaking fix all my stock discrepancies?</summary>
+          <p>
+            A physical count can help identify differences between counted
+            quantities and available records. The cause of each discrepancy
+            may need further review, and the count alone does not prevent
+            future differences.
+          </p>
+        </details>
+
+        <details>
+          <summary>How do I request a stocktake?</summary>
+          <p>
+            Contact Ruo Systems on WhatsApp with your shop location,
+            approximate product range and preferred date. We will discuss
+            the scope and confirm the quotation before you book.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="stock-cta">
+    <div class="stock-container">
+
+      <div class="stock-cta-box">
+        <div>
+          <h2>
+            Ready to get a clearer picture of your cosmetic shop's stock?
+          </h2>
+          <p>
+            Tell us about your shop and the stocktaking help you need.
+            We'll discuss the scope and the next steps with you.
+          </p>
+        </div>
+
+        <a
+          class="stock-btn"
+          href="https://wa.me/254714675719?text=Hello%20Ruo%20Systems%2C%20I%20would%20like%20to%20discuss%20stocktaking%20for%20my%20cosmetic%20shop."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Talk to Ruo Systems <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+{% endblock %}

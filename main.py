@@ -67,6 +67,14 @@ async def article(request: Request):
         context={}
     )
 
+@app.get("/services/stock-taking-services-for-cosmetic-shops")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="stocktaking.html",
+        context={}
+    )
+
 @app.get("/services/bookshop-pos-system-in-kenya-for-stock-and-sales-management")
 async def article(request: Request):
     return templates.TemplateResponse(
