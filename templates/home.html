@@ -1037,6 +1037,174 @@
         transition: none !important;
     }
 }
+
+/* Google customer reviews */
+.home-google-reviews {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+    min-width: 0;
+}
+
+.home-google-review {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(20, 38, 75, 0.045);
+}
+
+.home-google-review-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-google-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #edf3ff;
+    color: #174ea6;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.home-google-reviewer {
+    flex: 1;
+    min-width: 0;
+}
+
+.home-google-reviewer h3 {
+    margin: 0 0 4px;
+    color: #172033;
+    font-size: 14px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.home-google-reviewer span {
+    color: #778197;
+    font-size: 12px;
+}
+
+.home-google-g {
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    color: #4285f4;
+}
+
+.home-google-stars {
+    color: #fbbc04;
+    font-size: 19px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.home-google-review .home-testimonial-text {
+    margin: 0;
+    color: #515c70;
+    font-size: 13.5px;
+    line-height: 1.8;
+}
+
+.home-google-review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #edf0f5;
+    color: #8790a2;
+    font-size: 11px;
+}
+
+.home-google-review-footer a {
+    color: #2459c4;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home-google-review-footer a:hover {
+    text-decoration: underline;
+}
+
+.home-google-reviews-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.home-google-reviews-cta .home-google-stars {
+    font-size: 16px;
+}
+
+.home-google-rating-text {
+    color: #687387;
+    font-size: 13px;
+}
+
+.home-google-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border: 1px solid #dce4f0;
+    border-radius: 9px;
+    color: #2459c4;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.home-google-all-link:hover {
+    background: #f3f7ff;
+    border-color: #b9cdf7;
+}
+
+@media (max-width: 900px) {
+    .home-google-reviews {
+        grid-template-columns: 1fr;
+    }
+
+    .home-google-review {
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-google-review {
+        padding: 21px;
+    }
+
+    .home-google-reviews-cta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .home-google-all-link {
+        justify-content: center;
+    }
+}
+
 </style>
 {% endblock %}
 
@@ -1518,63 +1686,128 @@
 
     <!-- TESTIMONIALS -->
 
-    <section class="home-section home-testimonials" id="testimonials">
-        <div class="home-container">
-            <div class="home-testimonials-grid">
+    
+<section class="home-section home-testimonials" id="testimonials">
+  <div class="home-container">
+    <div class="home-testimonials-grid">
 
-                <div class="home-testimonials-intro">
+      <div class="home-testimonials-intro">
+        <span class="home-label">CUSTOMER EXPERIENCES</span>
+        <h2>What our customers say.</h2>
+        <p>
+          Real feedback from businesses using Ruo System
+          to simplify sales, manage stock and understand
+          their business performance.
+        </p>
+        <a
+          href="https://pos-10-production.up.railway.app/auth/demo"
+          class="home-link"
+        >
+          Explore Ruo System →
+        </a>
+      </div>
 
-                    <span class="home-label">CUSTOMER EXPERIENCES</span>
+      <div class="home-google-reviews">
 
-                    <h2>Built for real businesses.</h2>
+        <!-- Google review: george romeo -->
+        <article class="home-testimonial-card home-google-review">
+          <div class="home-google-review-top">
+            <div class="home-google-avatar">G</div>
 
-                    <p>
-                        Discover how Ruo System can help business
-                        owners organise sales, manage inventory and
-                        keep better business records.
-                    </p>
-
-                    <a href="https://pos-10-production.up.railway.app/auth/demo" class="home-link">
-                        Explore Ruo System →
-                    </a>
-
-                </div>
-
-                <article class="home-testimonial-card">
-
-                    <div class="home-quote" aria-hidden="true">“</div>
-
-                    <div>
-
-                        <!-- Replace this sample with approved,
-                             genuine customer feedback. -->
-
-                        <p class="home-testimonial-text">
-                            Managing sales and keeping track of stock
-                            are important parts of running a shop.
-                            Ruo System brings these activities together
-                            in one place, helping businesses keep their
-                            records more organised.
-                        </p>
-
-                        <div class="home-testimonial-person">
-
-                            <div class="home-testimonial-avatar">R</div>
-
-                            <div>
-                                <h3>Rose</h3>
-                                <p>Owner, Cosmetics Shop Juja</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
+            <div class="home-google-reviewer">
+              <h3>george romeo</h3>
+              <span>Google reviewer</span>
             </div>
-        </div>
-    </section>
+
+            <span class="home-google-g"
+                  aria-label="Google">G</span>
+          </div>
+
+          <div class="home-google-stars"
+               aria-label="5 out of 5 stars">
+            ★★★★★
+          </div>
+
+          <p class="home-testimonial-text">
+            Working with Ruo System has been a great
+            experience. The system is simple, user-friendly,
+            and easy to understand, even for someone without
+            much technical knowledge.
+          </p>
+
+          <p class="home-testimonial-text">
+            It simplifies daily business operations, from
+            recording sales and managing stock to tracking
+            business performance. I would recommend it to
+            business owners looking for a simple, reliable,
+            and efficient system.
+          </p>
+
+          <div class="home-google-review-footer">
+            <span>Posted on Google</span>
+            <a
+              href="https://www.google.com/maps/contrib/118038269800700744833/reviews?hl=en-GB"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View reviewer
+            </a>
+          </div>
+        </article>
+
+        <!-- Google review: isuzu ventures -->
+        <article class="home-testimonial-card home-google-review">
+          <div class="home-google-review-top">
+            <div class="home-google-avatar">I</div>
+
+            <div class="home-google-reviewer">
+              <h3>isuzu ventures</h3>
+              <span>Google reviewer</span>
+            </div>
+
+            <span class="home-google-g"
+                  aria-label="Google">G</span>
+          </div>
+
+          <div class="home-google-stars"
+               aria-label="5 out of 5 stars">
+            ★★★★★
+          </div>
+
+          <p class="home-testimonial-text">
+            The system is working well, running smoothly
+            and am able to differentiate the profits
+            and losses.
+          </p>
+
+          <div class="home-google-review-footer">
+            <span>Posted on Google</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="home-google-reviews-cta">
+      <span class="home-google-stars"
+            aria-label="5 out of 5 stars">★★★★★</span>
+      <span class="home-google-rating-text">
+        Rated 5.0 on Google · 3 reviews
+      </span>
+
+      <a
+        href="https://www.google.com/search?q=Ruo+System"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="home-google-all-link"
+      >
+        See all Google reviews
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
 
 
     <!-- VALUE PROPOSITIONS -->
