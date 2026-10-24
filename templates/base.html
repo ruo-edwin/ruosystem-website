@@ -1198,9 +1198,12 @@
             </a>
 
             <a href="https://pos-10-production.up.railway.app/auth/demo"
-               onclick="gtag('event', 'request_demo_click');"
-               class="mobile-demo-btn">
-                See the System
+                onclick="gtag('event', 'demo_link_click', {
+                    event_category: 'engagement',
+                    event_label: 'See the System'
+                });"
+                class="mobile-demo-btn">
+                    See the System
             </a>
 
         </div>
