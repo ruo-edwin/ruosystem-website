@@ -1,0 +1,910 @@
+
+{% extends "base.html" %}
+
+{% block title_suffix %}
+| Stocktaking Services in Kenya for Retail Businesses
+{% endblock %}
+
+{% block page_title %}
+Stocktaking Services in Kenya
+{% endblock %}
+
+{% block content %}
+
+<style>
+.stock-service-page {
+    --purple: #635bff;
+    --purple-dark: #5149e8;
+    --text: #111827;
+    --muted: #697386;
+    --border: #e6ebf1;
+    --soft: #f6f9fc;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text);
+}
+.stock-service-page * { box-sizing: border-box; }
+.stock-service-page a { text-decoration: none; }
+.stock-service-page .section { margin-bottom: 76px; }
+
+.stock-service-page .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border: 1px solid #e4e1ff;
+    border-radius: 999px;
+    background: #f5f4ff;
+    color: var(--purple-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.stock-service-page .hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: center;
+    gap: 44px;
+    padding: 52px;
+    margin-bottom: 72px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(99,91,255,.11), transparent 34%),
+        linear-gradient(135deg,#fff 0%,#fafaff 100%);
+    overflow: hidden;
+}
+.stock-service-page .hero h1 {
+    margin: 18px 0;
+    max-width: 720px;
+    font-size: clamp(34px,4vw,52px);
+    font-weight: 850;
+    line-height: 1.08;
+    letter-spacing: -.045em;
+}
+.stock-service-page .hero h1 span { color: var(--purple); }
+.stock-service-page .hero-copy {
+    max-width: 650px;
+    color: #596579;
+    font-size: 17px;
+    line-height: 1.8;
+}
+.stock-service-page .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+.stock-service-page .btn-primary,
+.stock-service-page .btn-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 47px;
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: transform .18s ease,background .18s ease;
+}
+.stock-service-page .btn-primary {
+    background: var(--purple);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(99,91,255,.18);
+}
+.stock-service-page .btn-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-1px);
+    color: #fff;
+}
+.stock-service-page .btn-secondary {
+    border: 1px solid #d9deea;
+    background: #fff;
+    color: #374151;
+}
+.stock-service-page .btn-secondary:hover {
+    background: #f8fafc;
+    color: #111827;
+}
+.stock-service-page .hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    margin-top: 25px;
+    color: #596579;
+    font-size: 13px;
+    font-weight: 650;
+}
+.stock-service-page .hero-points span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+.stock-service-page .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.stock-service-page .hero-visual {
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 20px 55px rgba(17,24,39,.08);
+}
+.stock-service-page .visual-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.stock-service-page .visual-title { font-size: 14px; font-weight: 850; }
+.stock-service-page .visual-status {
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 10px;
+    font-weight: 850;
+    text-transform: uppercase;
+}
+.stock-service-page .visual-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+.stock-service-page .visual-stat {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+}
+.stock-service-page .visual-stat small {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 750;
+    text-transform: uppercase;
+}
+.stock-service-page .visual-stat strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 850;
+}
+.stock-service-page .visual-stat em {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 11px;
+    font-style: normal;
+}
+.stock-service-page .visual-list {
+    margin-top: 14px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+}
+.stock-service-page .visual-list-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eef2f7;
+    font-size: 12px;
+}
+.stock-service-page .visual-list-row:last-child { border-bottom: 0; }
+.stock-service-page .visual-list-row span:first-child { color: #4b5563; }
+.stock-service-page .visual-list-row strong { font-weight: 850; }
+
+.stock-service-page .section-heading {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+.stock-service-page .section-heading h2 {
+    margin: 14px 0 12px;
+    font-size: clamp(27px,3vw,36px);
+    font-weight: 850;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+.stock-service-page .section-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+.stock-service-page .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 16px;
+}
+.stock-service-page .service-card {
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    transition: border-color .2s,transform .2s,box-shadow .2s;
+}
+.stock-service-page .service-card:hover {
+    border-color: #c9c5ff;
+    box-shadow: 0 12px 30px rgba(17,24,39,.05);
+    transform: translateY(-3px);
+}
+.stock-service-page .service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #f0efff;
+    color: var(--purple);
+    font-size: 21px;
+    font-weight: 800;
+}
+.stock-service-page .service-card h3 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    font-weight: 850;
+}
+.stock-service-page .service-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.stock-service-page .process-wrap {
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--soft);
+}
+.stock-service-page .process-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 14px;
+}
+.stock-service-page .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+}
+.stock-service-page .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+    border-radius: 11px;
+    background: var(--purple);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+}
+.stock-service-page .process-step h3 {
+    margin: 2px 0 8px;
+    font-size: 15px;
+    font-weight: 850;
+    line-height: 1.4;
+}
+.stock-service-page .process-step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.75;
+}
+.stock-service-page .note {
+    margin-top: 18px;
+    padding: 15px 17px;
+    border: 1px solid #e4e1ff;
+    border-radius: 12px;
+    background: #f5f4ff;
+    color: #4b478f;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.stock-service-page .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 14px;
+}
+.stock-service-page .industry-card {
+    padding: 21px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: #fff;
+}
+.stock-service-page .industry-icon { margin-bottom: 13px; font-size: 25px; }
+.stock-service-page .industry-card h3 {
+    margin: 0 0 7px;
+    font-size: 15px;
+    font-weight: 850;
+}
+.stock-service-page .industry-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.stock-service-page .pricing-panel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 28px;
+    padding: 34px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: linear-gradient(120deg,#fff 0%,#f8f7ff 100%);
+}
+.stock-service-page .pricing-panel h2 {
+    margin: 0 0 10px;
+    font-size: 25px;
+    font-weight: 850;
+}
+.stock-service-page .pricing-panel p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+.stock-service-page .faq-list { max-width: 900px; margin: 0 auto; }
+.stock-service-page .faq-item {
+    margin-bottom: 11px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #fff;
+    overflow: hidden;
+}
+.stock-service-page .faq-item summary {
+    position: relative;
+    padding: 18px 48px 18px 20px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 800;
+}
+.stock-service-page .faq-item summary::-webkit-details-marker { display: none; }
+.stock-service-page .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: var(--purple);
+    font-size: 22px;
+    transform: translateY(-50%);
+}
+.stock-service-page .faq-item[open] summary::after { content: "−"; }
+.stock-service-page .faq-answer {
+    padding: 0 20px 19px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+.stock-service-page .faq-answer p { margin: 0; }
+
+.stock-service-page .final-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 42px;
+    border-radius: 22px;
+    background: #17162f;
+    color: #fff;
+}
+.stock-service-page .final-cta h2 {
+    margin: 0 0 12px;
+    font-size: clamp(26px,3vw,34px);
+    font-weight: 850;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+.stock-service-page .final-cta p {
+    max-width: 680px;
+    margin: 0;
+    color: #d0d0e2;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.stock-service-page .final-cta .btn-primary {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    background: #fff;
+    color: #29245f;
+    box-shadow: none;
+}
+.stock-service-page .final-cta .btn-primary:hover { background: #eeedff; }
+.stock-service-page .small-disclaimer {
+    margin-top: 17px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    .stock-service-page .hero { grid-template-columns: 1fr; padding: 36px; }
+    .stock-service-page .hero-visual { max-width: 560px; }
+    .stock-service-page .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .stock-service-page .industry-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 680px) {
+    .stock-service-page .section { margin-bottom: 54px; }
+    .stock-service-page .hero {
+        gap: 28px;
+        padding: 25px 20px;
+        margin-bottom: 54px;
+        border-radius: 17px;
+    }
+    .stock-service-page .hero h1 { font-size: 35px; }
+    .stock-service-page .hero-copy { font-size: 15px; }
+    .stock-service-page .hero-actions { flex-direction: column; }
+    .stock-service-page .hero-actions a { width: 100%; }
+    .stock-service-page .service-grid,
+    .stock-service-page .process-grid,
+    .stock-service-page .industry-grid { grid-template-columns: 1fr; }
+    .stock-service-page .process-wrap { padding: 17px; }
+    .stock-service-page .service-card { padding: 21px; }
+    .stock-service-page .pricing-panel { grid-template-columns: 1fr; padding: 25px 21px; }
+    .stock-service-page .pricing-panel .btn-primary { width: 100%; }
+    .stock-service-page .final-cta {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 29px 22px;
+    }
+    .stock-service-page .final-cta .btn-primary { width: 100%; white-space: normal; }
+    .stock-service-page .visual-stat strong { font-size: 21px; }
+}
+</style>
+
+<div class="stock-service-page">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <span class="eyebrow">Retail inventory support in Kenya</span>
+
+            <h1>Know exactly what is in your shop with
+                <span>professional stocktaking.</span>
+            </h1>
+
+            <p class="hero-copy">
+                Get a clear picture of your inventory with physical stock counting,
+                stock reconciliation and discrepancy reporting for retail businesses
+                in Kenya. Ruo System helps you compare what is on your shelves with
+                what your records say you have.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn-primary" href="/contact">
+                    Request a Stocktaking Assessment →
+                </a>
+                <a class="btn-secondary" href="#stocktaking-process">
+                    See How It Works
+                </a>
+            </div>
+
+            <div class="hero-points">
+                <span><b class="check">✓</b> Planned site assessment</span>
+                <span><b class="check">✓</b> Physical stock counts</span>
+                <span><b class="check">✓</b> Clear discrepancy reports</span>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration of a stocktaking report">
+            <div class="visual-top">
+                <div class="visual-title">Stocktaking overview</div>
+                <span class="visual-status">Sample report</span>
+            </div>
+
+            <div class="visual-stat-grid">
+                <div class="visual-stat">
+                    <small>Products counted</small>
+                    <strong>1,248</strong>
+                    <em>Example count</em>
+                </div>
+                <div class="visual-stat">
+                    <small>Items to review</small>
+                    <strong>36</strong>
+                    <em>Example variances</em>
+                </div>
+            </div>
+
+            <div class="visual-list">
+                <div class="visual-list-row">
+                    <span>Product A</span>
+                    <strong>Variance: −3</strong>
+                </div>
+                <div class="visual-list-row">
+                    <span>Product B</span>
+                    <strong>Variance: 0</strong>
+                </div>
+                <div class="visual-list-row">
+                    <span>Product C</span>
+                    <strong>Variance: +5</strong>
+                </div>
+            </div>
+
+            <p style="margin:12px 0 0;color:#9ca3af;font-size:10px;line-height:1.6;">
+                Illustrative figures only. Actual results depend on the stocktaking exercise.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section">
+        <div class="section-heading">
+            <span class="eyebrow">Inventory accuracy</span>
+            <h2>Is your physical stock matching your system?</h2>
+            <p>
+                When stock records are inaccurate, it becomes harder to know what to reorder,
+                investigate losses or trust your inventory reports. Stocktaking compares
+                the products you physically have with the quantities in your records,
+                helping you identify differences that need attention.
+            </p>
+        </div>
+
+        <div class="service-grid">
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">▦</div>
+                <h3>Physical stock counting</h3>
+                <p>
+                    We count products in the agreed shop areas and storage spaces using
+                    a method suited to your inventory, product labels and available equipment.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">↔</div>
+                <h3>Stock reconciliation</h3>
+                <p>
+                    Where records are available, we compare physical quantities against
+                    your POS or inventory system to identify differences.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">▤</div>
+                <h3>Discrepancy reporting</h3>
+                <p>
+                    Receive a structured summary of stock differences and products that
+                    require verification or further investigation.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">⌕</div>
+                <h3>Product data verification</h3>
+                <p>
+                    We can review item names, codes, barcodes and packaging units where
+                    included in the agreed scope.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">✓</div>
+                <h3>Inventory record updates</h3>
+                <p>
+                    With your review and approval, verified counts can be used to correct
+                    inventory records where this is included in the service.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">↗</div>
+                <h3>Practical recommendations</h3>
+                <p>
+                    Identify process improvements for recording deliveries, sales, returns
+                    and other stock movements to help maintain better records.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- STOCKTAKING PROCESS -->
+    <section class="section" id="stocktaking-process">
+        <div class="section-heading">
+            <span class="eyebrow">Our process</span>
+            <h2>How our stocktaking service works</h2>
+            <p>
+                We plan the exercise with you before counting begins. This helps set clear
+                expectations, organise the team and minimise disruption to normal business.
+            </p>
+        </div>
+
+        <div class="process-wrap">
+            <div class="process-grid">
+
+                <article class="process-step">
+                    <div class="step-number">01</div>
+                    <div>
+                        <h3>Initial site visit and assessment</h3>
+                        <p>
+                            One of our personnel visits your business to assess the stock,
+                            shop layout, storage areas, product range, available records and
+                            the requirements for the exercise.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">02</div>
+                    <div>
+                        <h3>Agree on the stocktaking plan</h3>
+                        <p>
+                            We agree on the date, areas to be counted, estimated duration,
+                            team size, responsibilities, reporting requirements and quotation
+                            before the work is scheduled.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">03</div>
+                    <div>
+                        <h3>Preparation one day before</h3>
+                        <p>
+                            We coordinate with your team to organise shelves and storage,
+                            prepare the latest available stock records, identify unlabelled
+                            items and separate damaged or returned goods where practical.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">04</div>
+                    <div>
+                        <h3>Team briefing and task allocation</h3>
+                        <p>
+                            Before counting starts, our team meets with your designated staff,
+                            confirms the method and assigns counting areas to reduce missed
+                            products and duplicate counts.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">05</div>
+                    <div>
+                        <h3>Physical stock count</h3>
+                        <p>
+                            The team counts products in the agreed areas and records quantities.
+                            Depending on the stock and available equipment, counting may be
+                            manual, barcode-assisted or a combination of methods.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">06</div>
+                    <div>
+                        <h3>Verification and recounts</h3>
+                        <p>
+                            We review unclear entries and investigate questionable counts.
+                            Items with mismatched descriptions, units or quantities may be
+                            recounted before the results are finalised.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">07</div>
+                    <div>
+                        <h3>Reconciliation and reporting</h3>
+                        <p>
+                            We compare the verified physical count with the records provided
+                            and prepare a report showing matching quantities, variances and
+                            items requiring further investigation.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="step-number">08</div>
+                    <div>
+                        <h3>Review and approved adjustments</h3>
+                        <p>
+                            We review the findings with you. Where included in the agreed
+                            scope, verified quantities can be used to update your inventory
+                            records after approval by an authorised person.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="note">
+                <strong>To support an accurate count:</strong> we agree in advance how sales,
+                deliveries, returns and other stock movements will be handled while counting
+                is underway. Differences are reported for investigation; they are not assumed
+                to be theft or automatically treated as losses.
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section">
+        <div class="section-heading">
+            <span class="eyebrow">Who we help</span>
+            <h2>Stocktaking for retail businesses in Kenya</h2>
+            <p>
+                Our service can be planned for different retail environments, depending on
+                the size of the inventory and the requirements agreed during the assessment.
+            </p>
+        </div>
+
+        <div class="industry-grid">
+            <article class="industry-card">
+                <div class="industry-icon" aria-hidden="true">✦</div>
+                <h3>Cosmetics shops</h3>
+                <p>Count products across brands, shades, sizes and other product variations.</p>
+            </article>
+
+            <article class="industry-card">
+                <div class="industry-icon" aria-hidden="true">▤</div>
+                <h3>Mini supermarkets</h3>
+                <p>Review fast-moving groceries, household goods and everyday retail items.</p>
+            </article>
+
+            <article class="industry-card">
+                <div class="industry-icon" aria-hidden="true">▣</div>
+                <h3>Wholesale shops</h3>
+                <p>Plan counts for larger quantities, storage areas and varied packaging units.</p>
+            </article>
+
+            <article class="industry-card">
+                <div class="industry-icon" aria-hidden="true">▧</div>
+                <h3>General retail</h3>
+                <p>Establish a clearer inventory position across the products you sell.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section">
+        <div class="pricing-panel">
+            <div>
+                <h2>How much does stocktaking cost in Kenya?</h2>
+                <p>
+                    The cost depends on the number of products, stock volume, store layout,
+                    number of locations, quality of existing records and whether reconciliation,
+                    reporting or inventory updates are required. We first assess your needs,
+                    then provide a quotation based on the agreed scope.
+                </p>
+            </div>
+
+            <a class="btn-primary" href="/contact">
+                Request a Quote →
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="section-heading">
+            <span class="eyebrow">Common questions</span>
+            <h2>Frequently asked questions</h2>
+        </div>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How often should a retail shop conduct stocktaking?</summary>
+                <div class="faq-answer">
+                    <p>
+                        It depends on your business. Some shops conduct a full stocktake
+                        quarterly or annually, while others count selected high-value or
+                        fast-moving products more frequently.
+                    </p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can you count stock if we do not use Ruo System?</summary>
+                <div class="faq-answer">
+                    <p>
+                        Yes. We can discuss your current stock records and POS or inventory
+                        system during the initial assessment and agree on a suitable approach.
+                    </p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Will stocktaking interrupt our normal business?</summary>
+                <div class="faq-answer">
+                    <p>
+                        We plan the exercise with you in advance. Depending on the shop and
+                        stock volume, we may recommend counting outside busy hours or recording
+                        stock movements separately while the count is underway.
+                    </p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What happens if the physical count differs from the POS?</summary>
+                <div class="faq-answer">
+                    <p>
+                        The difference is recorded for review. It may be caused by unrecorded
+                        sales, receiving errors, returns, damage, incorrect units or other
+                        issues. We report the discrepancy so you can investigate and approve
+                        any necessary correction.
+                    </p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Will you update our inventory after counting?</summary>
+                <div class="faq-answer">
+                    <p>
+                        Inventory updates can be included in the agreed scope. Any adjustments
+                        should be reviewed and approved by you or an authorised representative
+                        before records are changed.
+                    </p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What information should we prepare before the assessment?</summary>
+                <div class="faq-answer">
+                    <p>
+                        If available, prepare your current stock list, product codes or barcodes,
+                        details of storage areas, and information about how sales, deliveries
+                        and returns are recorded. We will confirm any additional requirements
+                        during the site visit.
+                    </p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section">
+        <div class="final-cta">
+            <div>
+                <h2>Get a clearer picture of your stock.</h2>
+                <p>
+                    Arrange an initial assessment with Ruo System. We will review your
+                    requirements, agree on the stocktaking approach and provide a quotation
+                    for your retail business.
+                </p>
+            </div>
+
+            <a class="btn-primary" href="/contact">
+                Discuss Your Stocktaking Needs →
+            </a>
+        </div>
+
+        <p class="small-disclaimer">
+            Stocktaking scope, timing, reporting and inventory adjustments are confirmed
+            with the customer before work begins.
+        </p>
+    </section>
+
+</div>
+
+{% endblock %}
