@@ -32,11 +32,18 @@ async def sitemap():
             "priority": "0.95",
             "changefreq": "weekly"
         },
-         {
-                    "loc": "https://www.ruosystem.co.ke/services/stock-taking-services-for-cosmetic-shops",
-                    "priority": "0.95",
-                    "changefreq": "weekly"
-                },
+
+        {
+            "loc": "https://www.ruosystem.co.ke/services/stock-taking-services-for-cosmetic-shops",
+            "priority": "0.95",
+            "changefreq": "weekly"
+        },
+
+        {
+            "loc": "https://www.ruosystem.co.ke/services/stock-taking-services-for-retail-shops-in-kenya",
+            "priority": "0.95",
+            "changefreq": "weekly"
+        },
         # Other important website pages
         {
             "loc": "https://www.ruosystem.co.ke/about",
