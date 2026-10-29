@@ -1,0 +1,1160 @@
+{% extends "base.html" %}
+
+{% block title %}
+POS System for Chemists in Kenya | Ruo Systems
+{% endblock %}
+
+{% block description %}
+Looking for a POS system for your chemist or pharmacy in Kenya? Manage medicine and healthcare product sales, stock quantities, profits and daily reports with Ruo Systems.
+{% endblock %}
+
+{% block extra_css %}
+<style>
+:root {
+    --ph-purple: #6F3FF5;
+    --ph-purple-dark: #5425D0;
+    --ph-purple-soft: #F4F0FF;
+    --ph-black: #101828;
+    --ph-grey: #667085;
+    --ph-light: #F8F9FC;
+    --ph-border: #EAECF0;
+    --ph-green: #12B76A;
+}
+
+.ph-page { overflow: hidden; }
+.ph-page * { box-sizing: border-box; }
+
+.ph-page a { text-decoration: none; }
+
+.ph-hero {
+    padding: 90px 0 100px;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(111,63,245,.13), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(233,190,220,.16), transparent 30%),
+        #fff;
+}
+
+.ph-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.ph-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: var(--ph-purple-soft);
+    color: var(--ph-purple);
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.ph-eyebrow span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ph-green);
+}
+
+.ph-hero h1 {
+    color: var(--ph-black);
+    font-size: clamp(40px, 5vw, 66px);
+    line-height: 1.08;
+    letter-spacing: -2.4px;
+    font-weight: 800;
+    margin: 0 0 24px;
+}
+
+.ph-highlight { color: var(--ph-purple); }
+
+.ph-hero-text {
+    color: var(--ph-grey);
+    font-size: 17px;
+    line-height: 1.85;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.ph-actions {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.ph-primary,
+.ph-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 23px;
+    border-radius: 13px;
+    font-size: 15px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.ph-primary {
+    background: var(--ph-purple);
+    color: #fff !important;
+    box-shadow: 0 14px 30px rgba(111,63,245,.2);
+}
+
+.ph-primary:hover {
+    background: var(--ph-purple-dark);
+    transform: translateY(-3px);
+}
+
+.ph-secondary {
+    background: #fff;
+    border: 1px solid var(--ph-border);
+    color: var(--ph-black);
+}
+
+.ph-secondary:hover {
+    border-color: var(--ph-purple);
+    color: var(--ph-purple);
+}
+
+.ph-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 26px;
+    color: var(--ph-grey);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ph-trust span::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #ECFDF3;
+    color: var(--ph-green);
+    margin-right: 7px;
+}
+
+.ph-dashboard {
+    padding: 13px;
+    background: #fff;
+    border: 1px solid rgba(16,24,40,.08);
+    border-radius: 24px;
+    box-shadow: 0 30px 75px rgba(16,24,40,.12);
+    transform: rotate(1deg);
+}
+
+.ph-dashboard-inner {
+    padding: 20px;
+    background: #F8F7FC;
+    border-radius: 16px;
+}
+
+.ph-dash-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.ph-dash-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ph-black);
+}
+
+.ph-dash-tag {
+    font-size: 10px;
+    color: var(--ph-purple);
+    background: var(--ph-purple-soft);
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-weight: 800;
+}
+
+.ph-sales-card {
+    background: linear-gradient(135deg, #6F3FF5, #9271FA);
+    border-radius: 16px;
+    padding: 23px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.ph-sales-card small {
+    opacity: .8;
+    font-size: 12px;
+}
+
+.ph-sales-card strong {
+    display: block;
+    font-size: 30px;
+    margin: 7px 0;
+}
+
+.ph-sales-card p {
+    font-size: 11px;
+    margin: 0;
+    opacity: .85;
+}
+
+.ph-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.ph-stat {
+    padding: 17px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+}
+
+.ph-stat small {
+    display: block;
+    color: var(--ph-grey);
+    font-size: 11px;
+}
+
+.ph-stat strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 21px;
+    color: var(--ph-black);
+}
+
+.ph-stock-list {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 17px;
+    margin-top: 13px;
+}
+
+.ph-stock-list h3 {
+    font-size: 13px;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.ph-stock-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid #F2F4F7;
+    font-size: 11px;
+    color: #344054;
+}
+
+.ph-stock-row:last-child { border-bottom: 0; }
+
+.ph-stock-row span:last-child {
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ph-dashboard-note {
+    margin: 14px 0 0;
+    font-size: 10px;
+    line-height: 1.5;
+    color: var(--ph-grey);
+}
+
+.ph-section { padding: 100px 0; }
+.ph-section-light { background: var(--ph-light); }
+
+.ph-heading {
+    max-width: 740px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.ph-heading .label,
+.ph-copy .label {
+    color: var(--ph-purple);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.ph-heading h2,
+.ph-copy h2 {
+    color: var(--ph-black);
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -1.4px;
+    margin: 13px 0 17px;
+}
+
+.ph-heading p,
+.ph-copy p {
+    color: var(--ph-grey);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.ph-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.ph-card {
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--ph-border);
+    border-radius: 19px;
+    transition: .25s;
+}
+
+.ph-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(16,24,40,.06);
+    border-color: #D9CCFF;
+}
+
+.ph-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 47px;
+    background: var(--ph-purple-soft);
+    border-radius: 13px;
+    font-size: 21px;
+    margin-bottom: 19px;
+}
+
+.ph-card h3 {
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--ph-black);
+    margin: 0 0 10px;
+}
+
+.ph-card p {
+    color: var(--ph-grey);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.ph-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.ph-feature + .ph-feature { margin-top: 100px; }
+.ph-feature.ph-reverse .ph-copy { order: 2; }
+.ph-feature.ph-reverse .ph-visual { order: 1; }
+
+.ph-copy h2 { margin-bottom: 20px; }
+
+.ph-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+.ph-check-list li {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    color: #344054;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.ph-check-list li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #ECFDF3;
+    color: var(--ph-green);
+    font-size: 11px;
+    margin-top: 1px;
+}
+
+.ph-visual {
+    padding: 30px;
+    background: linear-gradient(145deg, #F5F1FF, #FBF8FC);
+    border-radius: 25px;
+}
+
+.ph-visual-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 17px;
+    box-shadow: 0 18px 40px rgba(16,24,40,.08);
+}
+
+.ph-visual-card h3 {
+    color: var(--ph-black);
+    font-size: 15px;
+    margin: 0 0 20px;
+}
+
+.ph-product-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--ph-border);
+    font-size: 12px;
+}
+
+.ph-product-row:last-child { border-bottom: 0; }
+
+.ph-product-row span:first-child { color: var(--ph-grey); }
+.ph-product-row strong { color: var(--ph-black); text-align: right; }
+
+.ph-progress {
+    height: 8px;
+    border-radius: 10px;
+    background: #F2F4F7;
+    overflow: hidden;
+    margin: 13px 0 20px;
+}
+
+.ph-progress span {
+    display: block;
+    height: 100%;
+    width: 70%;
+    background: var(--ph-purple);
+    border-radius: 10px;
+}
+
+.ph-benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--ph-border);
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ph-benefit {
+    text-align: center;
+    padding: 27px 18px;
+    border-right: 1px solid var(--ph-border);
+}
+
+.ph-benefit:last-child { border-right: 0; }
+
+.ph-benefit strong {
+    display: block;
+    color: var(--ph-black);
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.ph-benefit span {
+    color: var(--ph-grey);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.ph-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.ph-content h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--ph-black);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.ph-content h3 {
+    color: var(--ph-black);
+    font-size: 21px;
+    margin: 30px 0 10px;
+}
+
+.ph-content p {
+    color: var(--ph-grey);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 17px;
+}
+
+.ph-cta { padding: 95px 0; }
+
+.ph-cta-box {
+    background: linear-gradient(120deg, #171225, #3A207D);
+    border-radius: 28px;
+    padding: 70px 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.ph-cta-box h2 {
+    max-width: 700px;
+    margin: 0 auto 18px;
+    font-size: clamp(31px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.ph-cta-box p {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: rgba(255,255,255,.77);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.ph-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ph-purple) !important;
+    font-weight: 800;
+}
+
+.ph-faq {
+    max-width: 820px;
+    margin: auto;
+}
+
+.ph-faq details {
+    border-bottom: 1px solid var(--ph-border);
+}
+
+.ph-faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    cursor: pointer;
+    list-style: none;
+    padding: 22px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 800;
+    color: var(--ph-black);
+}
+
+.ph-faq summary::-webkit-details-marker { display: none; }
+.ph-faq summary::after {
+    content: "+";
+    color: var(--ph-purple);
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+.ph-faq details[open] summary::after { content: "−"; }
+
+.ph-faq-answer {
+    padding: 0 0 22px;
+    color: var(--ph-grey);
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+@media(max-width: 1000px) {
+    .ph-hero-grid { grid-template-columns: 1fr; gap: 45px; }
+    .ph-dashboard { max-width: 650px; width: 100%; margin: auto; }
+    .ph-card-grid { grid-template-columns: 1fr 1fr; }
+    .ph-feature { gap: 40px; }
+    .ph-benefits { grid-template-columns: 1fr 1fr; }
+    .ph-benefit:nth-child(2) { border-right: 0; }
+    .ph-benefit:nth-child(-n+2) { border-bottom: 1px solid var(--ph-border); }
+}
+
+@media(max-width: 650px) {
+    .ph-hero { padding: 55px 0 70px; }
+    .ph-hero h1 { font-size: 40px; letter-spacing: -1.6px; }
+    .ph-hero-text { font-size: 16px; }
+    .ph-actions { flex-direction: column; }
+    .ph-primary, .ph-secondary { width: 100%; }
+    .ph-dashboard { transform: none; }
+    .ph-dashboard-inner { padding: 13px; }
+    .ph-sales-card strong { font-size: 26px; }
+    .ph-section { padding: 70px 0; }
+    .ph-heading { margin-bottom: 35px; }
+    .ph-heading h2, .ph-copy h2 { font-size: 32px; }
+    .ph-card-grid, .ph-feature { grid-template-columns: 1fr; }
+    .ph-feature + .ph-feature { margin-top: 65px; }
+    .ph-feature.ph-reverse .ph-copy,
+    .ph-feature.ph-reverse .ph-visual { order: initial; }
+    .ph-visual { padding: 18px; }
+    .ph-benefit { padding: 20px 10px; }
+    .ph-benefit strong { font-size: 14px; }
+    .ph-benefit span { font-size: 11px; }
+    .ph-cta { padding: 65px 0; }
+    .ph-cta-box { padding: 50px 22px; border-radius: 22px; }
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="ph-page">
+
+<!-- HERO -->
+<section class="ph-hero">
+    <div class="container">
+        <div class="ph-hero-grid">
+
+            <div>
+                <div class="ph-eyebrow">
+                    <span></span>
+                    Built for Chemists & Pharmacies
+                </div>
+
+                <h1>
+                    A smarter POS system for
+                    <span class="ph-highlight">chemists.</span>
+                </h1>
+
+                <p class="ph-hero-text">
+                    Running a chemist means keeping track of products, serving
+                    customers and knowing how your business is performing.
+                    Ruo Systems helps chemists and pharmacies in Kenya record
+                    sales, monitor stock quantities and understand their profits
+                    from one simple system.
+                </p>
+
+                <div class="ph-actions">
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="ph-primary"
+                       onclick="gtag('event','request_demo_click');">
+                        Explore the System →
+                    </a>
+
+                    <a href="https://www.ruosystem.co.ke/#pricing"
+                       class="ph-secondary">
+                        See Pricing
+                    </a>
+                </div>
+
+                <div class="ph-trust">
+                    <span>Sales tracking</span>
+                    <span>Stock management</span>
+                    <span>Profit reports</span>
+                </div>
+            </div>
+
+            <!-- Illustrative dashboard -->
+            <div class="ph-dashboard">
+                <div class="ph-dashboard-inner">
+
+                    <div class="ph-dash-top">
+                        <div class="ph-dash-title">Chemist Dashboard</div>
+                        <div class="ph-dash-tag">SALES OVERVIEW</div>
+                    </div>
+
+                    <div class="ph-sales-card">
+                        <small>Today's sales</small>
+                        <strong>View your sales</strong>
+                        <p>Keep track of transactions recorded in your shop.</p>
+                    </div>
+
+                    <div class="ph-stat-grid">
+                        <div class="ph-stat">
+                            <small>Stock quantities</small>
+                            <strong>Monitor</strong>
+                        </div>
+                        <div class="ph-stat">
+                            <small>Business performance</small>
+                            <strong>Review</strong>
+                        </div>
+                    </div>
+
+                    <div class="ph-stock-list">
+                        <h3>Example product categories</h3>
+
+                        <div class="ph-stock-row">
+                            <span>Medicines</span>
+                            <span>Stock records</span>
+                        </div>
+
+                        <div class="ph-stock-row">
+                            <span>First aid supplies</span>
+                            <span>Stock records</span>
+                        </div>
+
+                        <div class="ph-stock-row">
+                            <span>Personal care products</span>
+                            <span>Stock records</span>
+                        </div>
+                    </div>
+
+                    <p class="ph-dashboard-note">
+                        Illustrative design. Actual figures and available
+                        features depend on your Ruo Systems setup.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PROBLEMS -->
+<section class="ph-section ph-section-light">
+    <div class="container">
+
+        <div class="ph-heading">
+            <div class="label">The everyday challenges</div>
+            <h2>Running a chemist is demanding enough.</h2>
+            <p>
+                You should not have to rely entirely on memory or manual
+                calculations to understand what is happening in your business.
+            </p>
+        </div>
+
+        <div class="ph-card-grid">
+
+            <div class="ph-card">
+                <div class="ph-icon">📦</div>
+                <h3>Uncertain stock levels</h3>
+                <p>
+                    Without reliable stock records, it can be difficult to know
+                    how much of each product remains or when you need to
+                    replenish your shelves.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">🧾</div>
+                <h3>Sales that are difficult to reconcile</h3>
+                <p>
+                    When sales records are scattered across notebooks and
+                    calculations, reviewing daily transactions can take
+                    unnecessary time.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">📊</div>
+                <h3>Unclear business performance</h3>
+                <p>
+                    Total cash received does not automatically tell you how
+                    profitable your business is. You need sales records and
+                    useful reports to make better decisions.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FEATURES -->
+<section class="ph-section">
+    <div class="container">
+
+        <div class="ph-heading">
+            <div class="label">The solution</div>
+            <h2>Manage your chemist with better visibility.</h2>
+            <p>
+                Ruo Systems brings everyday retail operations into one place,
+                helping you spend less time organising records and more time
+                running your business.
+            </p>
+        </div>
+
+        <div class="ph-card-grid">
+
+            <div class="ph-card">
+                <div class="ph-icon">🛒</div>
+                <h3>Record customer sales</h3>
+                <p>
+                    Record transactions through your POS and maintain a
+                    clearer history of the sales made in your chemist.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">📦</div>
+                <h3>Monitor product quantities</h3>
+                <p>
+                    Maintain stock records for the products you sell and
+                    review quantities to help identify replenishment needs.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">💰</div>
+                <h3>Understand your profits</h3>
+                <p>
+                    Use recorded buying and selling prices to review sales
+                    performance and estimated profit on products sold.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">📈</div>
+                <h3>Review sales reports</h3>
+                <p>
+                    Review recorded sales over different periods to better
+                    understand your business activity.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">💳</div>
+                <h3>Record payment methods</h3>
+                <p>
+                    Keep sales records organised and review transactions
+                    according to the payment methods supported by your setup.
+                </p>
+            </div>
+
+            <div class="ph-card">
+                <div class="ph-icon">🏪</div>
+                <h3>Manage everyday retail operations</h3>
+                <p>
+                    Keep your product records and sales activity organised
+                    through a system designed for retail businesses.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- STOCK MANAGEMENT -->
+<section class="ph-section ph-section-light">
+    <div class="container">
+
+        <div class="ph-feature">
+
+            <div class="ph-copy">
+                <div class="label">Stock visibility</div>
+
+                <h2>Know what is recorded in your stock.</h2>
+
+                <p>
+                    Every product you sell matters to your business. A clear
+                    record of product quantities helps you review stock levels,
+                    identify items that need replenishment and keep your
+                    inventory information organised.
+                </p>
+
+                <ul class="ph-check-list">
+                    <li>Maintain records of products and their quantities.</li>
+                    <li>Review stock levels as part of your daily operations.</li>
+                    <li>Use stock information when planning replenishment.</li>
+                    <li>Reduce dependence on scattered manual records.</li>
+                </ul>
+            </div>
+
+            <div class="ph-visual">
+                <div class="ph-visual-card">
+                    <h3>Product stock overview</h3>
+
+                    <div class="ph-product-row">
+                        <span>Product records</span>
+                        <strong>Centralised</strong>
+                    </div>
+
+                    <div class="ph-product-row">
+                        <span>Stock quantities</span>
+                        <strong>Reviewable</strong>
+                    </div>
+
+                    <div class="ph-product-row">
+                        <span>Replenishment</span>
+                        <strong>Plan ahead</strong>
+                    </div>
+
+                    <div class="ph-progress"><span></span></div>
+
+                    <p style="font-size:12px;line-height:1.7;color:#667085;margin:0;">
+                        Keep product records organised and use available
+                        stock information to support purchasing decisions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SALES AND PROFIT -->
+<section class="ph-section">
+    <div class="container">
+
+        <div class="ph-feature ph-reverse">
+
+            <div class="ph-copy">
+                <div class="label">Sales and profitability</div>
+
+                <h2>Understand more than just your daily collections.</h2>
+
+                <p>
+                    Knowing how much money came in is useful, but understanding
+                    what you sold and the estimated profit on those sales gives
+                    you a clearer view of your business.
+                </p>
+
+                <ul class="ph-check-list">
+                    <li>Keep records of completed sales.</li>
+                    <li>Review sales reports for your chosen periods.</li>
+                    <li>Use recorded product costs and selling prices to assess profit.</li>
+                    <li>Make decisions using recorded business information.</li>
+                </ul>
+            </div>
+
+            <div class="ph-visual">
+                <div class="ph-visual-card">
+                    <h3>Business performance</h3>
+
+                    <div class="ph-product-row">
+                        <span>Sales activity</span>
+                        <strong>View reports</strong>
+                    </div>
+
+                    <div class="ph-product-row">
+                        <span>Product selling prices</span>
+                        <strong>Recorded</strong>
+                    </div>
+
+                    <div class="ph-product-row">
+                        <span>Buying prices</span>
+                        <strong>Recorded</strong>
+                    </div>
+
+                    <div class="ph-product-row">
+                        <span>Estimated profit</span>
+                        <strong>Review results</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BENEFITS -->
+<section class="ph-section ph-section-light">
+    <div class="container">
+
+        <div class="ph-heading">
+            <div class="label">Why Ruo Systems?</div>
+            <h2>Practical tools for everyday retail management.</h2>
+            <p>
+                Get a clearer picture of your chemist's sales, stock and
+                business performance without depending entirely on manual
+                record-keeping.
+            </p>
+        </div>
+
+        <div class="ph-benefits">
+            <div class="ph-benefit">
+                <strong>Sales records</strong>
+                <span>Organise daily transactions</span>
+            </div>
+
+            <div class="ph-benefit">
+                <strong>Stock visibility</strong>
+                <span>Review product quantities</span>
+            </div>
+
+            <div class="ph-benefit">
+                <strong>Profit insights</strong>
+                <span>Assess recorded sales</span>
+            </div>
+
+            <div class="ph-benefit">
+                <strong>Business reports</strong>
+                <span>Review performance</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SEO CONTENT -->
+<section class="ph-section">
+    <div class="container">
+
+        <div class="ph-content">
+
+            <h2>Choosing a POS system for your chemist in Kenya</h2>
+
+            <p>
+                A point of sale (POS) system helps a retail business record
+                transactions and organise sales information. For chemists and
+                pharmacies in Kenya, a retail POS system can help bring product
+                records, sales and business reporting into one place.
+            </p>
+
+            <p>
+                Instead of relying only on manual calculations, chemist owners
+                can use organised sales records to review business activity
+                and make more informed decisions about their operations.
+            </p>
+
+            <h3>What should you look for in a chemist POS system?</h3>
+
+            <p>
+                Consider how the system records sales, maintains product
+                quantities, handles your everyday payment workflows and
+                presents useful reports. It is also important to confirm that
+                the system supports any pharmacy-specific requirements your
+                business needs.
+            </p>
+
+            <p>
+                Ruo Systems focuses on core retail operations, including
+                product records, sales tracking, stock quantities and sales
+                reporting. It does not currently provide batch-number or
+                medicine-expiry-date tracking, so chemists requiring those
+                functions should maintain a suitable separate process or
+                choose a system that explicitly supports them.
+            </p>
+
+            <h3>Is Ruo Systems suitable for a small chemist?</h3>
+
+            <p>
+                If you want to organise your retail sales, review stock
+                quantities and understand your recorded business performance,
+                Ruo Systems is worth exploring. You can try the demo and
+                evaluate whether its current features fit the way your chemist
+                operates.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="ph-section ph-section-light">
+    <div class="container">
+
+        <div class="ph-heading">
+            <div class="label">Frequently asked questions</div>
+            <h2>Questions about POS systems for chemists.</h2>
+            <p>
+                Learn more about using retail POS software in a chemist or
+                pharmacy in Kenya.
+            </p>
+        </div>
+
+        <div class="ph-faq">
+
+            <details>
+                <summary>What is a POS system for a chemist?</summary>
+                <div class="ph-faq-answer">
+                    A POS system helps a chemist record customer transactions
+                    and organise retail business information. Depending on
+                    its features, it can also help manage stock quantities
+                    and review sales reports.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can Ruo Systems manage stock for my chemist?</summary>
+                <div class="ph-faq-answer">
+                    Ruo Systems supports product and stock quantity records
+                    for retail operations. However, it does not currently
+                    track medicine batch numbers or expiry dates.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I track sales and profits?</summary>
+                <div class="ph-faq-answer">
+                    Ruo Systems provides sales records and reports. Recorded
+                    buying and selling prices can be used to review estimated
+                    profit on sales. Actual results depend on accurate product
+                    cost records and the transactions entered into the system.
+                </div>
+            </details>
+
+            <details>
+                <summary>Is Ruo Systems a pharmacy dispensing system?</summary>
+                <div class="ph-faq-answer">
+                    Ruo Systems is a retail POS and inventory system. It should
+                    not be treated as a specialised pharmacy dispensing,
+                    prescription-management or clinical system. Confirm your
+                    pharmacy's specific operational and regulatory requirements
+                    before choosing software.
+                </div>
+            </details>
+
+            <details>
+                <summary>How can I try Ruo Systems?</summary>
+                <div class="ph-faq-answer">
+                    You can explore the Ruo Systems demo online to see the
+                    available retail POS features and decide whether they
+                    suit your business.
+                </div>
+            </details>
+
+            <details>
+                <summary>How much does a POS system cost in Kenya?</summary>
+                <div class="ph-faq-answer">
+                    Pricing depends on the software provider and the features
+                    included. Visit the Ruo Systems pricing page to see the
+                    available plans and current prices.
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="ph-cta">
+    <div class="container">
+
+        <div class="ph-cta-box">
+            <h2>Take a clearer view of your chemist's business.</h2>
+
+            <p>
+                Explore Ruo Systems and see how its sales tracking, stock
+                records and reporting features could fit into your daily
+                operations.
+            </p>
+
+            <a href="https://pos-10-production.up.railway.app/auth/demo"
+               class="ph-cta-button"
+               onclick="gtag('event','request_demo_click');">
+                Explore Ruo Systems →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</div>
+{% endblock %}
