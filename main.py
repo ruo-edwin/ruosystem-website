@@ -93,6 +93,15 @@ async def article(request: Request):
         context={}
     )
 
+@app.get("/services/pos-for-hardware-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="posforhardwareshop.html",
+        context={}
+    )
+
+
 
 @app.get("/services/bookshop-pos-system-in-kenya-for-stock-and-sales-management")
 async def article(request: Request):
