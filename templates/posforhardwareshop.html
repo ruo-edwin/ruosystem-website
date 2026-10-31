@@ -1,1118 +1,925 @@
 
 {% extends "base.html" %}
 
-{% block title %}
-Hardware Shop POS System in Kenya for Stock and Sales Management | Ruo System
-{% endblock %}
+{% block title %}Hardware Shop POS System in Kenya | Stock & Sales Management | Ruo System{% endblock %}
 
-{% block description %}
-Looking for a POS system for your hardware shop in Kenya? Manage cement, paints, plumbing supplies, electrical products, stock and daily sales with Ruo System. Explore the demo.
-{% endblock %}
+{% block description %}Manage hardware shop stock, sales, product prices and profits with Ruo System. A POS system for hardware shops and building material retailers in Kenya. Explore the demo.{% endblock %}
 
 {% block extra_css %}
 <style>
 .hardware-page {
-    --hw-primary: #6F3FF5;
-    --hw-dark: #101828;
-    --hw-muted: #667085;
-    --hw-border: #EAECF0;
-    --hw-light: #F8F9FC;
-    color: var(--hw-dark);
+    --primary: #6F3FF5;
+    --primary-dark: #5428cf;
+    --primary-light: #f1edff;
+    --ink: #17152b;
+    --muted: #687087;
+    --border: #e9e7f0;
+    color: var(--ink);
+    background: #fff;
     overflow: hidden;
 }
-
 .hardware-page * { box-sizing: border-box; }
 .hardware-page a { text-decoration: none; }
-
-.hardware-hero {
-    padding: 76px 0 85px;
-    background:
-        radial-gradient(circle at 85% 20%, #EDE6FF 0, transparent 32%),
-        linear-gradient(135deg, #FFFFFF, #FAF8FF);
-}
-
-.hardware-hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    align-items: center;
-    gap: 50px;
-}
-
+.hardware-container { width: min(1160px, calc(100% - 44px)); margin: auto; }
+.hardware-section { padding: 76px 0; }
 .hardware-label {
     display: inline-block;
-    background: #F0EBFF;
-    color: var(--hw-primary);
-    padding: 8px 13px;
-    border-radius: 50px;
+    padding: 7px 12px;
+    border-radius: 30px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+.hardware-title {
+    margin: 15px 0 13px;
+    font-size: clamp(29px, 4vw, 43px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    font-weight: 800;
+}
+.hardware-title span { color: var(--primary); }
+.hardware-description {
+    color: var(--muted);
     font-size: 13px;
-    font-weight: 800;
-    margin-bottom: 20px;
+    line-height: 1.9;
 }
-
-.hardware-hero h1 {
-    font-size: clamp(36px, 4.5vw, 56px);
-    line-height: 1.1;
-    letter-spacing: -1.8px;
-    font-weight: 800;
-    margin-bottom: 22px;
-}
-
-.hardware-highlight { color: var(--hw-primary); }
-
-.hardware-lead {
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--hw-muted);
-    margin-bottom: 25px;
-}
-
-.hardware-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
 .hardware-btn {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    padding: 14px 21px;
-    border-radius: 12px;
+    justify-content: center;
+    gap: 9px;
+    min-height: 47px;
+    padding: 13px 21px;
+    border: 1px solid var(--primary);
+    border-radius: 9px;
+    background: var(--primary);
+    color: #fff !important;
+    font-size: 12px;
     font-weight: 800;
-    transition: .2s;
+    transition: .2s ease;
 }
-
-.hardware-btn-primary {
-    color: white !important;
-    background: var(--hw-primary);
-    box-shadow: 0 10px 25px #6F3FF52B;
+.hardware-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+.hardware-btn-light {
+    background: #fff;
+    border-color: var(--border);
+    color: var(--ink) !important;
 }
+.hardware-btn-light:hover { background: var(--primary-light); }
 
-.hardware-btn-primary:hover {
-    background: #5425D0;
-    transform: translateY(-2px);
+/* HERO */
+.hardware-hero {
+    padding: 75px 0 65px;
+    background:
+        radial-gradient(ellipse at 5% 40%, #f0ebff 0, transparent 38%),
+        radial-gradient(ellipse at 95% 20%, #f5f1ff 0, transparent 35%),
+        linear-gradient(180deg, #fff, #faf9ff);
 }
-
-.hardware-btn-secondary {
-    color: var(--hw-dark) !important;
-    background: white;
-    border: 1px solid var(--hw-border);
+.hardware-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
 }
-
+.hardware-hero h1 {
+    margin: 20px 0 17px;
+    font-size: clamp(37px, 4.7vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -2.3px;
+    font-weight: 800;
+}
+.hardware-hero h1 span { color: var(--primary); }
+.hardware-hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
 .hardware-trust {
-    margin-top: 23px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    color: var(--hw-muted);
-    font-size: 12px;
-    font-weight: 700;
+    gap: 12px 20px;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 11px;
 }
-
-/* Hero product preview */
-
-.hardware-dashboard {
-    padding: 22px;
-    border-radius: 22px;
-    background: white;
-    border: 1px solid var(--hw-border);
-    box-shadow: 0 25px 65px #10182812;
+.hardware-trust span::before { content: "✓"; color: var(--primary); font-weight: 900; margin-right: 6px; }
+.hardware-hero-visual {
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 25px 65px #30205c12;
 }
-
-.hardware-dashboard h3 {
-    font-size: 17px;
-    font-weight: 800;
-    margin: 0 0 5px;
-}
-
-.hardware-dashboard > p {
-    font-size: 12px;
-    color: var(--hw-muted);
-    margin-bottom: 20px;
-}
-
-.hardware-stat {
-    background: #F8F6FF;
-    padding: 15px;
-    border-radius: 13px;
-    margin-bottom: 12px;
-}
-
-.hardware-stat strong {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.hardware-stat span {
-    color: var(--hw-muted);
-    font-size: 12px;
-}
-
-.hardware-stock-title {
-    font-size: 12px;
-    font-weight: 800;
-    margin: 20px 0 7px;
-}
-
-.hardware-stock-row {
+.hardware-preview-top {
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #F0F1F5;
-    font-size: 12px;
-}
-
-.hardware-stock-row:last-child { border-bottom: 0; }
-
-.hardware-stock-row strong {
-    color: var(--hw-primary);
-    white-space: nowrap;
-}
-
-/* Sections */
-
-.hardware-section { padding: 72px 0; }
-.hardware-section-light { background: var(--hw-light); }
-
-.hardware-section-heading {
-    max-width: 730px;
-    margin: 0 auto 35px;
-    text-align: center;
-}
-
-.hardware-section-heading h2 {
-    font-size: clamp(27px, 3vw, 38px);
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -.8px;
-    margin-bottom: 14px;
-}
-
-.hardware-section-heading p {
-    color: var(--hw-muted);
-    line-height: 1.8;
-}
-
-.hardware-answer {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 25px;
-    background: white;
-    border: 1px solid var(--hw-border);
-    border-left: 4px solid var(--hw-primary);
-    border-radius: 14px;
-}
-
-.hardware-answer h2 {
-    font-size: 21px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.hardware-answer p {
-    line-height: 1.8;
-    color: #475467;
-    margin-bottom: 0;
-}
-
-.hardware-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.hardware-card {
-    height: 100%;
-    padding: 24px;
-    background: white;
-    border: 1px solid var(--hw-border);
-    border-radius: 17px;
-}
-
-.hardware-icon {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 43px;
-    height: 43px;
-    background: #F0EBFF;
-    color: var(--hw-primary);
-    border-radius: 12px;
-    font-size: 20px;
-    margin-bottom: 17px;
-}
-
-.hardware-card h3 {
-    font-size: 17px;
+    justify-content: space-between;
+    padding: 4px 2px 17px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
     font-weight: 800;
-    margin-bottom: 10px;
 }
-
-.hardware-card p {
-    font-size: 14px;
-    color: var(--hw-muted);
-    line-height: 1.8;
-    margin-bottom: 0;
+.hardware-live {
+    color: #16875b;
+    font-size: 10px;
 }
+.hardware-preview-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+}
+.hardware-stat {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fcfbff;
+}
+.hardware-stat small { display: block; color: var(--muted); font-size: 10px; }
+.hardware-stat strong { display: block; margin-top: 7px; font-size: 19px; }
+.hardware-preview-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+.hardware-preview-table th {
+    padding: 10px 7px;
+    background: #f7f5fc;
+    color: var(--muted);
+    text-align: left;
+}
+.hardware-preview-table td { padding: 11px 7px; border-bottom: 1px solid #f0eef5; }
+.hardware-stock-status { color: #16875b; font-weight: 800; }
 
-.hardware-image-grid {
+/* PROBLEM / VALUE */
+.hardware-value { background: #fff; }
+.hardware-value-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 55px;
+}
+.hardware-value-list { display: grid; gap: 15px; }
+.hardware-value-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+}
+.hardware-value-icon {
+    flex: 0 0 40px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 19px;
+}
+.hardware-value-item h3 { margin: 1px 0 6px; font-size: 13px; }
+.hardware-value-item p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+/* FEATURES */
+.hardware-features { background: #f8f7fc; }
+.hardware-section-heading { max-width: 680px; margin: 0 auto 35px; text-align: center; }
+.hardware-section-heading .hardware-description { max-width: 590px; margin: auto; }
+.hardware-feature-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 17px;
 }
+.hardware-feature-card {
+    padding: 23px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+    transition: .2s ease;
+}
+.hardware-feature-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px #30205c0d; }
+.hardware-feature-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 20px;
+}
+.hardware-feature-card h3 { margin: 0 0 8px; font-size: 13px; }
+.hardware-feature-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.85; }
 
-.hardware-image-card {
-    overflow: hidden;
-    background: white;
-    border: 1px solid var(--hw-border);
+/* HARDWARE PRODUCT TYPES */
+.hardware-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px;
+    margin-top: 30px;
+}
+.hardware-product {
+    padding: 19px 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
+}
+.hardware-product-icon { font-size: 26px; margin-bottom: 10px; }
+.hardware-product h3 { margin: 0 0 6px; font-size: 12px; }
+.hardware-product p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
+
+/* HOW IT WORKS */
+.hardware-process { background: #f8f7fc; }
+.hardware-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+}
+.hardware-process-card {
+    padding: 21px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #fff;
+}
+.hardware-step {
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 900;
+}
+.hardware-process-card h3 { margin: 0 0 8px; font-size: 13px; }
+.hardware-process-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+/* PRICING */
+.hardware-pricing { background: #fff; }
+.hardware-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px;
+    margin-top: 35px;
+}
+.hardware-plan {
+    display: flex;
+    flex-direction: column;
+    padding: 26px 23px;
+    border: 1px solid var(--border);
     border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 30px #30205c08;
 }
-
-.hardware-image-card img {
-    width: 100%;
-    height: 190px;
-    display: block;
-    object-fit: cover;
+.hardware-plan-featured {
+    border: 2px solid var(--primary);
+    box-shadow: 0 16px 38px #6f3ff51a;
 }
-
-.hardware-image-card div {
-    padding: 17px;
-}
-
-.hardware-image-card h3 {
-    font-size: 15px;
+.hardware-plan-badge {
+    align-self: flex-start;
+    padding: 6px 10px;
+    border-radius: 7px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 10px;
     font-weight: 800;
-    margin-bottom: 6px;
 }
-
-.hardware-image-card p {
-    color: var(--hw-muted);
-    font-size: 13px;
-    line-height: 1.7;
-    margin: 0;
+.hardware-plan h3 { margin: 17px 0 7px; font-size: 19px; }
+.hardware-plan-description { min-height: 40px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+.hardware-plan-price { margin: 20px 0 4px; font-size: 32px; font-weight: 900; letter-spacing: -1px; }
+.hardware-plan-price small { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: 0; }
+.hardware-plan ul {
+    display: grid;
+    gap: 11px;
+    margin: 20px 0 25px;
+    padding: 0;
+    list-style: none;
 }
-
-.hardware-copy {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hardware-copy h2 {
-    font-size: 27px;
-    font-weight: 800;
-    letter-spacing: -.5px;
-    margin: 36px 0 12px;
-}
-
-.hardware-copy h2:first-child { margin-top: 0; }
-
-.hardware-copy p,
-.hardware-copy li {
-    font-size: 15px;
-    color: #475467;
-    line-height: 1.85;
-}
-
-.hardware-copy ul { padding-left: 22px; }
-.hardware-copy li { margin-bottom: 7px; }
-
-.hardware-inline-cta {
-    display: inline-block;
-    margin-top: 8px;
-    font-weight: 800;
-    color: var(--hw-primary);
-}
-
-.hardware-faq {
-    padding: 19px 0;
-    border-bottom: 1px solid var(--hw-border);
-}
-
-.hardware-faq h3 {
-    font-size: 17px;
-    font-weight: 800;
-    margin-bottom: 9px;
-}
-
-.hardware-faq p {
-    color: var(--hw-muted);
+.hardware-plan li { color: #596078; font-size: 11px; line-height: 1.7; }
+.hardware-plan li::before { content: "✓"; margin-right: 8px; color: #159967; font-weight: 900; }
+.hardware-plan .hardware-btn { width: 100%; margin-top: auto; }
+.hardware-pricing-note {
+    max-width: 720px;
+    margin: 22px auto 0;
+    color: var(--muted);
+    font-size: 11px;
     line-height: 1.8;
-    margin-bottom: 0;
-}
-
-.hardware-final-cta {
-    padding: 55px 25px;
-    background: linear-gradient(135deg, #F2EDFF, #FAF8FF);
-    border: 1px solid #E6DDFF;
-    border-radius: 23px;
     text-align: center;
 }
 
-.hardware-final-cta h2 {
-    font-size: clamp(27px, 3vw, 39px);
-    font-weight: 800;
-    margin-bottom: 14px;
-}
+/* FAQ */
+.hardware-faq { background: #f8f7fc; }
+.hardware-faq-list { max-width: 820px; margin: 30px auto 0; }
+.hardware-faq-item { padding: 19px 0; border-bottom: 1px solid var(--border); }
+.hardware-faq-item h3 { margin: 0 0 8px; font-size: 13px; }
+.hardware-faq-item p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
 
-.hardware-final-cta p {
-    max-width: 620px;
-    margin: 0 auto 24px;
-    color: var(--hw-muted);
-    line-height: 1.8;
+/* CTA */
+.hardware-cta {
+    padding: 43px;
+    border-radius: 18px;
+    background: linear-gradient(115deg, #5428cf, #29175f);
+    color: #fff;
 }
-
-.hardware-toc {
+.hardware-cta-inner {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 22px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
-
-.hardware-toc a {
-    padding: 9px 12px;
-    border: 1px solid var(--hw-border);
-    border-radius: 9px;
-    background: white;
-    color: #475467;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.hardware-toc a:hover {
-    border-color: var(--hw-primary);
-    color: var(--hw-primary);
-}
+.hardware-cta h2 { margin: 13px 0 9px; font-size: clamp(25px, 3vw, 35px); line-height: 1.2; }
+.hardware-cta p { max-width: 600px; margin: 0; color: #e3dcff; font-size: 12px; line-height: 1.9; }
+.hardware-cta .hardware-btn { flex-shrink: 0; border-color: #fff; background: #fff; color: var(--primary) !important; }
 
 @media (max-width: 900px) {
-    .hardware-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .hardware-dashboard {
-        max-width: 600px;
-        width: 100%;
-    }
-
-    .hardware-grid,
-    .hardware-image-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .hardware-hero-grid, .hardware-value-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hardware-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hardware-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hardware-products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-@media (max-width: 600px) {
-    .hardware-hero { padding: 48px 0 55px; }
-
-    .hardware-hero h1 {
-        font-size: 36px;
-        letter-spacing: -1px;
-    }
-
-    .hardware-lead { font-size: 15px; }
-    .hardware-section { padding: 48px 0; }
-
-    .hardware-grid,
-    .hardware-image-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hardware-card { padding: 21px; }
-
-    .hardware-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hardware-btn { width: 100%; }
-    .hardware-dashboard { padding: 16px; }
-    .hardware-answer { padding: 20px; }
-    .hardware-final-cta { padding: 38px 20px; }
-
-    .hardware-image-card img { height: 210px; }
+@media (max-width: 650px) {
+    .hardware-container { width: calc(100% - 34px); }
+    .hardware-section { padding: 54px 0; }
+    .hardware-hero { padding: 43px 0; }
+    .hardware-hero h1 { font-size: clamp(35px, 9vw, 47px); letter-spacing: -1.7px; }
+    .hardware-hero-actions { display: grid; grid-template-columns: 1fr; }
+    .hardware-hero-actions .hardware-btn { width: 100%; }
+    .hardware-feature-grid, .hardware-pricing-grid, .hardware-process-grid { grid-template-columns: 1fr; }
+    .hardware-plan-description { min-height: auto; }
+    .hardware-cta { padding: 28px 22px; }
+    .hardware-cta-inner { align-items: stretch; flex-direction: column; }
+    .hardware-cta .hardware-btn { width: 100%; }
 }
 </style>
 {% endblock %}
 
-
 {% block content %}
-<div class="hardware-page">
+<main class="hardware-page">
 
     <!-- HERO -->
     <section class="hardware-hero">
-        <div class="container">
+        <div class="hardware-container">
             <div class="hardware-hero-grid">
 
                 <div>
-                    <div class="hardware-label">
-                        Hardware Shop POS & Inventory Management
-                    </div>
+                    <span class="hardware-label">POS SOFTWARE FOR HARDWARE SHOPS</span>
 
                     <h1>
-                        Hardware Shop POS System in Kenya for
-                        <span class="hardware-highlight">
-                            Stock and Sales Management
-                        </span>
+                        Take control of your
+                        <span>hardware shop.</span>
                     </h1>
 
-                    <p class="hardware-lead">
-                        Managing a hardware shop means keeping track of
-                        hundreds of products, from cement and paints to
-                        plumbing fittings, electrical accessories and
-                        building materials. Ruo helps you record sales,
-                        monitor stock movement and understand your
-                        hardware shop's performance without depending
-                        entirely on handwritten records.
+                    <p class="hardware-description">
+                        Keep track of building materials, record sales and monitor
+                        stock levels from one system. Ruo System helps hardware
+                        shop owners manage everyday business operations with
+                        better visibility of their stock, sales and profits.
                     </p>
 
-                    <div class="hardware-actions">
+                    <div class="hardware-hero-actions">
                         <a href="https://pos-10-production.up.railway.app/auth/demo"
-                           class="hardware-btn hardware-btn-primary">
+                           class="hardware-btn"
+                           onclick="gtag('event', 'request_demo_click', {
+                               event_category: 'engagement',
+                               event_label: 'Hardware POS - Explore Demo'
+                           });">
                             Explore the System →
                         </a>
 
-                        <a href="#hardware-benefits"
-                           class="hardware-btn hardware-btn-secondary">
-                            See How It Helps
+                        <a href="#hardware-pricing" class="hardware-btn hardware-btn-light">
+                            View Pricing
                         </a>
                     </div>
 
                     <div class="hardware-trust">
-                        <span>✓ Stock visibility</span>
-                        <span>✓ Sales tracking</span>
-                        <span>✓ Profit reporting</span>
+                        <span>Track stock and sales</span>
+                        <span>Monitor business performance</span>
+                        <span>Simple subscription plans</span>
                     </div>
                 </div>
 
-                <!-- Illustrative management preview -->
-                <div class="hardware-dashboard">
-                    <h3>Hardware Shop Management</h3>
-                    <p>A clearer view of your daily hardware operations</p>
-
-                    <div class="hardware-stat">
-                        <strong>Product & Stock Records</strong>
-                        <span>Keep records of cement, paints, pipes,
-                        electrical items and building materials.</span>
+                <!-- Illustrative dashboard preview -->
+                <div class="hardware-hero-visual">
+                    <div class="hardware-preview-top">
+                        <span>Hardware Shop Overview</span>
+                        <span class="hardware-live">● Business dashboard</span>
                     </div>
 
-                    <div class="hardware-stat">
-                        <strong>Daily Sales</strong>
-                        <span>Record transactions and monitor
-                        your daily sales activity.</span>
+                    <div class="hardware-preview-stats">
+                        <div class="hardware-stat">
+                            <small>Today's Sales</small>
+                            <strong>KSh 48,500</strong>
+                        </div>
+                        <div class="hardware-stat">
+                            <small>Products Recorded</small>
+                            <strong>1,240</strong>
+                        </div>
+                        <div class="hardware-stat">
+                            <small>Stock Value</small>
+                            <strong>KSh 860K</strong>
+                        </div>
+                        <div class="hardware-stat">
+                            <small>Transactions</small>
+                            <strong>36</strong>
+                        </div>
                     </div>
 
-                    <div class="hardware-stat">
-                        <strong>Sales & Profit Performance</strong>
-                        <span>Review sales and recorded product
-                        costs to understand performance.</span>
-                    </div>
-
-                    <div class="hardware-stock-title">
-                        EXAMPLES OF HARDWARE INVENTORY
-                    </div>
-
-                    <div class="hardware-stock-row">
-                        <span>Cement - 50kg bags</span>
-                        <strong>Track stock</strong>
-                    </div>
-
-                    <div class="hardware-stock-row">
-                        <span>Emulsion paint - 20L</span>
-                        <strong>Track stock</strong>
-                    </div>
-
-                    <div class="hardware-stock-row">
-                        <span>PVC pipes & fittings</span>
-                        <strong>Track stock</strong>
-                    </div>
-
-                    <div class="hardware-stock-row">
-                        <span>Electrical cables & accessories</span>
-                        <strong>Track stock</strong>
-                    </div>
-
-                    <div class="hardware-stock-row">
-                        <span>Nails, screws & fasteners</span>
-                        <strong>Track stock</strong>
-                    </div>
+                    <table class="hardware-preview-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cement 50kg</td>
+                                <td>85</td>
+                                <td class="hardware-stock-status">In stock</td>
+                            </tr>
+                            <tr>
+                                <td>Emulsion Paint 20L</td>
+                                <td>24</td>
+                                <td class="hardware-stock-status">In stock</td>
+                            </tr>
+                            <tr>
+                                <td>PVC Pipes</td>
+                                <td>110</td>
+                                <td class="hardware-stock-status">In stock</td>
+                            </tr>
+                            <tr>
+                                <td>Electrical Cable</td>
+                                <td>18</td>
+                                <td class="hardware-stock-status">In stock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin:13px 0 0;color:#8a8798;font-size:9px;">
+                        Illustrative dashboard preview. Figures shown are examples.
+                    </p>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- BUSINESS VALUE -->
+    <section class="hardware-section hardware-value">
+        <div class="hardware-container">
+            <div class="hardware-value-grid">
 
-    <!-- QUICK ANSWER -->
-    <section class="hardware-section">
-        <div class="container">
+                <div>
+                    <span class="hardware-label">BUILT AROUND YOUR OPERATIONS</span>
+                    <h2 class="hardware-title">
+                        Know what is happening
+                        <span>inside your shop.</span>
+                    </h2>
+                    <p class="hardware-description">
+                        Hardware shops deal with a wide range of products,
+                        different prices and constant stock movement. Without
+                        organised records, it becomes difficult to know what
+                        has sold, what remains and how the business is performing.
+                    </p>
+                    <p class="hardware-description">
+                        Ruo System brings your sales and inventory records
+                        together, helping you make decisions using your business data.
+                    </p>
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="hardware-btn" style="margin-top:12px;">
+                        Explore the Demo →
+                    </a>
+                </div>
 
-            <div class="hardware-answer">
-                <h2>What is the best POS system for a hardware shop?</h2>
+                <div class="hardware-value-list">
+                    <article class="hardware-value-item">
+                        <div class="hardware-value-icon">▤</div>
+                        <div>
+                            <h3>Know your stock quantities</h3>
+                            <p>Keep product quantities recorded and review stock levels instead of relying entirely on memory or manual notes.</p>
+                        </div>
+                    </article>
 
-                <p>
-                    A good hardware shop POS system should help you
-                    manage product inventory, record sales, monitor
-                    stock movement, track employees and review
-                    business performance. Ruo System brings essential
-                    stock and sales management tools together, helping
-                    hardware owners maintain better control of their
-                    daily operations.
-                </p>
+                    <article class="hardware-value-item">
+                        <div class="hardware-value-icon">↗</div>
+                        <div>
+                            <h3>Keep track of daily sales</h3>
+                            <p>Record transactions and review sales activity from your business dashboard.</p>
+                        </div>
+                    </article>
 
-                <a class="hardware-inline-cta"
-                   href="https://pos-10-production.up.railway.app/auth/demo">
-                    See Ruo System in action →
-                </a>
+                    <article class="hardware-value-item">
+                        <div class="hardware-value-icon">◈</div>
+                        <div>
+                            <h3>Understand product profitability</h3>
+                            <p>Use recorded buying costs and selling prices to review product profit performance.</p>
+                        </div>
+                    </article>
+
+                    <article class="hardware-value-item">
+                        <div class="hardware-value-icon">♙</div>
+                        <div>
+                            <h3>Monitor staff activity</h3>
+                            <p>Manage staff access and review sales activity recorded by your team.</p>
+                        </div>
+                    </article>
+                </div>
+
             </div>
-
-            <nav class="hardware-toc" aria-label="On this page">
-                <a href="#hardware-benefits">Benefits</a>
-                <a href="#hardware-products">Products</a>
-                <a href="#hardware-features">Features</a>
-                <a href="#hardware-use">How it works</a>
-                <a href="#hardware-faq">FAQs</a>
-            </nav>
-
         </div>
     </section>
-
-
-    <!-- HARDWARE INDUSTRY UNDERSTANDING -->
-    <section class="hardware-section hardware-section-light"
-             id="hardware-benefits">
-
-        <div class="container">
-
-            <div class="hardware-section-heading">
-                <h2>Running a Hardware Shop Is More Than Selling Building Materials</h2>
-
-                <p>
-                    From receiving cement deliveries to selling paint,
-                    electrical accessories and plumbing supplies,
-                    every product needs to be accounted for.
-                    As your business grows, keeping track of everything
-                    using notebooks and memory becomes increasingly difficult.
-                </p>
-            </div>
-
-            <div class="hardware-grid">
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">▤</div>
-                    <h3>Thousands of Products to Monitor</h3>
-                    <p>
-                        Hardware shops stock different brands, sizes
-                        and categories. A shop may sell cement, nails,
-                        paint, pipes, sockets, taps, adhesives and
-                        power tools. Maintaining accurate records
-                        helps you know what is available.
-                    </p>
-                </article>
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">↗</div>
-                    <h3>Stock That Moves Every Day</h3>
-                    <p>
-                        Products leave your shelves through customer
-                        purchases throughout the day. Without proper
-                        sales records, it becomes difficult to know
-                        which items are selling and what remains
-                        in your inventory.
-                    </p>
-                </article>
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">◷</div>
-                    <h3>Knowing What Needs Reordering</h3>
-                    <p>
-                        Running out of fast-moving products can mean
-                        lost customers and missed sales. Stock records
-                        help you identify products that need attention
-                        before they run out.
-                    </p>
-                </article>
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">KSh</div>
-                    <h3>Understanding Product Profitability</h3>
-                    <p>
-                        Selling large quantities does not automatically
-                        mean making good profits. You need to understand
-                        buying costs, selling prices and the profit
-                        generated by your sales.
-                    </p>
-                </article>
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">♙</div>
-                    <h3>Keeping Attendants Accountable</h3>
-                    <p>
-                        When different employees handle customers,
-                        you need reliable records of the sales they
-                        make. Monitoring staff activity helps improve
-                        accountability.
-                    </p>
-                </article>
-
-                <article class="hardware-card">
-                    <div class="hardware-icon">▦</div>
-                    <h3>Managing Cash and M-Pesa</h3>
-                    <p>
-                        Customers may pay through cash or M-Pesa.
-                        Keeping records of both payment methods helps
-                        you review collections and understand
-                        your daily transactions.
-                    </p>
-                </article>
-
-            </div>
-
-            <div style="text-align:center; margin-top:30px;">
-                <a href="https://pos-10-production.up.railway.app/auth/demo"
-                   class="hardware-btn hardware-btn-primary">
-                    Explore the Demo →
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- EXAMPLES OF HARDWARE PRODUCTS -->
-    <section class="hardware-section" id="hardware-products">
-
-        <div class="container">
-
-            <div class="hardware-section-heading">
-                <h2>Manage Different Products Across Your Hardware Shop</h2>
-
-                <p>
-                    From construction materials and finishing products
-                    to plumbing and electrical supplies, maintain
-                    product records and track sales from one system.
-                </p>
-            </div>
-
-            <div class="hardware-image-grid">
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=85"
-                        alt="Cement and construction materials"
-                        loading="lazy">
-                    <div>
-                        <h3>Cement & Construction Materials</h3>
-                        <p>
-                            Record cement brands, cement bags,
-                            building materials and other
-                            construction products.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=85"
-                        alt="Paint products and painting supplies"
-                        loading="lazy">
-                    <div>
-                        <h3>Paints & Painting Accessories</h3>
-                        <p>
-                            Maintain records of different paint brands,
-                            colours, sizes, brushes, rollers and
-                            painting accessories.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=85"
-                        alt="Plumbing pipes and fittings"
-                        loading="lazy">
-                    <div>
-                        <h3>Plumbing & Sanitary Products</h3>
-                        <p>
-                            Keep track of PVC pipes, elbows, tees,
-                            taps, valves, connectors and other
-                            plumbing supplies.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85"
-                        alt="Electrical cables and accessories"
-                        loading="lazy">
-                    <div>
-                        <h3>Electrical Products</h3>
-                        <p>
-                            Organise product records for cables,
-                            sockets, switches, circuit breakers,
-                            bulbs and electrical accessories.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&q=85"
-                        alt="Hardware hand tools and equipment"
-                        loading="lazy">
-                    <div>
-                        <h3>Tools & Equipment</h3>
-                        <p>
-                            Monitor products such as hammers,
-                            spanners, drills, screwdrivers,
-                            measuring tapes and other tools.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="hardware-image-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=800&q=85"
-                        alt="Screws nails and hardware fasteners"
-                        loading="lazy">
-                    <div>
-                        <h3>Nails, Screws & Fasteners</h3>
-                        <p>
-                            Maintain stock records for nails,
-                            screws, bolts, nuts, hinges and
-                            other small hardware accessories.
-                        </p>
-                    </div>
-                </article>
-
-            </div>
-
-        </div>
-    </section>
-
 
     <!-- FEATURES -->
-    <section class="hardware-section"
-             id="hardware-features">
-
-        <div class="container">
+    <section class="hardware-section hardware-features" id="hardware-features">
+        <div class="hardware-container">
 
             <div class="hardware-section-heading">
-                <h2>Hardware Shop POS Features That Simplify Daily Operations</h2>
-
-                <p>
-                    Get the essential tools you need to record sales,
-                    monitor stock and maintain better visibility
-                    over your hardware business.
+                <span class="hardware-label">RUO SYSTEM FEATURES</span>
+                <h2 class="hardware-title">
+                    Everything you need to manage
+                    <span>daily shop operations.</span>
+                </h2>
+                <p class="hardware-description">
+                    Manage your products, sales, stock movements and business
+                    performance from one POS system.
                 </p>
             </div>
 
-            <div class="hardware-grid">
+            <div class="hardware-feature-grid">
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">▦</div>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">▤</div>
                     <h3>Product & Inventory Management</h3>
-                    <p>
-                        Register products, record buying and selling
-                        prices, and maintain stock quantities for
-                        the different items in your hardware shop.
-                    </p>
+                    <p>Record hardware products, item codes, buying prices, selling prices and available quantities in one place.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">⌕</div>
-                    <h3>Barcode Scanner Checkout</h3>
-                    <p>
-                        Use a barcode scanner to identify registered
-                        products during checkout and make the
-                        sales process more convenient.
-                    </p>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">▣</div>
+                    <h3>Fast Sales Checkout</h3>
+                    <p>Record customer purchases, add products to a sale and complete transactions through the POS checkout.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">KSh</div>
-                    <h3>Sales Recording</h3>
-                    <p>
-                        Record hardware sales and maintain digital
-                        transaction records instead of relying
-                        entirely on handwritten sales books.
-                    </p>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">⌁</div>
+                    <h3>Barcode Scanner Support</h3>
+                    <p>Use a compatible barcode scanner to identify products and speed up the checkout process.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">▤</div>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">↕</div>
                     <h3>Stock Movement Records</h3>
-                    <p>
-                        Monitor recorded stock changes and maintain
-                        a clearer history of inventory movement
-                        within your business.
-                    </p>
+                    <p>Keep track of recorded stock movements and changes in product quantities.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">↗</div>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">▥</div>
                     <h3>Sales & Profit Reports</h3>
-                    <p>
-                        Review sales performance and estimated
-                        product profit using recorded buying
-                        and selling prices.
-                    </p>
+                    <p>Review sales performance and product profitability using the costs and prices entered into the system.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">♙</div>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">♙</div>
                     <h3>Staff Management</h3>
-                    <p>
-                        Manage staff access and review recorded
-                        employee activities and transactions
-                        to improve accountability.
-                    </p>
+                    <p>Create staff accounts, manage access and monitor sales activity recorded by employees.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">◷</div>
-                    <h3>Cash & M-Pesa Dashboard</h3>
-                    <p>
-                        Review recorded cash and M-Pesa transactions
-                        through one dashboard and get a clearer
-                        view of your payment collections.
-                    </p>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">◉</div>
+                    <h3>M-Pesa & Cash Tracking</h3>
+                    <p>View cash and M-Pesa sales records together through your business dashboard.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">Ⅱ</div>
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">Ⅱ</div>
                     <h3>Hold & Resume Sales</h3>
-                    <p>
-                        Temporarily hold an ongoing transaction
-                        and resume it when ready, helping attendants
-                        handle customer transactions more conveniently.
-                    </p>
+                    <p>Put a transaction on hold and return to it when you are ready to complete the sale.</p>
                 </article>
 
-                <article class="hardware-card">
-                    <div class="hardware-icon">▣</div>
-                    <h3>Business Performance Visibility</h3>
-                    <p>
-                        Bring your recorded sales, inventory and
-                        available business reports together
-                        instead of working with disconnected records.
+                <article class="hardware-feature-card">
+                    <div class="hardware-feature-icon">◷</div>
+                    <h3>Business Activity Overview</h3>
+                    <p>Review recorded transactions and get a clearer picture of your shop's daily operations.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATEGORIES -->
+    <section class="hardware-section">
+        <div class="hardware-container">
+            <div class="hardware-section-heading">
+                <span class="hardware-label">MANAGE YOUR PRODUCT RANGE</span>
+                <h2 class="hardware-title">
+                    Organise the products
+                    <span>you sell every day.</span>
+                </h2>
+                <p class="hardware-description">
+                    From construction materials to plumbing and electrical
+                    supplies, keep your hardware shop products organised
+                    and available for sales recording.
+                </p>
+            </div>
+
+            <div class="hardware-products-grid">
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🧱</div>
+                    <h3>Cement & Building Materials</h3>
+                    <p>Cement, ballast, sand, blocks and related products.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🎨</div>
+                    <h3>Paints & Accessories</h3>
+                    <p>Paints, brushes, rollers, thinners and accessories.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🔧</div>
+                    <h3>Plumbing Supplies</h3>
+                    <p>Pipes, taps, fittings, valves and plumbing accessories.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">💡</div>
+                    <h3>Electrical Supplies</h3>
+                    <p>Cables, switches, sockets, bulbs and electrical fittings.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🪚</div>
+                    <h3>Tools & Equipment</h3>
+                    <p>Hand tools, power tools and general equipment.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🔩</div>
+                    <h3>Fasteners & Fittings</h3>
+                    <p>Nails, screws, bolts, hinges and other fittings.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🏠</div>
+                    <h3>Roofing Products</h3>
+                    <p>Roofing sheets, accessories and related materials.</p>
+                </article>
+
+                <article class="hardware-product">
+                    <div class="hardware-product-icon">🧰</div>
+                    <h3>General Hardware</h3>
+                    <p>Other products and supplies sold in your shop.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GETTING STARTED -->
+    <section class="hardware-section hardware-process">
+        <div class="hardware-container">
+            <div class="hardware-section-heading">
+                <span class="hardware-label">GETTING STARTED</span>
+                <h2 class="hardware-title">
+                    Start managing your shop
+                    <span>with Ruo System.</span>
+                </h2>
+                <p class="hardware-description">
+                    Set up your products, record your sales and begin
+                    reviewing your business activity.
+                </p>
+            </div>
+
+            <div class="hardware-process-grid">
+                <article class="hardware-process-card">
+                    <div class="hardware-step">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Register your hardware business and choose a subscription plan.</p>
+                </article>
+
+                <article class="hardware-process-card">
+                    <div class="hardware-step">2</div>
+                    <h3>Add Your Products</h3>
+                    <p>Enter product details, prices and opening stock quantities.</p>
+                </article>
+
+                <article class="hardware-process-card">
+                    <div class="hardware-step">3</div>
+                    <h3>Set Up Your Team</h3>
+                    <p>Create staff accounts and organise access to the system.</p>
+                </article>
+
+                <article class="hardware-process-card">
+                    <div class="hardware-step">4</div>
+                    <h3>Record Your Sales</h3>
+                    <p>Start processing transactions and reviewing your business reports.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="hardware-section hardware-pricing" id="hardware-pricing">
+        <div class="hardware-container">
+
+            <div class="hardware-section-heading">
+                <span class="hardware-label">RUO SYSTEM PRICING</span>
+                <h2 class="hardware-title">
+                    Simple POS pricing
+                    <span>for your hardware shop.</span>
+                </h2>
+                <p class="hardware-description">
+                    Choose a subscription based on how you prefer to pay.
+                    All plans give you access to Ruo System's POS and
+                    inventory management features.
+                </p>
+            </div>
+
+            <div class="hardware-pricing-grid">
+
+                <article class="hardware-plan">
+                    <span class="hardware-plan-badge">FLEXIBLE</span>
+                    <h3>Daily Plan</h3>
+                    <p class="hardware-plan-description">
+                        For businesses that prefer paying daily.
                     </p>
+                    <div class="hardware-plan-price">
+                        KSh 100
+                        <small>Per day · 24 hours</small>
+                    </div>
+                    <ul>
+                        <li>POS system access</li>
+                        <li>Product and inventory management</li>
+                        <li>Sales recording</li>
+                        <li>Stock movement records</li>
+                        <li>Business reports</li>
+                    </ul>
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="hardware-btn hardware-btn-light">
+                        Explore the System →
+                    </a>
+                </article>
+
+                <article class="hardware-plan hardware-plan-featured">
+                    <span class="hardware-plan-badge">POPULAR CHOICE</span>
+                    <h3>Monthly Plan</h3>
+                    <p class="hardware-plan-description">
+                        For hardware shops that want predictable monthly costs.
+                    </p>
+                    <div class="hardware-plan-price">
+                        KSh 2,000
+                        <small>Per month · 30 days</small>
+                    </div>
+                    <ul>
+                        <li>POS system access</li>
+                        <li>Product and inventory management</li>
+                        <li>Sales recording and checkout</li>
+                        <li>Barcode scanner support</li>
+                        <li>Stock movement records</li>
+                        <li>Staff management</li>
+                        <li>Sales and profit reports</li>
+                        <li>M-Pesa and cash sales dashboard</li>
+                    </ul>
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="hardware-btn">
+                        Explore the System →
+                    </a>
+                </article>
+
+                <article class="hardware-plan">
+                    <span class="hardware-plan-badge">LONG-TERM VALUE</span>
+                    <h3>Yearly Plan</h3>
+                    <p class="hardware-plan-description">
+                        For businesses that prefer an annual subscription.
+                    </p>
+                    <div class="hardware-plan-price">
+                        KSh 20,000
+                        <small>Per year · 12 months</small>
+                    </div>
+                    <ul>
+                        <li>POS system access</li>
+                        <li>Product and inventory management</li>
+                        <li>Sales recording and checkout</li>
+                        <li>Barcode scanner support</li>
+                        <li>Stock movement records</li>
+                        <li>Staff management</li>
+                        <li>Sales and profit reports</li>
+                        <li>M-Pesa and cash sales dashboard</li>
+                    </ul>
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="hardware-btn hardware-btn-light">
+                        Explore the System →
+                    </a>
                 </article>
 
             </div>
 
+            <p class="hardware-pricing-note">
+                Subscription prices cover access to the Ruo System software.
+                Any optional hardware or additional services are discussed
+                separately where applicable.
+            </p>
         </div>
     </section>
-
-
-    <!-- HOW IT WORKS -->
-    <section class="hardware-section hardware-section-light"
-             id="hardware-use">
-
-        <div class="container">
-
-            <div class="hardware-copy">
-
-                <h2>How to Start Using Ruo in Your Hardware Shop</h2>
-
-                <p>
-                    Getting started involves setting up your hardware
-                    products and recording their available stock.
-                    Once your inventory is registered, you can use
-                    Ruo to record daily sales and monitor business
-                    performance.
-                </p>
-
-                <ul>
-                    <li>
-                        <strong>Add your hardware products:</strong>
-                        Register products such as cement, paints,
-                        pipes, nails, electrical accessories,
-                        tools and other building materials.
-                    </li>
-
-                    <li>
-                        <strong>Record product costs and prices:</strong>
-                        Enter the buying and selling prices of
-                        your products to support sales and
-                        profit reporting.
-                    </li>
-
-                    <li>
-                        <strong>Update your opening stock:</strong>
-                        Record the quantities available in
-                        your hardware shop.
-                    </li>
-
-                    <li>
-                        <strong>Set up your employees:</strong>
-                        Create staff accounts and manage
-                        access to the system.
-                    </li>
-
-                    <li>
-                        <strong>Start recording sales:</strong>
-                        Use the POS checkout to record customer
-                        purchases and track daily transactions.
-                    </li>
-
-                    <li>
-                        <strong>Review your reports:</strong>
-                        Monitor sales, stock records and
-                        available profit information.
-                    </li>
-                </ul>
-
-                <p>
-                    Want to see how the system works before making
-                    a decision? Explore the demo and navigate
-                    the system yourself.
-                </p>
-
-                <a href="https://pos-10-production.up.railway.app/auth/demo"
-                   class="hardware-btn hardware-btn-primary">
-                    Explore Live Demo →
-                </a>
-
-            </div>
-
-        </div>
-    </section>
-
 
     <!-- FAQ -->
-    <section class="hardware-section"
-             id="hardware-faq">
-
-        <div class="container">
-
+    <section class="hardware-section hardware-faq">
+        <div class="hardware-container">
             <div class="hardware-section-heading">
-                <h2>Frequently Asked Questions</h2>
-
-                <p>
-                    Common questions about choosing a POS system
-                    for a hardware shop in Kenya.
-                </p>
+                <span class="hardware-label">COMMON QUESTIONS</span>
+                <h2 class="hardware-title">
+                    Hardware shop POS
+                    <span>frequently asked questions.</span>
+                </h2>
             </div>
 
-            <div class="hardware-copy">
+            <div class="hardware-faq-list">
 
-                <div class="hardware-faq">
-                    <h3>Which POS system is suitable for a hardware shop in Kenya?</h3>
+                <article class="hardware-faq-item">
+                    <h3>What is a POS system for a hardware shop?</h3>
                     <p>
-                        A suitable POS system should help hardware
-                        owners manage product records, stock quantities,
-                        daily sales, staff activities and profitability.
-                        Ruo System provides essential retail stock
-                        and sales management features for hardware shops.
+                        A POS system helps a hardware business record sales,
+                        manage product quantities and review business reports.
+                        Ruo System brings these operations together in one platform.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Can I manage cement, paints and plumbing products using Ruo?</h3>
+                <article class="hardware-faq-item">
+                    <h3>Can I manage different hardware products using Ruo System?</h3>
                     <p>
-                        Yes. You can register products such as cement,
-                        paints, PVC pipes, fittings, electrical
-                        accessories, nails and tools as inventory
-                        items and monitor their recorded stock
-                        quantities and sales.
+                        Yes. You can add products such as cement, paints,
+                        plumbing fittings, electrical supplies, tools and other
+                        items sold in your hardware shop.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Can I use a barcode scanner in my hardware shop?</h3>
+                <article class="hardware-faq-item">
+                    <h3>Can I use a barcode scanner with Ruo System?</h3>
                     <p>
-                        Yes. Ruo supports barcode scanner checkout.
-                        You can scan registered products during
-                        sales instead of searching for every
-                        item manually.
+                        Yes. Ruo System supports compatible barcode scanners
+                        to help identify products during checkout.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Can I monitor sales made by my hardware attendants?</h3>
+                <article class="hardware-faq-item">
+                    <h3>Can I monitor sales made by my employees?</h3>
                     <p>
-                        Yes. Ruo provides staff management and
-                        activity monitoring features that help
-                        business owners review recorded employee
-                        transactions and sales activities.
+                        Ruo System supports staff accounts and activity
+                        monitoring, helping you review transactions recorded
+                        by your team.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Can I calculate profit from hardware sales?</h3>
+                <article class="hardware-faq-item">
+                    <h3>Can I track cash and M-Pesa sales?</h3>
                     <p>
-                        Ruo provides profit reporting based on
-                        recorded product costs and selling prices.
-                        Keep your product costs updated for more
-                        meaningful estimates. Business expenses
-                        also affect your final net profit.
+                        Yes. You can review cash and M-Pesa sales records
+                        through the business dashboard.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Can I monitor cash and M-Pesa sales?</h3>
+                <article class="hardware-faq-item">
+                    <h3>How much does a hardware shop POS system cost in Kenya?</h3>
                     <p>
-                        Yes. Ruo provides a dashboard for monitoring
-                        recorded cash and M-Pesa transactions,
-                        helping you review payments received
-                        through both methods.
+                        Ruo System subscriptions start at KSh 100 per day.
+                        The monthly plan costs KSh 2,000, while the yearly
+                        plan costs KSh 20,000.
                     </p>
-                </div>
+                </article>
 
-                <div class="hardware-faq">
-                    <h3>Is Ruo suitable for a small hardware shop?</h3>
+                <article class="hardware-faq-item">
+                    <h3>Can I try Ruo System before subscribing?</h3>
                     <p>
-                        Yes. Ruo is designed to help retail
-                        businesses maintain better control of
-                        stock, sales and business performance.
-                        Small hardware shops can use it to move
-                        away from depending entirely on manual records.
+                        Yes. You can explore the demo to see how the system
+                        works before choosing a subscription.
                     </p>
-                </div>
-
-                <div class="hardware-faq">
-                    <h3>Can I use Ruo for a paint and cement shop?</h3>
-                    <p>
-                        Yes. Paint and cement retailers can register
-                        their products, maintain stock records,
-                        record customer transactions and review
-                        sales performance using Ruo.
-                    </p>
-                </div>
+                </article>
 
             </div>
-
         </div>
     </section>
-
 
     <!-- FINAL CTA -->
     <section class="hardware-section">
-        <div class="container">
+        <div class="hardware-container">
+            <div class="hardware-cta">
+                <div class="hardware-cta-inner">
+                    <div>
+                        <span class="hardware-label">GET STARTED WITH RUO</span>
+                        <h2>Run your hardware shop with better control.</h2>
+                        <p>
+                            Manage your products, record sales and understand
+                            your business performance with Ruo System.
+                            Explore the system and see how it works.
+                        </p>
+                    </div>
 
-            <div class="hardware-final-cta">
-
-                <h2>Take Better Control of Your Hardware Shop</h2>
-
-                <p>
-                    Know what is in stock, keep track of daily sales,
-                    monitor employee activity and understand your
-                    hardware shop's performance with Ruo System.
-                    Explore the system and see how it works
-                    for your business.
-                </p>
-
-                <a href="https://pos-10-production.up.railway.app/auth/demo"
-                   class="hardware-btn hardware-btn-primary">
-                    Explore the Ruo System Demo →
-                </a>
-
+                    <a href="https://pos-10-production.up.railway.app/auth/demo"
+                       class="hardware-btn">
+                        Explore the System →
+                    </a>
+                </div>
             </div>
-
         </div>
     </section>
 
-</div>
+</main>
 {% endblock %}
