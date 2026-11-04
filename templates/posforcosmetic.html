@@ -906,7 +906,193 @@ POS system for cosmetic shops in Kenya. Manage cosmetics inventory, sales, stock
     }
 
 }
+/* =========================================================
+   PRICING CTA
+========================================================= */
 
+.cos-price-cta{
+    padding:85px 0;
+    background:#fff;
+}
+
+.cos-price-box{
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:45px;
+    align-items:center;
+    padding:55px 60px;
+    border:1px solid #E9E2FF;
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(111,63,245,.10), transparent 35%),
+        linear-gradient(120deg,#FBF9FF,#F7F4FF);
+}
+
+.cos-price-copy .label{
+    color:var(--cos-purple);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:14px;
+}
+
+.cos-price-copy h2{
+    font-size:clamp(30px,4vw,43px);
+    line-height:1.15;
+    letter-spacing:-1.5px;
+    color:var(--cos-black);
+    margin-bottom:18px;
+}
+
+.cos-price-copy p{
+    color:var(--cos-grey);
+    font-size:16px;
+    line-height:1.8;
+    max-width:520px;
+    margin-bottom:25px;
+}
+
+.cos-price-points{
+    display:flex;
+    flex-wrap:wrap;
+    gap:17px;
+    margin-bottom:28px;
+}
+
+.cos-price-point{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#344054;
+    font-size:13px;
+    font-weight:700;
+}
+
+.cos-price-point span{
+    color:var(--cos-green);
+    font-weight:900;
+}
+
+.cos-price-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.cos-price-details{
+    background:#fff;
+    padding:30px;
+    border-radius:22px;
+    border:1px solid #EAE4FA;
+    box-shadow:0 20px 45px rgba(16,24,40,.07);
+}
+
+.cos-price-details .price-label{
+    color:var(--cos-grey);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.cos-price-main{
+    font-size:39px;
+    font-weight:800;
+    color:var(--cos-black);
+    letter-spacing:-1.5px;
+}
+
+.cos-price-main small{
+    font-size:15px;
+    font-weight:600;
+    color:var(--cos-grey);
+    letter-spacing:0;
+}
+
+.cos-price-divider{
+    height:1px;
+    background:var(--cos-border);
+    margin:20px 0;
+}
+
+.cos-price-yearly{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.cos-price-yearly strong{
+    display:block;
+    font-size:22px;
+    color:var(--cos-black);
+}
+
+.cos-price-yearly small{
+    color:var(--cos-grey);
+    font-size:12px;
+}
+
+.cos-price-saving{
+    background:#ECFDF3;
+    color:#027A48;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.cos-price-note{
+    color:var(--cos-grey);
+    font-size:12px;
+    line-height:1.6;
+    margin-top:18px;
+}
+
+@media(max-width:850px){
+
+    .cos-price-box{
+        grid-template-columns:1fr;
+        padding:40px 30px;
+        gap:30px;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .cos-price-cta{
+        padding:65px 0;
+    }
+
+    .cos-price-box{
+        padding:32px 22px;
+        border-radius:22px;
+    }
+
+    .cos-price-copy h2{
+        font-size:32px;
+    }
+
+    .cos-price-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .cos-price-actions a{
+        width:100%;
+        text-align:center;
+    }
+
+    .cos-price-details{
+        padding:23px;
+    }
+
+}
 </style>
 
 {% endblock %}
@@ -941,7 +1127,7 @@ POS system for cosmetic shops in Kenya. Manage cosmetics inventory, sales, stock
 
                 <p class="cos-hero-text">
                     Sell cosmetics, manage your stock and know exactly what is
-                    happening in your shop. Ruo Systems gives cosmetic shops in
+                    happening in your shop. Ruo System gives cosmetic shops in
                     Kenya a simple POS system designed to make daily business
                     management easier.
                 </p>
@@ -1580,6 +1766,117 @@ POS system for cosmetic shops in Kenya. Manage cosmetics inventory, sales, stock
 
 </section>
 
+<!-- =====================================================
+     AFFORDABLE PRICING CTA
+===================================================== -->
+
+<section class="cos-price-cta">
+
+    <div class="container">
+
+        <div class="cos-price-box">
+
+            <div class="cos-price-copy">
+
+                <div class="label">
+                    Simple and Affordable Pricing
+                </div>
+
+                <h2>
+                    Take control of your cosmetic shop from just KSh 2,000 per month.
+                </h2>
+
+                <p>
+                    You don't need expensive software to manage your cosmetic
+                    business better. With Ruo Systems, you can track sales,
+                    manage inventory and monitor your business performance
+                    at an affordable price.
+                </p>
+
+                <div class="cos-price-points">
+
+                    <div class="cos-price-point">
+                        <span>✓</span>
+                        Easy to use
+                    </div>
+
+                    <div class="cos-price-point">
+                        <span>✓</span>
+                        Sales and stock management
+                    </div>
+
+                    <div class="cos-price-point">
+                        <span>✓</span>
+                        Business reports
+                    </div>
+
+                </div>
+
+                <div class="cos-price-actions">
+
+                    <a
+                        href="https://pos-10-production.up.railway.app/auth/demo"
+                        class="cos-primary"
+                        onclick="gtag('event','request_demo_click');"
+                    >
+                        Explore the System →
+                    </a>
+
+                    <a
+                        href="https://www.ruosystem.co.ke/#pricing"
+                        class="cos-secondary"
+                    >
+                        View All Pricing
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="cos-price-details">
+
+                <div class="price-label">
+                    Monthly Subscription
+                </div>
+
+                <div class="cos-price-main">
+                    KSh 2,000 <small>/ month</small>
+                </div>
+
+                <div class="cos-price-divider"></div>
+
+                <div class="cos-price-yearly">
+
+                    <div>
+                        <small>Yearly Subscription</small>
+
+                        <strong>KSh 20,000</strong>
+
+                        <small>Per year</small>
+                    </div>
+
+                    <span class="cos-price-saving">
+                        SAVE KSh 4,000
+                    </span>
+
+                </div>
+
+                <div class="cos-price-divider"></div>
+
+                <div class="cos-price-note">
+                    Choose a subscription that works for your business.
+                    Spend less time managing records and more time growing
+                    your cosmetic shop.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =====================================================
      SEO CONTENT
