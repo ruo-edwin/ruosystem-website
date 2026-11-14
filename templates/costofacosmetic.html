@@ -1,1217 +1,500 @@
 {% extends "base.html" %}
 
-{% block title %}How Much Does It Cost to Start a Cosmetic Shop in Kenya?[2026]| Ruo System
-/* =========================================================
-   MEDIUM READING MODE — FINAL OVERRIDE
-   ========================================================= */
+{% block title %}How Much to Start a Cosmetic Shop in Kenya (2026): From KSh 20,000{% endblock %}
 
-.blog-content,
-.blog-content p,
-.blog-content li,
-.blog-content ul,
-.blog-content ol {
-    font-family: Charter, "Bitstream Charter", Georgia, "Times New Roman", serif !important;
-}
+{% block description %}Start a cosmetic shop in Kenya from KSh 20,000 in stock. See the real budget: stock, rent, shelving, licences, POS and where to buy from distributors.{% endblock %}
 
-.blog-content {
-    width: 680px !important;
-    max-width: 680px !important;
-    color: #242424 !important;
-}
-
-.blog-content p {
-    margin-top: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: 28px !important;
-    margin-left: 0 !important;
-    padding: 0 !important;
-    font-size: 20px !important;
-    line-height: 1.6 !important;
-    font-weight: 400 !important;
-    letter-spacing: 0 !important;
-    color: #242424 !important;
-}
-
-.blog-content li {
-    margin-bottom: 12px !important;
-    font-size: 20px !important;
-    line-height: 1.6 !important;
-    color: #242424 !important;
-}
-
-.blog-content ul,
-.blog-content ol {
-    margin-top: 0 !important;
-    margin-bottom: 30px !important;
-    padding-left: 28px !important;
-}
-
-.blog-content h2,
-.blog-content h3 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-    color: #242424 !important;
-}
-
-.blog-content h2 {
-    margin-top: 64px !important;
-    margin-bottom: 22px !important;
-    font-size: 32px !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.5px !important;
-    font-weight: 700 !important;
-}
-
-.blog-content h3 {
-    margin-top: 42px !important;
-    margin-bottom: 18px !important;
-    font-size: 24px !important;
-    line-height: 1.3 !important;
-    font-weight: 700 !important;
-}
-
-/* Main article title */
-.blog-title {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-    font-size: 48px !important;
-    line-height: 1.08 !important;
-    font-weight: 700 !important;
-    letter-spacing: -1.5px !important;
-}
-
-/* Intro/deck */
-.blog-description {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-    font-size: 20px !important;
-    line-height: 1.55 !important;
-    color: #6b6b6b !important;
-}
-
-/* Don't let branded cards inherit the large serif article styling */
-.article-cta,
-.ruo-product-card,
-.final-cta,
-.sidebar-cta {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-}
-
-.article-cta p,
-.ruo-product-card p,
-.final-cta p,
-.sidebar-cta p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-}
-
-/* Editorial quote */
-.quote-box {
-    font-family: Charter, "Bitstream Charter", Georgia, "Times New Roman", serif !important;
-    font-size: 22px !important;
-    line-height: 1.55 !important;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-    .blog-content {
-        width: auto !important;
-        max-width: 100% !important;
-    }
-
-    .blog-content p,
-    .blog-content li {
-        font-size: 19px !important;
-        line-height: 1.62 !important;
-    }
-
-    .blog-content h2 {
-        font-size: 29px !important;
-        line-height: 1.25 !important;
-        margin-top: 54px !important;
-    }
-
-    .blog-content h3 {
-        font-size: 23px !important;
-    }
-
-    .blog-title {
-        font-size: 38px !important;
-        line-height: 1.1 !important;
-    }
-}
-
-{% endblock %}
-
-{% block description %}
-You can start a small cosmetic shop in Kenya with around KSh 10,000 in initial stock and get a return of 10-25% profit. Learn the real startup costs, where to get cosmetic products and other associated expenses.
-{% endblock %}
-
-{% block keywords %}
-    cosmetic shop, kenya, startup costs, beauty products, retail business
-{% endblock %}
+{% block keywords %}cosmetic shop kenya, cost to start a cosmetic shop, cosmetic business startup cost, how much to start a cosmetic shop in kenya, cosmetic shop budget{% endblock %}
 
 {% block extra_css %}
-
 <style>
-
 :root{
-    --content-width:680px;
+    --b-serif:Charter,"Bitstream Charter",Georgia,"Times New Roman",serif;
+    --b-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --b-ink:#2b1a33;
+    --b-muted:#6b5b73;
+    --b-blush:#fbeaf0;
+    --b-blush-2:#f3cfdc;
+    --b-plum:#2a1638;
+    --b-line:#eadfe6;
+    --b-soft:#faf6f8;
 }
 
-/* ==========================
-   HERO
-========================== */
+/* Reading progress */
+.read-progress{position:fixed;top:75px;left:0;width:100%;height:2px;background:transparent;z-index:999}
+.read-progress span{display:block;width:0;height:100%;background:var(--purple)}
 
-.blog-hero{
-    padding:70px 0 55px;
-    border-bottom:1px solid var(--border);
-    background:white;
+/* Structure */
+.shell{max-width:960px;margin:0 auto;padding:0 24px}
+.prose{max-width:680px;margin:0 auto}
+.band{padding:72px 0}
+.band-blush{background:var(--b-blush)}
+.band-soft{background:var(--b-soft)}
+.band-plum{background:var(--b-plum);color:#fff}
+
+/* Prose */
+.prose p{margin:0 0 22px;font:400 19px/1.7 var(--b-serif);color:var(--b-ink)}
+.prose p.note{font:400 15px/1.6 var(--b-sans);color:var(--b-muted)}
+.prose strong{color:var(--b-ink)}
+.band h2{margin:0 0 20px;font:700 36px/1.15 var(--b-serif);letter-spacing:-.6px;color:var(--b-ink)}
+.band-plum h2{color:#fff}
+
+/* Buttons */
+.cta-btn{display:inline-block;padding:14px 24px;border-radius:999px;background:var(--purple);color:#fff;font:700 16px/1.2 var(--b-sans);text-decoration:none;text-align:center}
+.cta-btn:hover{opacity:.92}
+.cta-btn:focus-visible,.text-link:focus-visible,.faq summary:focus-visible,.calc input:focus-visible,.calc button:focus-visible{outline:3px solid var(--b-ink);outline-offset:2px}
+.text-link{color:var(--purple);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+
+/* Hero */
+.hero{padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:center}
+.hero h1{margin:0;font:700 52px/1.05 var(--b-serif);letter-spacing:-1.2px;color:var(--b-ink)}
+.hero-desc{margin:22px 0 0;max-width:560px;font:400 19px/1.6 var(--b-sans);color:var(--b-muted)}
+.hero-link{display:inline-block;margin-top:22px;font:400 16px/1.4 var(--b-sans);color:var(--b-ink)}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:6px 22px;font:400 14px/1.4 var(--b-sans);color:var(--b-muted)}
+.answer-card{padding:28px;border-radius:18px;background:#fff;border:1px solid var(--b-blush-2)}
+.answer-card .small{margin:0;font:600 15px/1.3 var(--b-sans);color:var(--b-muted)}
+.answer-card .big{margin:6px 0 10px;font:700 34px/1.1 var(--b-serif);color:var(--b-ink)}
+.answer-card .text{margin:0 0 22px;font:400 15px/1.6 var(--b-sans);color:var(--b-muted)}
+.answer-card .cta-btn{display:block}
+
+/* Scale chart */
+.ladder{margin:28px 0 8px}
+.rung{display:grid;grid-template-columns:210px minmax(0,1fr) 230px;gap:22px;align-items:center;padding:20px 0;border-top:1px solid var(--b-line)}
+.rung:last-child{border-bottom:1px solid var(--b-line)}
+.rung-name{font:700 16px/1.3 var(--b-sans);color:var(--b-ink)}
+.rung-name span{display:block;margin-top:4px;font-weight:400;font-size:14px;color:var(--b-muted)}
+.track{position:relative;height:14px;border-radius:7px;background:#f1e9ee}
+.bar{position:absolute;top:0;bottom:0;border-radius:7px;background:var(--purple)}
+.rung-val{text-align:right;font:700 18px/1.3 var(--b-sans);color:var(--b-ink)}
+.ladder-note{margin:12px 0 0;font:400 14px/1.5 var(--b-sans);color:var(--b-muted)}
+
+/* Calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:start;margin-top:32px}
+.calc-rows{padding:4px 22px;border:1px solid var(--b-line);border-radius:14px;background:#fff}
+.calc-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--b-line);cursor:text}
+.calc-row:last-child{border-bottom:0}
+.calc-name{font:700 16px/1.3 var(--b-sans);color:var(--b-ink)}
+.calc-name small{display:block;margin-top:3px;font-weight:400;font-size:13px;color:var(--b-muted)}
+.calc-input{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.calc-input b{font:600 13px/1 var(--b-sans);color:var(--b-muted)}
+.calc-input input{width:130px;padding:10px 12px;border:1px solid #d6c8d1;border-radius:8px;background:#fff;text-align:right;font:600 16px/1.2 var(--b-sans);color:var(--b-ink)}
+.calc-result{position:sticky;top:24px;padding:26px;border-radius:14px;background:var(--b-plum);color:#fff}
+.calc-label{margin:0;font:600 14px/1.3 var(--b-sans);color:#d9c9e2}
+.calc-total{margin:6px 0 10px;font:700 34px/1.1 var(--b-serif);color:#fff;word-break:break-word}
+.calc-sub{min-height:44px;margin:0 0 14px;font:400 14px/1.55 var(--b-sans);color:#e6d9ec}
+.calc-quick{padding:0;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:none;color:#fff;font:600 13px/1.2 var(--b-sans);padding:9px 14px;cursor:pointer}
+.calc-quick:hover{background:rgba(255,255,255,.1)}
+.calc-pos{margin:20px 0 18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font:400 14px/1.55 var(--b-sans);color:#e6d9ec}
+.calc-result .cta-btn{display:block;background:#fff;color:var(--b-plum)}
+
+/* Compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0 36px}
+.panel{padding:26px;border:1px solid var(--b-line);border-radius:14px;background:#fff}
+.panel-pick{background:var(--b-blush);border-color:var(--b-blush-2)}
+.panel h3{margin:0 0 4px;font:700 21px/1.25 var(--b-serif);color:var(--b-ink)}
+.panel .sub{margin:0 0 14px;font:600 14px/1.4 var(--b-sans);color:var(--purple)}
+.panel ul{margin:0;padding-left:20px}
+.panel li{margin:0 0 9px;font:400 15px/1.55 var(--b-sans);color:#3d2d45}
+.tip{margin:8px 0 0;padding:22px 24px;border-radius:14px;background:var(--b-blush)}
+.prose .tip p{margin:0 0 10px;font:400 16px/1.65 var(--b-sans)}
+.prose .tip p:last-child{margin:0}
+.picks{margin:0;padding:0;list-style:none}
+.picks li{margin:0 0 22px;padding-left:20px;border-left:3px solid var(--b-blush-2);font:400 18px/1.65 var(--b-serif);color:var(--b-ink)}
+
+/* Conversion panel */
+.split{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:center}
+.band-plum .lead{margin:0 0 18px;font:400 18px/1.65 var(--b-serif);color:#e6d9ec}
+.qs{margin:0 0 20px;padding:0;list-style:none}
+.qs li{padding:12px 0;border-top:1px solid rgba(255,255,255,.16);font:400 17px/1.5 var(--b-sans);color:#fff}
+.qs li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.ruo-card{padding:30px;border-radius:18px;background:#fff;color:var(--b-ink)}
+.ruo-card h3{margin:0;font:700 24px/1.2 var(--b-serif);color:var(--b-ink)}
+.ruo-card .sub{margin:6px 0 18px;font:400 15px/1.5 var(--b-sans);color:var(--b-muted)}
+.ruo-card .price{margin:0;font:700 34px/1.1 var(--b-serif);color:var(--b-ink)}
+.ruo-card .price small{font:400 15px/1 var(--b-sans);color:var(--b-muted)}
+.ruo-card ul{margin:18px 0 24px;padding:0;list-style:none}
+.ruo-card li{position:relative;padding:7px 0 7px 26px;font:400 15px/1.4 var(--b-sans);color:var(--b-ink)}
+.ruo-card li::before{content:"\2713";position:absolute;left:0;color:var(--purple);font-weight:700}
+.ruo-card .cta-btn{display:block}
+
+/* FAQ */
+.faq details{padding:18px 0;border-top:1px solid var(--b-line)}
+.faq details:last-of-type{border-bottom:1px solid var(--b-line)}
+.faq summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;font:700 19px/1.35 var(--b-serif);color:var(--b-ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex-shrink:0;font:400 26px/1 var(--b-sans);color:var(--purple)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:12px 0 0;font:400 17px/1.7 var(--b-serif)}
+.related{margin-top:56px}
+.related h2{font-size:26px}
+.related ul{margin:0;padding:0;list-style:none}
+.related li{margin:0 0 12px}
+.related a{font:600 17px/1.4 var(--b-sans)}
+
+/* Final strip */
+.final{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.final h2{margin:0 0 8px;font-size:30px}
+.final p{margin:0;font:400 16px/1.6 var(--b-sans);color:var(--b-muted)}
+.final .cta-btn{flex-shrink:0}
+
+/* Floating CTA */
+.float-cta{position:fixed;right:24px;bottom:24px;z-index:998;display:none;align-items:center;gap:14px;padding:8px 8px 8px 20px;border:1px solid var(--b-line);border-radius:999px;background:#fff;box-shadow:0 8px 30px rgba(42,22,56,.16)}
+.float-cta.show{display:flex}
+.float-cta span{font:600 14px/1.3 var(--b-sans);color:var(--b-ink)}
+.float-cta .cta-btn{padding:10px 18px;font-size:14px}
+.float-cta button{border:0;background:none;padding:4px 10px;font-size:22px;line-height:1;color:var(--b-muted);cursor:pointer}
+
+@media (max-width:900px){
+    .hero-grid,.split{grid-template-columns:1fr;gap:36px}
+    .calc{grid-template-columns:1fr}
+    .calc-result{position:static}
+    .compare{grid-template-columns:1fr}
+    .rung{grid-template-columns:1fr;gap:10px}
+    .rung-val{text-align:left}
 }
 
-.blog-hero .container{
-    max-width:820px;
-}
-
-.blog-category{
-
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    padding:8px 16px;
-
-    background:var(--purple-light);
-
-    color:var(--purple);
-
-    border-radius:999px;
-
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-
-}
-.blog-title{
-    margin-top:20px;
-    font-size:48px;
-    line-height:1.1;
-    font-weight:800;
-    letter-spacing:-1.8px;
-    max-width:800px;
-}
-
-.blog-description{
-    margin-top:24px;
-    max-width:700px;
-    color:#667085;
-    font-size:20px;
-    line-height:1.65;
-}
-
-.blog-meta{
-
-    margin-top:35px;
-
-    display:flex;
-
-    gap:28px;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    color:var(--grey);
-
-    font-size:15px;
-
-}
-
-.blog-meta strong{
-
-    color:var(--black);
-
-}
-
-/* ==========================
-READING PROGRESS
-========================== */
-
-.read-progress{
-
-    position:fixed;
-
-    top:75px;
-
-    left:0;
-
-    width:100%;
-
-    height:2px;
-
-    background:transparent;
-
-    z-index:999;
-
-}
-
-.read-progress span{
-
-    display:block;
-
-    width:0;
-
-    height:100%;
-
-    background:var(--purple);
-
-}
-.article-cta{
-    margin:55px 0;
-    padding:32px;
-    border-radius:20px;
-    background:#faf9ff;
-    border:1px solid #e6e0ff;
-}
-
-.article-cta.subtle{
-    background:white;
-    border:1px solid #e4e7ec;
-}
-
-.article-cta span{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.08em;
-    color:var(--purple);
-}
-
-.article-cta h3{
-    margin:12px 0 12px;
-    font-size:25px;
-}
-
-.article-cta p{
-    margin-bottom:20px;
-}
-
-.article-cta a,
-.ruo-product-card a{
-    display:inline-flex;
-    padding:13px 18px;
-    border-radius:11px;
-    background:var(--purple);
-    color:white;
-    font-size:14px;
-    font-weight:700;
-    text-decoration:none;
-}
-
-.ruo-product-card{
-    margin:55px 0;
-    padding:38px;
-    border-radius:24px;
-    background:#101828;
-    color:white;
-}
-
-.ruo-product-card .product-label{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.1em;
-    color:#b8a9ff;
-}
-
-.ruo-product-card h3{
-    margin:12px 0 14px;
-    font-size:30px;
-    color:white;
-}
-
-.ruo-product-card p{
-    color:#d0d5dd;
-}
-
-.product-features{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin:25px 0 30px;
-}
-
-.product-features span{
-    font-size:14px;
-    color:#eaecf0;
-}
-/* ==========================
-ARTICLE LAYOUT
-========================== */
-
-.blog-wrapper{
-    display:grid;
-    grid-template-columns:180px 680px;
-    gap:70px;
-    justify-content:center;
-    padding:65px 0 100px;
-}
-
-.blog-sidebar{
-
-    position:sticky;
-
-    top:120px;
-
-    height:max-content;
-
-}
-
-.blog-sidebar h4{
-
-    font-size:14px;
-
-    text-transform:uppercase;
-
-    color:var(--grey);
-
-    letter-spacing:.06em;
-
-    margin-bottom:18px;
-
-}
-
-.blog-sidebar ul{
-
-    list-style:none;
-
-}
-
-.blog-sidebar li{
-
-    margin-bottom:16px;
-
-}
-
-.blog-sidebar a{
-
-    color:#555;
-
-    transition:.25s;
-
-    font-size:15px;
-
-}
-
-.blog-sidebar a:hover{
-
-    color:var(--purple);
-
-}
-
-/* ==========================
-CONTENT
-========================== */
-
-.blog-content{
-    max-width:680px;
-}
-
-.blog-content h2{
-    margin-top:72px;
-    margin-bottom:24px;
-    font-size:34px;
-    line-height:1.25;
-    letter-spacing:-1px;
-    color:#101828;
-}
-
-.blog-content h3{
-    margin-top:42px;
-    margin-bottom:18px;
-    font-size:25px;
-    line-height:1.3;
-    color:#101828;
-}
-
-.blog-content p{
-    margin-bottom:24px;
-    font-size:18px;
-    color:#344054;
-    line-height:1.85;
-    letter-spacing:-.1px;
-}
-
-.blog-content ul{
-
-    margin:30px 0;
-
-    padding-left:22px;
-
-}
-
-.blog-content li{
-
-    margin-bottom:14px;
-
-    color:#475467;
-
-    font-size:18px;
-
-}
-
-.blog-content strong{
-
-    color:var(--black);
-
-}
-
-.brand-link{
-
-    color:var(--purple);
-
-    font-weight:700;
-
-    text-decoration:none;
-
-    position:relative;
-
-}
-
-.brand-link::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-2px;
-
-    width:100%;
-
-    height:2px;
-
-    background:var(--purple);
-
-    transform:scaleX(0);
-
-    transform-origin:left;
-
-    transition:.25s;
-
-}
-
-.brand-link:hover::after{
-
-    transform:scaleX(1);
-
-}
-
-.final-cta{
-    margin-top:90px;
-    padding:55px 35px;
-    text-align:center;
-    border-radius:28px;
-    background:linear-gradient(135deg,#f8f6ff,#eee9ff);
-    border:1px solid #e1d9ff;
-}
-
-.final-cta span{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.1em;
-    color:var(--purple);
-}
-
-.final-cta h2{
-    margin:14px auto 16px;
-    max-width:560px;
-    font-size:34px;
-    line-height:1.2;
-    letter-spacing:-1px;
-}
-
-.final-cta p{
-    max-width:560px;
-    margin:0 auto 25px;
-}
-
-.final-cta a{
-    display:inline-flex;
-    padding:15px 24px;
-    border-radius:12px;
-    background:var(--purple);
-    color:white;
-    font-weight:800;
-    text-decoration:none;
-}
-
-.final-cta small{
-    display:block;
-    margin-top:14px;
-    color:#667085;
-}
-/* ==========================
-QUOTE
-========================== */
-
-.quote-box{
-
-    margin:50px 0;
-
-    padding:35px;
-
-    border-left:4px solid var(--purple);
-
-    background:#faf9ff;
-
-    border-radius:18px;
-
-    font-size:22px;
-
-    font-weight:600;
-
-    line-height:1.7;
-
-}
-
-/* ==========================
-INFO CARD
-========================== */
-
-.info-card{
-
-    margin:45px 0;
-
-    padding:35px;
-
-    border:1px solid var(--border);
-
-    border-radius:22px;
-
-    background:white;
-
-    box-shadow:0 20px 60px rgba(16,24,40,.05);
-
-}
-
-.info-card h3{
-
-    margin-top:0;
-
-}
-
-/* ==========================
-NUMBER CARD
-========================== */
-
-.number-card{
-
-    display:flex;
-
-    gap:22px;
-
-    margin:55px 0;
-
-}
-
-.number{
-
-    width:62px;
-
-    height:62px;
-
-    flex-shrink:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:var(--purple-light);
-
-    color:var(--purple);
-
-    font-size:26px;
-
-    font-weight:800;
-
-    border-radius:18px;
-
-}
-.blog-sidebar{
-    position:sticky;
-    top:110px;
-    height:max-content;
-}
-
-.sidebar-cta{
-    padding:22px;
-    border:1px solid #e6e0ff;
-    background:#faf9ff;
-    border-radius:18px;
-}
-
-.sidebar-cta span{
-    display:block;
-    margin-bottom:10px;
-    color:var(--purple);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.08em;
-}
-
-.sidebar-cta h4{
-    margin:0 0 10px;
-    font-size:19px;
-    line-height:1.3;
-    color:#101828;
-}
-
-.sidebar-cta p{
-    margin:0 0 16px;
-    font-size:14px;
-    line-height:1.6;
-    color:#667085;
-}
-
-.sidebar-cta a{
-    display:block;
-    padding:11px 14px;
-    border-radius:10px;
-    background:var(--purple);
-    color:white;
-    text-align:center;
-    font-size:14px;
-    font-weight:700;
-    text-decoration:none;
-}
-
-/* ==========================
-MOBILE
-========================== */
-
-@media(max-width:1100px){
-
-.blog-wrapper{
-
-grid-template-columns:1fr;
-
-}
-
-.blog-sidebar{
-
-display:none;
-
-}
-
-.blog-title{
-
-font-size:42px;
-
-}
-
-.blog-description{
-
-font-size:18px;
-
-}
-
-.blog-content h2{
-
-font-size:32px;
-
-}
-
-}
-
-
-.table-wrap{overflow-x:auto;margin:10px 0}
-.blog-content table{width:100%;border-collapse:collapse;font-size:16px}
-.blog-content th,.blog-content td{padding:16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
-.blog-content th{font-weight:800;color:var(--black);background:#faf9ff}
-.blog-content ol{margin:30px 0;padding-left:25px}
-.blog-content ol li{margin-bottom:14px;color:#475467;font-size:18px}
-.blog-content code{background:#f4f2fa;padding:3px 7px;border-radius:6px;font-size:.9em}
-
-
-@media(max-width:700px){
-
-    .blog-hero{
-        padding:55px 0 40px;
-    }
-
-    .blog-title{
-        font-size:38px;
-        letter-spacing:-1.2px;
-    }
-
-    .blog-description{
-        font-size:18px;
-        line-height:1.65;
-    }
-
-    .blog-wrapper{
-        display:block;
-        padding:45px 0 70px;
-    }
-
-    .blog-content{
-        max-width:100%;
-    }
-
-    .blog-content p,
-    .blog-content li{
-        font-size:17px;
-        line-height:1.8;
-    }
-
-    .blog-content h2{
-        font-size:30px;
-        margin-top:58px;
-    }
-
-    .sidebar-cta{
-        display:none;
-    }
-
-    .article-cta,
-    .ruo-product-card,
-    .final-cta{
-        padding:28px 22px;
-        border-radius:20px;
-    }
-
-    .ruo-product-card h3{
-        font-size:26px;
-    }
-
-    .product-features{
-        grid-template-columns:1fr;
-    }
-
-    .final-cta h2{
-        font-size:29px;
-    }
-
+@media (max-width:700px){
+    .band{padding:52px 0}
+    .hero{padding:44px 0 52px}
+    .hero h1{font-size:37px;letter-spacing:-.8px}
+    .hero-desc{font-size:17px}
+    .band h2{font-size:29px}
+    .prose p{font-size:18px}
+    .calc-rows{padding:2px 16px}
+    .calc-row{flex-direction:column;align-items:stretch;gap:10px}
+    .calc-input{width:100%}
+    .calc-input input{flex:1;width:auto}
+    .final{flex-direction:column;align-items:flex-start;gap:20px}
+    .final .cta-btn{display:block;width:100%}
+    .ruo-card{padding:24px 20px}
+    .float-cta{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:8px 6px 8px 16px}
+    .float-cta span{flex:1}
 }
 </style>
-
 {% endblock %}
 
 {% block content %}
 
-<div class="read-progress">
-<span id="readingBar"></span>
+<div class="read-progress"><span id="readingBar"></span></div>
+
+<!-- Hero -->
+<section class="band band-blush hero">
+<div class="shell">
+<div class="hero-grid">
+<div>
+<h1>How Much Does It Cost to Start a Cosmetic Shop in Kenya?</h1>
+<p class="hero-desc">You can start with about KSh 20,000 in stock from a distributor. A full physical shop costs more once you add rent, deposit, shelving, licences and working capital.</p>
+<a class="hero-link" href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" data-cta="hero">Already planning your POS? <span class="text-link">See Ruo for cosmetic shops</span></a>
+<div class="hero-meta">
+<span>By Ruo System</span>
+<span>5 min read</span>
+<span>Updated November 2026</span>
 </div>
-<section class="blog-hero">
-<div class="container">
-<span class="blog-category">Cosmetic Business Guide</span>
-<h1 class="blog-title">How Much Does It Cost to Start a Cosmetic Shop in Kenya?</h1>
-<p class="blog-description">You can start a small cosmetic shop with KSh 20,000 in initial stock, but the total amount needed to open a physical shop will be higher once you include rent, deposit, shelving, licences, branding and working capital.Lets break it down.</p>
-<div class="blog-meta">
-<div><strong>By</strong> Ruo System</div>
-<div>10 min read</div>
-<div>Updated August 2026</div>
+</div>
+<div class="answer-card">
+<p class="small">Small starter shop</p>
+<p class="big">From KSh 20,000</p>
+<p class="text">In stock, bought through a distributor. Everything else comes on top. Work out your own total in two minutes.</p>
+<a class="cta-btn" href="#calculator" data-cta="hero_calculator">Build your budget</a>
+</div>
 </div>
 </div>
 </section>
-<section class="container">
-<div class="blog-wrapper">
-<aside class="blog-sidebar">
-<div class="sidebar-cta">
-<span>FOR COSMETIC SHOP OWNERS</span>
-<h4>Manage your shop with Ruo.</h4>
-<p>
-            Track sales, stock and business performance
-            from one simple POS.
-        </p>
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
-            Explore Ruo →
-        </a>
+
+<!-- Three ways to start -->
+<section class="band">
+<div class="shell">
+<div class="prose">
+<p>I own a cosmetic shop and work with other cosmetic-shop owners, so this guide is based on what it actually takes to stock and open one. No single figure fits every shop, so here is what you can start with and what the rest of your budget has to cover.</p>
+<h2>Three ways to start</h2>
 </div>
+
+<div class="ladder">
+<div class="rung">
+<div class="rung-name">Small starter<span>A neighbourhood shop stocked through a distributor</span></div>
+<div class="track" aria-hidden="true"><div class="bar" style="left:0;width:2.5%;min-width:10px"></div></div>
+<div class="rung-val">From KSh 20,000</div>
+</div>
+<div class="rung">
+<div class="rung-name">Growing shop<span>A wider range of brands in a busier location</span></div>
+<div class="track" aria-hidden="true"><div class="bar" style="left:37.5%;width:25%"></div></div>
+<div class="rung-val">KSh 300,000 to 500,000+</div>
+</div>
+<div class="rung">
+<div class="rung-name">Manufacturer-direct<span>Accounts with four brands, each with a KSh 200,000 minimum opening order</span></div>
+<div class="track" aria-hidden="true"><div class="bar" style="left:0;width:100%"></div></div>
+<div class="rung-val">About KSh 800,000</div>
+</div>
+</div>
+<p class="ladder-note">Stock budget only. Bars are drawn to the same scale, up to KSh 800,000.</p>
+</div>
+</section>
+
+<!-- Calculator -->
+<section class="band band-soft" id="calculator">
+<div class="shell">
+<div class="prose">
+<h2>Build your own startup budget</h2>
+<p>Stock is only one line. Most first-time owners budget for stock and forget the rest. Type what each line would cost you and leave blank what you do not need. Nothing is saved.</p>
+</div>
+
+<div class="calc">
+<div class="calc-rows">
+<label class="calc-row"><span class="calc-name">Stock<small>Haircare, skincare, makeup, fragrances and other products</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Stock" aria-label="Stock in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Rent and deposit<small>Securing your premises</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Rent and deposit" aria-label="Rent and deposit in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Shelving and fittings<small>Displays, shelves, counters and storage</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Shelving and fittings" aria-label="Shelving and fittings in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Licences and registration<small>Business registration and applicable permits</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Licences and registration" aria-label="Licences and registration in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Branding<small>Signage and shop presentation</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Branding" aria-label="Branding in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Marketing<small>Opening promotions, social media and advertising</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Marketing" aria-label="Marketing in KSh"/></span></label>
+<label class="calc-row"><span class="calc-name">Working capital and emergency fund<small>Cash for running costs and urgent restocking</small></span><span class="calc-input"><b>KSh</b><input type="text" inputmode="numeric" placeholder="0" data-calc data-name="Working capital and emergency fund" aria-label="Working capital and emergency fund in KSh"/></span></label>
+</div>
+
+<aside class="calc-result">
+<p class="calc-label">Your startup capital</p>
+<p class="calc-total" id="calcTotal">KSh 0</p>
+<p class="calc-sub" id="calcSub">Enter your numbers to see your total.</p>
+<button type="button" class="calc-quick" data-fill="20000">Use KSh 20,000 starter stock</button>
+<p class="calc-pos">A POS is a separate monthly cost: KSh 2,000 per month with Ruo, covering sales, stock and reports.</p>
+<a class="cta-btn" href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" data-cta="calc_result">See what Ruo covers</a>
 </aside>
-<article class="blog-content">
-<p>If you are thinking about starting a cosmetic shop in Kenya, one of the first questions you will probably ask is: <strong>How much money do I need to start a cosmetic shop?</strong></p>
-<p>The honest answer is: <strong>it depends.</strong></p>
-<p>You can start a small cosmetic shop with a relatively modest amount of capital if you know where to source your products and what to stock. On the other hand, if you want a large shop with a wide variety of brands and products, your startup capital can easily run into hundreds of thousands of shillings or more.</p>
-<p>I am not writing this from research alone. <strong>I own a cosmetic shop myself, and I also have clients who are cosmetic-shop owners.</strong> I have therefore seen firsthand what it takes to start, stock and run a cosmetic business.</p>
-<p>In this guide, I want to go beyond simply giving you a figure. I'll explain <strong>where your money actually goes, how to source cosmetic products in Kenya, the difference between buying directly from manufacturers and distributors, how you can start with a smaller budget, and what you need to do to build a cosmetic shop that can actually survive and grow.</strong></p>
-<h2>Is Starting a Cosmetic Shop in Kenya a Good Business?</h2>
-<p>There is a reason so many people are interested in the cosmetics business: <strong>people continually spend money on beauty and personal-care products.</strong></p>
-<p>Kenya's beauty and personal-care market is substantial. Recent Euromonitor data puts retail sales at <strong>KSh 124.1 billion in 2025</strong>, representing 15% growth from the previous year. The market includes skincare, haircare, colour cosmetics, fragrances, deodorants, men's grooming and several other categories. Skincare was the leading category by retail value in 2025.</p>
-<p>Other industry estimates have placed Kenya's beauty and personal-care market at around <strong>US$2.3 billion</strong>, showing just how significant the sector is.</p>
-<p class="short-emphasis">The opportunity is therefore real.</p>
-<p>But there is something else I like about the cosmetics business: <strong>many of the products are repeat purchases.</strong></p>
-<p>A customer who buys a hair product today will eventually need another one. The same applies to skincare products, fragrances, shampoos, treatments, oils and many other products.</p>
-<p>From my experience in the business, hair products can generate particularly frequent repeat purchases, while skincare and fragrance customers can also become regular customers once they find products they trust.</p>
-<p>That is important because a successful cosmetic shop is not built only around finding new customers. <strong>It is built around getting customers to come back.</strong></p>
-<p>However, a growing market does not mean that every cosmetic shop will automatically make money.</p>
-<p>Your success will depend on things such as:</p>
-<ul><li>Your      location</li><li>The      products you choose</li><li>Your      pricing</li><li>Your      suppliers</li><li>How      well you manage stock</li><li>Your      customer service</li><li>How      you market the shop</li><li>How      well you control your expenses</li></ul>
-<p>So, if you were starting a cosmetic shop today, what would you actually need to do?</p>
-<h2>1. Decide What You Want Your Cosmetic Shop to Be Known For</h2>
-<p>Before you start buying products, you need to decide <strong>what type of cosmetic shop you want to build.</strong></p>
-<p>Do you want to specialize in:</p>
-<ul><li>Skincare?</li><li>Haircare?</li><li>Makeup?</li><li>Fragrances?</li><li>Hair      treatments?</li><li>Or a      combination of different cosmetic products?</li></ul>
-<p>You don't have to sell everything from day one.</p>
-<p>In fact, if you have limited capital, I would advise you to avoid trying to stock every cosmetic product you can think of.</p>
-<div class="editorial-takeaway">Start where the demand is.</div>
-<p>Skincare and haircare are two areas worth paying particular attention to because they represent major parts of the market, and both contain products that customers regularly replenish. Current market research also identifies skincare as the leading beauty and personal-care category in Kenya.</p>
-<p>The mistake many new business owners make is thinking:</p>
-<p>"The more products I have, the more customers I will attract."</p>
-<p class="short-emphasis">Not necessarily.</p>
-<p>You can have a shop full of products and still struggle if most of those products don't move.</p>
-<p>As a new cosmetic-shop owner, your goal should be to understand <strong>which products your customers actually want</strong> and build your stock around that demand.</p>
-<div class="article-cta">
-<span>THE NEXT CHALLENGE</span>
-<h3>Once you start selling, you need to know what's actually moving.</h3>
-<p>
-        A cosmetic shop can quickly grow to hundreds of products.
-        Ruo System helps you track sales, inventory, stock levels
-        and business performance from one place.
-    </p>
-
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops"
-   onclick="gtag('event', 'blog_pos_cta_click', {
-       article_slug: 'cost-to-start-cosmetic-shop-kenya',
-       cta_location: 'mid_article'
-   });">
-    Explore Ruo for Cosmetic Shops →
-</a>
-
 </div>
-<h2>2. Where Will You Get Your Cosmetic Products?</h2>
-<p>This is one of the most important decisions you will make.</p>
-<p>You generally have three options:</p>
-<ol><li>1. Buy      directly from manufacturers.</li><li>2. Buy      from distributors and wholesalers.</li><li>3. Buy      from smaller traders or wholesalers.</li></ol>
-<p>The option you choose will have a major effect on how much money you need to start.</p>
-<h3>Buying Directly From Manufacturers</h3>
-<p>Buying directly from manufacturers can give you access to better wholesale pricing and, once you establish a relationship with the supplier, potentially better payment terms.</p>
-<p>For example, when dealing with hair products, there are established manufacturers and brands in Kenya that a retailer may want to explore, including <strong>Darling KE, Angels KE, Lush KE and Sista</strong>.</p>
-<p class="short-emphasis">But there is a catch.</p>
-<p class="short-emphasis"><strong>You need capital.</strong></p>
-<p>From my experience, some suppliers can require a substantial minimum opening order before you can establish an account.</p>
-<p>For example, if the minimum opening stock is <strong>KSh 200,000</strong>, that is already a significant amount for somebody starting a small cosmetic shop.</p>
-<p>And now imagine you want products from four different companies.</p>
-<p>You could be looking at:</p>
-<div class="key-number">KSh 200,000 × 4 = KSh 800,000</div>
-<p>That's <strong>KSh 800,000 in stock alone.</strong></p>
-<p>You haven't paid rent.</p>
-<p>You haven't paid the shop deposit.</p>
-<p>You haven't bought shelves.</p>
-<p>You haven't done your branding.</p>
-<p>You haven't bought a POS system.</p>
-<p>You haven't obtained the relevant permits.</p>
-<p>And you haven't kept money aside as working capital.</p>
-<p>This is where many people realize that starting a cosmetic shop is not simply about having enough money to buy products.</p>
-<div class="editorial-takeaway">You need enough money to start the business and keep it running.</div>
-<h2>3. What If You Don't Have KSh 800,000?</h2>
-<p class="short-emphasis">This is where distributors become extremely important.</p>
-<p>You don't necessarily need to start by opening accounts with multiple manufacturers and buying hundreds of thousands of shillings worth of stock from each one.</p>
-<p>There are distributors who buy products in large quantities and then sell them to smaller retailers.</p>
-<p class="short-emphasis"><strong>You can start with a much smaller amount of money.</strong></p>
-<p>For a new cosmetic-shop owner, that can be a very good trade-off.</p>
-<p>You might make slightly less margin on an individual product, but you avoid tying hundreds of thousands of shillings into stock before you even know what your customers will buy.</p>
-<p>And this is where my own experience comes in.</p>
-<h2>4. One Place I Would Check as a New Cosmetic-Shop Owner: Vision Beauty Care</h2>
-<p>If you are starting a cosmetic shop in Nairobi and don't have a huge amount of capital, one of the places I would recommend exploring is <strong>Vision Beauty Care</strong>, located around <strong>Dubois Road, Excel Complex, in Nairobi CBD</strong>. (0713995664)</p>
-<p>Why?</p>
-<p>Because when you're new, you don't necessarily know which products to buy.</p>
-<p>You might walk into a wholesale shop with KSh 20,000 and think:</p>
-<p>"I'll just buy whatever looks popular."</p>
-<p class="short-emphasis">That can be a very expensive mistake.</p>
-<p>Instead, you can explain to the distributor that you are opening a new shop, tell them your budget and ask them to help you select your initial stock.</p>
-<p>For example, with a budget of around <strong>KSh 20,000 or more</strong>, at Vision they help you identify products that are likely to move rather than spending your entire budget on products that may sit on the shelves.</p>
-<p>This is one of the advantages of dealing with an experienced distributor.</p>
-<p>They see the products moving through their business every day.</p>
-<p>They have a better understanding of what retailers are ordering.</p>
-<p>And they may be able to help you build a mixture of products instead of forcing you to buy a huge quantity of one brand.</p>
-<p>Vision Beauty Care also deals with different categories of cosmetic products, including things such as <strong>oils, treatments, shampoos, sheen sprays and other hair and beauty products.</strong></p>
-<p><strong>If I were starting a cosmetic shop with a small budget, this would be one of my first stops.</strong></p>
-<p>Start where your capital allows you to start. As your sales grow, you can begin buying larger quantities, negotiate better prices and eventually establish stronger relationships with manufacturers.</p>
-<h2>5. How Much Money Do You Really Need to Start?</h2>
-<p>There is no single figure that applies to every cosmetic shop.</p>
-<p>A small neighbourhood shop with carefully selected stock can require far less capital than a large store in a busy commercial centre.</p>
-<p>Instead of asking:</p>
-<p><strong>"How much does a cosmetic shop cost?"</strong></p>
-<p>I recommend breaking your budget into these categories:</p>
-<table class="budget-table"><thead><tr><th>Expense</th><th>What it covers</th></tr></thead><tbody><tr><td>Initial stock</td><td>Haircare, skincare, makeup, fragrances and other products</td></tr><tr><td>Rent &amp; deposit</td><td>Cost of securing your premises</td></tr><tr><td>Shelving &amp; fittings</td><td>Displays, shelves, counters and storage</td></tr><tr><td>Licences &amp; registration</td><td>Business registration and applicable permits</td></tr><tr><td>Branding</td><td>Signage, packaging and shop presentation</td></tr><tr><td>POS system</td><td>Sales and inventory management</td></tr><tr><td>Marketing</td><td>Opening promotions, social media and advertising</td></tr><tr><td>Working capital</td><td>Money to keep the business operating</td></tr><tr><td>Emergency fund</td><td>Unexpected expenses and urgent restocking</td></tr></tbody></table>
+</div>
+</section>
 
+<!-- Where to buy stock -->
+<section class="band">
+<div class="shell">
+<div class="prose">
+<h2>Where to buy your stock</h2>
+<p>This decision changes how much money you need to open.</p>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p>This is why two people can start a cosmetic shop with completely different amounts of money.</p>
-<p>One person may start small with <strong>KSh 10,000–30,000 in stock</strong>, operate from a modest location and grow gradually.</p>
-<p>Another may invest <strong>KSh 300,000, KSh 500,000 or more</strong> because they want a larger shop with a much wider product range.</p>
-<p>The important thing is not to copy somebody else's budget.</p>
-<p><strong>Build a budget around your own location, target customer and business model.</strong></p>
-<h2>Don't Just Open the Shop — Know What's Happening Inside It</h2>
-<p>
-    Imagine you open your cosmetic shop with KSh 50,000 worth of stock.
-</p>
-<p>
-    After a few months, you should be able to answer simple questions:
-</p>
+<div class="compare">
+<div class="panel">
+<h3>Directly from manufacturers</h3>
+<p class="sub">Better prices, bigger commitment</p>
 <ul>
-<li>Which products are selling fastest?</li>
-<li>Which products are barely moving?</li>
-<li>How much did I sell today?</li>
-<li>How much stock do I have left?</li>
-<li>Which products need restocking?</li>
-<li>How much money is coming through M-Pesa and cash?</li>
-<li>Which products are contributing most to my sales?</li>
+<li>Better wholesale prices, and better terms once you have a relationship</li>
+<li>Minimum opening orders can reach KSh 200,000 per supplier</li>
+<li>One account per brand, for example Darling KE, Angels KE, Lush KE or Sista for hair products</li>
+<li>A lot of cash tied up before you know what sells</li>
 </ul>
-<p>
-    If answering these questions requires going through notebooks,
-    spreadsheets or manually counting shelves, managing the business
-    becomes harder as it grows.
-</p>
-<p>
-<strong>This is where a POS system becomes more than a payment tool.</strong>
-</p>
-<p>
-    A good POS gives you a clearer picture of what is happening
-    inside the business while you are running it.
-</p>
-<div class="ruo-product-card">
-<div class="product-label">RUO SYSTEM</div>
-<h3>A POS designed for growing cosmetic shops.</h3>
-<p>
-        Manage sales, inventory, barcode scanning, stock levels,
-        staff activity and business reports from one simple system.
-    </p>
-<div class="product-features">
-<span>✓ Sales tracking</span>
-<span>✓ Inventory management</span>
-<span>✓ Barcode scanning</span>
-<span>✓ Stock monitoring</span>
-<span>✓ Sales reporting</span>
-<span>✓ M-Pesa &amp; cash</span>
 </div>
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
-        Explore Ruo System →
-    </a>
+<div class="panel panel-pick">
+<h3>From distributors</h3>
+<p class="sub">The safer start for a new shop</p>
+<ul>
+<li>You can start from around KSh 20,000</li>
+<li>A mix of brands in one order</li>
+<li>Slightly lower margin per product</li>
+<li>You can test what sells before committing more money</li>
+</ul>
 </div>
-<h2>6. Your Location Matters</h2>
-<p>A good product range cannot completely compensate for a bad location.</p>
-<p>Before renting a shop, look at the people who actually pass through the area.</p>
-<p>Ask yourself:</p>
-<ul><li>Who      lives or works here?</li><li>What      type of customers are nearby?</li><li>Are      there salons nearby?</li><li>Are      there offices, apartments, colleges or businesses around?</li><li>How      much foot traffic does the location receive?</li><li>What      other cosmetic shops are nearby?</li><li>What      products are those competitors selling?</li><li>What      prices are they charging?</li></ul>
-<p>Don't automatically assume that the most expensive location is the best location.</p>
-<p>A smaller shop in an area with your target customers can outperform a larger, expensive shop in a location where your customers rarely shop.</p>
-<h2>So, What Is the Best Amount to Start a Cosmetic Shop?</h2>
-<p>If you want a simple answer, I would say:</p>
-<div class="editorial-takeaway">There is no magic startup figure.</div>
-<p>Before opening, calculate:</p>
-<div class="formula-label">Total startup capital =</div>
-<div class="formula">Stock + rent/deposit + shop fittings + licences/registration + branding + POS + marketing + working capital + emergency fund</div>
-<div class="article-cta subtle">
-<span>PLANNING YOUR POS BUDGET?</span>
-<h3>See what your POS will actually help you manage.</h3>
-<p>
-        Before you choose a system, see how Ruo handles
-        sales, inventory, products, stock and reporting
-        for cosmetic shops.
-    </p>
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
-        See Ruo System →
-    </a>
 </div>
-<p>Once you calculate all of these, you'll have a much more realistic picture of how much you actually need. The only estimate l can give is a stock of a minimum of 20,000 can get you started</p>
-<p>And don't forget to leave room for your business to make mistakes.</p>
-<hr style="margin:80px 0;border:none;border-top:1px solid var(--border);"/>
-<section>
-<h2 id="faq">Frequently Asked Questions</h2>
-<h3>How much money do I need to start a cosmetic shop in Kenya?</h3>
-<p>There is no single amount that applies to every shop. The capital you need depends on your location, product range, supplier, rent, shop fittings and working capital. In this guide, a small shop can start with carefully selected stock from around KSh 25,000, while a larger, more heavily stocked business can require hundreds of thousands of shillings.</p>
-<h3>Can I start a cosmetic shop with KSh 25,000?</h3>
-<p>Yes, you can start small with carefully selected products and a distributor rather than trying to open multiple manufacturer accounts. The key is to focus your limited capital on products with demand and keep enough cash available for operating expenses and restocking.</p>
-<h3>Is it better to buy cosmetics directly from manufacturers?</h3>
-<p>Direct purchasing can offer better wholesale pricing and stronger supplier relationships, but minimum opening orders can require substantial capital. For a new business, distributors can make it easier to access a wider range of products with a smaller starting budget.</p>
-<h3>Why does a cosmetic shop need a POS system?</h3>
-<p>A POS system helps you track sales and inventory, identify fast-moving and slow-moving products, monitor stock levels and make better purchasing decisions. This becomes increasingly important as your shop carries more products and product variations.</p>
-<h3>What should I look for in a POS system for a cosmetic shop?</h3>
-<p>Look for inventory management, barcode scanning, sales reporting, stock alerts, product management, customer records and easy reporting. For a cosmetic shop with many SKUs, strong inventory management is particularly important.</p>
-</section>
-<section class="final-cta">
-<span>READY WHEN YOU ARE</span>
-<h2>You've planned the shop.<br/>Now plan how you'll manage it.</h2>
-<p>
-        Ruo System brings your sales, stock and business reporting
-        together in one simple POS built for growing retail businesses.
-    </p>
-<a href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops">
-        Explore Ruo System →
-    </a>
-<small>
-        See how it works before you decide.
-    </small>
-</section>
-</article>
+
+<div class="prose">
+<p>For a new shop, a distributor is usually the safer start. You earn slightly less per product, but you avoid locking hundreds of thousands of shillings into stock before you know what your customers buy.</p>
+<div class="tip">
+<p><strong>Where I would start with a small budget: Vision Beauty Care.</strong> Dubois Road, Excel Complex, Nairobi CBD. <a class="text-link" href="tel:0713995664">0713995664</a></p>
+<p>Tell them you are opening a new shop and what your budget is (KSh 20,000 or more). They help you pick products that move instead of whatever looks popular. They stock oils, treatments, shampoos, sheen sprays and other hair and beauty products.</p>
+</div>
+
+<h2 style="margin-top:56px">Three decisions before you spend</h2>
+<ul class="picks">
+<li><strong>Decide what you are known for.</strong> Skincare and haircare are repeat purchases and big parts of the market, so start there instead of stocking everything. Euromonitor puts Kenya's beauty and personal-care retail sales at KSh 124.1 billion in 2025, up 15%, with skincare the leading category.</li>
+<li><strong>Check the location before the rent.</strong> Look at who walks past: salons, offices, colleges, apartments. See what competitors sell and at what prices. A smaller shop near your customers can beat an expensive one far from them.</li>
+<li><strong>Keep cash back.</strong> If every shilling goes into stock, you have nothing left to restock the products that sell.</li>
+</ul>
+</div>
 </div>
 </section>
+
+<!-- Conversion panel -->
+<section class="band band-plum" data-hide-float>
+<div class="shell">
+<div class="split">
+<div>
+<h2>After you open, know what is selling</h2>
+<p class="lead">Say you open with KSh 50,000 of stock. Within a few weeks you will need answers to simple questions.</p>
+<ul class="qs">
+<li>Which products sell fastest, and which barely move?</li>
+<li>How much did I sell today, and how much stock is left?</li>
+<li>What needs restocking?</li>
+<li>How much came in through M-Pesa, and how much in cash?</li>
+</ul>
+<p class="lead">Notebooks and manual shelf counts stop working as your product list grows. A POS answers these while you run the shop.</p>
+</div>
+<div class="ruo-card">
+<h3>Ruo System</h3>
+<p class="sub">A POS built for cosmetic shops</p>
+<p class="price">KSh 2,000 <small>per month</small></p>
+<ul>
+<li>Sales tracking</li>
+<li>Inventory management</li>
+<li>Barcode scanning</li>
+<li>Stock monitoring</li>
+<li>Sales reporting</li>
+<li>M-Pesa and cash</li>
+</ul>
+<a class="cta-btn" href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" data-cta="ruo_card">See Ruo for cosmetic shops</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ and related -->
+<section class="band">
+<div class="shell">
+<div class="prose faq">
+<h2 id="faq">Frequently asked questions</h2>
+
+<details>
+<summary>How much money do I need to start a cosmetic shop in Kenya?</summary>
+<p>No single figure fits every shop. A small shop can start with carefully chosen stock from around KSh 20,000 bought through a distributor. A larger shop with a wide range can need KSh 300,000 to 500,000 or more, and opening accounts directly with several manufacturers can pass KSh 800,000 in stock alone. Rent, deposit, shelving, licences, branding, a POS and working capital come on top.</p>
+</details>
+<details>
+<summary>Can I start a cosmetic shop with KSh 20,000?</summary>
+<p>Yes, for a small shop. Buy from a distributor, tell them your budget, choose products with steady demand such as skincare and haircare, and keep cash for restocking. That figure covers stock only, so check that rent, fittings and licences fit your own plan.</p>
+</details>
+<details>
+<summary>Is it better to buy from manufacturers or distributors?</summary>
+<p>Manufacturers offer better wholesale prices, but minimum opening orders can be large. Distributors let a new shop start small and find out what sells before committing more money.</p>
+</details>
+<details>
+<summary>Why does a cosmetic shop need a POS system?</summary>
+<p>A POS tracks sales and stock, shows your fast and slow movers, tells you what to restock and separates M-Pesa from cash. With many products and variations, doing this by notebook gets harder as you grow. Ruo System costs KSh 2,000 per month.</p>
+</details>
+
+<div class="related">
+<h2>Keep reading</h2>
+<ul>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/best-pos-for-beauty-shops-in-kenya">Best POS for beauty shops in Kenya</a></li>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/how-to-start-a-profitable-cosmetic-shop-in-kenya">How to start a profitable cosmetic shop in Kenya</a></li>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/how-much-does-a-pos-system-cost-in-kenya">How much does a POS system cost in Kenya?</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Final strip -->
+<section class="band band-blush" data-hide-float style="padding:56px 0">
+<div class="shell">
+<div class="final">
+<div>
+<h2>You have planned the shop. Now plan how you will run it.</h2>
+<p>Sales, stock and reports in one POS for Kenyan retail shops, for KSh 2,000 per month.</p>
+</div>
+<a class="cta-btn" href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" data-cta="final">See Ruo for cosmetic shops</a>
+</div>
+</div>
+</section>
+
+<div class="float-cta" id="floatCta">
+<span>Opening a cosmetic shop?</span>
+<a class="cta-btn" href="https://www.ruosystem.co.ke/services/pos-for-cosmetic-shops" data-cta="floating">See Ruo</a>
+<button type="button" id="floatClose" aria-label="Close">&times;</button>
+</div>
+
 <script>
+(function () {
+    var SLUG = 'cost-to-start-cosmetic-shop-kenya';
 
-const readingBar=document.getElementById("readingBar");
+    /* Budget calculator */
+    var inputs = [].slice.call(document.querySelectorAll('[data-calc]'));
+    var totalEl = document.getElementById('calcTotal');
+    var subEl = document.getElementById('calcSub');
+    var used = false;
 
-window.addEventListener("scroll",()=>{
+    function val(el) { return parseInt((el.value || '').replace(/\D/g, ''), 10) || 0; }
+    function fmt(n) { return n.toLocaleString('en-US'); }
 
-const total=document.documentElement.scrollHeight-window.innerHeight;
+    function update() {
+        var total = 0, max = 0, maxName = '', stock = 0, filled = 0;
+        inputs.forEach(function (el) {
+            var v = val(el);
+            total += v;
+            if (v > 0) { filled++; }
+            if (v > max) { max = v; maxName = el.getAttribute('data-name'); }
+            if (el.getAttribute('data-name') === 'Stock') { stock = v; }
+        });
+        totalEl.textContent = 'KSh ' + fmt(total);
+        if (total === 0) {
+            subEl.textContent = 'Enter your numbers to see your total.';
+        } else if (filled === 1 && stock > 0) {
+            subEl.textContent = 'That is stock only. Add rent, fittings and the other lines to see the full cost.';
+        } else {
+            subEl.textContent = 'Your biggest line is ' + maxName.toLowerCase() + ', at ' + Math.round(max / total * 100) + '% of the budget.';
+        }
+    }
 
-const progress=(window.scrollY/total)*100;
+    inputs.forEach(function (el) {
+        el.addEventListener('input', function () {
+            var v = val(el);
+            el.value = v ? fmt(v) : '';
+            update();
+            if (!used && typeof gtag === 'function') {
+                used = true;
+                gtag('event', 'budget_calculator_used', { article_slug: SLUG });
+            }
+        });
+    });
 
-readingBar.style.width=progress+"%";
+    var fill = document.querySelector('[data-fill]');
+    if (fill) {
+        fill.addEventListener('click', function () {
+            var s = document.querySelector('[data-name="Stock"]');
+            s.value = fmt(parseInt(fill.getAttribute('data-fill'), 10));
+            update();
+            s.focus();
+        });
+    }
+    update();
 
-});
+    /* Reading progress and floating CTA */
+    var bar = document.getElementById('readingBar');
+    var floatEl = document.getElementById('floatCta');
+    var closeBtn = document.getElementById('floatClose');
+    var dismissed = false, scrolled = false, visible = {};
 
+    function render() {
+        var hidden = Object.keys(visible).filter(function (k) { return visible[k]; }).length;
+        floatEl.classList.toggle('show', scrolled && !dismissed && hidden === 0);
+    }
+
+    window.addEventListener('scroll', function () {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        var p = total > 0 ? window.scrollY / total : 0;
+        if (bar) { bar.style.width = (p * 100) + '%'; }
+        scrolled = p > 0.2;
+        render();
+    }, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { visible[e.target.getAttribute('data-idx')] = e.isIntersecting; });
+            render();
+        });
+        [].slice.call(document.querySelectorAll('[data-hide-float]')).forEach(function (el, i) {
+            el.setAttribute('data-idx', i);
+            io.observe(el);
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () { dismissed = true; render(); });
+    }
+
+    /* CTA click tracking */
+    [].slice.call(document.querySelectorAll('[data-cta]')).forEach(function (el) {
+        el.addEventListener('click', function () {
+            if (typeof gtag === 'function') {
+                gtag('event', 'blog_pos_cta_click', { article_slug: SLUG, cta_location: el.getAttribute('data-cta') });
+            }
+        });
+    });
+})();
 </script>
-
-
-<style>
-/* ===== Scannability layer: structure only, article wording preserved ===== */
-
-.blog-content h2 {
-    margin-top: 72px !important;
-    margin-bottom: 22px !important;
-}
-
-.blog-content h3 {
-    margin-top: 44px !important;
-    margin-bottom: 18px !important;
-}
-
-.blog-content p {
-    max-width: 680px;
-}
-
-/* Short standalone thoughts */
-.blog-content p.short-emphasis {
-    font-size: 21px !important;
-    line-height: 1.5 !important;
-    color: #242424 !important;
-    margin-top: 8px !important;
-    margin-bottom: 30px !important;
-}
-
-/* Key conclusions */
-.editorial-takeaway {
-    margin: 38px 0 42px;
-    padding: 18px 0 18px 24px;
-    border-left: 3px solid #242424;
-    font-family: Charter, "Bitstream Charter", Georgia, serif;
-    font-size: 24px;
-    line-height: 1.45;
-    font-weight: 600;
-    color: #242424;
-}
-
-/* Big calculations */
-.key-number {
-    margin: 30px 0 38px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 34px;
-    line-height: 1.2;
-    font-weight: 700;
-    letter-spacing: -0.8px;
-    color: #242424;
-}
-
-.formula-label {
-    margin: 28px 0 8px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #555;
-}
-
-.formula {
-    margin: 0 0 36px;
-    padding: 20px 22px;
-    border: 1px solid #e2e2e2;
-    background: #fafafa;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 17px;
-    line-height: 1.55;
-    font-weight: 600;
-    color: #242424;
-}
-
-/* Real budget table */
-.budget-table {
-    width: 100%;
-    margin: 30px 0 42px;
-    border-collapse: collapse;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.budget-table th {
-    padding: 14px 16px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 700;
-    color: #555;
-    background: #f7f7f7;
-    border-bottom: 1px solid #d9d9d9;
-}
-
-.budget-table td {
-    padding: 15px 16px;
-    vertical-align: top;
-    border-bottom: 1px solid #e6e6e6;
-    color: #333;
-}
-
-.budget-table td:first-child {
-    width: 30%;
-    font-weight: 700;
-    color: #242424;
-}
-
-/* Give the FAQ clear separation */
-#faq {
-    padding-top: 10px;
-}
-
-@media (max-width: 700px) {
-    .editorial-takeaway {
-        font-size: 21px;
-        padding-left: 18px;
-    }
-
-    .key-number {
-        font-size: 29px;
-    }
-
-    .budget-table {
-        font-size: 14px;
-    }
-
-    .budget-table th,
-    .budget-table td {
-        padding: 12px 10px;
-    }
-
-    .budget-table td:first-child {
-        width: 34%;
-    }
-}
-</style>
 
 {% endblock %}
