@@ -251,3 +251,11 @@ async def article(request: Request):
         name="posforcosmeticstore.html",
         context={}
     )
+
+@app.get("/blog/christmas-stocking-guide-for-kenyan-shops")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="christmasstocking.html",
+        context={}
+    )
