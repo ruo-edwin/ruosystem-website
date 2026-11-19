@@ -131,7 +131,14 @@ async def sitemap():
             "loc": "https://www.ruosystem.co.ke/blog/how-to-track-stock-and-sales-in-small-shop-kenya",
             "priority": "0.8",
             "changefreq": "monthly"
+        },
+
+        {
+            "loc": "https://www.ruosystem.co.ke/blog/christmas-stocking-guide-for-kenyan-shops",
+            "priority": "0.8",
+            "changefreq": "monthly"
         }
+        
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
