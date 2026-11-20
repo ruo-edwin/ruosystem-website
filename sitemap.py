@@ -137,8 +137,18 @@ async def sitemap():
             "loc": "https://www.ruosystem.co.ke/blog/christmas-stocking-guide-for-kenyan-shops",
             "priority": "0.8",
             "changefreq": "monthly"
+        },
+
+        {
+            "loc": "https://www.ruosystem.co.ke/blog/cosmetic-shop-losing-money-kenya",
+            "priority": "0.8",
+            "changefreq": "monthly"
+        },
+        {
+            "loc": "https://www.ruosystem.co.ke/blog/how-a-pos-improves-customer-experience-kenya",
+            "priority": "0.8",
+            "changefreq": "monthly"
         }
-        
     ]
 
     xml = """<?xml version="1.0" encoding="UTF-8"?>
