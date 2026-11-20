@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block title %}Cosmetic Shop Losing Money? 7 Signs (Kenya Checklist){% endblock %}
+
+{% block description %}Busy cosmetic shop in Kenya but very little or no profit? Find the 7 hidden leaks: stock theft, wrong prices, unpaid credit and unrecorded M-Pesa. Get the free checklist on WhatsApp.{% endblock %}
+
+{% block keywords %}cosmetic shop losing money kenya, cosmetic shop business kenya, stock management for cosmetic shop, how to stop stock theft in a shop kenya, mpesa reconciliation for shops, how to manage credit in a retail shop, how to price products in a cosmetic shop, cosmetic shop profit margin kenya, pos system for cosmetic shop kenya{% endblock %}
+
+{% block extra_css %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+:root{--b-serif:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--b-sans:var(--b-serif);--b-ink:#24152d;--b-muted:#76697d;--b-blush:#f8f4f7;--b-blush-2:#e8dce8;--b-plum:#25152f;--b-line:#e8e1e9;--b-soft:#f4f1f6;--b-brand:#2563ff;--b-wa:#128c4a}
+.read-progress{position:fixed;top:0;left:0;width:100%;height:2px;background:transparent;z-index:10000}
+.read-progress span{display:block;width:0;height:100%;background:var(--b-brand)}
+.shell{max-width:960px;margin:0 auto;padding:0 24px}
+.prose{max-width:680px;margin:0 auto}
+.band{padding:68px 0}.band-blush{background:var(--b-blush)}.band-soft{background:var(--b-soft)}.band-plum{background:var(--b-plum);color:#fff}
+.prose p{margin:0 0 22px;font:400 19px/1.7 var(--b-serif);color:var(--b-ink)}
+.prose p.note{font:400 15px/1.6 var(--b-sans);color:var(--b-muted)}
+.band h2{margin:0 0 20px;font:700 32px/1.18 var(--b-serif);letter-spacing:-.6px;color:var(--b-ink)}
+.band-plum h2{color:#fff}
+.kicker{display:block;margin:0 0 8px;font:700 15px/1.3 var(--b-sans);color:var(--b-brand)}
+.cta-btn,.cta-btn:visited,.cta-btn:hover,.cta-btn:focus{display:inline-block;padding:14px 24px;border-radius:999px;background:var(--b-brand);color:#fff;font:700 16px/1.2 var(--b-sans);text-decoration:none;text-align:center;border:0;cursor:pointer}
+.cta-btn:hover{filter:brightness(.93)}
+.cta-wa,.cta-wa:visited,.cta-wa:hover,.cta-wa:focus{background:var(--b-wa);color:#fff}
+.cta-white,.cta-white:visited,.cta-white:hover,.cta-white:focus{background:#fff;color:var(--b-plum)}
+.text-link,.text-link:visited{color:var(--b-brand);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.cta-btn:focus-visible,.text-link:focus-visible,.faq summary:focus-visible{outline:3px solid var(--b-ink);outline-offset:2px}
+.hero{padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:center}
+.hero h1{margin:0;font:700 46px/1.1 var(--b-serif);letter-spacing:-1.2px;color:var(--b-ink)}
+.hero-desc{margin:22px 0 0;max-width:560px;font:400 19px/1.6 var(--b-sans);color:var(--b-muted)}
+.hero-link{display:inline-block;margin-top:22px;font:400 16px/1.4 var(--b-sans);color:var(--b-ink)}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:6px 22px;font:400 14px/1.4 var(--b-sans);color:var(--b-muted)}
+.answer-card{padding:28px;border-radius:18px;background:#fff;border:1px solid var(--b-blush-2)}
+.answer-card .small{margin:0;font:600 15px/1.3 var(--b-sans);color:var(--b-muted)}
+.answer-card .big{margin:6px 0 10px;font:700 26px/1.2 var(--b-serif);color:var(--b-ink)}
+.answer-card .text{margin:0 0 22px;font:400 15px/1.6 var(--b-sans);color:var(--b-muted)}
+.answer-card .cta-btn{display:block}
+.seven{display:grid;grid-template-columns:repeat(4,1fr);margin:30px 0 0;padding:0;list-style:none;border-top:1px solid var(--b-line)}
+.seven li{border-bottom:1px solid var(--b-line);border-left:1px solid var(--b-line)}.seven li:nth-child(4n+1){border-left:0}
+.seven a{display:block;padding:14px;font:700 14px/1.35 var(--b-sans);color:var(--b-ink);text-decoration:none}
+.seven a span{display:block;margin-bottom:4px;font:700 13px/1 var(--b-sans);color:var(--b-brand)}
+.seven a:hover{background:var(--b-soft)}
+.test{margin:0 0 24px;padding:18px 22px;border-left:3px solid var(--b-brand);background:#fff;font:500 17px/1.6 var(--b-sans);color:var(--b-ink)}
+.prose ul.plain{margin:0 0 26px;padding-left:24px}
+.prose ul.plain li{margin-bottom:10px;font:400 18px/1.65 var(--b-serif);color:var(--b-ink)}
+.inline-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:32px 0 0;padding:20px 22px;border:1px solid var(--b-line);border-radius:10px;background:#fff}
+.prose .inline-cta p{margin:0;font:400 16px/1.55 var(--b-sans);color:#333}
+.inline-cta .cta-btn{flex-shrink:0}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:center}
+.band-plum .lead{margin:0 0 18px;font:400 18px/1.65 var(--b-serif);color:#e6d9ec}
+.qs{margin:0 0 20px;padding:0;list-style:none}
+.qs li{padding:12px 0;border-top:1px solid rgba(255,255,255,.16);font:400 17px/1.5 var(--b-sans);color:#fff}
+.qs li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.qs li.more{color:#d9c9e2;font-style:italic}
+.ruo-card{padding:30px;border-radius:18px;background:#fff;color:var(--b-ink)}
+.ruo-card h3{margin:0;font:700 24px/1.2 var(--b-serif)}
+.ruo-card .sub{margin:6px 0 18px;font:400 15px/1.5 var(--b-sans);color:var(--b-muted)}
+.ruo-card .price{margin:0;font:700 34px/1.1 var(--b-serif);color:var(--b-ink)}
+.ruo-card .price small{font:400 15px/1 var(--b-sans);color:var(--b-muted)}
+.ruo-card ul{margin:18px 0 24px;padding:0;list-style:none}
+.ruo-card li{position:relative;padding:7px 0 7px 26px;font:400 15px/1.4 var(--b-sans);color:var(--b-ink)}
+.ruo-card li::before{content:"\2713";position:absolute;left:0;color:var(--b-brand);font-weight:700}
+.ruo-card .cta-btn{display:block}
+.faq details{padding:18px 0;border-top:1px solid var(--b-line)}
+.faq details:last-of-type{border-bottom:1px solid var(--b-line)}
+.faq summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;font:700 19px/1.35 var(--b-serif);color:var(--b-ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex-shrink:0;font:400 26px/1 var(--b-sans);color:var(--b-brand)}
+.faq details[open] summary::after{content:"\2212"}
+.prose .faq details p{margin:12px 0 0;font:400 17px/1.7 var(--b-serif)}
+.related{margin-top:52px}.related h2{font-size:26px}
+.related ul{margin:0;padding:0;list-style:none}.related li{margin:0 0 12px}.related a{font:600 17px/1.4 var(--b-sans)}
+.share{margin-top:36px;font:400 14px/1.5 var(--b-sans);color:var(--b-muted)}.share a{margin-left:14px}
+.final{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.final h2{margin:0 0 8px;font-size:30px}
+.final p{margin:0;font:400 16px/1.6 var(--b-sans);color:var(--b-muted)}
+.final .btns{display:flex;flex-wrap:wrap;gap:12px;flex-shrink:0}
+@media (max-width:900px){.hero-grid,.split{grid-template-columns:1fr;gap:36px}.seven{grid-template-columns:1fr 1fr}.seven li{border-left:0}.seven li:nth-child(even){border-left:1px solid var(--b-line)}.final{flex-direction:column;align-items:flex-start}}
+@media (max-width:700px){.band{padding:52px 0}.hero{padding:44px 0 52px}.hero h1{font-size:33px;letter-spacing:-.8px}.hero-desc{font-size:17px}.band h2{font-size:26px}.prose p{font-size:18px}.inline-cta{flex-direction:column;align-items:flex-start}.inline-cta .cta-btn,.final .btns,.final .cta-btn{width:100%}.ruo-card{padding:24px 20px}}
+</style>
+{% endblock %}
+
+{% block content %}
+{# DEMO_URL: https://www.ruosystem.co.ke/demo  |  WhatsApp: 254714675719 #}
+<div class="read-progress"><span id="readingBar"></span></div>
+
+<section class="band band-blush hero">
+<div class="shell"><div class="hero-grid">
+<div>
+<h1>7 Signs Your Cosmetic Shop in Kenya Is Busy but Losing Money</h1>
+<p class="hero-desc">Customers all day, M-Pesa messages coming in, yet the money is never there. Here are the seven hidden leaks to check, plus a free checklist you can get on WhatsApp.</p>
+<a class="hero-link" href="https://www.ruosystem.co.ke/demo" data-cta="hero">Already running a shop? <span class="text-link">See how Ruo works</span></a>
+<div class="hero-meta"><span>By Ruo System</span><span>6 min read</span><span>Updated November 2026</span></div>
+</div>
+<div class="answer-card">
+<p class="small">Free checklist</p>
+<p class="big">Where is my money going?</p>
+<p class="text">16 quick questions with a score, so you know which leak to fix first. Tap the button and we send it to your WhatsApp.</p>
+<a class="cta-btn cta-wa" href="https://wa.me/254714675719?text=Hi%20Ruo%2C%20please%20send%20me%20the%20free%20%22Where%20Is%20My%20Money%20Going%3F%22%20checklist%20for%20my%20cosmetic%20shop.%20(From%20your%20blog%3A%20Cosmetic%20Shop%20Losing%20Money)" target="_blank" rel="noopener" data-event="checklist_whatsapp_click" data-cta="hero_checklist">Send it to my WhatsApp</a>
+</div>
+</div></div>
+</section>
+
+<section class="band">
+<div class="shell">
+<div class="prose">
+<p>You open at 8am. By lunch the shop is full: someone wants Vaseline, another asks for relaxer, a salon owner collects hair products in bulk. Then evening comes, you count everything, and the money does not match the day you just had.</p>
+<p><strong>Busy does not mean profitable.</strong> A cosmetic shop sells hundreds of small, fast-moving items on thin margins, so money leaks out quietly. These are the seven signs it is happening in your shop.</p>
+</div>
+<ol class="seven">
+<li><a href="#s1"><span>1</span>Stock disappearing</a></li>
+<li><a href="#s2"><span>2</span>Wrong prices</a></li>
+<li><a href="#s3"><span>3</span>Unpaid credit</a></li>
+<li><a href="#s4"><span>4</span>Unrecorded M-Pesa</a></li>
+<li><a href="#s5"><span>5</span>Dead and expired stock</a></li>
+<li><a href="#s6"><span>6</span>Shop and personal money mixed</a></li>
+<li><a href="#s7"><span>7</span>No real profit number</a></li>
+</ol>
+</div>
+</section>
+
+<section class="band band-soft" id="s1">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 1</span>
+<h2>Stock Disappearing in Your Cosmetic Shop: Stock Theft and Leaks</h2>
+<p>You sold 20 items today, but the shelf looks like 30 are gone. Cosmetics are small, expensive for their size and easy to pocket: lip gloss, perfume, nail polish, small tubes of cream.</p>
+<ul class="plain">
+<li>Items taken by staff or customers without payment</li>
+<li>Testers and samples that are never written off</li>
+<li>Breakages and spillages of lotions, oils and perfumes that nobody records</li>
+<li>Sales that were never entered, so the count never matches</li>
+</ul>
+<p class="test"><strong>Quick test:</strong> count 10 fast movers today and again after a week. Compare against what you sold and restocked. If the numbers differ, you have a leak.</p>
+</div></div>
+</section>
+
+<section class="band" id="s2">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 2</span>
+<h2>Wrong Pricing: How to Price Cosmetics and Protect Your Margin</h2>
+<p>Suppliers change prices, transport costs move, yet your shelf price stays the same for months. You may think a product earns 20% when it really earns 5%. Regular-customer discounts "just a little" can erase the profit completely.</p>
+<p>Watch the <strong>wholesale trap</strong> too. When a salon owner buys 12 pieces at a price close to what you paid, check your margin before you agree.</p>
+<p class="test"><strong>Quick test:</strong> for your 10 best sellers, write down the last buying price and today's selling price. If you cannot find the buying price quickly, you are pricing blind.</p>
+</div></div>
+</section>
+
+<section class="band band-soft" id="s3">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 3</span>
+<h2>Unpaid Credit: How to Manage Customer Debt in a Retail Shop</h2>
+<p>"Nitalipa kesho." Credit builds loyalty, but when it lives in a notebook or in your memory, some debts get forgotten, some customers disappear, and you restock using money that is sitting in other people's pockets. Salons and regulars are the biggest risk because they buy a lot and you do not want to upset them.</p>
+<p class="test"><strong>Quick test:</strong> add up everything customers owe you right now. If it takes more than 5 minutes, or the total shocks you, credit is eating your profit.</p>
+</div></div>
+</section>
+
+<section class="band" id="s4">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 4</span>
+<h2>Unrecorded M-Pesa Payments: Reconcile Till, Pochi and Cash</h2>
+<p>Money arrives through the till number, your personal number, a staff member's phone and Pochi la Biashara. Cash gets counted, but M-Pesa is scattered. Some payments are sales, some are debt repayments, some are personal. Your sales record says one thing and your M-Pesa statement says another.</p>
+<p class="test"><strong>Quick test:</strong> compare yesterday's recorded sales with yesterday's cash plus M-Pesa. If they do not match, find out why before the gap grows.</p>
+<div class="inline-cta"><p><strong>Cash and M-Pesa in one place.</strong> See how Ruo records every sale and payment.</p><a class="cta-btn" href="https://www.ruosystem.co.ke/demo" data-cta="inline_mpesa">See Ruo demo</a></div>
+</div></div>
+</section>
+
+<section class="band band-soft" id="s5">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 5</span>
+<h2>Dead Stock and Expired Products: The Hidden Cost in Cosmetic Shops</h2>
+<p>Your shelves are full, yet customers keep leaving without buying. Cash is tied up in slow products, such as a cream bought in bulk "because it was cheap", while fast sellers run out. Expired items must be sold at a loss, seasonal gift sets arrive too late, and you hold 12 of the wrong foundation shade and none of the right one.</p>
+<p class="test"><strong>Quick test:</strong> list 5 products customers asked for this week that you did not have, then 5 that have not moved in 2 months. If both lists are easy to write, you lose money on both sides. Our <a class="text-link" href="https://www.ruosystem.co.ke/blog/christmas-stocking-guide-kenyan-shops">Christmas stocking guide</a> shows how to plan stock from your own sales.</p>
+</div></div>
+</section>
+
+<section class="band" id="s6">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 6</span>
+<h2>Mixing Personal and Shop Money: Why You Cannot See Your Profit</h2>
+<p>Lunch from the till, school fees from M-Pesa, the shop's tea paid from your own phone. None of it is a crime, but when nothing is written down you cannot tell whether the shop is profitable. You only know that money is always short.</p>
+<p class="test"><strong>Quick test:</strong> how much did you take out of the business last month for yourself and your family? If you cannot answer within a minute, the shop and your pocket have become one account.</p>
+</div></div>
+</section>
+
+<section class="band band-soft" id="s7">
+<div class="shell"><div class="prose">
+<span class="kicker">Sign 7</span>
+<h2>Not Knowing Your Real Profit: How to Calculate It Monthly</h2>
+<p>This sign ties the others together. After paying for stock, rent, staff, electricity and transport, how much did the shop really make last month? If the answer is "I think it was okay", you are running on feeling, not numbers, and feelings cannot tell you which product to stop buying or which leak to fix first.</p>
+<p>Our <a class="text-link" href="https://www.ruosystem.co.ke/blog/inventory-management-system-for-beauty-shops-in-kenya">inventory management guide for beauty shops</a> shows how stock records feed your profit figure.</p>
+</div></div>
+</section>
+
+<section class="band band-plum" id="checklist">
+<div class="shell"><div class="split">
+<div>
+<span class="kicker" style="color:#d9c9e2">Free checklist</span>
+<h2>Where Is My Money Going? Check Your Shop in 10 Minutes</h2>
+<p class="lead">Answer Yes or No honestly. Here are five of the 16 questions:</p>
+<ul class="qs">
+<li>Do I count my top 10 products at least once a week?</li>
+<li>Do I know my buying price for every product I sell?</li>
+<li>Can I tell the total owed to me in under 5 minutes?</li>
+<li>Is every M-Pesa payment matched to a sale?</li>
+<li>Do I know last month's real profit after all expenses?</li>
+<li class="more">Plus 11 more questions, a score, and what to fix first.</li>
+</ul>
+</div>
+<div class="ruo-card">
+<h3>Get the full checklist</h3>
+<p class="sub">Printable, with scoring. We send it straight to your WhatsApp.</p>
+<a class="cta-btn cta-wa" href="https://wa.me/254714675719?text=Hi%20Ruo%2C%20please%20send%20me%20the%20free%20%22Where%20Is%20My%20Money%20Going%3F%22%20checklist%20for%20my%20cosmetic%20shop.%20(From%20your%20blog%3A%20Cosmetic%20Shop%20Losing%20Money)" target="_blank" rel="noopener" data-event="checklist_whatsapp_click" data-cta="checklist_band">Send it to my WhatsApp</a>
+</div>
+</div></div>
+</section>
+
+<section class="band">
+<div class="shell"><div class="prose">
+<h2>How to Fix These Leaks Without Working Harder</h2>
+<p>Most leaks share one root cause: information scattered between notebooks, phones and memory. When every sale, stock count, credit balance and payment is recorded in one place, the leaks become visible. That is what a POS and inventory system does.</p>
+<p>Ruo System is built for Kenyan retail shops, including cosmetic shops, at KSh 2,000 per month.</p>
+<div class="inline-cta"><p><strong>See it with your own shop in mind.</strong> Book a free demo of Ruo System.</p><a class="cta-btn" href="https://www.ruosystem.co.ke/demo" data-cta="fix_demo">See Ruo demo</a></div>
+
+<div class="faq" style="margin-top:56px">
+<h2 id="faq">Frequently asked questions</h2>
+<details><summary>Why is my cosmetic shop busy but not making profit?</summary><p>Usually because of hidden leaks: stock that disappears, selling prices that have not kept up with supplier prices, unpaid credit, and M-Pesa payments that are not recorded. Together they can wipe out your margin even when sales look good.</p></details>
+<details><summary>How do I track stock in a cosmetic shop?</summary><p>Count your fastest sellers weekly, record every sale, tester, breakage and expired item, and compare your count against sales and restocking. A POS system with inventory does this automatically.</p></details>
+<details><summary>What is a good profit margin for a cosmetic shop in Kenya?</summary><p>It differs by product, so work it out item by item: selling price minus buying price, divided by selling price. Check your top 10 sellers first, because they carry most of your profit.</p></details>
+<details><summary>How do I stop staff stealing in a shop?</summary><p>Record every sale, limit who can change prices or delete sales, and do regular stock counts. When shortages become visible, they usually drop.</p></details>
+<details><summary>Can I use M-Pesa and a POS system together?</summary><p>Yes. Record each M-Pesa payment against its sale so that cash plus M-Pesa matches your sales at the end of the day.</p></details>
+</div>
+
+<div class="related"><h2>Keep reading</h2><ul>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/how-much-does-it-cost-to-start-a-cosmetic-shop-in-kenya">How much does it cost to start a cosmetic shop in Kenya?</a></li>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/inventory-management-system-for-beauty-shops-in-kenya">Inventory management system for beauty shops in Kenya</a></li>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/blog/christmas-stocking-guide-kenyan-shops">Christmas stocking guide for Kenyan shops</a></li>
+<li><a class="text-link" href="https://www.ruosystem.co.ke/">POS system for shops in Kenya</a></li>
+</ul></div>
+<p class="share">Share this guide:
+<a class="text-link" href="https://wa.me/?text=7%20Signs%20Your%20Cosmetic%20Shop%20Is%20Busy%20but%20Losing%20Money%20{{ request.url }}" target="_blank" rel="noopener">WhatsApp</a>
+<a class="text-link" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank" rel="noopener">Facebook</a>
+<a class="text-link" href="https://twitter.com/intent/tweet?url={{ request.url }}" target="_blank" rel="noopener">X</a></p>
+</div></div>
+</section>
+
+<section class="band band-blush" style="padding:56px 0">
+<div class="shell"><div class="final">
+<div><h2>Stop the leaks, keep the profit</h2><p>Sales, stock, credit and M-Pesa in one POS, for KSh 2,000 per month.</p></div>
+<div class="btns">
+<a class="cta-btn" href="https://www.ruosystem.co.ke/demo" data-cta="final">See Ruo demo</a>
+<a class="cta-btn cta-wa" href="https://wa.me/254714675719?text=Hi%20Ruo%2C%20I%20would%20like%20to%20see%20how%20Ruo%20System%20works%20for%20my%20cosmetic%20shop." target="_blank" rel="noopener" data-event="whatsapp_click" data-cta="final_whatsapp">Chat on WhatsApp</a>
+</div></div></div>
+</section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why is my cosmetic shop busy but not making profit?","acceptedAnswer":{"@type":"Answer","text":"Usually because of hidden leaks: stock that disappears, outdated selling prices, unpaid credit and unrecorded M-Pesa payments. Together they can wipe out your margin even when sales look good."}},
+{"@type":"Question","name":"How do I track stock in a cosmetic shop?","acceptedAnswer":{"@type":"Answer","text":"Count your fastest sellers weekly, record every sale, tester, breakage and expired item, and compare your count against sales and restocking. A POS system with inventory does this automatically."}},
+{"@type":"Question","name":"What is a good profit margin for a cosmetic shop in Kenya?","acceptedAnswer":{"@type":"Answer","text":"It differs by product, so work it out item by item: selling price minus buying price, divided by selling price. Check your top 10 sellers first."}},
+{"@type":"Question","name":"How do I stop staff stealing in a shop?","acceptedAnswer":{"@type":"Answer","text":"Record every sale, limit who can change prices or delete sales, and do regular stock counts."}},
+{"@type":"Question","name":"Can I use M-Pesa and a POS system together?","acceptedAnswer":{"@type":"Answer","text":"Yes. Record each M-Pesa payment against its sale so cash plus M-Pesa matches your sales at the end of the day."}}]}
+</script>
+
+<script>
+(function(){
+var SLUG='cosmetic-shop-losing-money-kenya';
+function track(n,x){if(typeof gtag==='function'){gtag('event',n,Object.assign({article_slug:SLUG},x||{}));}}
+var bar=document.getElementById('readingBar');
+window.addEventListener('scroll',function(){var t=document.documentElement.scrollHeight-window.innerHeight;if(bar){bar.style.width=(t>0?window.scrollY/t*100:0)+'%';}},{passive:true});
+[].slice.call(document.querySelectorAll('[data-cta]')).forEach(function(el){
+ el.addEventListener('click',function(){track(el.getAttribute('data-event')||'blog_pos_cta_click',{cta_location:el.getAttribute('data-cta')});});
+});
+})();
+</script>
+{% endblock %}
