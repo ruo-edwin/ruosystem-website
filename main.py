@@ -274,3 +274,11 @@ async def article(request: Request):
         name="posimprovecustomerexperience.html",
         context={}
     )
+
+@app.get("/blog/7-must-know-metrics-for-retail-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="metricsmustknow.html",
+        context={}
+    )
