@@ -148,6 +148,11 @@ async def sitemap():
             "loc": "https://www.ruosystem.co.ke/blog/how-a-pos-improves-customer-experience-kenya",
             "priority": "0.8",
             "changefreq": "monthly"
+        },
+        {
+            "loc": "https://www.ruosystem.co.ke/blog/what-does-a-pos-system-do-for-retail-shops-in-kenya",
+            "priority": "0.8",
+            "changefreq": "monthly"
         }
     ]
 
