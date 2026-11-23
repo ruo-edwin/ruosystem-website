@@ -282,3 +282,11 @@ async def article(request: Request):
         name="metricsmustknow.html",
         context={}
     )
+
+@app.get("/blog/what-does-a-pos-system-do-for-retail-shops-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="5jobsaposdoes.html",
+        context={}
+    )
