@@ -123,7 +123,7 @@ input.in{width:100%;padding:10px 12px;border:1px solid #d6c8d1;border-radius:8px
 <p class="small">Free download</p>
 <p class="big">Weekly shop tracker sheet</p>
 <p class="text">Fill in 4 weeks, and the profit, margin, slow stock and credit numbers work themselves out. Opens in Excel and Google Sheets.</p>
-<button type="button" class="cta-btn" data-dl="hero">Download the tracker</button>
+<a class="cta-btn" href="#tracker" data-cta="hero_tracker">Get the tracker</a>
 </div>
 </div></div>
 </section>
@@ -259,7 +259,7 @@ input.in{width:100%;padding:10px 12px;border:1px solid #d6c8d1;border-radius:8px
 <div class="dl-card">
 <p class="small">Free, no sign-up</p>
 <p class="big">Weekly Shop Tracker</p>
-<button type="button" class="cta-btn" data-dl="tracker">Download tracker (CSV)</button>
+<a class="cta-btn" href="/static/downloads/ruo-weekly-shop-tracker.xlsx" download data-dl="tracker">Download tracker (Excel)</a>
 <div class="dl-after" id="dlAfter">
 Downloaded. Open it in Excel or Google Sheets. Filling it by hand gets tiring after a few weeks, so here is how Ruo does it automatically:
 <a class="cta-btn cta-wa" href="https://www.ruosystem.co.ke/demo" data-cta="after_download">See Ruo demo</a>
@@ -293,7 +293,7 @@ Downloaded. Open it in Excel or Google Sheets. Filling it by hand gets tiring af
 <details><summary>How do I calculate gross profit for my shop?</summary><p>Subtract what the items you sold cost you from what you sold them for. If you sold goods for KSh 100,000 that cost you KSh 70,000, your gross profit is KSh 30,000.</p></details>
 <details><summary>What is a slow-moving item?</summary><p>A product that has not sold for a long time, often 60 days or more, depending on the shop. Cosmetics and food have a shelf life, so slow movers can quickly become losses.</p></details>
 <details><summary>How often should I count my stock?</summary><p>Count your fastest sellers and most expensive items weekly, and do a full count monthly. A POS that updates stock with every sale makes this much easier.</p></details>
-<details><summary>Can I use the tracker sheet on my phone?</summary><p>Yes. It is a CSV file that opens in Google Sheets, Excel and most phone spreadsheet apps. The formulas for profit, margin and percentages calculate automatically.</p></details>
+<details><summary>Can I use the tracker sheet on my phone?</summary><p>Yes. It is a Excel file that opens in Google Sheets, Excel and most phone spreadsheet apps. The formulas for profit, margin and percentages calculate automatically.</p></details>
 </div>
 <div class="related"><h2>Keep reading</h2><ul>
 <li><a class="text-link" href="https://www.ruosystem.co.ke/blog/cosmetic-shop-losing-money-kenya">7 signs your cosmetic shop is busy but losing money</a></li>
@@ -323,7 +323,7 @@ Downloaded. Open it in Excel or Google Sheets. Filling it by hand gets tiring af
 {"@type":"Question","name":"How do I calculate gross profit for my shop?","acceptedAnswer":{"@type":"Answer","text":"Subtract what the items you sold cost you from what you sold them for. If you sold goods for KSh 100,000 that cost you KSh 70,000, your gross profit is KSh 30,000."}},
 {"@type":"Question","name":"What is a slow-moving item?","acceptedAnswer":{"@type":"Answer","text":"A product that has not sold for a long time, often 60 days or more, depending on the shop."}},
 {"@type":"Question","name":"How often should I count my stock?","acceptedAnswer":{"@type":"Answer","text":"Count your fastest sellers and most expensive items weekly, and do a full count monthly."}},
-{"@type":"Question","name":"Can I use the tracker sheet on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is a CSV file that opens in Google Sheets, Excel and most phone spreadsheet apps, with formulas that calculate automatically."}}]}
+{"@type":"Question","name":"Can I use the tracker sheet on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is a excel file that opens in Google Sheets, Excel and most phone spreadsheet apps, with formulas that calculate automatically."}}]}
 </script>
 
 <script>
@@ -356,55 +356,11 @@ ids.forEach(function(i){var el=els[i];el.addEventListener('input',function(){
  if(!used){used=true;track('weekly_calculator_used');}
 });});
 
-/* ---------- Tracker download (built in the browser, no file hosting needed) ---------- */
-var COLS=['C','D','E','F'];
-var ROWS=[
- ['Total sales (cash + M-Pesa + credit)','Add up the whole week',''],
- ['Buying cost of items sold','What those goods cost you',''],
- ['GROSS PROFIT','Calculated','={c}4-{c}5'],
- ['Gross margin (%)','Calculated. Watch for a falling trend','=IF({c}4=0,"",ROUND({c}6/{c}4*100,1))'],
- ['Expenses (rent share, salaries, transport, etc.)','Include small ones. Rent / 4 each week',''],
- ['NET PROFIT','Calculated','={c}6-{c}8'],
- ['Stock value at cost','Everything on shelves and in store',''],
- ['Slow movers at cost','Items not sold for 60+ days',''],
- ['Slow movers as % of stock','Calculated. Above 20% needs action','=IF({c}10=0,"",ROUND({c}11/{c}10*100,1))'],
- ['Credit owed by customers','Total unpaid balances',''],
- ['Credit as % of weekly sales','Calculated. Watch for a rising trend','=IF({c}4=0,"",ROUND({c}13/{c}4*100,1))'],
- ['Cash + M-Pesa EXPECTED from sales','What your sales record says',''],
- ['Cash + M-Pesa COUNTED','Till cash + M-Pesa statement',''],
- ['DIFFERENCE (counted - expected)','Calculated. Should be close to 0','={c}16-{c}15']
-];
-function q(v){v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
-function buildCsv(){
- var out=[];
- out.push(['Weekly Shop Tracker - by Ruo System (ruosystem.co.ke)','','','','','']);
- out.push(['Fill the empty cells. Rows marked Calculated fill themselves. Amounts in KSh.','','','','','']);
- out.push(['Number','What to enter','Week 1','Week 2','Week 3','Week 4']);
- // rows 4..17 line up with the formulas above (row 3 is the header)
- var map=[4,5,6,7,8,9,10,11,12,13,14,15,16,17];
- ROWS.forEach(function(r,idx){
-  var row=[r[0],r[1]];
-  COLS.forEach(function(c){row.push(r[2]?r[2].replace(/\{c\}/g,c):'');});
-  out.push(row);
- });
- out.push(['','','','','','']);
- out.push(['Want these numbers without filling a sheet? See Ruo: https://www.ruosystem.co.ke/demo','','','','','']);
- return '\ufeff'+out.map(function(r){return r.map(q).join(',');}).join('\r\n');
-}
-function download(where){
- var blob=new Blob([buildCsv()],{type:'text/csv;charset=utf-8;'});
- var url=URL.createObjectURL(blob),a=document.createElement('a');
- a.href=url;a.download='ruo-weekly-shop-tracker.csv';
- document.body.appendChild(a);a.click();document.body.removeChild(a);
- setTimeout(function(){URL.revokeObjectURL(url);},1500);
- var after=document.getElementById('dlAfter');if(after)after.classList.add('show');
- track('tracker_downloaded',{cta_location:where});
-}
+/* ---------- Tracker download tracking ---------- */
 [].slice.call(document.querySelectorAll('[data-dl]')).forEach(function(el){
  el.addEventListener('click',function(){
-  var w=el.getAttribute('data-dl');
-  download(w);
-  if(w==='hero'){var t=document.getElementById('tracker');if(t)t.scrollIntoView({behavior:'smooth'});}
+  track('tracker_downloaded',{cta_location:el.getAttribute('data-dl')});
+  var after=document.getElementById('dlAfter');if(after)after.classList.add('show');
  });
 });
 
