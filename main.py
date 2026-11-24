@@ -290,3 +290,11 @@ async def article(request: Request):
         name="5jobsaposdoes.html",
         context={}
     )
+
+@app.get("/blog/5-promotional-ideas-for-your-cosmetic-shop-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="promotionalideas.html",
+        context={}
+    )
