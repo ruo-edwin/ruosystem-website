@@ -295,6 +295,6 @@ async def article(request: Request):
 async def article(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="promotionalideas.html",
+        name="promotionideas.html",
         context={}
     )
