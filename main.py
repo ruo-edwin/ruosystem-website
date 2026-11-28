@@ -298,3 +298,11 @@ async def article(request: Request):
         name="promotionideas.html",
         context={}
     )
+
+@app.get("/blog/why-small-shops-close-in-the-first-year-of-business-in-kenya")
+async def article(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="reasonforclosing.html",
+        context={}
+    )
