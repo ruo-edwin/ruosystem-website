@@ -153,6 +153,11 @@ async def sitemap():
             "loc": "https://www.ruosystem.co.ke/blog/what-does-a-pos-system-do-for-retail-shops-in-kenya",
             "priority": "0.8",
             "changefreq": "monthly"
+        },
+        {
+            "loc": "https://www.ruosystem.co.ke/blog/why-small-shops-close-in-the-first-year-of-business-in-kenya",
+            "priority": "0.8",
+            "changefreq": "monthly"
         }
     ]
 
